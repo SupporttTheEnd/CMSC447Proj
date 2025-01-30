@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/campus.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.draggable {
+    position: absolute;
+    cursor: move;
+    text-align: center;
+}
