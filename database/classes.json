@@ -1,0 +1,227 @@
+[
+    {
+      "year": 1,
+      "semester": "fall",
+      "courseId": "CMSC101",
+      "name": "Introduction to Programming",
+      "credits": 3
+    },
+    {
+      "year": 1,
+      "semester": "fall",
+      "courseId": "CMSC102",
+      "name": "Calculus I",
+      "credits": 4
+    },
+    {
+      "year": 1,
+      "semester": "fall",
+      "courseId": "CMSC105",
+      "name": "Digital Logic",
+      "credits": 3
+    },
+    {
+      "year": 1,
+      "semester": "fall",
+      "courseId": "CMSC106",
+      "name": "Discrete Mathematics",
+      "credits": 3
+    },
+    {
+      "year": 1,
+      "semester": "spring",
+      "courseId": "CMSC103",
+      "name": "Data Structures",
+      "credits": 3
+    },
+    {
+      "year": 1,
+      "semester": "spring",
+      "courseId": "CMSC104",
+      "name": "Calculus II",
+      "credits": 4
+    },
+    {
+      "year": 1,
+      "semester": "spring",
+      "courseId": "CMSC107",
+      "name": "Object-Oriented Programming",
+      "credits": 3
+    },
+    {
+      "year": 1,
+      "semester": "spring",
+      "courseId": "CMSC108",
+      "name": "Probability",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "fall",
+      "courseId": "CMSC201",
+      "name": "Computer Architecture",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "fall",
+      "courseId": "CMSC202",
+      "name": "Linear Algebra",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "fall",
+      "courseId": "CMSC205",
+      "name": "Microprocessors",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "fall",
+      "courseId": "CMSC206",
+      "name": "Statistics",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "spring",
+      "courseId": "CMSC203",
+      "name": "Operating Systems",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "spring",
+      "courseId": "CMSC204",
+      "name": "Discrete Mathematics",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "spring",
+      "courseId": "CMSC207",
+      "name": "Networks",
+      "credits": 3
+    },
+    {
+      "year": 2,
+      "semester": "spring",
+      "courseId": "CMSC208",
+      "name": "Database Systems",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "fall",
+      "courseId": "CMSC301",
+      "name": "Algorithms",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "fall",
+      "courseId": "CMSC302",
+      "name": "Software Engineering",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "fall",
+      "courseId": "CMSC305",
+      "name": "Theory of Computation",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "fall",
+      "courseId": "CMSC306",
+      "name": "Parallel Computing",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "spring",
+      "courseId": "CMSC303",
+      "name": "Artificial Intelligence",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "spring",
+      "courseId": "CMSC304",
+      "name": "Cybersecurity Principles",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "spring",
+      "courseId": "CMSC307",
+      "name": "Compiler Design",
+      "credits": 3
+    },
+    {
+      "year": 3,
+      "semester": "spring",
+      "courseId": "CMSC308",
+      "name": "Data Mining",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "fall",
+      "courseId": "CMSC401",
+      "name": "Machine Learning",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "fall",
+      "courseId": "CMSC402",
+      "name": "Cloud Computing",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "fall",
+      "courseId": "CMSC405",
+      "name": "Advanced Algorithms",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "fall",
+      "courseId": "CMSC406",
+      "name": "Big Data Analytics",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "spring",
+      "courseId": "CMSC403",
+      "name": "Capstone Project",
+      "credits": 4
+    },
+    {
+      "year": 4,
+      "semester": "spring",
+      "courseId": "CMSC404",
+      "name": "Ethics in Computing",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "spring",
+      "courseId": "CMSC407",
+      "name": "Information Security",
+      "credits": 3
+    },
+    {
+      "year": 4,
+      "semester": "spring",
+      "courseId": "CMSC408",
+      "name": "Entrepreneurship in Tech",
+      "credits": 3
+    }
+  ]
+  

@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMBC Map</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="map" class="draggable" draggable="true"></div>
+    <title>4 year plan</title>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Include Select2 CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+    <!-- Include StyleSheet -->
+    <link href="style.css" rel="stylesheet" />
+
+    <!-- Include Code-->
     <script src="controller.js"></script>
+</head>
+
+<body>
+    <div id="page-container">
+        <img src="images/logo.svg" alt="Logo" class="umbc-logo">
+
+        <header role="banner" id="site-header">
+            <h1><span class="label">Four-Year Academic Pathways</span></h1>
+        </header>
+
+        <div class="row justify-content-center align-items-center text-center mt-5">
+            <!-- Major Selection -->
+            <div class="col-md-6">
+                <h3>Select your Major(s):</h3>
+                <select id="major" name="major" class="searchable-dropdown form-select" multiple="multiple">
+                    <option value="computer_science">Computer Science</option>
+                    <option value="information_systems">Information Systems</option>
+                    <option value="mechanical_engineering">Mechanical Engineering</option>
+                    <option value="electrical_engineering">Electrical Engineering</option>
+                    <option value="chemical_engineering">Chemical Engineering</option>
+                    <option value="computer_engineering">Computer Engineering</option>
+                    <option value="data_science">Data Science</option>
+                    <option value="cybersecurity">Cybersecurity</option>
+                    <option value="business_tech">Business Technology</option>
+                    <option value="mathematics">Mathematics</option>
+                </select>
+            </div>
+
+            <!-- Minor Selection -->
+            <div class="col-md-6">
+                <h3>Select your Minor(s):</h3>
+                <select id="minor" name="minor" class="searchable-dropdown form-select" multiple="multiple">
+                    <option value="computer_science">Computer Science</option>
+                    <option value="information_systems">Information Systems</option>
+                    <option value="mechanical_engineering">Mechanical Engineering</option>
+                    <option value="electrical_engineering">Electrical Engineering</option>
+                    <option value="chemical_engineering">Chemical Engineering</option>
+                    <option value="computer_engineering">Computer Engineering</option>
+                    <option value="data_science">Data Science</option>
+                    <option value="cybersecurity">Cybersecurity</option>
+                    <option value="business_tech">Business Technology</option>
+                    <option value="mathematics">Mathematics</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="classes">
+            
+        </div>
+    </div>
 </body>
+
 </html>
