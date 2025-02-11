@@ -193,7 +193,7 @@ function handleAdditionalSessions(button) {
 }
 
 function updateCredits() {
-    const dropzones = document.querySelectorAll(`.dropzone`);
+    const dropzones = document.querySelectorAll(`.container .dropzone`);
 
     dropzones.forEach(dropzone => {
         const semester = dropzone.classList[0];
@@ -225,3 +225,7 @@ function darkMode() {
     }
 }
 
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('hide');
+}

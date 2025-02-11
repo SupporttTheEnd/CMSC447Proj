@@ -7,6 +7,7 @@
     --accent-color: #093565;
     --border-color: #e4e4e4;
     --hover-color: #ebebeb;
+    --sidebar-color: #9d9d9d;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -175,6 +176,8 @@ button.additionSession:hover {
     margin: -10px 10px;
 }
 
+/* Toggle Switch*/
+
 .toggle-container {
     position: absolute;
     top: 20px;
@@ -226,6 +229,8 @@ input:checked+.slider:before {
     transform: var(--toggle-active-slider-color);
 }
 
+/* Tabs */
+
 .nav-tabs {
     border-bottom: 3px solid var(--accent-color);
     margin: 0px 5%;
@@ -246,5 +251,58 @@ input:checked+.slider:before {
     background-color: var(--secondary-text) !important;
     border-color: var(--text-color) !important;
     color: var(--base-color) !important;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-color);
+    padding-top: 20px;
+    transition: width 0.3s ease;
+}
+
+
+.sidebar .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 10px; 
+    filter: invert(1);
+    background-image: url('images/arrow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.hide {
+    width: 50px;
+}
+
+.sidebar.hide *:not(.toggle-btn) {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar.hide .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.sidebar .dropzone {
+    border-radius: 10px;
+    width: 220px;
+    height: 100%;
+    padding: 20px;
+    margin-top: 25px;
+    margin-left: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
