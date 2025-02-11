@@ -6,18 +6,15 @@ $(document).ready(function () {
     controller();
 });
 
+
 async function controller() {
-    try {
-        initializeSelect2();
-        setupMajorMinorValidation();
-        generateYears();
-        await loadAndPopulateClasses();
-        setTimeout(() => {
-            dragAndDropEnable();
-        }, 1000);
-    } catch (error) {
-        console.error("Error in controller:", error);
-    }
+    initializeSelect2();
+    setupMajorMinorValidation();
+    generateYears();
+    await loadAndPopulateClasses();
+    updateCredits();
+    dragAndDropEnable();
+    darkMode();
 }
 
 function initializeSelect2() {
@@ -67,6 +64,7 @@ function dragAndDropEnable() {
             e.preventDefault();
             const dragging = document.querySelector('.dragging');
             zone.appendChild(dragging);
+            updateCredits();
         });
     });
 }
@@ -89,25 +87,28 @@ function generateYears(addNew = false) {
 
 function createYear(yearNumber) {
     let yearDiv = document.createElement("div");
-    yearDiv.classList.add("container", "mt-4");
+    yearDiv.classList.add("container", "mt-4", `year-${yearNumber}`);
 
     yearDiv.innerHTML = `
         <div class="year-header text-center">Year ${yearNumber}</div>
 
-        <div class="d-flex semester-header">
-            <div class="semester-item">Fall Semester</div>
-            <div class="semester-item">Credits</div>
-            <div class="semester-item">Spring Semester</div>
-            <div class="semester-item">Credits</div>
-        </div>
+        <div class="og-boxes">
+            <div class="semester-header d-flex">
+                <div class="semester-item">Fall Semester</div>
+                <div class="fall semester-item">Credits</div>
+                <hr class="divider">
+                <div class="semester-item">Spring Semester</div>
+                <div class="spring semester-item">Credits</div>
+            </div>
 
-        <div class="d-flex">
-            <div id="year${yearNumber}-fall" class="w-50 border p-2 dropzone"></div>
-            <div id="year${yearNumber}-spring" class="w-50 border p-2 dropzone"></div>
-        </div>
+            <div class="d-flex">
+                <div class="fall w-50 border p-2 dropzone"></div>
+                <div class="spring w-50 border p-2 dropzone"></div>
+            </div>
+        <div>
 
         <div class="d-flex flex-column align-items-center">
-            <button class="additionSession" onclick="insertAdditionalSessions(this)"></button>
+            <button class="additionSession" onclick="handleAdditionalSessions(this)"></button>
             <p> Taking Winter Or Summer Session? </p>
         </div>
     `;
@@ -116,48 +117,111 @@ function createYear(yearNumber) {
 }
 
 async function loadAndPopulateClasses() {
-    fetch("database/classes.json")
-        .then(response => response.json())
-        .then(classData => {
-            classData.forEach(course => {
-                const semesterContainer = document.getElementById(`year${course.year}-${course.semester}`);
-                if (semesterContainer) {
-                    const classDiv = document.createElement("div");
-                    classDiv.classList.add("class-item", "draggable");
-                    classDiv.setAttribute("draggable", "true");
-                    classDiv.textContent = `${course.name} - ${course.credits} Credits`;
+    const response = await fetch("database/classes.json");
+    const classData = await response.json();
 
-                    // Set the unique ID from the JSON data
-                    classDiv.id = course.courseId;
+    classData.forEach(course => {
+        const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
+        if (semesterContainer) {
+            const classDiv = document.createElement("div");
+            classDiv.classList.add("class-item", "draggable");
+            classDiv.setAttribute("draggable", "true");
+            classDiv.id = course.courseId;
 
-                    semesterContainer.appendChild(classDiv);
-                }
-            });
-        })
-        .catch(error => console.error("Error loading JSON:", error));
+            const courseName = document.createElement("span");
+            courseName.classList.add("course-name");
+            courseName.textContent = course.name;
+
+            const credits = document.createElement("span");
+            credits.classList.add("credits");
+            credits.textContent = `${course.credits} Credits`;
+            credits.style.whiteSpace = "nowrap";
+
+            classDiv.appendChild(courseName);
+            classDiv.appendChild(credits);
+
+            semesterContainer.appendChild(classDiv);
+        }
+    });
 }
 
-function insertAdditionalSessions(button) {
-    const yearNumber = button.closest(".container").querySelector(".year-header").textContent.match(/\d+/)[0];
+function handleAdditionalSessions(button) {
+    if (button.dataset.inserted === "true") {
+        const fallBox = button.closest('.container').querySelector('.fall.dropzone');
+        const springBox = button.closest('.container').querySelector('.spring.dropzone');
 
-    button.parentElement.insertAdjacentHTML("afterend", `
-        <div class="d-flex semester-header">
-            <div class="semester-item">Winter Semester</div>
-            <div class="semester-item">Credits</div>
-            <div class="semester-item">Summer Semester</div>
-            <div class="semester-item">Credits</div>
-        </div>
+        const winterClasses = button.closest('.container').querySelectorAll('.winter .class-item');
+        const summerClasses = button.closest('.container').querySelectorAll('.summer .class-item');
 
-        <div class="d-flex">
-            <div id="year${yearNumber}-winter" class="w-50 border p-2 dropzone"></div>
-            <div id="year${yearNumber}-summer" class="w-50 border p-2 dropzone"></div>
-        </div>
+        winterClasses.forEach((classItem) => {
+            fallBox.appendChild(classItem);
+        });
 
-    `);
+        summerClasses.forEach((classItem) => {
+            springBox.appendChild(classItem);
+        });
 
-    button.parentElement.style.display = "none";
+        button.closest(".container").querySelector(".new-boxes").remove();
+        button.dataset.inserted = "false";
+        button.nextElementSibling.style.display = "block";
+        button.style.backgroundImage = `url('images/plus.png')`;
+    } else {
+        button.parentElement.insertAdjacentHTML("afterend", `
+            <div class="new-boxes"> 
+                <div class="semester-header d-flex">
+                    <div class="semester-item">Winter Semester</div>
+                    <div class="winter semester-item">Credits</div>
+                    <hr class="divider">
+                    <div class="semester-item">Summer Semester</div>
+                    <div class="summer semester-item">Credits</div>
+                </div>
 
-    setTimeout(() => {
+                <div class="d-flex">
+                    <div class = "winter w-50 border p-2 dropzone"></div>
+                    <div class = "summer w-50 border p-2 dropzone"></div>
+                </div>
+            </div>
+        `);
+
+        button.nextElementSibling.style.display = "none";
+        button.dataset.inserted = "true";
+        button.style.backgroundImage = `url('images/minus.png')`;
+
         dragAndDropEnable();
-    }, 1000);
+    }
+    updateCredits();
 }
+
+function updateCredits() {
+    const dropzones = document.querySelectorAll(`.dropzone`);
+
+    dropzones.forEach(dropzone => {
+        const semester = dropzone.classList[0];
+
+        const creditDisplay = dropzone.closest('.container').querySelector(`.semester-header .${semester}`);
+        let totalCredits = 0;
+        dropzone.querySelectorAll('.class-item .credits').forEach(creditSpan => {
+            totalCredits += parseInt(creditSpan.textContent.replace(/\D/g, ""), 10) || 0;
+        });
+
+        creditDisplay.textContent = `Credits: ${totalCredits}`;
+    });
+}
+
+function darkMode() {
+    const darkModeButton = document.querySelector('#dark-mode-toggle');
+
+    darkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+    });
+
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+}
+

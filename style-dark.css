@@ -1,0 +1,26 @@
+.dark-mode {
+    --base-color: #121212;
+    --base-variant: #1f1f1f;
+    --text-color: #e0e0e0;
+    --secondary-text: #efefef;
+    --primary-color: #333;
+    --accent-color: #a9b8e3;
+    --border-color: #484a53;
+    --hover-color: #1b1e2a;
+    --highlight-color: #FFC107;
+    --button-hover-color: #0056b3;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --divider-color: #bbb;
+    --toggle-bg-color: #333;
+    --toggle-slider-color: #fff;
+    --toggle-active-bg-color: #1d2e50;
+    --toggle-active-slider-color: translateX(26px);
+}
+
+.dark-mode .umbc-logo {
+    filter: invert(1);
+}
+
+.dark-mode button.additionSession {
+    filter: invert(1);
+}
