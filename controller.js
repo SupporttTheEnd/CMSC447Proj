@@ -15,6 +15,7 @@ async function controller() {
     updateCredits();
     dragAndDropEnable();
     darkMode();
+    makeDraggable("sidebar", ["hide", "dropzone"]); // Updated function call
 }
 
 function initializeSelect2() {
@@ -228,4 +229,40 @@ function darkMode() {
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('hide');
+    if (sidebar.classList.contains('hide')) {
+        sidebar.style.top = '20px';
+        sidebar.style.left = '0';
+    }
+}
+
+function makeDraggable(element, excludeClasses = []) {
+    const object = document.querySelector("." + element);
+
+    let isMouseDown = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    object.addEventListener("mousedown", (e) => {
+        if (excludeClasses.some(excludeClass => object.classList.contains(excludeClass) || e.target.closest(`.${excludeClass}`))) {
+            return;
+        }
+        isMouseDown = true;
+        offsetX = e.clientX - object.getBoundingClientRect().left;
+        offsetY = e.clientY - object.getBoundingClientRect().top;
+        object.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isMouseDown) {
+            const left = e.clientX - offsetX;
+            const top = e.clientY - offsetY;
+            object.style.left = `${left}px`;
+            object.style.top = `${top}px`;
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isMouseDown = false;
+        object.style.cursor = "grab";
+    });
 }
