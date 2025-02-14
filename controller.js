@@ -1,4 +1,5 @@
 import * as home from './codebase/home.js';
+import * as search from './codebase/home.js';
 
 window.globalVariables = {
     years: 4,
