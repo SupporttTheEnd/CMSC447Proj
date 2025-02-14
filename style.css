@@ -3,6 +3,7 @@
     --base-variant: #e8e9ed;
     --text-color: #111528;
     --secondary-text: #1f222f;
+    --bar-color: #d8d8d8;
     --primary-color: #000;
     --accent-color: #093565;
     --border-color: #e4e4e4;
@@ -303,6 +304,8 @@ input:checked+.slider:before {
     border-radius: 10px;
     width: 220px;
     min-height: 130px;
+    max-height: 300px;
+    overflow-y: auto;
     padding: 10px;
     margin-top: 35px;
     margin-left: 13px;
@@ -318,3 +321,21 @@ input:checked+.slider:before {
     font-size: 12px;
 }
 
+.sidebar .dropzone::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+.sidebar .dropzone::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: transparent;
+}
+
+.sidebar .dropzone::-webkit-scrollbar-thumb {
+    background: var(--secondary-text); 
+    border-radius: 10px;
+}
+
+.sidebar .dropzone::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

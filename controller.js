@@ -15,7 +15,7 @@ async function controller() {
     updateCredits();
     dragAndDropEnable();
     darkMode();
-    makeDraggable("sidebar", ["hide", "dropzone"]); // Updated function call
+    makeDraggable("sidebar", ["hide", "dropzone"]); 
 }
 
 function initializeSelect2() {
