@@ -256,7 +256,7 @@ input:checked+.slider:before {
 
 /* Sidebar */
 .sidebar {
-    top: 20px;
+    top: 20%;
     left: 0;
     position: fixed;
     width: 250px;
