@@ -1,10 +1,10 @@
 [
     {
-      "year": 1,
-      "semester": "fall",
-      "courseId": "CMSC101",
+      "courseId": "CMSC400",
       "name": "Introduction to Programming",
-      "credits": 3
+      "credits": 3,
+      "avalability": "1010",
+      "prerequisites": [["CMSC101", "CMSC4**"], ["CMSC102"]]
     },
     {
       "year": 1,

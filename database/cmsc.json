@@ -1,0 +1,13 @@
+[
+    {
+      "year": 1,
+      "semester": "fall",
+      "courseId": "CMSC101"
+    },
+    {
+      "year": 1,
+      "semester": "fall",
+      "requireId": "WriteIntesive"
+    }
+    
+]
