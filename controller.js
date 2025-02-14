@@ -12,5 +12,6 @@ $(document).ready(function () {
 
 async function controller() {
     await home.main(); 
+    await search.main();
 }
 
