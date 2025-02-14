@@ -25,13 +25,16 @@
     <link href="style-dark.css" rel="stylesheet" />
 
     <!-- Include Code-->
-    <script src="controller.js"></script>
+    <script type="module" src="controller.js"></script>
+    
+    <!-- Non-Modular functions-->
+    <script src="non-modular.js"></script>
 </head>
 
 <body>
     <div class="sidebar hide">
         <button class="toggle-btn" onclick="toggleSidebar()"></button>
-        <div class = "dropzone"></div>
+        <div class="dropzone"></div>
     </div>
 
     <div id="page-container">
@@ -98,19 +101,11 @@
             <!-- Tab content -->
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="classes"></div>
-                <div class="tab-pane fade" id="search">
-                    <h4>Search</h4>
-                    <form>
-                        <div class="form-group">
-                            <label for="searchInput">Enter search term</label>
-                            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </form>
-                </div>
+                <div class="tab-pane fade" id="search"></div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
