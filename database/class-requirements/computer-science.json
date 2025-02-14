@@ -1,0 +1,162 @@
+[
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "CMSC101"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "CMSC103"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "CMSC105"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "CMSC106"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CMSC104"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CMSC107"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CMSC108"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CMSC109"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "CMSC201"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "CMSC202"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "CMSC203"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "CMSC204"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "CMSC205"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "CMSC206"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "CMSC207"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "CMSC208"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "CMSC301"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "CMSC302"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "CMSC303"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "CMSC304"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMSC305"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMSC306"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMSC307"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMSC308"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "courseId": "CMSC401"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "courseId": "CMSC402"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "courseId": "CMSC403"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "courseId": "CMSC404"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "CMSC405"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "CMSC406"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "CMSC407"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "CMSC408"
+    }
+]

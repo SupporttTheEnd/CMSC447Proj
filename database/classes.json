@@ -1,227 +1,290 @@
 [
     {
-      "courseId": "CMSC400",
-      "name": "Introduction to Programming",
-      "credits": 3,
-      "avalability": "1010",
-      "prerequisites": [["CMSC101", "CMSC4**"], ["CMSC102"]]
+        "courseId": "CMSC101",
+        "name": "Introduction to Computer Science",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [],
+        "year": 1,
+        "semester": "fall"
     },
     {
-      "year": 1,
-      "semester": "fall",
-      "courseId": "CMSC102",
-      "name": "Calculus I",
-      "credits": 4
+        "courseId": "CMSC103",
+        "name": "Introduction to Programming",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC101"]],
+        "year": 1,
+        "semester": "fall"
     },
     {
-      "year": 1,
-      "semester": "fall",
-      "courseId": "CMSC105",
-      "name": "Digital Logic",
-      "credits": 3
+        "courseId": "CMSC104",
+        "name": "Problem Solving and Computer Programming",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [],
+        "year": 1,
+        "semester": "spring"
     },
     {
-      "year": 1,
-      "semester": "fall",
-      "courseId": "CMSC106",
-      "name": "Discrete Mathematics",
-      "credits": 3
+        "courseId": "CMSC105",
+        "name": "Introduction to Algorithms",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC103"]],
+        "year": 1,
+        "semester": "fall"
     },
     {
-      "year": 1,
-      "semester": "spring",
-      "courseId": "CMSC103",
-      "name": "Data Structures",
-      "credits": 3
+        "courseId": "CMSC106",
+        "name": "Introduction to Data Structures",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC103"]],
+        "year": 1,
+        "semester": "fall"
     },
     {
-      "year": 1,
-      "semester": "spring",
-      "courseId": "CMSC104",
-      "name": "Calculus II",
-      "credits": 4
+        "courseId": "CMSC107",
+        "name": "Introduction to Computer Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC104"]],
+        "year": 1,
+        "semester": "spring"
     },
     {
-      "year": 1,
-      "semester": "spring",
-      "courseId": "CMSC107",
-      "name": "Object-Oriented Programming",
-      "credits": 3
+        "courseId": "CMSC108",
+        "name": "Introduction to Software Engineering",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC104"]],
+        "year": 1,
+        "semester": "spring"
     },
     {
-      "year": 1,
-      "semester": "spring",
-      "courseId": "CMSC108",
-      "name": "Probability",
-      "credits": 3
+        "courseId": "CMSC109",
+        "name": "Introduction to Databases",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC104"]],
+        "year": 1,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "fall",
-      "courseId": "CMSC201",
-      "name": "Computer Architecture",
-      "credits": 3
+        "courseId": "CMSC201",
+        "name": "Computer Science I",
+        "credits": 4,
+        "availability": "1110",
+        "prerequisites": [["CMSC104"]],
+        "year": 2,
+        "semester": "fall"
     },
     {
-      "year": 2,
-      "semester": "fall",
-      "courseId": "CMSC202",
-      "name": "Linear Algebra",
-      "credits": 3
+        "courseId": "CMSC202",
+        "name": "Computer Science II",
+        "credits": 4,
+        "availability": "1110",
+        "prerequisites": [["CMSC201"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "fall",
-      "courseId": "CMSC205",
-      "name": "Microprocessors",
-      "credits": 3
+        "courseId": "CMSC203",
+        "name": "Discrete Structures",
+        "credits": 3,
+        "availability": "1110",
+        "prerequisites": [["MATH151"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "fall",
-      "courseId": "CMSC206",
-      "name": "Statistics",
-      "credits": 3
+        "courseId": "CMSC204",
+        "name": "Advanced Programming",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 2,
+        "semester": "fall"
     },
     {
-      "year": 2,
-      "semester": "spring",
-      "courseId": "CMSC203",
-      "name": "Operating Systems",
-      "credits": 3
+        "courseId": "CMSC205",
+        "name": "Data Structures and Algorithms",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "spring",
-      "courseId": "CMSC204",
-      "name": "Discrete Mathematics",
-      "credits": 3
+        "courseId": "CMSC206",
+        "name": "Computer Organization",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "spring",
-      "courseId": "CMSC207",
-      "name": "Networks",
-      "credits": 3
+        "courseId": "CMSC207",
+        "name": "Operating Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 2,
-      "semester": "spring",
-      "courseId": "CMSC208",
-      "name": "Database Systems",
-      "credits": 3
+        "courseId": "CMSC208",
+        "name": "Software Engineering",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 2,
+        "semester": "spring"
     },
     {
-      "year": 3,
-      "semester": "fall",
-      "courseId": "CMSC301",
-      "name": "Algorithms",
-      "credits": 3
+        "courseId": "CMSC301",
+        "name": "Advanced Data Structures",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC205"]],
+        "year": 3,
+        "semester": "fall"
     },
     {
-      "year": 3,
-      "semester": "fall",
-      "courseId": "CMSC302",
-      "name": "Software Engineering",
-      "credits": 3
+        "courseId": "CMSC302",
+        "name": "Algorithms",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC205"]],
+        "year": 3,
+        "semester": "fall"
     },
     {
-      "year": 3,
-      "semester": "fall",
-      "courseId": "CMSC305",
-      "name": "Theory of Computation",
-      "credits": 3
+        "courseId": "CMSC303",
+        "name": "Theory of Computation",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC205"]],
+        "year": 3,
+        "semester": "fall"
     },
     {
-      "year": 3,
-      "semester": "fall",
-      "courseId": "CMSC306",
-      "name": "Parallel Computing",
-      "credits": 3
+        "courseId": "CMSC304",
+        "name": "Social and Ethical Issues in Information Technology",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 3,
+        "semester": "fall"
     },
     {
-      "year": 3,
-      "semester": "spring",
-      "courseId": "CMSC303",
-      "name": "Artificial Intelligence",
-      "credits": 3
+        "courseId": "CMSC305",
+        "name": "Computer Networks",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 3,
+        "semester": "spring"
     },
     {
-      "year": 3,
-      "semester": "spring",
-      "courseId": "CMSC304",
-      "name": "Cybersecurity Principles",
-      "credits": 3
+        "courseId": "CMSC306",
+        "name": "Database Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 3,
+        "semester": "spring"
     },
     {
-      "year": 3,
-      "semester": "spring",
-      "courseId": "CMSC307",
-      "name": "Compiler Design",
-      "credits": 3
+        "courseId": "CMSC307",
+        "name": "Artificial Intelligence",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 3,
+        "semester": "spring"
     },
     {
-      "year": 3,
-      "semester": "spring",
-      "courseId": "CMSC308",
-      "name": "Data Mining",
-      "credits": 3
+        "courseId": "CMSC308",
+        "name": "Machine Learning",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC202"]],
+        "year": 3,
+        "semester": "spring"
     },
     {
-      "year": 4,
-      "semester": "fall",
-      "courseId": "CMSC401",
-      "name": "Machine Learning",
-      "credits": 3
+        "courseId": "CMSC401",
+        "name": "Advanced Algorithms",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC302"]],
+        "year": 4,
+        "semester": "fall"
     },
     {
-      "year": 4,
-      "semester": "fall",
-      "courseId": "CMSC402",
-      "name": "Cloud Computing",
-      "credits": 3
+        "courseId": "CMSC402",
+        "name": "Advanced Data Structures",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC301"]],
+        "year": 4,
+        "semester": "fall"
     },
     {
-      "year": 4,
-      "semester": "fall",
-      "courseId": "CMSC405",
-      "name": "Advanced Algorithms",
-      "credits": 3
+        "courseId": "CMSC403",
+        "name": "Advanced Theory of Computation",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC303"]],
+        "year": 4,
+        "semester": "fall"
     },
     {
-      "year": 4,
-      "semester": "fall",
-      "courseId": "CMSC406",
-      "name": "Big Data Analytics",
-      "credits": 3
+        "courseId": "CMSC404",
+        "name": "Advanced Computer Networks",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC305"]],
+        "year": 4,
+        "semester": "fall"
     },
     {
-      "year": 4,
-      "semester": "spring",
-      "courseId": "CMSC403",
-      "name": "Capstone Project",
-      "credits": 4
+        "courseId": "CMSC405",
+        "name": "Advanced Database Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC306"]],
+        "year": 4,
+        "semester": "spring"
     },
     {
-      "year": 4,
-      "semester": "spring",
-      "courseId": "CMSC404",
-      "name": "Ethics in Computing",
-      "credits": 3
+        "courseId": "CMSC406",
+        "name": "Advanced Artificial Intelligence",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC307"]],
+        "year": 4,
+        "semester": "spring"
     },
     {
-      "year": 4,
-      "semester": "spring",
-      "courseId": "CMSC407",
-      "name": "Information Security",
-      "credits": 3
+        "courseId": "CMSC407",
+        "name": "Advanced Machine Learning",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC308"]],
+        "year": 4,
+        "semester": "spring"
     },
     {
-      "year": 4,
-      "semester": "spring",
-      "courseId": "CMSC408",
-      "name": "Entrepreneurship in Tech",
-      "credits": 3
+        "courseId": "CMSC408",
+        "name": "Capstone Project",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["CMSC401"]],
+        "year": 4,
+        "semester": "spring"
     }
-  ]
-  
+]

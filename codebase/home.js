@@ -6,8 +6,8 @@ export async function main() {
     await loadAndPopulateClasses();
     updateCredits();
     dragAndDropEnable();
-    darkMode();
     makeDraggable("sidebar", ["hide", "dropzone"]); 
+    darkMode();
 }
 
 function initializeSelect2() {
@@ -19,7 +19,6 @@ function initializeSelect2() {
 }
 
 function setupMajorMinorValidation() {
-    // Disable selected majors in the minors dropdown
     $('#major').on('change', function () {
         let selectedMajors = $(this).val() || [];
         $('#minor option').each(function () {
@@ -28,7 +27,6 @@ function setupMajorMinorValidation() {
         $('#minor').trigger('change.select2');
     });
 
-    // Prevent selecting the same minor as a major
     $('#minor').on('change', function () {
         let selectedMinors = $(this).val() || [];
         $('#major option').each(function () {
@@ -160,10 +158,17 @@ function handleAdditionalSessions(event) {
 }
 
 async function loadAndPopulateClasses() {
-    const response = await fetch("database/classes.json");
-    const classData = await response.json();
+    const [classResponse, cmscResponse] = await Promise.all([
+        fetch("database/classes.json"),
+        fetch("database/class-requirements/computer-science.json")
+    ]);
 
-    classData.forEach(course => {
+    const classData = await classResponse.json();
+    const cmscData = await cmscResponse.json();
+
+    const combinedData = combineDataByKey(classData, cmscData, 'courseId');
+
+    combinedData.forEach(course => {
         const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
         if (semesterContainer) {
             const classDiv = document.createElement("div");
@@ -188,6 +193,21 @@ async function loadAndPopulateClasses() {
     });
 }
 
+function combineDataByKey(primaryData, secondaryData, key) {
+    const primaryMap = primaryData.reduce((map, item) => {
+        map[item[key]] = item;
+        return map;
+    }, {});
+
+    return secondaryData.map(item => {
+        const primaryItem = primaryMap[item[key]];
+        if (primaryItem) {
+            return { ...primaryItem, ...item };
+        }
+        return null;
+    }).filter(item => item !== null);
+}
+
 function updateCredits() {
     const dropzones = document.querySelectorAll(`.container .dropzone`);
 
@@ -206,7 +226,6 @@ function updateCredits() {
 
 function darkMode() {
     const darkModeButton = document.querySelector('#dark-mode-toggle');
-
     darkModeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         if (document.body.classList.contains('dark-mode')) {
