@@ -4,287 +4,223 @@
         "name": "Introduction to Computer Science",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [],
-        "year": 1,
-        "semester": "fall"
+        "prerequisites": []
     },
     {
         "courseId": "CMSC103",
         "name": "Introduction to Programming",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC101"]],
-        "year": 1,
-        "semester": "fall"
+        "prerequisites": [["CMSC101"]]
     },
     {
         "courseId": "CMSC104",
         "name": "Problem Solving and Computer Programming",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [],
-        "year": 1,
-        "semester": "spring"
+        "prerequisites": []
     },
     {
         "courseId": "CMSC105",
         "name": "Introduction to Algorithms",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC103"]],
-        "year": 1,
-        "semester": "fall"
+        "prerequisites": [["CMSC103"]]
     },
     {
         "courseId": "CMSC106",
         "name": "Introduction to Data Structures",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC103"]],
-        "year": 1,
-        "semester": "fall"
+        "prerequisites": [["CMSC103"]]
     },
     {
         "courseId": "CMSC107",
         "name": "Introduction to Computer Systems",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC104"]],
-        "year": 1,
-        "semester": "spring"
+        "prerequisites": [["CMSC104"]]
     },
     {
         "courseId": "CMSC108",
         "name": "Introduction to Software Engineering",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC104"]],
-        "year": 1,
-        "semester": "spring"
+        "prerequisites": [["CMSC104"]]
     },
     {
         "courseId": "CMSC109",
         "name": "Introduction to Databases",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC104"]],
-        "year": 1,
-        "semester": "spring"
+        "prerequisites": [["CMSC104"]]
     },
     {
         "courseId": "CMSC201",
         "name": "Computer Science I",
         "credits": 4,
         "availability": "1110",
-        "prerequisites": [["CMSC104"]],
-        "year": 2,
-        "semester": "fall"
+        "prerequisites": [["CMSC104"]]
     },
     {
         "courseId": "CMSC202",
         "name": "Computer Science II",
         "credits": 4,
         "availability": "1110",
-        "prerequisites": [["CMSC201"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["CMSC201"]]
     },
     {
         "courseId": "CMSC203",
         "name": "Discrete Structures",
         "credits": 3,
         "availability": "1110",
-        "prerequisites": [["MATH151"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["MATH151"]]
     },
     {
         "courseId": "CMSC204",
         "name": "Advanced Programming",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 2,
-        "semester": "fall"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC205",
         "name": "Data Structures and Algorithms",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC206",
         "name": "Computer Organization",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC207",
         "name": "Operating Systems",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC208",
         "name": "Software Engineering",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 2,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC301",
         "name": "Advanced Data Structures",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC205"]],
-        "year": 3,
-        "semester": "fall"
+        "prerequisites": [["CMSC205"]]
     },
     {
         "courseId": "CMSC302",
         "name": "Algorithms",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC205"]],
-        "year": 3,
-        "semester": "fall"
+        "prerequisites": [["CMSC205"]]
     },
     {
         "courseId": "CMSC303",
         "name": "Theory of Computation",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC205"]],
-        "year": 3,
-        "semester": "fall"
+        "prerequisites": [["CMSC205"]]
     },
     {
         "courseId": "CMSC304",
         "name": "Social and Ethical Issues in Information Technology",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 3,
-        "semester": "fall"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC305",
         "name": "Computer Networks",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 3,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC306",
         "name": "Database Systems",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 3,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC307",
         "name": "Artificial Intelligence",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 3,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC308",
         "name": "Machine Learning",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC202"]],
-        "year": 3,
-        "semester": "spring"
+        "prerequisites": [["CMSC202"]]
     },
     {
         "courseId": "CMSC401",
         "name": "Advanced Algorithms",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC302"]],
-        "year": 4,
-        "semester": "fall"
+        "prerequisites": [["CMSC302"]]
     },
     {
         "courseId": "CMSC402",
         "name": "Advanced Data Structures",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC301"]],
-        "year": 4,
-        "semester": "fall"
+        "prerequisites": [["CMSC301"]]
     },
     {
         "courseId": "CMSC403",
         "name": "Advanced Theory of Computation",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC303"]],
-        "year": 4,
-        "semester": "fall"
+        "prerequisites": [["CMSC303"]]
     },
     {
         "courseId": "CMSC404",
         "name": "Advanced Computer Networks",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC305"]],
-        "year": 4,
-        "semester": "fall"
+        "prerequisites": [["CMSC305"]]
     },
     {
         "courseId": "CMSC405",
         "name": "Advanced Database Systems",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC306"]],
-        "year": 4,
-        "semester": "spring"
+        "prerequisites": [["CMSC306"]]
     },
     {
         "courseId": "CMSC406",
         "name": "Advanced Artificial Intelligence",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC307"]],
-        "year": 4,
-        "semester": "spring"
+        "prerequisites": [["CMSC307"]]
     },
     {
         "courseId": "CMSC407",
         "name": "Advanced Machine Learning",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC308"]],
-        "year": 4,
-        "semester": "spring"
+        "prerequisites": [["CMSC308"]]
     },
     {
         "courseId": "CMSC408",
         "name": "Capstone Project",
         "credits": 3,
         "availability": "1010",
-        "prerequisites": [["CMSC401"]],
-        "year": 4,
-        "semester": "spring"
+        "prerequisites": [["CMSC401"]]
     }
 ]

@@ -158,15 +158,24 @@ function handleAdditionalSessions(event) {
 }
 
 async function loadAndPopulateClasses() {
-    const [classResponse, cmscResponse] = await Promise.all([
-        fetch("database/classes.json"),
-        fetch("database/class-requirements/computer-science.json")
-    ]);
+    const db = window.globalVariables.db;
 
-    const classData = await classResponse.json();
-    const cmscData = await cmscResponse.json();
+    const query = `
+        SELECT classes.courseId, classes.name, classes.credits, computer_science.year, computer_science.semester
+        FROM classes
+        JOIN computer_science ON classes.courseId = computer_science.courseId
+    `;
 
-    const combinedData = combineDataByKey(classData, cmscData, 'courseId');
+    const result = db.exec(query);
+    const combinedData = result[0].values.map(row => {
+        return {
+            courseId: row[0],
+            name: row[1],
+            credits: row[2],
+            year: row[3],
+            semester: row[4]
+        };
+    });
 
     combinedData.forEach(course => {
         const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
@@ -191,21 +200,6 @@ async function loadAndPopulateClasses() {
             semesterContainer.appendChild(classDiv);
         }
     });
-}
-
-function combineDataByKey(primaryData, secondaryData, key) {
-    const primaryMap = primaryData.reduce((map, item) => {
-        map[item[key]] = item;
-        return map;
-    }, {});
-
-    return secondaryData.map(item => {
-        const primaryItem = primaryMap[item[key]];
-        if (primaryItem) {
-            return { ...primaryItem, ...item };
-        }
-        return null;
-    }).filter(item => item !== null);
 }
 
 function updateCredits() {

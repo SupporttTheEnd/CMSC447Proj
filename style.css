@@ -85,10 +85,10 @@ p {
     color: var(--text-color);
 }
 
-#classes {
+.tab-pane {
     margin-left: 4%;
     margin-right: 4%;
-    margin-top: 60px;
+    margin-top: 30px;
     min-width: 400px;
 }
 
@@ -171,6 +171,15 @@ button.additionSession:hover {
     }
 }
 
+.class-item span{
+    font-size: 13px;
+}
+
+.class-item .credits{
+    font-weight: 400;
+    margin-left: 10px;
+}
+
 .divider {
     border: none;
     border-left: 2px solid var(--divider-color);
@@ -234,7 +243,7 @@ input:checked+.slider:before {
 
 .nav-tabs {
     border-bottom: 3px solid var(--accent-color);
-    margin: 0px 5%;
+    margin: 0px 4%;
 }
 
 .nav-link {
