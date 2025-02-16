@@ -78,7 +78,7 @@ function generateYears(addNew = false) {
 
 function createYear(yearNumber) {
     let yearDiv = document.createElement("div");
-    yearDiv.classList.add("container", "mt-4", `year-${yearNumber}`);
+    yearDiv.classList.add("container", "mt-4", "px-0", `year-${yearNumber}`);
 
     yearDiv.innerHTML = `
         <div class="year-header text-center">Year ${yearNumber}</div>
@@ -167,6 +167,7 @@ async function loadAndPopulateClasses() {
     `;
 
     const result = db.exec(query);
+    console.log(result);
     const combinedData = result[0].values.map(row => {
         return {
             courseId: row[0],
