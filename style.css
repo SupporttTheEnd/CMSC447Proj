@@ -8,7 +8,7 @@
     --accent-color: #093565;
     --border-color: #e4e4e4;
     --hover-color: #ebebeb;
-    --sidebar-color: #9d9d9d;
+    --sidebar-color: #636466;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -347,4 +347,115 @@ input:checked+.slider:before {
 
 .sidebar .dropzone::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
+}
+
+/* Search Field */
+
+input#class-query {
+    width: 400px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    color: #333;
+    height: 35px;
+    padding-left: 8px;
+    padding-bottom:6px;
+}
+
+input#class-query::placeholder {
+    color: #888;
+}
+
+input#class-query:focus {
+    outline: none; 
+}
+
+#search-form .select2-selection.select2-selection--single {
+    height: 35px;
+}
+
+div#search-form {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px 20px; 
+    margin-bottom: 15px;
+}
+
+#search .dropzone{
+    padding: 10px 0px 20px 0px;
+    border-radius: 10px;
+}
+
+.search-container {
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-top: 4px solid var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+.search-container h4{
+    color: whitesmoke;
+    display: block;
+    font-weight: 700 ;
+}
+
+button#search-button {
+    width: 200px;
+    font-weight: bold;
+    background-color: var(--sidebar-color);
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button#search-button:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
+button#reset-button {
+    color: var(--secondary-text);
+    font-weight: bold;
+    width: 200px;
+    border: 2px solid var(--secondary-text);
+    transition: background-color 0.3s ease;
+}
+
+button#reset-button:hover {
+    border: 2px solid var(--text-color);
+    background-color: var(--bar-color);
+    cursor: pointer;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    gap: 10px;
+}
+
+.page-button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-button.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.page-button:hover {
+    background-color: #dddddd;
+}
+
+.page-button.active:hover {
+    background-color: #3a783c;
 }

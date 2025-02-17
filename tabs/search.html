@@ -1,4 +1,15 @@
-<h4>Search For Classes</h4>
-<select id="class-search" class="searchable-dropdown form-select" multiple="multiple">
-</select>
-
+<div class="search-container">
+    <h4>Search For Classes</h4>
+    <div id="search-form">
+        <select id="class-category" class="searchable-dropdown form-select"></select>
+        <select id="class-credits" class="form-select"></select>
+        <select id="class-availability" class="form-select"></select>
+        <input type="text" id="class-query" placeholder="Enter part of the class name or catalog...">
+    </div>
+</div>
+<button type="button" id="search-button" class="btn btn-primary">Search</button>
+<button type="button" id="reset-button" class="btn">Reset Filters</button>
+<div class="pagination-controls"></div>
+<div id="class-dropzone" class="dropzone" style="margin-top: 20px;">
+    <h3 class="text-center">Select search criteria to view classes.</h3>
+</div>

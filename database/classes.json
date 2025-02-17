@@ -222,5 +222,47 @@
         "credits": 3,
         "availability": "1010",
         "prerequisites": [["CMSC401"]]
+    },
+    {
+        "courseId": "IS101",
+        "name": "Introduction to Information Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "IS201",
+        "name": "Systems Analysis and Design",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["IS101"]]
+    },
+    {
+        "courseId": "IS202",
+        "name": "Database Management Systems",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": [["IS101"]]
+    },
+    {
+        "courseId": "PSYC101",
+        "name": "Introduction to Psychology",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "PSYC102",
+        "name": "Introduction to Sociology",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "MATH103",
+        "name": "College Algebra",
+        "credits": 3,
+        "availability": "1010",
+        "prerequisites": []
     }
 ]
