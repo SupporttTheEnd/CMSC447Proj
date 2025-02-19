@@ -1,8 +1,8 @@
 [
     {
-        "courseId": "CMSC101",
-        "name": "Introduction to Computer Science",
-        "credits": 3,
+        "courseId": "PHYS121",
+        "name": "Introductory Physics I",
+        "credits": 4,
         "availability": "1010",
         "prerequisites": []
     }
