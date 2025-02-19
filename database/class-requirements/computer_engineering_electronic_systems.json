@@ -47,7 +47,7 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "LANG152"
+        "courseId": "LANG102"
     },
     {
         "year": 2,
@@ -172,7 +172,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "CMPEA"
+        "courseId": "ELECTRONICSYSTEMSA"
     },
     {
         "year": 4,
@@ -187,12 +187,12 @@
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "CMPEA"
+        "courseId": "ELECTRONICSYSTEMSA"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "CMPEAB"
+        "courseId": "ELECTRONICSYSTEMSAB"
     },
     {
         "year": 4,

@@ -2,17 +2,17 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "IS125"
+        "courseId": "CMSC201"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ECON101"
+        "courseId": "PHYS121"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "MATH155"
+        "courseId": "MATH151"
     },
     {
         "year": 1,
@@ -27,27 +27,22 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "IS202"
+        "courseId": "CMSC202"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "MGMT210"
+        "courseId": "MATH152"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "ECON102"
+        "courseId": "CMPE212"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "CGEP"
-    },
-    {
-        "year": 1,
-        "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "ENES101"
     },
     {
         "year": 1,
@@ -57,17 +52,17 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "IS295"
+        "courseId": "MATH251"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "ECON121"
+        "courseId": "PHYS122"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "SCIENCE"
+        "courseId": "CMSC203"
     },
     {
         "year": 2,
@@ -82,47 +77,72 @@
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "IS300"
+        "courseId": "CMPE306"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "IS320"
+        "courseId": "MATH225"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "ECON122"
-    },    
+        "courseId": "CMPE310"
+    },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "CGEP"
+        "courseId": "CMSC341"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "SSGEP"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "IS303"
+        "courseId": "CMPE314"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "MGMT4XX"
+        "courseId": "CMPE311"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "SCIENCELAB"
+        "courseId": "MATH221"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "SCIENCE"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "AHGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "IS325"
+        "courseId": "CMPE320"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "STAT351"
+        "courseId": "CMSC421"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMPE316"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CMPE349"
     },
     {
         "year": 3,
@@ -130,24 +150,24 @@
         "courseId": "SSGEP"
     },
     {
-        "year": 3,
-        "semester": "spring",
-        "courseId": "BTA4XX"
+        "year": 4,
+        "semester": "fall",
+        "courseId": "CMPE413"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "IS350"
+        "courseId": "CMPE450"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "ENGL393"
+        "courseId": "CMSC411"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "IS4XX"
+        "courseId": "CMSC426"
     },
     {
         "year": 4,
@@ -157,26 +177,26 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "BTA4XX"
+        "courseId": "SSGEP"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "IS440"
+        "courseId": "CMPE451"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "MGMT489"
+        "courseId": "CYBERC"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "IS438"
+        "courseId": "CMSC481"
     },
     {
         "year": 4,
-        "semester": "spring",
-        "courseId": "ENGLGEP"
+        "semester": "fall",
+        "courseId": "CGEP"
     }
 ]
