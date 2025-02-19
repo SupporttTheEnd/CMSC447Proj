@@ -1,5 +1,6 @@
 export async function main() {
     await loadTabContent('search');
+    await loadTabContent('decomposer');
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
@@ -36,7 +37,7 @@ function setupMajorMinorValidation() {
     });
 }
 
-function dragAndDropEnable() {
+export function dragAndDropEnable() {
     const draggables = document.querySelectorAll('.draggable');
     const dropzones = document.querySelectorAll('.dropzone');
 
@@ -60,7 +61,6 @@ function dragAndDropEnable() {
     });
 }
 
-
 function generateYears(addNew = false) {
     let container = document.getElementById("classes");
 
@@ -78,7 +78,7 @@ function generateYears(addNew = false) {
 
 function createYear(yearNumber) {
     let yearDiv = document.createElement("div");
-    yearDiv.classList.add("container", "mt-4", `year-${yearNumber}`);
+    yearDiv.classList.add("container", "mt-4", "px-0", `year-${yearNumber}`);
 
     yearDiv.innerHTML = `
         <div class="year-header text-center">Year ${yearNumber}</div>
@@ -187,7 +187,7 @@ async function loadAndPopulateClasses() {
 
             const courseName = document.createElement("span");
             courseName.classList.add("course-name");
-            courseName.textContent = course.name;
+            courseName.textContent = "[" + course.courseId + "] " + course.name;
 
             const credits = document.createElement("span");
             credits.classList.add("credits");
@@ -203,7 +203,7 @@ async function loadAndPopulateClasses() {
 }
 
 function updateCredits() {
-    const dropzones = document.querySelectorAll(`.container .dropzone`);
+    const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
         const semester = dropzone.classList[0];
