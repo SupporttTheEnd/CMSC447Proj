@@ -264,5 +264,299 @@
         "credits": 3,
         "availability": "1010",
         "prerequisites": []
+    },
+    {
+        "courseId": "ASL101",
+        "name": "American Sign Language I",
+        "credits": 3,
+        "availability": "0110",
+        "prerequisites": []
+    },
+    {
+        "courseId": "ASL102",
+        "name": "American Sign Language II",
+        "credits": 3,
+        "availability": "1000",
+        "prerequisites": [["ASL101"]]
+    },
+    {
+        "courseId": "ASL201",
+        "name": "American Sign Language III",
+        "credits": 3,
+        "availability": "0110",
+        "prerequisites": [["ASL102"]]
+    },
+    {
+        "courseId": "ARBC101",
+        "name": "Elementary Arabic I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "ARBC102",
+        "name": "Elementary Arabic II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["ARBC101"]]
+    },
+    {
+        "courseId": "ARBC201",
+        "name": "Intermediate Arabic I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["ARBC102"]]
+    },
+    {
+        "courseId": "CHIN101",
+        "name": "Elementary Chinese I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "CHIN102",
+        "name": "Elementary Chinese II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["CHIN101"]]
+    },
+    {
+        "courseId": "CHIN201",
+        "name": "Intermediate Chinese I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["CHIN102"]]
+    },
+    {
+        "courseId": "FREN101",
+        "name": "Elementary French I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": []
+    },    
+    {
+        "courseId": "FREN102",
+        "name": "Elementary French II",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["FREN101"]]
+    },    
+    {
+        "courseId": "FREN201",
+        "name": "Intermediate French I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["FREN102"]]
+    },    
+    {
+        "courseId": "GERM101",
+        "name": "Elementary German I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "GERM102",
+        "name": "Elementary German II",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["GERM101"]]
+    },
+    {
+        "courseId": "GERM201",
+        "name": "Intermediate German I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["GERM102"]]
+    },
+    {
+        "courseId": "GREK101",
+        "name": "Elementary Greek I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "GREK102",
+        "name": "Elementary Greek II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["GREK101"]]
+    },
+    {
+        "courseId": "GREK201",
+        "name": "Intermediate Greek I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["GREK102"]]
+    },
+    {
+        "courseId": "GREK101",
+        "name": "Elementary Modern Hebrew I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "GREK102",
+        "name": "Elementary Modern Hebrew II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["GREK101"]]
+    },
+    {
+        "courseId": "GREK201",
+        "name": "Intermediate Modern Hebrew I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["GREK102"]]
+    },
+    {
+        "courseId": "HIND101",
+        "name": "Elementary Hindi I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "HIND102",
+        "name": "Elementary Hindi II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["HIND101"]]
+    },
+    {
+        "courseId": "HIND201",
+        "name": "Intermediate Hindi I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["HIND102"]]
+    },
+    {
+        "courseId": "JPNS101",
+        "name": "Elementary Japanese I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "JPNS102",
+        "name": "Elementary Japanese II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["JPNS101"]]
+    },
+    {
+        "courseId": "JPNS201",
+        "name": "Intermediate Japanese I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["JPNS102"]]
+    },
+    {
+        "courseId": "KORE101",
+        "name": "Elementary Korean I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "KORE102",
+        "name": "Elementary Korean II",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["KORE101"]]
+    },
+    {
+        "courseId": "KORE201",
+        "name": "Intermediate Korean I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["KORE102"]]
+    },
+    {
+        "courseId": "LATN101",
+        "name": "Elementary Latin I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "LATN102",
+        "name": "Elementary Latin II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["LATN101"]]
+    },
+    {
+        "courseId": "LATN201",
+        "name": "Intermediate Latin I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["LATN102"]]
+    },
+    {
+        "courseId": "RUSS101",
+        "name": "Basic Russian I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "RUSS102",
+        "name": "Basic Russian II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["RUSS101"]]
+    },
+    {
+        "courseId": "RUSS201",
+        "name": "Basic Russian III",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["RUSS102"]]
+    },
+    {
+        "courseId": "SPAN101",
+        "name": "Elementary Spanish I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "SPAN102",
+        "name": "Elementary Spanish II",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["SPAN101"]]
+    },
+    {
+        "courseId": "SPAN201",
+        "name": "Intermediate Spanish I",
+        "credits": 4,
+        "availability": "1010",
+        "prerequisites": [["SPAN102"]]
+    },
+    {
+        "courseId": "WOL101",
+        "name": "Elementary Wolof I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": []
+    },
+    {
+        "courseId": "WOL102",
+        "name": "Elementary Wolof II",
+        "credits": 4,
+        "availability": "1000",
+        "prerequisites": [["WOL101"]]
+    },
+    {
+        "courseId": "WOL201",
+        "name": "Intermediate Wolof I",
+        "credits": 4,
+        "availability": "0010",
+        "prerequisites": [["WOL102"]]
     }
 ]
