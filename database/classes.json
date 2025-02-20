@@ -2012,373 +2012,121 @@
   
 =======
     {
-        "courseId": "CMSC101",
-        "name": "Introduction to Computer Science",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
-        "courseId": "CMSC103",
-        "name": "Introduction to Programming",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC101"]]
-    },
-    {
-        "courseId": "CMSC104",
-        "name": "Problem Solving and Computer Programming",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
-        "courseId": "CMSC105",
-        "name": "Introduction to Algorithms",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC103"]]
-    },
-    {
-        "courseId": "CMSC106",
-        "name": "Introduction to Data Structures",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC103"]]
-    },
-    {
-        "courseId": "CMSC107",
-        "name": "Introduction to Computer Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC104"]]
-    },
-    {
-        "courseId": "CMSC108",
-        "name": "Introduction to Software Engineering",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC104"]]
-    },
-    {
-        "courseId": "CMSC109",
-        "name": "Introduction to Databases",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC104"]]
-    },
-    {
-        "courseId": "CMSC201",
-        "name": "Computer Science I",
-        "credits": 4,
-        "availability": "1110",
-        "prerequisites": [["CMSC104"]]
-    },
-    {
-        "courseId": "CMSC202",
-        "name": "Computer Science II",
-        "credits": 4,
-        "availability": "1110",
-        "prerequisites": [["CMSC201"]]
-    },
-    {
-        "courseId": "CMSC203",
-        "name": "Discrete Structures",
-        "credits": 3,
-        "availability": "1110",
-        "prerequisites": [["MATH151"]]
-    },
-    {
-        "courseId": "CMSC204",
-        "name": "Advanced Programming",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC205",
-        "name": "Data Structures and Algorithms",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC206",
-        "name": "Computer Organization",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC207",
-        "name": "Operating Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC208",
-        "name": "Software Engineering",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC301",
-        "name": "Advanced Data Structures",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC205"]]
-    },
-    {
-        "courseId": "CMSC302",
-        "name": "Algorithms",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC205"]]
-    },
-    {
-        "courseId": "CMSC303",
-        "name": "Theory of Computation",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC205"]]
-    },
-    {
-        "courseId": "CMSC304",
-        "name": "Social and Ethical Issues in Information Technology",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC305",
-        "name": "Computer Networks",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC306",
-        "name": "Database Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC307",
-        "name": "Artificial Intelligence",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC308",
-        "name": "Machine Learning",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC202"]]
-    },
-    {
-        "courseId": "CMSC401",
-        "name": "Advanced Algorithms",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC302"]]
-    },
-    {
-        "courseId": "CMSC402",
-        "name": "Advanced Data Structures",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC301"]]
-    },
-    {
-        "courseId": "CMSC403",
-        "name": "Advanced Theory of Computation",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC303"]]
-    },
-    {
-        "courseId": "CMSC404",
-        "name": "Advanced Computer Networks",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC305"]]
-    },
-    {
-        "courseId": "CMSC405",
-        "name": "Advanced Database Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC306"]]
-    },
-    {
-        "courseId": "CMSC406",
-        "name": "Advanced Artificial Intelligence",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC307"]]
-    },
-    {
-        "courseId": "CMSC407",
-        "name": "Advanced Machine Learning",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC308"]]
-    },
-    {
-        "courseId": "CMSC408",
-        "name": "Capstone Project",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["CMSC401"]]
-    },
-    {
-        "courseId": "IS101",
-        "name": "Introduction to Information Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
-        "courseId": "IS201",
-        "name": "Systems Analysis and Design",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["IS101"]]
-    },
-    {
-        "courseId": "IS202",
-        "name": "Database Management Systems",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": [["IS101"]]
-    },
-    {
-        "courseId": "PSYC101",
-        "name": "Introduction to Psychology",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
-        "courseId": "PSYC102",
-        "name": "Introduction to Sociology",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
-        "courseId": "MATH103",
-        "name": "College Algebra",
-        "credits": 3,
-        "availability": "1010",
-        "prerequisites": []
-    },
-    {
         "courseId": "ENGL 100",
         "name": "Composition",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "ENGL 110",
         "name": "Composition for ESL Students",
-        "credits": 4,
+        "credits": "4",
         "availability": "1010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "CMSC 203",
         "name": "Discrete Structures",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": [["MATH 140"], ["MATH 151"]]
+        "prerequisites": [["MATH 140"], ["MATH 151"]],
+        "corequisites": []
     },
     {
         "courseId": "FYS 108",
         "name": "First Year Seminar (M)",
-        "credits": 3,
+        "credits": "3",
         "availability": "0010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "MATH 120",
         "name": "Introduction to Contemporary Mathematics",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": [["MATH 106"], ["MATH 104"]]
+        "prerequisites": [["MATH 106"], ["MATH 104"]],
+        "corequisites": []
     },
     {
         "courseId": "MATH 131",
         "name": "Mathematics for Elementary and Middle Grades Teachers I",
-        "credits": 4,
+        "credits": "4",
         "availability": "0010",
-        "prerequisites": [["MATH 106"]]
+        "prerequisites": [["MATH 106"]],
+        "corequisites": []
     },
     {
         "courseId": "MATH 150",
         "name": "Precalculus Mathematics",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 106"]]
+        "prerequisites": [["MATH 106"]],
+        "corequisites": []
     },
     {
         "courseId": "MATH 151",
         "name": "Calculus and Analytic Geometry I",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "MATH 152",
         "name": "Calculus and Analytic Geometry II",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 141"], ["MATH 151"]]
+        "prerequisites": [["MATH 141"], ["MATH 151"]],
+        "corequisites": []
     },
     {
         "courseId": "MATH 155",
         "name": "Applied Calculus",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 106"]]
+        "prerequisites": [["MATH 106"]],
+        "corequisites": []
     },
     {
         "courseId": "STAT 121",
         "name": "Introduction to Statistics for the Social Sciences",
-        "credits": 4,
+        "credits": "4",
         "availability": "1111",
-        "prerequisites": [["MATH 104"], ["MATH 106"], ["MATH 150"]]
+        "prerequisites": [["MATH 104"], ["MATH 106"], ["MATH 150"]],
+        "corequisites": []
     },
     {
         "courseId": "STAT 350",
         "name": "Statistics with Applications in the Biological Sciences",
-        "credits": 4,
+        "credits": "4",
         "availability": "1111",
-        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 152"], ["MATH 155"], ["MATH 225"], ["MATH 251"]]
+        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 152"], ["MATH 155"], ["MATH 225"], ["MATH 251"]],
+        "corequisites": []
     },
     {
         "courseId": "STAT 351",
         "name": "Applied Statistics for Business and Economics",
-        "credits": 4,
+        "credits": "4",
         "availability": "1111",
-        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 152"], ["MATH 155"], ["MATH 225"], ["MATH 251"]]
+        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 152"], ["MATH 155"], ["MATH 225"], ["MATH 251"]],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 101",
         "name": "Concepts of Biology",
-        "credits": 3,
+        "credits": "3",
         "availability": "1111",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 101L",
         "name": "Concepts of Biology Lab",
-        "credits": 2,
+        "credits": "2",
         "availability": "0111",
         "prerequisites": [["BIOL 101"], ["BIOL 141"]],
         "corequisites": [["BIOL 101"], ["BIOL 141"]]
@@ -2386,35 +2134,39 @@
     {
         "courseId": "BIOL 123",
         "name": "Human Genetics",
-        "credits": 3,
+        "credits": "3",
         "availability": "1000",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 141",
         "name": "Foundations of Biology: Cells, Energy and Organisms",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 155"]]
+        "prerequisites": [["MATH 150"], ["MATH 151"], ["MATH 155"]],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 142",
         "name": "Foundations of Biology: Ecology and Evolution",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["BIOL 141"], ["MATH 150"], ["MATH 151"], ["MATH 155"]]
+        "prerequisites": [["BIOL 141"], ["MATH 150"], ["MATH 151"], ["MATH 155"]],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 273",
         "name": "Microbiology for Allied Health",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": [["BIOL 101"], ["BIOL 141"]]
+        "prerequisites": [["BIOL 101"], ["BIOL 141"]],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 273L",
         "name": "Microbiology Laboratory",
-        "credits": 2,
+        "credits": "2",
         "availability": "1110",
         "prerequisites": [["BIOL 273"], ["BIOL 375"]],
         "corequisites": [["BIOL 273"], ["BIOL 375"]]
@@ -2422,7 +2174,7 @@
     {
         "courseId": "BIOL 302",
         "name": "Molecular and General Genetics",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
         "prerequisites": [["BIOL 141"], ["MATH 150"], ["MATH 151"], ["MATH 155"], ["BIOL 142"], ["ENCH 215"], ["CHEM 102"], ["CHEM 124"]],
         "corequisites": [["CHEM 102"], ["CHEM 124"]]
@@ -2430,42 +2182,47 @@
     {
         "courseId": "BIOL 302L",
         "name": "Molecular and General Genetics Laboratory",
-        "credits": 2,
+        "credits": "2",
         "availability": "1110",
-        "prerequisites": [["BIOL 300L, BIOL302"]]
+        "prerequisites": [["BIOL 300L, BIOL302"]],
+        "corequisites": []
     },
     {
         "courseId": "BIOL 375",
         "name": "General Microbiology",
-        "credits": 3,
+        "credits": "3",
         "availability": "1000",
-        "prerequisites": [["BIOL 302, BIOL 303"], ["BIOL 302", "BTEC 303"]]
+        "prerequisites": [["BIOL 302, BIOL 303"], ["BIOL 302", "BTEC 303"]],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 100",
         "name": "The Chemical World",
-        "credits": 3,
+        "credits": "3",
         "availability": "1101",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 101",
         "name": "Principles of Chemistry I",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]]
+        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 102",
         "name": "Principles of Chemistry II",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["CHEM 101"]]
+        "prerequisites": [["CHEM 101"]],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 102L",
         "name": "Introductory Chemistry Lab I",
-        "credits": 2,
+        "credits": "2",
         "availability": "1110",
         "prerequisites": [["CHEM 101"], ["CHEM 102"]],
         "corequisites": [["CHEM 102"]]
@@ -2473,21 +2230,23 @@
     {
         "courseId": "CHEM 123",
         "name": "Introduction to General Organic and Biochemistry I",
-        "credits": 4,
+        "credits": "4",
         "availability": "0110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 124",
         "name": "Introduction to General Organic and Biochemistry II",
-        "credits": 3,
+        "credits": "3",
         "availability": "1100",
-        "prerequisites": [["CHEM 123"]]
+        "prerequisites": [["CHEM 123"]],
+        "corequisites": []
     },
     {
         "courseId": "CHEM 124L",
         "name": "General Organic and Biochemistry Lab",
-        "credits": 2,
+        "credits": "2",
         "availability": "1100",
         "prerequisites": [["CHEM 123"], ["CHEM 124"]],
         "corequisites": [["CHEM 124"]]
@@ -2495,35 +2254,39 @@
     {
         "courseId": "CMPE 306",
         "name": "Introductory Circuit Theory",
-        "credits": 4,
+        "credits": "4",
         "availability": "1010",
-        "prerequisites": [["PHYS 122"], ["MATH 225"]]
+        "prerequisites": [["PHYS 122"], ["MATH 225"]],
+        "corequisites": []
     },
     {
         "courseId": "FYS 103",
         "name": "First Year Seminar (S)",
-        "credits": 3,
+        "credits": "3",
         "availability": "1010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "GES 110",
         "name": "The Changing Earth: Climate, Ecosystems, Water, and Landscapes",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "GES 120",
         "name": "Environmental Science and Conservation",
-        "credits": 3,
+        "credits": "3",
         "availability": "1010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "GES 220",
         "name": "Lab and Field Techniques for Environmental Science",
-        "credits": 4,
+        "credits": "4",
         "availability": "1010",
         "prerequisites": [["GES 120"], ["BIOL 100"], ["BIOL 101"], ["BIOL 141"], ["CHEM 101"]],
         "corequisites": [["BIOL 141"], ["CHEM 101"]]
@@ -2531,56 +2294,63 @@
     {
         "courseId": "GES 286",
         "name": "Exploring the Environment: A Geo-Spatial Perspective",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "IS 296",
         "name": "Foundations of Data Science",
-        "credits": 3,
+        "credits": "3",
         "availability": "1010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "AGNG 315",
         "name": "Health and the Aging Process",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "PHYS 105",
         "name": "Ideas in Astronomy",
-        "credits": 3,
+        "credits": "3",
         "availability": "0010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "PHYS 106",
         "name": "Introduction to Astrobiology",
-        "credits": 3,
+        "credits": "3",
         "availability": "1010",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "PHYS 111",
         "name": "Basic Physics I",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]]
+        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]],
+        "corequisites": []
     },
     {
         "courseId": "PHYS 112",
         "name": "Basic Physics II",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
-        "prerequisites": [["PHYS 111"]]
+        "prerequisites": [["PHYS 111"]],
+        "corequisites": []
     },
     {
         "courseId": "PHYS 121",
         "name": "Introductory Physics I",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
         "prerequisites": [["MATH 151"]],
         "corequisites": [["MATH 151"]]
@@ -2588,7 +2358,7 @@
     {
         "courseId": "PHYS 122",
         "name": "Introductory Physics II",
-        "credits": 4,
+        "credits": "4",
         "availability": "1110",
         "prerequisites": [["PHYS 121"], ["MATH 152"]],
         "corequisites": [["MATH 152"]]
@@ -2596,7 +2366,7 @@
     {
         "courseId": "PHYS 122L",
         "name": "Introductory Physics Laboratory",
-        "credits": 3,
+        "credits": "3",
         "availability": "1110",
         "prerequisites": [["PHYS 122"]],
         "corequisites": [["PHYS 122"]]
@@ -2604,15 +2374,17 @@
     {
         "courseId": "SCI 100",
         "name": "Water; An Interdisciplinary Study (MS)",
-        "credits": 3,
+        "credits": "3",
         "availability": "1111",
-        "prerequisites": []
+        "prerequisites": [],
+        "corequisites": []
     },
     {
         "courseId": "SCI 101L",
         "name": "Quantitative Reasoning: Measurement and Skills Lab",
-        "credits": 2,
+        "credits": "2",
         "availability": "1111",
-        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]]
-  
+        "prerequisites": [["MATH 106"], ["MATH 150"], ["MATH 151"], ["MATH 155"]],
+        "corequisites": []
+    }
 ]
