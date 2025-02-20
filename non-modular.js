@@ -8,3 +8,10 @@ function toggleSidebar() {
     }
 }
 
+function emptyBin() {
+    const dropzone = $('.sidebar .dropzone');
+    dropzone.empty();
+}
+
+
+
