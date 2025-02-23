@@ -1,0 +1,112 @@
+[
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "CMSC 201"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "ENGLGEP"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "MGEP"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "LANG101"
+    },
+    {
+        "year": 1,
+        "semester": "fall",
+        "courseId": "SSGEP"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CMSC 210"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "AHGEP"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "LANG102"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "CMSC 310"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "LANG201"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "SSGEP"
+    },
+    {
+        "year": 2,
+        "semester": "fall",
+        "courseId": "SGEP"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "COMPXXX"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "SSGEP"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "SGEP"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "courseId": "SCIENCELAB"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "COMPXXX"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "COMPXXX"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "WIGEP"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "AHGEP"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "AHGEP"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "courseId": "CGEP"
+    }
+]
