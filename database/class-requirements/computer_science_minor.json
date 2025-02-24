@@ -2,7 +2,7 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "CMSC 201"
+        "courseId": "CMSC201"
     },
     {
         "year": 1,
@@ -27,12 +27,12 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "CMSC 202"
+        "courseId": "CMSC202"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "CMSC 203"
+        "courseId": "CMSC203"
     },
     {
         "year": 1,
@@ -47,7 +47,7 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "CMSC 341"
+        "courseId": "CMSC341"
     },
     {
         "year": 2,
