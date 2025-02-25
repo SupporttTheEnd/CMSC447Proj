@@ -7,7 +7,7 @@ export async function main() {
     await loadAndPopulateClasses();
     updateCredits();
     dragAndDropEnable();
-    makeDraggable("sidebar", ["hide", "dropzone"]); 
+    makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
 }
 
@@ -85,11 +85,11 @@ function createYear(yearNumber) {
 
         <div class="og-boxes">
             <div class="semester-header d-flex">
-                <div class="semester-item">Fall Semester</div>
-                <div class="fall semester-item">Credits</div>
+                <div class="fall semester-item">Fall Semester</div>
+                <div class="fall semester-credit">Credits</div>
                 <hr class="divider">
-                <div class="semester-item">Spring Semester</div>
-                <div class="spring semester-item">Credits</div>
+                <div class="spring semester-item">Spring Semester</div>
+                <div class="spring semester-credit">Credits</div>
             </div>
 
             <div class="d-flex">
@@ -134,11 +134,11 @@ function handleAdditionalSessions(event) {
         button.parentElement.insertAdjacentHTML("afterend", `
             <div class="new-boxes"> 
                 <div class="semester-header d-flex">
-                    <div class="semester-item">Winter Semester</div>
-                    <div class="winter semester-item">Credits</div>
+                    <div class="winter semester-item">Winter Semester</div>
+                    <div class="winter semester-credit">Credits</div>
                     <hr class="divider">
-                    <div class="semester-item">Summer Semester</div>
-                    <div class="summer semester-item">Credits</div>
+                    <div class="summer semester-item">Summer Semester</div>
+                    <div class="summer semester-credit">Credits</div>
                 </div>
 
                 <div class="d-flex">
@@ -207,14 +207,53 @@ function updateCredits() {
 
     dropzones.forEach(dropzone => {
         const semester = dropzone.classList[0];
-
-        const creditDisplay = dropzone.closest('.container').querySelector(`.semester-header .${semester}`);
+        const container = dropzone.closest('.container');
+        const headerComponents = container.querySelectorAll(`.semester-header .${semester}`);
+        const creditDisplay = container.querySelector(`.semester-header .${semester}.semester-credit`);
         let totalCredits = 0;
+
         dropzone.querySelectorAll('.class-item .credits').forEach(creditSpan => {
             totalCredits += parseInt(creditSpan.textContent.replace(/\D/g, ""), 10) || 0;
         });
 
-        creditDisplay.textContent = `Credits: ${totalCredits}`;
+        // Determine if the credits are valid or not
+        let isValid = true;
+        let message = `Credits: ${totalCredits}`;
+
+        if (semester === "winter" && totalCredits > 4.5) {
+            isValid = false;
+            message += " (OverFilled)";
+        } else if (semester === "summer" && totalCredits > 16) {
+            isValid = false;
+            message += " (OverFilled)";
+        } else if (semester !== "winter" && semester !== "summer") {
+            if (totalCredits < 12) {
+                isValid = false;
+                message += " (Underfilled)";
+            } else if (totalCredits > 19.5) {
+                isValid = false;
+                message += " (OverFilled)";
+            }
+        }
+
+        // Update the UI based on the validity of the credits
+        if (!isValid) {
+            headerComponents.forEach(component => {
+                component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
+            });
+            dropzone.style.backgroundColor = "rgba(255, 143, 143, 0.36)";
+            dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.5)", "important");
+            dropzone.classList.add('invalid-credits');
+        } else {
+            headerComponents.forEach(component => {
+                component.style.backgroundColor = "";
+            });
+            dropzone.style.removeProperty("border-color");
+            dropzone.style.backgroundColor = "";
+            dropzone.classList.remove('invalid-credits');
+        }
+
+        creditDisplay.textContent = message;
     });
 }
 

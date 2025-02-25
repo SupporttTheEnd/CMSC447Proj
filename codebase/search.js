@@ -91,7 +91,8 @@ function handleSubmission() {
             ${selectedCategory ? `AND courseId LIKE '${selectedCategory}%'` : ''}
             ${selectedCredits ? `AND credits = ${selectedCredits}` : ''}
             ${selectedAvailability ? `AND SUBSTR(availability, ${selectedAvailability}, 1) = '1'` : ''}
-        `);
+            LIMIT 500
+        `);        
 
         const dropzone = $('#class-dropzone');
         dropzone.empty();
@@ -104,7 +105,7 @@ function handleSubmission() {
             setupPaginationControls(totalPages, currentPage, filteredData[0].values, resultsPerPage, dropzone);
             dragAndDropEnable();
         } else {
-            dropzone.append('<div>No results found</div>');
+            dropzone.append('<h3 class="text-center">No results.</h3>');
         }
     });
 }
