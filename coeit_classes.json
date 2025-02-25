@@ -1,0 +1,1382 @@
+
+  {
+    "courseId": "MGMT 210",
+    "name": "The Practice of Management",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 310",
+    "name": "Human Resource Management",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 360",
+    "name": "Business Law",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 385",
+    "name": "Business Ethics and Society",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 399",
+    "name": "Administrative Internship",
+    "credits": "1-3",
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 410",
+    "name": "Operations and Supply Chain Management",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 425",
+    "name": "Marketing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "MGMT 489",
+    "name": "Seminar in Management and Administration",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ECON 101",
+    "name": "Principles of Microeconomics (SS)",
+    "credits": 3,
+    "availability": "1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ECON 102",
+    "name": "Principles of Macroeconomics (SS)",
+    "credits": 3,
+    "availability": "1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ECON 121",
+    "name": "Principles of Accounting I",
+    "credits": 3,
+    "availability": "1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ECON 122",
+    "name": "Principles of Accounting II",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENGL 393",
+    "name": "Technical Communication",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENES 101",
+    "name": "Introduction to Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENES 396",
+    "name": "Fundamentals of Teaching Fellow Scholarship",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENES 397",
+    "name": "Advanced Topics of Teaching Fellow Scholarship",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 101",
+    "name": "Introduction to Computer Based Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 125",
+    "name": "Information Systems Logic and Structured Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 147",
+    "name": "Introduction to Computer Programming",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 199",
+    "name": "Service-Learning and Information Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 202",
+    "name": "Systems Analysis Methods",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 246",
+    "name": "Topics in Programming Languages and Tools",
+    "credits": 3,
+    "availability": “0100”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 247",
+    "name": "Computer Programming II",
+    "credits": 3,
+    "availability": "1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 295",
+    "name": "Intermediate Business Applications",
+    "credits": 3,
+    "availability": “1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 296",
+    "name": "Foundations of Data Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 298",
+    "name": "Special Topics in Information Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 300",
+    "name": "Management Information Systems",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 303",
+    "name": "Fundamentals of Human-Computer Interaction",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 304",
+    "name": "Ethical Issues in Information Systems",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 310",
+    "name": "Software and Hardware Concepts",
+    "credits": 3,
+    "availability": "1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 317",
+    "name": "Accounting Information Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 320",
+    "name": "Advanced Business Applications",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 325",
+    "name": "Introduction to Management Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "IS 350",
+    "name": "Business Communications Systems",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+{
+  "courseId": "IS 350",
+  "name": "Business Communications Systems",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 352",
+  "name": "Women, Gender, and Information Technology",
+  "credits": 3,
+  "availability": “1000",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 361",
+  "name": "Technology for Management of Aging Services",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 369",
+  "name": "Research Seminar: Writings in Information Systems",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 397",
+  "name": "Health IT Internship",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 399",
+  "name": "Information Systems Internship",
+  "credits": 1,
+  "availability": “1010”,
+  "prerequisites": []
+},
+{
+  "courseId": "IS 400",
+  "name": "Individual Study in Information Systems",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 403",
+  "name": "User Interface Design",
+  "credits": 3,
+  "availability": “0010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 410",
+  "name": "Introduction to Database Design",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 413",
+  "name": "GUI Systems Using JAVA",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 420",
+  "name": "Database Application Development",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 425",
+  "name": "Decision Support Systems",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 427",
+  "name": "Introduction to Artificial Intelligence: Concepts and Applications",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 428",
+  "name": "Data Mining Techniques and Applications",
+  "credits": 3,
+  "availability": “0010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 430",
+  "name": "Information Systems and Security",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 436",
+  "name": "Structured Systems Analysis and Design",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 438",
+  "name": "Project Management",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 440",
+  "name": "Integrating Technology into Business Processes",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 448",
+  "name": "Markup and Scripting Languages",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 450",
+  "name": "Data Communications and Networks",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 451",
+  "name": "Network Design and Management",
+  "credits": 3,
+  "availability": "1110",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 452",
+  "name": "Internetworking",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 460",
+  "name": "Health Care Informatics I",
+  "credits": 3,
+  "availability": “0010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 461",
+  "name": "Health Informatics: Applications",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 464",
+  "name": "Telemedicine in Trauma Care",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 467",
+  "name": "Health IT Project",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 469",
+  "name": "Senior Project in Information Systems",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 470",
+  "name": "Software Testing",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 471",
+  "name": "Data Analytics for Cybersecurity",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 472",
+  "name": "Software Security",
+  "credits": 3,
+  "availability": “0010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 474",
+  "name": "Technology Law",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 478",
+  "name": "Cybersecurity Internship",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 479",
+  "name": "Cybersecurity Project",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 480",
+  "name": "Information Visualization",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 496",
+  "name": "Business Analytics",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 497",
+  "name": "Business Analytics Internship",
+  "credits": 3,
+  "availability": "1010",
+  "prerequisites": []
+},
+{
+  "courseId": "IS 498",
+  "name": "Special Topics in Information Systems",
+  "credits": 3,
+  "availability": “1010”,
+  "prerequisites": []
+},
+  {
+    "courseId": "ENCH 210",
+    "name": "Introduction to Environmental Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 215",
+    "name": "Chemical Engineering Analysis",
+    "credits": 3,
+    "availability": “0110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 300",
+    "name": "Chemical Process Thermodynamics",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 333",
+    "name": "Chemical Engineering Seminar",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 410",
+    "name": "Environmental Chemistry",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 412",
+    "name": "Environmental Physicochemical Processes",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 414",
+    "name": "Environmental Biological Processes",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 425",
+    "name": "Transport I: Fluids",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 427",
+    "name": "Transport Processes II: Mass Transfer",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 437L",
+    "name": "Chemical Engineering Laboratory",
+    "credits": "1-2",
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 440",
+    "name": "Chemical Engineering Kinetics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 442",
+    "name": "Chemical Process Control and Safety",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 444",
+    "name": "Process Engineering Economics and Design",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 445",
+    "name": "Separation Processes",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 446",
+    "name": "Process Engineering Economics and Design II",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 450",
+    "name": "Chemical Process Development",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 468",
+    "name": "Research Projects",
+    "credits": “3”,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 470",
+    "name": "Chemical and Environmental Modeling",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 474",
+    "name": "Air Pollution",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 476",
+    "name": "Environmental Risk Assessment & Remediation",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 482",
+    "name": "Biochemical Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 484",
+    "name": "Biomedical Engineering",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 485L",
+    "name": "Biochemical Engineering Laboratory",
+    "credits": "1-3",
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 486",
+    "name": "A Survey of Sensors and Instrumentation",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 488",
+    "name": "Electrochemical Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENCH 489",
+    "name": "Special Topics in Environmental Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 212",
+    "name": "Principles of Digital Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 306",
+    "name": "Introductory Circuit Theory",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 310",
+    "name": "Systems Design and Programming",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 311",
+    "name": "C Programming and Embedded Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 314",
+    "name": "Principles of Electronic Circuits",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 315",
+    "name": "Principles of VLSI Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 316",
+    "name": "Programmable Logic Devices",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 320",
+    "name": "Probability, Statistics, and Random Processes",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 323",
+    "name": "Signal and Systems Theory",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 330",
+    "name": "Electromagnetic Waves and Transmission",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 349",
+    "name": "Introduction to Professional Practice",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 413",
+    "name": "Principles of VLSI Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 414",
+    "name": "Advanced VLSI Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 415",
+    "name": "Programmable Logic Devices",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 418",
+    "name": "VLSI Design Verification and Testing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 419",
+    "name": "Computer Arithmetic Algorithms and Implementations",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 422",
+    "name": "Digital Signal Processing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 423",
+    "name": "Principles of Communication Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 447",
+    "name": "Analog Integrated Circuit Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 449",
+    "name": "Hardware Security and Trust",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 450",
+    "name": "Capstone I",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 451",
+    "name": "Capstone II",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 471",
+    "name": "Experimental Techniques for Electrical and Computer Engineering",
+    "credits": 3,
+    "availability": “0010”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 491",
+    "name": "Special Topics in Computer Engineering",
+    "credits": 3,
+    "availability": “1000”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMPE 499",
+    "name": "Independent Study in Computer Engineering",
+    "credits": “3”,
+    "availability": “1000”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 104",
+    "name": "Problem Solving and Computer Programming",
+    "credits": 4,
+    "availability": “1111”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 201",
+    "name": "Computer Science I",
+    "credits": 4,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 202",
+    "name": "Computer Science II",
+    "credits": 4,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 203",
+    "name": "Discrete Structures",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 210",
+    "name": "Advanced Computing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 291",
+    "name": "Special Topics in Computer Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 299",
+    "name": "Independent Study in Computer Science",
+    "credits": “3”,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 304",
+    "name": "Social and Ethical Issues in Information Technology",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 313",
+    "name": "Computer Organization and Assembly Language Programming",
+    "credits": 4,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 331",
+    "name": "Principles of Programming Language",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 340",
+    "name": "Advanced C++",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 341",
+    "name": "Data Structures",
+    "credits": 4,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 352",
+    "name": "Women, Gender, and Information Technology",
+    "credits": 3,
+    "availability": "1000",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 391",
+    "name": "Special Topics in Computer Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 396",
+    "name": "Undergraduate Teaching Fellowship",
+    "credits": "1-3",
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 411",
+    "name": "Computer Architecture",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 421",
+    "name": "Principles of Operating Systems",
+    "credits": 4,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 426",
+    "name": "Principles of Computer Security",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 433",
+    "name": "Scripting Languages",
+    "credits": 3,
+    "availability": “0100”,
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 435",
+    "name": "Computer Graphics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 436",
+    "name": "Data Visualization",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 437",
+    "name": "Graphical User Interface Programming",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 438",
+    "name": "Graphics for Games",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 441",
+    "name": "Design and Analysis of Algorithms",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 442",
+    "name": "Information and Coding Theory",
+    "credits": 3,
+    "availability": "1000",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 443",
+    "name": "Cryptology",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 447",
+    "name": "Software Engineering I",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 449",
+    "name": "Malware Analysis",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 451",
+    "name": "Automata Theory and Formal Languages",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 455",
+    "name": "Numerical Computations",
+    "credits": 3,
+    "availability": “0110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 456",
+    "name": "Symbolic Computation",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 461",
+    "name": "Database Management Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 462",
+    "name": "Introduction to Data Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 463",
+    "name": "Data Privacy",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 471",
+    "name": "Introduction to Artificial Intelligence",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 473",
+    "name": "Introduction to Natural Language Processing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 475",
+    "name": "Introduction to Neural Networks",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 476",
+    "name": "Information Retrieval",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 478",
+    "name": "Introduction to Machine Learning",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 479",
+    "name": "Introduction to Robotics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 481",
+    "name": "Computer Networks",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 483",
+    "name": "Parallel and Distributed Processing",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 487",
+    "name": "Introduction to Network Security",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 491",
+    "name": "Special Topics in Computer Science",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 493",
+    "name": "Capstone Games Group Project",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 498",
+    "name": "Independent Study in Computer Science for CMSC Interns and Co-op Students",
+    "credits": “3”,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "CMSC 499",
+    "name": "Independent Study in Computer Science",
+    "credits": “3”,
+    "availability": "1010",
+    "prerequisites": []
+  }
+Here’s the course information you requested, formatted as you asked:
+[
+  {
+    "courseId": "ENME 110",
+    "name": "Statics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 204",
+    "name": "Introduction to Engineering Design with CAD",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 217",
+    "name": "Engineering Thermodynamics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 220",
+    "name": "Mechanics of Materials",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 221",
+    "name": "Dynamics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 301",
+    "name": "The Structure and Properties of Engineering Materials",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 303",
+    "name": "Computational Methods for Engineers",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 304",
+    "name": "Machine Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 320",
+    "name": "Fluid Mechanics",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 321",
+    "name": "Transfer Processes",
+    "credits": 3,
+    "availability": "1110",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 332L",
+    "name": "Solid Mechanics and Materials Laboratory",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 360",
+    "name": "Vibrations",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 399",
+    "name": "Introduction to Engineering Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 403",
+    "name": "Automatic Controls",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 408",
+    "name": "Selected Topics in Engineering Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 409",
+    "name": "Mechanics of Deformable Solids",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 412",
+    "name": "Mechanical Design for Manufacturing and Production",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 422",
+    "name": "Heat Transfer in Biological Systems",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 423",
+    "name": "Heating, Ventilation, and Air Conditioning Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 425",
+    "name": "Internal Combustion Engines",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 432L",
+    "name": "Fluids/Energy Laboratory",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 444",
+    "name": "Mechanical Engineering Systems Design",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 464",
+    "name": "Machine Design II",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 472",
+    "name": "Materials and Processes for Micro/Nanoscale Systems (MEMS)",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 475",
+    "name": "Robotics",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 482L",
+    "name": "Vibrations/Controls Laboratory",
+    "credits": 1,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 488",
+    "name": "Special Problems",
+    "credits": “3”,
+    "availability": "1010",
+    "prerequisites": []
+  },
+  {
+    "courseId": "ENME 489",
+    "name": "Special Topics in Mechanical Engineering",
+    "credits": 3,
+    "availability": "1010",
+    "prerequisites": []
+  }
