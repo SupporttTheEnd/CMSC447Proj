@@ -75,12 +75,12 @@ p {
     background-color: var(--base-variant);
     font-weight: bold;
     font-size: 15px;
-    padding: 10px;
     color: var(--text-color);
 }
 
-.semester-item {
+.semester-header div{
     flex: 1;
+    padding: 10px;
     text-align: center;
     color: var(--text-color);
 }
@@ -94,13 +94,17 @@ p {
 
 .dropzone {
     background-color: var(--base-color);
-    border-color: var(--border-color) !important;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .dropzone:hover {
     background-color: var(--hover-color);
 }
+
+.dropzone.invalid-credits:hover {
+    background-color: rgba(255, 49, 49, 0.241) !important;
+}
+
 
 .class-item {
     display: flex;
@@ -183,7 +187,7 @@ button.additionSession:hover {
 .divider {
     border: none;
     border-left: 2px solid var(--divider-color);
-    margin: -10px 10px;
+    margin: -1px;
 }
 
 /* Toggle Switch*/
