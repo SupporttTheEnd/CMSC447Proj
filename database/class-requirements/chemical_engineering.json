@@ -2,7 +2,7 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "CMSC201"
+        "courseId": "CHEM101"
     },
     {
         "year": 1,
@@ -12,171 +12,201 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "LANG101"
+        "courseId": "ENES101"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ENGLGEP"
+        "requireId": "ENGLGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "MATH151"
-    },
-    {
-        "year": 1,
-        "semester": "fall",
-        "courseId": "SSGEP"
+        "requireId": "AHGEP"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "CMSC202"
+        "courseId": "CHEM102"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "CHEM102L"
+    },
+    {
+        "year": 1,
+        "semester": "spring",
+        "courseId": "PHYS121"
     },
     {
         "year": 1,
         "semester": "spring",
         "courseId": "MATH152"
-    },
+    },    
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "CMSC203"
-    },
-    {
-        "year": 1,
-        "semester": "spring",
-        "courseId": "AHGEP"
-    },
-    {
-        "year": 1,
-        "semester": "spring",
-        "courseId": "LANG102"
-    },
-    {
-        "year": 1,
-        "semester": "spring",
-        "courseId": "CMSC202"
+        "courseId": "ENME110"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "CMSC331"
+        "courseId": "ENCH215"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "CMSC341"
+        "courseId": "CHEM351"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "SCIENCESEQUENCE1"
+        "courseId": "MATH251"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "SSGEP"
+        "courseId": "PHYS122"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "LANG201"
+        "requireId": "LANG101"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "CMSC313"
+        "courseId": "ENCH225L"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "MATH221"
+        "courseId": "CHEM351L"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SCIENCESEQUENCE2"
+        "courseId": "MATH225"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SCIENCELAB"
+        "requireId": "ASE"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SSGEP"
+        "requireId": "AHGEP"
+    },
+    {
+        "year": 2,
+        "semester": "spring",
+        "requireId": "LANG102"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "CMSC304"
+        "courseId": "ENCH300"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "CMSC411"
+        "courseId": "ENCH425"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "CMSC4XX"
+        "courseId": "CHEM301"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "STAT355"
+        "courseId": "CHEM311L"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "requireId": "LANG201"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CMSC421"
+        "courseId": "ENCH427"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CMSC4XX"
+        "courseId": "ENCH440"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CMSC4**"
+        "courseId": "ENCH442"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "CHEM302"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CGEP"
+        "requireId": "SSGEP"
+    },
+    {
+        "year": 3,
+        "semester": "spring",
+        "requireId": "AHGEP"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "CMSC441"
+        "courseId": "ENCH444"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "CMSC447"
+        "courseId": "ENCH445"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "CMSC441"
+        "courseId": "ENCH437L"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "requireId": "ENCHXXX"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "requireId": "CGEP"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "requireId": "SSGEP"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "CMSC4**"
+        "requireId": "ENCH446"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "CMSC4**"
+        "requireId": "ENCHXXX"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "requireId": "ENCHXXX"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "requireId": "SSGEP"
     }
 ]
