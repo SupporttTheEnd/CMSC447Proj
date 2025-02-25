@@ -26,8 +26,8 @@ async function setupSQL() {
         CREATE TABLE IF NOT EXISTS classes (
             courseId TEXT PRIMARY KEY,
             name TEXT,
-            credits INTEGER,
             availability TEXT,
+            credits INTEGER,
             prerequisites TEXT
         );
     `);
