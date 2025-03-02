@@ -1556,7 +1556,7 @@
     "name": "Information Retrieval",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": "CMSC341"],
+    "prerequisites": ["CMSC341"],
     "corequisites": []
   },
   {
