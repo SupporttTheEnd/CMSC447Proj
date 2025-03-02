@@ -62,7 +62,7 @@
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "COMPXXX"
+        "courseId": "$COMPMINOR"
     },
     {
         "year": 2,
@@ -82,12 +82,12 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "COMPXXX"
+        "courseId": "$COMPMINOR"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "COMPXXX"
+        "courseId": "$COMPMINOR"
     },
     {
         "year": 3,
