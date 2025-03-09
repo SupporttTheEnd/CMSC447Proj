@@ -25,7 +25,7 @@ function checkDuplicates(courseList) {
   return duplicates;
 }
 
-const filePath = 'database/classes.json';
+const filePath = 'classes.json';
 const courses = loadData(filePath);
 
 if (courses.length > 0) {
