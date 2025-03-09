@@ -1292,7 +1292,7 @@
     "name": "Computer Science I",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["MATH150"],["MATH151"],["MATH152"],["MATH155"]],
+    "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]],
     "corequisites": []
   },
   {
@@ -1300,7 +1300,7 @@
     "name": "Computer Science II",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH 150"],["CMSC201","MATH151"],["CMSC201","MATH152"],["CMSC201","MATH155"]],
+    "prerequisites": [["CMSC201","MATH 150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
     "corequisites": []
   },
   {
@@ -1308,7 +1308,7 @@
     "name": "Discrete Structures",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["MATH140"],["MATH151"]],
+    "prerequisites": [["MATH140"], ["MATH151"]],
     "corequisites": []
   },
   {
@@ -1324,7 +1324,7 @@
     "name": "Computer Organization and Assembly Language Programming",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1332,7 +1332,7 @@
     "name": "Principles of Programming Language",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1341,14 +1341,14 @@
     "credits": "3",
     "availability": "1010",
     "prerequisites": [],
-    "corequisites": ["CMSC 341 "]
+    "corequisites": [["CMSC341"]]
   },
   {
     "courseId": "CMSC341",
     "name": "Data Structures",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1356,7 +1356,7 @@
     "name": "Women, Gender, and Information Technology",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["$IS..."],["$CMSC..."],["$GWST..."]],
+    "prerequisites": [["$IS..."], ["$CMSC..."], ["$GWST..."]],
     "corequisites": []
   },
   {
@@ -1372,7 +1372,7 @@
     "name": "Undergraduate Teaching Fellowship",
     "credits": "1-3",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH150"]],
+    "prerequisites": [["CMSC201", "MATH150"]],
     "corequisites": []
   },
   {
@@ -1380,7 +1380,7 @@
     "name": "Computer Architecture",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["CMSC313"],["CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC313"], ["CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1388,7 +1388,7 @@
     "name": "Principles of Operating Systems",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMSC341"],["CMSC341","CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC341", "CMSC341"], ["CMSC341", "CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1396,7 +1396,7 @@
     "name": "Principles of Computer Security",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["CMSC341","CMSC313"],["CMSC341","CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC341", "CMSC313"], ["CMSC341", "CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1404,7 +1404,7 @@
     "name": "Scripting Languages",
     "credits": "3",
     "availability": "0100",
-    "prerequisites": ["CMSC331"],
+    "prerequisites": [["CMSC331"]],
     "corequisites": []
   },
   {
@@ -1412,7 +1412,7 @@
     "name": "Computer Graphics",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC313", "CMSC341","MATH221"],
+    "prerequisites": [["CMSC313", "CMSC341", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1420,7 +1420,7 @@
     "name": "Data Visualization",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1428,7 +1428,7 @@
     "name": "Graphical User Interface Programming",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221"],
+    "prerequisites": [["CMSC341", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1436,7 +1436,7 @@
     "name": "Graphics for Games",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","MATH151"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH151"]],
     "corequisites": []
   },
   {
@@ -1444,7 +1444,7 @@
     "name": "Design and Analysis of Algorithms",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","MATH152","CMPE320"],["CMSC341","MATH152","STAT355"],["CMSC341","MATH152","STAT451"]],
+    "prerequisites": [["CMSC341", "MATH152", "CMPE320"], ["CMSC341", "MATH152", "STAT355"], ["CMSC341", "MATH152", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1452,7 +1452,7 @@
     "name": "Information and Coding Theory",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["CMSC203","MATH221"],
+    "prerequisites": [["CMSC203", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1460,7 +1460,7 @@
     "name": "Cryptology",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","STAT355"],
+    "prerequisites": [["CMSC341", "MATH221", "STAT355"]],
     "corequisites": []
   },
   {
@@ -1468,7 +1468,7 @@
     "name": "Software Engineering I",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1476,7 +1476,7 @@
     "name": "Malware Analysis",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC313","CMSC341"],
+    "prerequisites": [["CMSC313", "CMSC341"]],
     "corequisites": []
   },
   {
@@ -1484,7 +1484,7 @@
     "name": "Automata Theory and Formal Languages",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1492,7 +1492,7 @@
     "name": "Numerical Computations",
     "credits": "3",
     "availability": "0110",
-    "prerequisites": ["CMSC341","MATH221","MATH152"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH152"]],
     "corequisites": []
   },
   {
@@ -1500,7 +1500,7 @@
     "name": "Symbolic Computation",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","MATH152"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH152"]],
     "corequisites": []
   },
   {
@@ -1508,7 +1508,7 @@
     "name": "Database Management Systems",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1516,7 +1516,7 @@
     "name": "Introduction to Data Science",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMPE320"],["CMSC341","STAT355"],["CMSC341","STAT451"]],
+    "prerequisites": [["CMSC341", "CMPE320"], ["CMSC341", "STAT355"], ["CMSC341", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1524,7 +1524,7 @@
     "name": "Data Privacy",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1532,7 +1532,7 @@
     "name": "Introduction to Artificial Intelligence",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1540,7 +1540,7 @@
     "name": "Introduction to Natural Language Processing",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMPE320"],["CMSC341","STAT355"],["CMSC341","STAT451"]],
+    "prerequisites": [["CMSC341", "CMPE320"], ["CMSC341", "STAT355"], ["CMSC341", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1548,7 +1548,7 @@
     "name": "Introduction to Neural Networks",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1556,7 +1556,7 @@
     "name": "Information Retrieval",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1564,7 +1564,7 @@
     "name": "Introduction to Robotics",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC471"],
+    "prerequisites": [["CMSC471"]],
     "corequisites": []
   },
   {
@@ -1572,7 +1572,7 @@
     "name": "Introduction to Machine Learning",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","MATH221","CMPE320"],["CMSC341","MATH221","STAT355"],["CMSC341","MATH221","STAT451"]],
+    "prerequisites": [["CMSC341", "MATH221", "CMPE320"], ["CMSC341", "MATH221", "STAT355"],["CMSC341", "MATH221", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1580,7 +1580,7 @@
     "name": "Computer Networks",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1588,7 +1588,7 @@
     "name": "Parallel and Distributed Processing",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC421"],
+    "prerequisites": [["CMSC421"]],
     "corequisites": []
   },
   {
@@ -1596,7 +1596,7 @@
     "name": "Introduction to Network Security",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC421"],["CMSC481"]],
+    "prerequisites": [["CMSC421"], ["CMSC481"]],
     "corequisites": []
   },
   {
@@ -1604,7 +1604,7 @@
     "name": "Special Topics in Computer Science",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1612,7 +1612,7 @@
     "name": "Capstone Games Group Project",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC 435","CMSC471"],["CMSC438","CMSC471"]],
+    "prerequisites": [["CMSC435", "CMSC471"], ["CMSC438", "CMSC471"]],
     "corequisites": []
   },
   {
