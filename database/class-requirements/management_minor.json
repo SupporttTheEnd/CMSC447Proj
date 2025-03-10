@@ -57,7 +57,7 @@
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "MGMT3XX"
+        "courseId": "$MGMTMINOR"
     },
     {
         "year": 2,
@@ -82,7 +82,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "MGMT3XX"
+        "courseId": "$MGMTMINOR"
     },
     {
         "year": 3,
@@ -97,7 +97,7 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "MGMT3XX"
+        "courseId": "$MGMTMINOR"
     },
     {
         "year": 3,

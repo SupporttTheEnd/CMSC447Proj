@@ -507,7 +507,7 @@
     "courseId": "MGMT210",
     "name": "The Practice of Management",
     "credits": "3",
-    "availability": "1010",
+    "availability": "1110",
     "prerequisites": [],
     "corequisites": []
   },
@@ -516,7 +516,7 @@
     "name": "Human Resource Management",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"]],
     "corequisites": []
   },
   {
@@ -524,7 +524,7 @@
     "name": "Business Law",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"]],
     "corequisites": []
   },
   {
@@ -532,14 +532,14 @@
     "name": "Business Ethics and Society",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"]],
     "corequisites": []
   },
   {
     "courseId": "MGMT399",
     "name": "Administrative Internship",
     "credits": "1-3",
-    "availability": "1010",
+    "availability": "1111",
     "prerequisites": [],
     "corequisites": []
   },
@@ -548,7 +548,7 @@
     "name": "Operations and Supply Chain Management",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"]],
     "corequisites": []
   },
   {
@@ -556,7 +556,7 @@
     "name": "Marketing",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ECON101", "ECON102", "ECON121", "ECON122"]],
     "corequisites": []
   },
   {
@@ -564,7 +564,7 @@
     "name": "Seminar in Management and Administration",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"]],
     "corequisites": []
   },
   {
@@ -595,16 +595,16 @@
     "courseId": "ECON122",
     "name": "Principles of Accounting II",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1111",
+    "prerequisites": [["ECON121"]],
     "corequisites": []
   },
   {
     "courseId": "ENGL393",
     "name": "Technical Communication",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["ENGL100"], ["ENGL391"]],
     "corequisites": []
   },
   {
@@ -612,8 +612,8 @@
     "name": "Introduction to Engineering",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
+    "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"]],
+    "corequisites": [["MATH150"], ["MATH151"], ["MATH152"]]
   },
   {
     "courseId": "ENES396",
@@ -658,8 +658,8 @@
   {
     "courseId": "IS199",
     "name": "Service-Learning and Information Systems",
-    "credits": "3",
-    "availability": "1010",
+    "credits": "1",
+    "availability": "0010",
     "prerequisites": [],
     "corequisites": []
   },
@@ -676,22 +676,22 @@
     "name": "Topics in Programming Languages and Tools",
     "credits": "3",
     "availability": "0100",
-    "prerequisites": [],
+    "prerequisites": [["CMSC201"], ["IS147"]],
     "corequisites": []
   },
   {
     "courseId": "IS247",
     "name": "Computer Programming II",
     "credits": "3",
-    "availability": "1111",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["IS147", "MATH151"], ["IS147", "MATH155"]],
     "corequisites": []
   },
   {
     "courseId": "IS295",
     "name": "Intermediate Business Applications",
     "credits": "3",
-    "availability": "1111",
+    "availability": "1110",
     "prerequisites": [],
     "corequisites": []
   },
@@ -706,8 +706,8 @@
   {
     "courseId": "IS298",
     "name": "Special Topics in Information Systems",
-    "credits": "3",
-    "availability": "1010",
+    "credits": "1-3",
+    "availability": "1000",
     "prerequisites": [],
     "corequisites": []
   },
@@ -716,7 +716,7 @@
     "name": "Management Information Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["MGMT210"], ["$IS..."]],
     "corequisites": []
   },
   {
@@ -724,7 +724,7 @@
     "name": "Fundamentals of Human-Computer Interaction",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["IS202"], ["IS300"]],
     "corequisites": []
   },
   {
@@ -732,15 +732,15 @@
     "name": "Ethical Issues in Information Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["COMP101"], ["$IS..."], ["$CMSC..."]],
     "corequisites": []
   },
   {
     "courseId": "IS310",
     "name": "Software and Hardware Concepts",
     "credits": "3",
-    "availability": "1111",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["CMSC201", "MATH151"], ["IS147", "MATH151"], ["CMSC201", "MATH155"], ["IS147", "MATH155"]],
     "corequisites": []
   },
   {
@@ -748,23 +748,23 @@
     "name": "Accounting Information Systems",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ECON122"]],
     "corequisites": []
   },
   {
     "courseId": "IS320",
     "name": "Advanced Business Applications",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["IS295"]],
     "corequisites": []
   },
   {
     "courseId": "IS325",
     "name": "Introduction to Management Science",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["IS300, MATH151"], ["IS300", "MATH155"]],
     "corequisites": []
   },
   {
@@ -772,7 +772,7 @@
     "name": "Business Communications Systems",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["IS300", "MATH151"], ["IS300", "MATH155"]],
     "corequisites": []
   },
   {
@@ -780,7 +780,7 @@
     "name": "Women, Gender, and Information Technology",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [],
+    "prerequisites": [["$IS..."], ["$CMSC..."]],
     "corequisites": []
   },
   {
@@ -788,7 +788,7 @@
     "name": "Technology for Management of Aging Services",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["COMP101"], ["$IS..."], ["$CMSC..."], ["$AGNG..."]],
     "corequisites": []
   },
   {
@@ -796,7 +796,7 @@
     "name": "Research Seminar: Writings in Information Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["ENGL100", "$IS2.."], ["ENGL100", "$IS3.."]],
     "corequisites": []
   },
   {
@@ -818,7 +818,7 @@
   {
     "courseId": "IS400",
     "name": "Individual Study in Information Systems",
-    "credits": "3",
+    "credits": "1-3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -828,7 +828,7 @@
     "name": "User Interface Design",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["IS303"]],
     "corequisites": []
   },
   {
@@ -836,7 +836,7 @@
     "name": "Introduction to Database Design",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS300", "IS310"]],
     "corequisites": []
   },
   {
@@ -844,7 +844,7 @@
     "name": "GUI Systems Using JAVA",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["CMSC202"], ["IS247"]],
     "corequisites": []
   },
   {
@@ -852,7 +852,7 @@
     "name": "Database Application Development",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS410"]],
     "corequisites": []
   },
   {
@@ -860,15 +860,15 @@
     "name": "Decision Support Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS410", "MGMT210", "MATH251"]],
     "corequisites": []
   },
   {
     "courseId": "IS427",
     "name": "Introduction to Artificial Intelligence: Concepts and Applications",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["CMSC202", "MATH221"], ["IS247", "MATH221"]],
     "corequisites": []
   },
   {
@@ -876,7 +876,7 @@
     "name": "Data Mining Techniques and Applications",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["IS410", "STAT351"]],
     "corequisites": []
   },
   {
@@ -884,7 +884,7 @@
     "name": "Information Systems and Security",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["IS300", "IS310"]],
     "corequisites": []
   },
   {
@@ -892,7 +892,7 @@
     "name": "Structured Systems Analysis and Design",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS410"]],
     "corequisites": []
   },
   {
@@ -900,7 +900,7 @@
     "name": "Project Management",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS300"]],
     "corequisites": []
   },
   {
@@ -908,15 +908,15 @@
     "name": "Integrating Technology into Business Processes",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
+    "prerequisites": [["IS202"], ["IS350"]],
+    "corequisites": [["IS350"]]
   },
   {
     "courseId": "IS448",
     "name": "Markup and Scripting Languages",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1110",
+    "prerequisites": [["CMSC202", "IS247"]],
     "corequisites": []
   },
   {
@@ -924,7 +924,7 @@
     "name": "Data Communications and Networks",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS300", "IS310", "MATH221"]],
     "corequisites": []
   },
   {
@@ -932,7 +932,7 @@
     "name": "Network Design and Management",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
+    "prerequisites": [["IS450"]],
     "corequisites": []
   },
   {
@@ -940,7 +940,7 @@
     "name": "Internetworking",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["IS450"]],
     "corequisites": []
   },
   {
@@ -948,55 +948,55 @@
     "name": "Health Care Informatics I",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["IS300"]],
     "corequisites": []
   },
   {
     "courseId": "IS461",
     "name": "Health Informatics: Applications",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["IS300"]],
     "corequisites": []
   },
   {
     "courseId": "IS464",
-    "name": "Telemedicine in Trauma Care",
+    "name": "Telemedicine",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "0010",
+    "prerequisites": [["IS300"]],
     "corequisites": []
   },
   {
     "courseId": "IS467",
     "name": "Health IT Project",
     "credits": "3",
-    "availability": "1010",
+    "availability": "1000",
     "prerequisites": [],
     "corequisites": []
   },
   {
     "courseId": "IS469",
     "name": "Senior Project in Information Systems",
-    "credits": "3",
+    "credits": "1-3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["$IS4.."]],
     "corequisites": []
   },
   {
     "courseId": "IS470",
     "name": "Software Testing",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["IS247"]],
     "corequisites": []
   },
   {
     "courseId": "IS471",
     "name": "Data Analytics for Cybersecurity",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["IS410"]],
     "corequisites": []
   },
   {
@@ -1004,7 +1004,7 @@
     "name": "Software Security",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["IS247"]],
     "corequisites": []
   },
   {
@@ -1012,7 +1012,7 @@
     "name": "Technology Law",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["COMP101"], ["$IS..."], ["$CMSC..."]],
     "corequisites": []
   },
   {
@@ -1035,30 +1035,30 @@
     "courseId": "IS480",
     "name": "Information Visualization",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["IS296"], ["IS303"]],
     "corequisites": []
   },
   {
     "courseId": "IS496",
     "name": "Business Analytics",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["IS296"]],
     "corequisites": []
   },
   {
     "courseId": "IS497",
     "name": "Business Analytics Internship",
     "credits": "3",
-    "availability": "1010",
+    "availability": "0010",
     "prerequisites": [],
     "corequisites": []
   },
   {
     "courseId": "IS498",
     "name": "Special Topics in Information Systems",
-    "credits": "3",
+    "credits": "1-3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -1067,8 +1067,8 @@
     "courseId": "ENCH210",
     "name": "Introduction to Environmental Engineering",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["CHEM102", "ENES101", "MATH152"]],
     "corequisites": []
   },
   {
@@ -1076,7 +1076,7 @@
     "name": "Chemical Engineering Analysis",
     "credits": "3",
     "availability": "0110",
-    "prerequisites": [],
+    "prerequisites": [["CHEM102", "ENES101"]],
     "corequisites": []
   },
   {
@@ -1084,7 +1084,7 @@
     "name": "Chemical Process Thermodynamics",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["CHEM351", "ENCH215", "MATH251"]],
     "corequisites": []
   },
   {
@@ -1100,23 +1100,23 @@
     "name": "Environmental Chemistry",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
+    "prerequisites": [["CHEM102"], ["MATH225"]],
+    "corequisites": [["ENCH300"]]
   },
   {
     "courseId": "ENCH412",
     "name": "Environmental Physicochemical Processes",
     "credits": "3",
-    "availability": "1010",
+    "availability": "1000",
     "prerequisites": [],
-    "corequisites": []
+    "corequisites": [["ENCH427"]]
   },
   {
     "courseId": "ENCH414",
     "name": "Environmental Biological Processes",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
@@ -1124,39 +1124,39 @@
     "name": "Transport I: Fluids",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH215", "MATH225"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH427",
     "name": "Transport Processes II: Mass Transfer",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH425"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH437L",
     "name": "Chemical Engineering Laboratory",
-    "credits": "1-2",
-    "availability": "1010",
-    "prerequisites": [],
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["ENCH225L", "ENCH427", "ENCH440", "ENGL100"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH440",
     "name": "Chemical Engineering Kinetics",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH300", "ENCH425", "CHEM301"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH442",
     "name": "Chemical Process Control and Safety",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH300", "ENCH425", "MATH225"]],
     "corequisites": []
   },
   {
@@ -1164,39 +1164,39 @@
     "name": "Process Engineering Economics and Design",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
+    "prerequisites": [["ENCH427", "ENCH440"]],
+    "corequisites": [["ENCH445"]]
   },
   {
     "courseId": "ENCH445",
     "name": "Separation Processes",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH446",
     "name": "Process Engineering Economics and Design II",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
+    "availability": "1000",
+    "prerequisites": [["ENCH444", "ENCH445"]],
+    "corequisites": [["ENCH442"]]
   },
   {
     "courseId": "ENCH450",
     "name": "Chemical Process Development",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH468",
     "name": "Research Projects",
-    "credits": "3",
+    "credits": "1-3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427", "ENCH440", "ENGL100"]],
     "corequisites": []
   },
   {
@@ -1204,7 +1204,7 @@
     "name": "Chemical and Environmental Modeling",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
@@ -1212,39 +1212,39 @@
     "name": "Air Pollution",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH476",
     "name": "Environmental Risk Assessment & Remediation",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH482",
     "name": "Biochemical Engineering",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "0010",
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH484",
     "name": "Biomedical Engineering",
     "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
+    "availability": "1000",
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH485L",
     "name": "Biochemical Engineering Laboratory",
-    "credits": "1-3",
-    "availability": "1010",
-    "prerequisites": [],
+    "credits": "4",
+    "availability": "1000",
+    "prerequisites": [["ENCH482", "ENGL100"]],
     "corequisites": []
   },
   {
@@ -1252,22 +1252,22 @@
     "name": "A Survey of Sensors and Instrumentation",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
+    "prerequisites": [["ENCH427", "ENCH440"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH488",
     "name": "Electrochemical Engineering",
     "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
+    "availability": "0010",
+    "prerequisites": [["ENCH300"], ["ENCH427"]],
     "corequisites": []
   },
   {
     "courseId": "ENCH489",
     "name": "Special Topics in Environmental Engineering",
     "credits": "3",
-    "availability": "1010",
+    "availability": "0010",
     "prerequisites": [],
     "corequisites": []
   },
@@ -1484,7 +1484,7 @@
     "name": "Computer Science I",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["MATH150"],["MATH151"],["MATH152"],["MATH155"]],
+    "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]],
     "corequisites": []
   },
   {
@@ -1492,7 +1492,7 @@
     "name": "Computer Science II",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH 150"],["CMSC201","MATH151"],["CMSC201","MATH152"],["CMSC201","MATH155"]],
+    "prerequisites": [["CMSC201","MATH 150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
     "corequisites": []
   },
   {
@@ -1500,7 +1500,7 @@
     "name": "Discrete Structures",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["MATH140"],["MATH151"]],
+    "prerequisites": [["MATH140"], ["MATH151"]],
     "corequisites": []
   },
   {
@@ -1516,7 +1516,7 @@
     "name": "Computer Organization and Assembly Language Programming",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1524,7 +1524,7 @@
     "name": "Principles of Programming Language",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1533,14 +1533,14 @@
     "credits": "3",
     "availability": "1010",
     "prerequisites": [],
-    "corequisites": ["CMSC 341 "]
+    "corequisites": [["CMSC341"]]
   },
   {
     "courseId": "CMSC341",
     "name": "Data Structures",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1548,7 +1548,7 @@
     "name": "Women, Gender, and Information Technology",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["$IS..."],["$CMSC..."],["$GWST..."]],
+    "prerequisites": [["$IS..."], ["$CMSC..."], ["$GWST..."]],
     "corequisites": []
   },
   {
@@ -1564,7 +1564,7 @@
     "name": "Undergraduate Teaching Fellowship",
     "credits": "1-3",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH150"]],
+    "prerequisites": [["CMSC201", "MATH150"]],
     "corequisites": []
   },
   {
@@ -1572,7 +1572,7 @@
     "name": "Computer Architecture",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["CMSC313"],["CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC313"], ["CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1580,7 +1580,7 @@
     "name": "Principles of Operating Systems",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMSC341"],["CMSC341","CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC341", "CMSC341"], ["CMSC341", "CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1588,7 +1588,7 @@
     "name": "Principles of Computer Security",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["CMSC341","CMSC313"],["CMSC341","CMPE212", "CMPE310"]],
+    "prerequisites": [["CMSC341", "CMSC313"], ["CMSC341", "CMPE212", "CMPE310"]],
     "corequisites": []
   },
   {
@@ -1596,7 +1596,7 @@
     "name": "Scripting Languages",
     "credits": "3",
     "availability": "0100",
-    "prerequisites": ["CMSC331"],
+    "prerequisites": [["CMSC331"]],
     "corequisites": []
   },
   {
@@ -1604,7 +1604,7 @@
     "name": "Computer Graphics",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC313", "CMSC341","MATH221"],
+    "prerequisites": [["CMSC313", "CMSC341", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1612,7 +1612,7 @@
     "name": "Data Visualization",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1620,7 +1620,7 @@
     "name": "Graphical User Interface Programming",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221"],
+    "prerequisites": [["CMSC341", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1628,7 +1628,7 @@
     "name": "Graphics for Games",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","MATH151"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH151"]],
     "corequisites": []
   },
   {
@@ -1636,7 +1636,7 @@
     "name": "Design and Analysis of Algorithms",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","MATH152","CMPE320"],["CMSC341","MATH152","STAT355"],["CMSC341","MATH152","STAT451"]],
+    "prerequisites": [["CMSC341", "MATH152", "CMPE320"], ["CMSC341", "MATH152", "STAT355"], ["CMSC341", "MATH152", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1644,7 +1644,7 @@
     "name": "Information and Coding Theory",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["CMSC203","MATH221"],
+    "prerequisites": [["CMSC203", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1652,7 +1652,7 @@
     "name": "Cryptology",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","STAT355"],
+    "prerequisites": [["CMSC341", "MATH221", "STAT355"]],
     "corequisites": []
   },
   {
@@ -1660,7 +1660,7 @@
     "name": "Software Engineering I",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1668,7 +1668,7 @@
     "name": "Malware Analysis",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC313","CMSC341"],
+    "prerequisites": [["CMSC313", "CMSC341"]],
     "corequisites": []
   },
   {
@@ -1676,7 +1676,7 @@
     "name": "Automata Theory and Formal Languages",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC202","CMSC203"],
+    "prerequisites": [["CMSC202", "CMSC203"]],
     "corequisites": []
   },
   {
@@ -1684,7 +1684,7 @@
     "name": "Numerical Computations",
     "credits": "3",
     "availability": "0110",
-    "prerequisites": ["CMSC341","MATH221","MATH152"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH152"]],
     "corequisites": []
   },
   {
@@ -1692,7 +1692,7 @@
     "name": "Symbolic Computation",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341","MATH221","MATH152"],
+    "prerequisites": [["CMSC341", "MATH221", "MATH152"]],
     "corequisites": []
   },
   {
@@ -1700,7 +1700,7 @@
     "name": "Database Management Systems",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1708,7 +1708,7 @@
     "name": "Introduction to Data Science",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMPE320"],["CMSC341","STAT355"],["CMSC341","STAT451"]],
+    "prerequisites": [["CMSC341", "CMPE320"], ["CMSC341", "STAT355"], ["CMSC341", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1716,7 +1716,7 @@
     "name": "Data Privacy",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1724,7 +1724,7 @@
     "name": "Introduction to Artificial Intelligence",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1732,7 +1732,7 @@
     "name": "Introduction to Natural Language Processing",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","CMPE320"],["CMSC341","STAT355"],["CMSC341","STAT451"]],
+    "prerequisites": [["CMSC341", "CMPE320"], ["CMSC341", "STAT355"], ["CMSC341", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1740,7 +1740,7 @@
     "name": "Introduction to Neural Networks",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1748,7 +1748,7 @@
     "name": "Information Retrieval",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1756,7 +1756,7 @@
     "name": "Introduction to Robotics",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC471"],
+    "prerequisites": [["CMSC471"]],
     "corequisites": []
   },
   {
@@ -1764,7 +1764,7 @@
     "name": "Introduction to Machine Learning",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC341","MATH221","CMPE320"],["CMSC341","MATH221","STAT355"],["CMSC341","MATH221","STAT451"]],
+    "prerequisites": [["CMSC341", "MATH221", "CMPE320"], ["CMSC341", "MATH221", "STAT355"],["CMSC341", "MATH221", "STAT451"]],
     "corequisites": []
   },
   {
@@ -1772,7 +1772,7 @@
     "name": "Computer Networks",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1780,7 +1780,7 @@
     "name": "Parallel and Distributed Processing",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC421"],
+    "prerequisites": [["CMSC421"]],
     "corequisites": []
   },
   {
@@ -1788,7 +1788,7 @@
     "name": "Introduction to Network Security",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC421"],["CMSC481"]],
+    "prerequisites": [["CMSC421"], ["CMSC481"]],
     "corequisites": []
   },
   {
@@ -1796,7 +1796,7 @@
     "name": "Special Topics in Computer Science",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["CMSC341"],
+    "prerequisites": [["CMSC341"]],
     "corequisites": []
   },
   {
@@ -1804,7 +1804,7 @@
     "name": "Capstone Games Group Project",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["CMSC 435","CMSC471"],["CMSC438","CMSC471"]],
+    "prerequisites": [["CMSC435", "CMSC471"], ["CMSC438", "CMSC471"]],
     "corequisites": []
   },
   {
@@ -2120,6 +2120,22 @@
     "corequisites": []
   },
   {
+    "courseId": "MATH104",
+    "name": "Quantitative Literacy",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH106",
+    "name": "Algebra and Elementary Functions",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
     "courseId": "MATH120",
     "name": "Introduction to Contemporary Mathematics",
     "credits": "3",
@@ -2156,7 +2172,7 @@
     "name": "Calculus and Analytic Geometry II",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": [["MATH141"], ["MATH151"]],
+    "prerequisites": [["MATH151"]],
     "corequisites": []
   },
   {
@@ -2165,6 +2181,38 @@
     "credits": "4",
     "availability": "1110",
     "prerequisites": [["MATH106"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH215",
+    "name": "Applied Finite Mathematics",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [["MATH151"], ["MATH155"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH221",
+    "name": "Introduction to Linear Algebra",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [["MATH151"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH225",
+    "name": "Introduction to Differential Equations",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [["MATH152"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH251",
+    "name": "Multivariable Calculus",
+    "credits": "4",
+    "availability": "1110",
+    "prerequisites": [["MATH152"]],
     "corequisites": []
   },
   {
