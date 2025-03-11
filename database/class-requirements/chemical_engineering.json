@@ -17,12 +17,12 @@
     {
         "year": 1,
         "semester": "fall",
-        "requireId": "ENGLGEP"
+        "courseId": "ENGLGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "requireId": "AHGEP"
+        "courseId": "AHGEP"
     },
     {
         "year": 1,
@@ -72,7 +72,7 @@
     {
         "year": 2,
         "semester": "fall",
-        "requireId": "LANG101"
+        "courseId": "LANG101"
     },
     {
         "year": 2,
@@ -92,17 +92,17 @@
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "ASE"
+        "courseId": "ASE"
     },
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "AHGEP"
+        "courseId": "AHGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "LANG102"
+        "courseId": "LANG102"
     },
     {
         "year": 3,
@@ -127,7 +127,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "requireId": "LANG201"
+        "courseId": "LANG201"
     },
     {
         "year": 3,
@@ -152,12 +152,12 @@
     {
         "year": 3,
         "semester": "spring",
-        "requireId": "SSGEP"
+        "courseId": "SSGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "requireId": "AHGEP"
+        "courseId": "AHGEP"
     },
     {
         "year": 4,
@@ -177,36 +177,36 @@
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "ENCHXXX"
+        "courseId": "ENCHXXX"
     },
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "CGEP"
+        "courseId": "CGEP"
     },
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "SSGEP"
+        "courseId": "SSGEP"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCH446"
+        "courseId": "ENCH446"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCHXXX"
+        "courseId": "ENCHXXX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCHXXX"
+        "courseId": "ENCHXXX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "SSGEP"
+        "courseId": "SSGEP"
     }
 ]

@@ -27,84 +27,92 @@
 
     <!-- Include Code-->
     <script type="module" src="controller.js"></script>
-    
+
     <!-- Non-Modular functions-->
     <script src="non-modular.js"></script>
 </head>
 
 <body>
-
-    <div class="sidebar hide">
-        <button class="toggle-btn" onclick="toggleSidebar()"></button>
-        <button class="empty-btn" onclick="emptyBin()"></button>
-        <div class="dropzone"></div>
-    </div>
-    
-    <div id="page-container">
-        <img src="images/logo.svg" alt="Logo" class="umbc-logo">
-
-        <div class="toggle-container">
-            <label class="switch">
-                <input type="checkbox" id="dark-mode-toggle">
-                <span class="slider"></span>
-            </label>
+    <div id="content">
+        <div class="sidebar hide">
+            <button class="toggle-btn" onclick="toggleSidebar()"></button>
+            <button class="empty-btn" onclick="emptyBin()"></button>
+            <div class="dropzone"></div>
         </div>
 
-        <header role="banner" id="site-header">
-            <h1><span class="label">Four-Year Academic Pathways</span></h1>
-        </header>
+        <div id="page-container">
+            <img src="images/logo.svg" alt="Logo" class="umbc-logo">
 
-        <div class="major-minor-container">
-            <!-- Major Selection -->
-            <div class="col-md-6">
-                <h3>Select your Major(s):</h3>
-                <select id="major" name="major" class="searchable-dropdown form-select" multiple="multiple">
-                    <option value="business-technology-administration">Business Technology Administration</option>
-                    <option value="chemical-engineering">Chemical Engineering</option>
-                    <option value="computer-engineering">Computer Engineering</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
-                    <option value="mechanical-engineering">Mechanical Engineering</option>
-                </select>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
 
-            <!-- Minor Selection -->
-            <div class="col-md-6">
-                <h3>Select your Minor(s):</h3>
-                <select id="minor" name="minor" class="searchable-dropdown form-select" multiple="multiple">
-                    <option value="business-technology-administration">Business Technology Administration</option>
-                    <option value="chemical-engineering">Chemical Engineering</option>
-                    <option value="computer-engineering">Computer Engineering</option>
-                    <option value="computer-science">Computer Science</option>
-                    <option value="information-systems">Information Systems</option>
-                    <option value="mechanical-engineering">Mechanical Engineering</option>
-                </select>
+            <header role="banner" id="site-header">
+                <h1><span class="label">Four-Year Academic Pathways</span></h1>
+            </header>
+
+            <div class="container mt-5">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan
+                            Building</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#decomposer">Decomposer</a>
+                    </li>
+                </ul>
+
+                <!-- Tab content -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="classes">
+                        <div class="major-minor-container">
+                            <!-- Major Selection -->
+                            <div class="col-md-6">
+                                <h3>Select your Major(s):</h3>
+                                <select id="major" name="major" class="searchable-dropdown form-select"
+                                    multiple="multiple">
+                                    <option value="business_technology_administration">Business Technology
+                                        Administration</option>
+                                    <option value="chemical_engineering">Chemical Engineering</option>
+                                    <option value="computer_engineering_communications">Computer Engineering Communications</option>
+                                    <option value="computer_engineering_cybersecurity">Computer Engineering Cybersecurity</option>
+                                    <option value="computer_engineering_electronic_systems">Computer Engineering Electronic Systems</option>
+                                    <option value="computer_science">Computer Science</option>
+                                    <option value="information_systems">Information Systems</option>
+                                    <option value="mechanical_engineering">Mechanical Engineering</option>
+                                </select>
+                            </div>
+
+                            <!-- Minor Selection -->
+                            <div class="col-md-6">
+                                <h3>Select your Minor(s):</h3>
+                                <select id="minor" name="minor" class="searchable-dropdown form-select"
+                                    multiple="multiple">
+                                    <option value="management_minor">Business Technology
+                                        Administration</option>
+                                    <option value="computer_science_minor">Computer Science</option>
+                                    <option value="computing_minor">Computing</option>
+                                    <option value="information_systems_minor">Information Systems</option>
+                                </select>
+                            </div>
+
+                            <button id="loadAllClassesButton" class ="primary-button btn btn-primary" style="margin:10px">Generate Schedule</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="search"></div>
+                    <div class="tab-pane fade" id="decomposer"></div>
+                </div>
             </div>
         </div>
-
-        <div class="container mt-5">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#decomposer">Decomposer</a>
-                </li>
-            </ul>
-        
-            <!-- Tab content -->
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="classes"></div>
-                <div class="tab-pane fade" id="search"></div>
-                <div class="tab-pane fade" id="decomposer"></div>
-            </div>
-        </div>        
     </div>
-
+    <img src="images/umbc.png" class="spinner" alt="UMBC Logo">
 </body>
 
 </html>
