@@ -46,7 +46,20 @@ async function setupSQL() {
             [course.courseId, course.name, course.credits, course.availability, JSON.stringify(course.prerequisites)]);
     });
 
-    const requirementFiles = ["computer_science"];
+    const requirementFiles = [
+        "business_technology_administration",
+        "chemical_engineering",
+        "computer_engineering_communications",
+        "computer_engineering_cybersecurity",
+        "computer_engineering_electronic_systems",
+        "computer_science_minor",
+        "computer_science",
+        "computing_minor",
+        "information_systems_minor",
+        "information_systems",
+        "management_minor",
+        "mechanical_engineering"
+    ];
 
     for (const file of requirementFiles) {
         const response = await fetch(`database/class-requirements/${file}.json`);

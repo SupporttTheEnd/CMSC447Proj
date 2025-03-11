@@ -34,8 +34,6 @@
 
 <body>
     <div id="content">
-
-
         <div class="sidebar hide">
             <button class="toggle-btn" onclick="toggleSidebar()"></button>
             <button class="empty-btn" onclick="emptyBin()"></button>
@@ -80,13 +78,15 @@
                                 <h3>Select your Major(s):</h3>
                                 <select id="major" name="major" class="searchable-dropdown form-select"
                                     multiple="multiple">
-                                    <option value="business-technology-administration">Business Technology
+                                    <option value="business_technology_administration">Business Technology
                                         Administration</option>
-                                    <option value="chemical-engineering">Chemical Engineering</option>
-                                    <option value="computer-engineering">Computer Engineering</option>
-                                    <option value="computer-science">Computer Science</option>
-                                    <option value="information-systems">Information Systems</option>
-                                    <option value="mechanical-engineering">Mechanical Engineering</option>
+                                    <option value="chemical_engineering">Chemical Engineering</option>
+                                    <option value="computer_engineering_communications">Computer Engineering Communications</option>
+                                    <option value="computer_engineering_cybersecurity">Computer Engineering Cybersecurity</option>
+                                    <option value="computer_engineering_electronic_systems">Computer Engineering Electronic Systems</option>
+                                    <option value="computer_science">Computer Science</option>
+                                    <option value="information_systems">Information Systems</option>
+                                    <option value="mechanical_engineering">Mechanical Engineering</option>
                                 </select>
                             </div>
 
@@ -95,15 +95,15 @@
                                 <h3>Select your Minor(s):</h3>
                                 <select id="minor" name="minor" class="searchable-dropdown form-select"
                                     multiple="multiple">
-                                    <option value="business-technology-administration">Business Technology
+                                    <option value="management_minor">Business Technology
                                         Administration</option>
-                                    <option value="chemical-engineering">Chemical Engineering</option>
-                                    <option value="computer-engineering">Computer Engineering</option>
-                                    <option value="computer-science">Computer Science</option>
-                                    <option value="information-systems">Information Systems</option>
-                                    <option value="mechanical-engineering">Mechanical Engineering</option>
+                                    <option value="computer_science_minor">Computer Science</option>
+                                    <option value="computing_minor">Computing</option>
+                                    <option value="information_systems_minor">Information Systems</option>
                                 </select>
                             </div>
+
+                            <button id="loadAllClassesButton" class ="primary-button btn btn-primary" style="margin:10px">Generate Schedule</button>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="search"></div>

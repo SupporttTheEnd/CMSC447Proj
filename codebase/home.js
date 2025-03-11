@@ -4,11 +4,10 @@ export async function main() {
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
-    await loadAndPopulateClasses();
-    updateCredits();
     dragAndDropEnable();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    document.getElementById("loadAllClassesButton").addEventListener("click", loadAndPopulateClasses);
 }
 
 function initializeSelect2() {
@@ -157,15 +156,34 @@ function handleAdditionalSessions(event) {
 }
 
 async function loadAndPopulateClasses() {
+    clearClasses();
+
+    const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
+        .map(option => option.value);
+    const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
+        .map(option => option.value);
+
+    const selectedPrograms = [...selectedMajors, ...selectedMinors];
+
+    for (const program of selectedPrograms) {
+        await populateClass(program);
+    }
+
+    updateCredits();
+}
+
+async function populateClass(className) {
     const db = window.globalVariables.db;
 
     const query = `
-        SELECT classes.courseId, classes.name, classes.credits, computer_science.year, computer_science.semester
+        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester
         FROM classes
-        JOIN computer_science ON classes.courseId = computer_science.courseId
+        JOIN ${className} ON classes.courseId = ${className}.courseId
     `;
 
     const result = db.exec(query);
+    if (!result.length) return;  
+
     const combinedData = result[0].values.map(row => {
         return {
             courseId: row[0],
@@ -198,6 +216,14 @@ async function loadAndPopulateClasses() {
 
             semesterContainer.appendChild(classDiv);
         }
+    });
+}
+
+function clearClasses() {
+    const dropzones = document.querySelectorAll(`#classes .dropzone`);
+    
+    dropzones.forEach(dropzone => {
+        dropzone.innerHTML = "";
     });
 }
 
