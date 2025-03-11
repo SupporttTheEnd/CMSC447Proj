@@ -70,7 +70,6 @@ function generateYears(addNew = false) {
         return;
     }
 
-    container.innerHTML = "";
     for (let i = 1; i <= window.globalVariables.years; i++) {
         container.appendChild(createYear(i));
     }
