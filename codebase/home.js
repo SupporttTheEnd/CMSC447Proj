@@ -4,7 +4,6 @@ export async function main() {
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
-    dragAndDropEnable();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
     document.getElementById("loadAllClassesButton").addEventListener("click", loadAndPopulateClasses);
@@ -176,7 +175,8 @@ async function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         await populateClass(program);
     }
-
+    
+    dragAndDropEnable();
     updateCredits();
 }
 
