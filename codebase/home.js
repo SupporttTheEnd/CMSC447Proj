@@ -6,7 +6,7 @@ export async function main() {
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
-    document.getElementById("loadAllClassesButton").addEventListener("click", loadAndPopulateClasses);
+    document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
 function initializeSelect2() {
