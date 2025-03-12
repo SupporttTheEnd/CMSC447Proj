@@ -4,7 +4,6 @@ export async function main() {
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
-    dragAndDropEnable();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
     document.getElementById("loadAllClassesButton").addEventListener("click", loadAndPopulateClasses);
@@ -20,18 +19,26 @@ function initializeSelect2() {
 
 function setupMajorMinorValidation() {
     $('#major').on('change', function () {
-        let selectedMajors = $(this).val() || [];
+        let selectedMajors = $(this).find(':selected').map(function () {
+            return $(this).text();
+        }).get();
+
         $('#minor option').each(function () {
-            $(this).prop('disabled', selectedMajors.includes($(this).val()));
+            $(this).prop('disabled', selectedMajors.includes($(this).text()));
         });
+
         $('#minor').trigger('change.select2');
     });
 
     $('#minor').on('change', function () {
-        let selectedMinors = $(this).val() || [];
+        let selectedMinors = $(this).find(':selected').map(function () {
+            return $(this).text();
+        }).get();
+
         $('#major option').each(function () {
-            $(this).prop('disabled', selectedMinors.includes($(this).val()));
+            $(this).prop('disabled', selectedMinors.includes($(this).text()));
         });
+
         $('#major').trigger('change.select2');
     });
 }
@@ -168,7 +175,8 @@ async function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         await populateClass(program);
     }
-
+    
+    dragAndDropEnable();
     updateCredits();
 }
 
@@ -182,7 +190,7 @@ async function populateClass(className) {
     `;
 
     const result = db.exec(query);
-    if (!result.length) return;  
+    if (!result.length) return;
 
     const combinedData = result[0].values.map(row => {
         return {
@@ -221,7 +229,7 @@ async function populateClass(className) {
 
 function clearClasses() {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
-    
+
     dropzones.forEach(dropzone => {
         dropzone.innerHTML = "";
     });
