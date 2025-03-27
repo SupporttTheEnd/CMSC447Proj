@@ -1,5 +1,6 @@
 import * as home from './codebase/home.js';
 import * as search from './codebase/search.js';
+import * as exam from './codebase/exam.js';
 
 window.globalVariables = {
     years: 4,
@@ -17,6 +18,7 @@ async function controller() {
     await setupSQL();
     await home.main();
     await search.main();
+    await exam.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';

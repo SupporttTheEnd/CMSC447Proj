@@ -1,6 +1,6 @@
 export async function main() {
     await loadTabContent('search');
-    await loadTabContent('decomposer');
+    await loadTabContent('exam');
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();

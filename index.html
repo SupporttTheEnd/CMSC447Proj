@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    
     <div id="content">
         <div class="sidebar hide">
             <button class="toggle-btn" onclick="toggleSidebar()"></button>
@@ -41,13 +42,16 @@
         </div>
 
         <div id="page-container">
-            <img src="images/logo.svg" alt="Logo" class="umbc-logo">
+            <div id="top-bar"> 
+                <img src="images/logo.svg" alt="Logo" class="umbc-logo">
 
-            <div class="toggle-container">
-                <label class="switch">
-                    <input type="checkbox" id="dark-mode-toggle">
-                    <span class="slider"></span>
-                </label>
+                <div class="toggle-container">
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
             </div>
 
             <header role="banner" id="site-header">
@@ -65,7 +69,7 @@
                         <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#decomposer">Decomposer</a>
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#exam">Search APs</a>
                     </li>
                 </ul>
 
@@ -107,7 +111,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="search"></div>
-                    <div class="tab-pane fade" id="decomposer"></div>
+                    <div class="tab-pane fade" id="exam"></div>
                 </div>
             </div>
         </div>
