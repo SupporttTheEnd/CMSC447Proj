@@ -2496,6 +2496,14 @@
     "corequisites": []
   },
   {
+    "courseId": "AFST100",
+    "name": " Introduction to the Black Experience",
+    "credits": 3,
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
     "courseId": "AFST211",
     "name": "Introduction to Contemporary Africa",
     "credits": 3,
@@ -2781,6 +2789,14 @@
     "credits": 3,
     "availability": "1000",
     "prerequisites": [["ENGL100", "$ARCH..."], ["ENGL100", "ANTH211"], ["ENGL100", "HIST453"], ["ENGL100", "HIST455"], ["ENGL100", "HIST456"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ART214",
+    "name": "Drawing I/Beginning Drawing",
+    "credits": 3,
+    "availability": "1000",
+    "prerequisites": [],
     "corequisites": []
   },
   {

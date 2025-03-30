@@ -1,12 +1,12 @@
 export async function main() {
     await loadTabContent('search');
-    await loadTabContent('decomposer');
+    await loadTabContent('exam');
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
-    document.getElementById("loadAllClassesButton").addEventListener("click", loadAndPopulateClasses);
+    document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
 function initializeSelect2() {
