@@ -142,7 +142,7 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "$IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
@@ -162,7 +162,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "$IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
@@ -172,12 +172,12 @@
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "$IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "$IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,

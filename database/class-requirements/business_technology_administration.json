@@ -107,7 +107,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "$MGMT4XX"
+        "courseId": "$MGMT3XX"
     },
     {
         "year": 3,
@@ -147,7 +147,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "$IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
@@ -157,7 +157,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "$BTA4XX"
+        "courseId": "$MGMT3XX"
     },
     {
         "year": 4,
