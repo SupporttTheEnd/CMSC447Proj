@@ -17,12 +17,12 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ENGLGEP"
+        "courseId": "$ENGLGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "LANG101"
+        "courseId": "$LANG101"
     },
     {
         "year": 1,
@@ -47,7 +47,7 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "LANG102"
+        "courseId": "$LANG102"
     },
     {
         "year": 2,
@@ -67,12 +67,12 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "LANG201"
+        "courseId": "$LANG201"
     },
     {
         "year": 2,
@@ -97,7 +97,7 @@
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 3,
@@ -117,7 +117,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "SCIENCE"
+        "courseId": "$SCIENCE"
     },
     {
         "year": 3,
@@ -142,12 +142,12 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CGEP"
+        "courseId": "$CGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 4,
@@ -162,17 +162,17 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "COMMUNICATIONSA"
+        "courseId": "$COMMUNICATIONSA"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "COMMUNICATIONSA"
+        "courseId": "$COMMUNICATIONSA"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 4,
@@ -187,16 +187,16 @@
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "COMMUNICATIONSAB"
+        "courseId": "$COMMUNICATIONSAB"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     }
 ]

@@ -22,7 +22,7 @@
     {
         "year": 1,
         "semester": "fall",
-        "requireId": "AHGEP"
+        "requireId": "$AHGEP"
     },
     {
         "year": 1,
@@ -72,7 +72,7 @@
     {
         "year": 2,
         "semester": "fall",
-        "requireId": "LANG101"
+        "requireId": "$LANG101"
     },
     {
         "year": 2,
@@ -92,17 +92,17 @@
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "ASE"
+        "requireId": "$ASE"
     },
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "AHGEP"
+        "requireId": "$AHGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "requireId": "LANG102"
+        "requireId": "$LANG102"
     },
     {
         "year": 3,
@@ -127,7 +127,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "requireId": "LANG201"
+        "requireId": "$LANG201"
     },
     {
         "year": 3,
@@ -152,12 +152,12 @@
     {
         "year": 3,
         "semester": "spring",
-        "requireId": "SSGEP"
+        "requireId": "$SSGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "requireId": "AHGEP"
+        "requireId": "$AHGEP"
     },
     {
         "year": 4,
@@ -177,17 +177,17 @@
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "ENCHXXX"
+        "requireId": "$ENCHXXX"
     },
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "CGEP"
+        "requireId": "$CGEP"
     },
     {
         "year": 4,
         "semester": "fall",
-        "requireId": "SSGEP"
+        "requireId": "$SSGEP"
     },
     {
         "year": 4,
@@ -197,16 +197,16 @@
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCHXXX"
+        "requireId": "$ENCHXXX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCHXXX"
+        "requireId": "$ENCHXXX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "SSGEP"
+        "requireId": "$SSGEP"
     }
 ]
