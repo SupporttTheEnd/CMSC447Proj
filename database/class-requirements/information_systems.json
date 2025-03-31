@@ -17,12 +17,12 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ENGLGEP"
+        "courseId": "$ENGLGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "LANG101"
+        "courseId": "$LANG101"
     },
     {
         "year": 1,
@@ -42,17 +42,17 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "SCIENCE"
+        "courseId": "$SCIENCE"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "LANG102"
+        "courseId": "$LANG102"
     },
     {
         "year": 2,
@@ -72,12 +72,12 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "LANG201"
+        "courseId": "$LANG201"
     },
     {
         "year": 2,
@@ -97,12 +97,12 @@
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "CGEP"
+        "courseId": "$CGEP"
     },
     {
         "year": 3,
@@ -117,7 +117,7 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "SCIENCELAB"
+        "courseId": "$SCIENCELAB"
     },
     {
         "year": 3,
@@ -137,12 +137,12 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
@@ -152,7 +152,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "PROGELECTIVE"
+        "courseId": "$PROGELECTIVE"
     },
     {
         "year": 4,
@@ -162,7 +162,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
@@ -172,16 +172,16 @@
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "IS4XX"
+        "courseId": "$IS3XX"
     },
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "PROGELECTIVE?"
+        "courseId": "$PROGELECTIVE?"
     }
 ]
