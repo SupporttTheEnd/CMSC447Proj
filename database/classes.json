@@ -50,7 +50,7 @@
   {
     "courseId": "ARBC202",
     "name": "Intermediate Arabic II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1000",
     "prerequisites": [["ARBC201"]],
     "corequisites": []
@@ -82,7 +82,7 @@
   {
     "courseId": "CHIN202",
     "name": "Intermediate Chinese II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1000",
     "prerequisites": [["CHIN102"]],
     "corequisites": []
@@ -90,7 +90,7 @@
   {
     "courseId": "CHIN301",
     "name": "Advanced Chinese I",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["CHIN102"]],
     "corequisites": []
@@ -98,7 +98,7 @@
   {
     "courseId": "CHIN302",
     "name": "Advanced Chinese II",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["CHIN102"]],
     "corequisites": []
@@ -130,7 +130,7 @@
   {
     "courseId": "FREN202",
     "name": "Intermediate French II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1010",
     "prerequisites": [["FREN201"]],
     "corequisites": []
@@ -138,7 +138,7 @@
   {
     "courseId": "FREN301",
     "name": "Advanced French I",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["FREN202"]],
     "corequisites": []
@@ -242,7 +242,7 @@
   {
     "courseId": "JPNS202",
     "name": "Intermediate Japanese II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1000",
     "prerequisites": [["JPNS201"]],
     "corequisites": []
@@ -274,7 +274,7 @@
   {
     "courseId": "KORE202",
     "name": "Intermediate Korean II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1010",
     "prerequisites": [["KORE201"]],
     "corequisites": []
@@ -282,7 +282,7 @@
   {
     "courseId": "KORE301",
     "name": "Advanced Korean I",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["KORE202"]],
     "corequisites": []
@@ -290,7 +290,7 @@
   {
     "courseId": "KORE302",
     "name": "Advanced Korean II",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["KORE301"]],
     "corequisites": []
@@ -298,7 +298,7 @@
   {
     "courseId": "KORE309",
     "name": "Korean for Professional Purposes",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["KORE302"]],
     "corequisites": []
@@ -306,7 +306,7 @@
   {
     "courseId": "KORE310",
     "name": "Korean in Social and Cultural Context",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["KORE302"]],
     "corequisites": []
@@ -378,7 +378,7 @@
   {
     "courseId": "RUSS301",
     "name": "Continuing Russian II",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["RUSS202"]],
     "corequisites": []
@@ -386,7 +386,7 @@
   {
     "courseId": "RUSS302",
     "name": "Continuing Russian III",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["RUSS301"]],
     "corequisites": []
@@ -394,7 +394,7 @@
   {
     "courseId": "RUSS401",
     "name": "Advanced Russian I",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["RUSS302"]],
     "corequisites": []
@@ -402,7 +402,7 @@
   {
     "courseId": "RUSS402",
     "name": "Advanced Russian II",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["RUSS401"]],
     "corequisites": []
@@ -434,7 +434,7 @@
   {
     "courseId": "SPAN202",
     "name": "Intermediate Spanish II",
-    "credits": 4,
+    "credits": "4",
     "availability": "1010",
     "prerequisites": [["SPAN201"]],
     "corequisites": []
@@ -442,7 +442,7 @@
   {
     "courseId": "SPAN301",
     "name": "Advanced Spanish I",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["SPAN202"]],
     "corequisites": []
@@ -450,7 +450,7 @@
   {
     "courseId": "SPAN302",
     "name": "Advanced Spanish II",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["SPAN301"]],
     "corequisites": []
@@ -458,7 +458,7 @@
   {
     "courseId": "SPAN304",
     "name": "Spanish for Heritage Spanish Speakers I",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -466,7 +466,7 @@
   {
     "courseId": "SPAN307",
     "name": "Historias, culturas y políticas de España",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["SPAN301"], ["SPAN304"]],
     "corequisites": []
@@ -474,7 +474,7 @@
   {
     "courseId": "SPAN308",
     "name": "Historias, culturas y políticas de Latinoamérica",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["SPAN301"], ["SPAN304"]],
     "corequisites": []
@@ -2498,7 +2498,7 @@
   {
     "courseId": "AFST100",
     "name": " Introduction to the Black Experience",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2506,7 +2506,7 @@
   {
     "courseId": "AFST211",
     "name": "Introduction to Contemporary Africa",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2514,7 +2514,7 @@
   {
     "courseId": "AFST212",
     "name": "Introduction to African History",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2522,7 +2522,7 @@
   {
     "courseId": "AFST213",
     "name": "Africa: Culture and Development",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2530,7 +2530,7 @@
   {
     "courseId": "AFST245",
     "name": "Introduction to Black Music",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2538,7 +2538,7 @@
   {
     "courseId": "AFST347",
     "name": "Gender, Race, and Media",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2546,7 +2546,7 @@
   {
     "courseId": "AFST353",
     "name": "African American History Since 1865",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2554,7 +2554,7 @@
   {
     "courseId": "AFST370",
     "name": "Black Women: Cross-Cultural Perspectives",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2562,7 +2562,7 @@
   {
     "courseId": "AGNG360",
     "name": "Global Aging",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2570,7 +2570,7 @@
   {
     "courseId": "AGNG369",
     "name": "Contemporary Issues, Culture, and Social Work Practices in Aging",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2578,7 +2578,7 @@
   {
     "courseId": "AMST200",
     "name": "What is an American?",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2586,7 +2586,7 @@
   {
     "courseId": "AMST245",
     "name": "Arab and Muslim Experiences in the United States",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2594,7 +2594,7 @@
   {
     "courseId": "AMST345",
     "name": "Indigenous Heritage: Issues of Representation and Ownership",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2602,7 +2602,7 @@
   {
     "courseId": "AMST395",
     "name": "American Music and Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2610,7 +2610,7 @@
   {
     "courseId": "ANCS150",
     "name": "English Word Roots from Latin and Greek",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2618,7 +2618,7 @@
   {
     "courseId": "ANCS200",
     "name": "Israel and the Ancient Near East",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2626,7 +2626,7 @@
   {
     "courseId": "ANCS201",
     "name": "The Ancient Greeks",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2634,7 +2634,7 @@
   {
     "courseId": "ANCS202",
     "name": "The Roman World",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2642,7 +2642,7 @@
   {
     "courseId": "ANCS210",
     "name": "Classical Mythology",
-    "credits": 3,
+    "credits": "3",
     "availability": "0110",
     "prerequisites": [],
     "corequisites": []
@@ -2650,7 +2650,7 @@
   {
     "courseId": "ANCS305",
     "name": "Warfare in the Ancient World",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2658,7 +2658,7 @@
   {
     "courseId": "ANCS375",
     "name": "Ancient Medicine",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2666,7 +2666,7 @@
   {
     "courseId": "ANCS453",
     "name": "Ancient Greece",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2674,7 +2674,7 @@
   {
     "courseId": "ANCS455",
     "name": "The Roman Republic",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2682,7 +2682,7 @@
   {
     "courseId": "ANTH101",
     "name": "Introduction to Anthropology",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2690,7 +2690,7 @@
   {
     "courseId": "ANTH211",
     "name": "Cultural Anthropology",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2698,7 +2698,7 @@
   {
     "courseId": "ANTH214",
     "name": "Focused Cultural Study: South Asia",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2706,7 +2706,7 @@
   {
     "courseId": "ANTH224",
     "name": "Focused Cultural Study: The Caribbean",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2714,7 +2714,7 @@
   {
     "courseId": "ANTH302",
     "name": "Human Evolution, Physical Anthropology, and Archaeology",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["ANTH211"], ["SOCY101"]],
     "corequisites": []
@@ -2722,7 +2722,7 @@
   {
     "courseId": "ANTH316",
     "name": "Anthropology of Religion",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["ANTH211"], ["SOCY101"]],
     "corequisites": []
@@ -2730,7 +2730,7 @@
   {
     "courseId": "ANTH326",
     "name": "American Indian Cultures",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["ANTH211"], ["SOCY101"]],
     "corequisites": []
@@ -2738,7 +2738,7 @@
   {
     "courseId": "ARCH100",
     "name": "Introduction to the Archaeology of the Ancient World",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2746,7 +2746,7 @@
   {
     "courseId": "ARCH120",
     "name": "World Archaeology",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2754,7 +2754,7 @@
   {
     "courseId": "ARCH200",
     "name": "Greek Archaeology and Art",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2762,7 +2762,7 @@
   {
     "courseId": "ARCH201",
     "name": "Roman Archaeology and Art",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2770,7 +2770,7 @@
   {
     "courseId": "ARCH220",
     "name": "Archaeology and Art of Ancient Egypt",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2778,7 +2778,7 @@
   {
     "courseId": "ARCH330",
     "name": "Archaeology and Art of the Prehistoric Aegean",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["ENGL100", "$ARCH..."], ["ENGL100", "ANTH211"], ["ENGL100", "HIST453"], ["ENGL100", "HIST455"], ["ENGL100", "HIST456"]],
     "corequisites": []
@@ -2786,7 +2786,7 @@
   {
     "courseId": "ARCH340",
     "name": "Cities of the Past",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["ENGL100", "$ARCH..."], ["ENGL100", "ANTH211"], ["ENGL100", "HIST453"], ["ENGL100", "HIST455"], ["ENGL100", "HIST456"]],
     "corequisites": []
@@ -2794,7 +2794,7 @@
   {
     "courseId": "ART214",
     "name": "Drawing I/Beginning Drawing",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2802,7 +2802,7 @@
   {
     "courseId": "ART216",
     "name": "Studies in Visual Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2810,7 +2810,7 @@
   {
     "courseId": "ART321",
     "name": "From the Enlightenment to the Birth of Modernism (1750-1880)",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["ART216"], ["ART221"]],
     "corequisites": []
@@ -2818,7 +2818,7 @@
   {
     "courseId": "ART376",
     "name": "Origins and Issues of Print Media",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["ART215"], ["ART216"]],
     "corequisites": []
@@ -2826,7 +2826,7 @@
   {
     "courseId": "CSST210",
     "name": "Introduction to Critical Sexuality Studies",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2834,7 +2834,7 @@
   {
     "courseId": "CSST345",
     "name": "Unruly Bodies",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2842,7 +2842,7 @@
   {
     "courseId": "DANC201",
     "name": "Dance History I: Cultural and Classical Forms",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2850,7 +2850,7 @@
   {
     "courseId": "ECON382",
     "name": "Asian Economic History",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["ENGL100", "ECON101"], ["ENGL100", "ECON102"]],
     "corequisites": []
@@ -2858,7 +2858,7 @@
   {
     "courseId": "EDHS340",
     "name": "Cultural Diversity in Healthcare",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["$SSGEP"]],
     "corequisites": []
@@ -2866,7 +2866,7 @@
   {
     "courseId": "ENGL191",
     "name": "The World of Language II",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2874,7 +2874,7 @@
   {
     "courseId": "GREK352",
     "name": "Greek Tragedy and Comedy",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["GREK201"]],
     "corequisites": []
@@ -2882,7 +2882,7 @@
   {
     "courseId": "GWST100",
     "name": "Introduction to Gender and Women's Studies",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2890,7 +2890,7 @@
   {
     "courseId": "GWST315",
     "name": "Modern Masculinities",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -2898,7 +2898,7 @@
   {
     "courseId": "GWST340",
     "name": "Women, Gender and Globalization",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2906,7 +2906,7 @@
   {
     "courseId": "GWST366",
     "name": "Western Sexuality",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2914,7 +2914,7 @@
   {
     "courseId": "GWST379",
     "name": "Intimate Partner Violence, A Social Work Perspective",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["PSYC100"], ["SOCY101"]],
     "corequisites": []
@@ -2922,7 +2922,7 @@
   {
     "courseId": "GWST380",
     "name": "Women and Gender in Asia",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2930,7 +2930,7 @@
   {
     "courseId": "HIST103",
     "name": "East Asian Civilization",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2938,7 +2938,7 @@
   {
     "courseId": "HIST103",
     "name": "East Asian Civilization",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2946,7 +2946,7 @@
   {
     "courseId": "HIST110",
     "name": "Western Civilization to 1700",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2954,7 +2954,7 @@
   {
     "courseId": "HIST111",
     "name": "Western Civilization 1700 to Present",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2962,7 +2962,7 @@
   {
     "courseId": "HIST206",
     "name": "Entrepreneurs in the Early Modern World",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2970,7 +2970,7 @@
   {
     "courseId": "HIST208",
     "name": "Global Terrorism",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -2978,7 +2978,7 @@
   {
     "courseId": "HIST358",
     "name": "Art and Society in the Renaissance",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2986,7 +2986,7 @@
   {
     "courseId": "HIST361",
     "name": "The French Revolution",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -2994,7 +2994,7 @@
   {
     "courseId": "HIST373",
     "name": "Global Terrorism",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3002,7 +3002,7 @@
   {
     "courseId": "HIST388",
     "name": "Society and Culture in China",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3010,7 +3010,7 @@
   {
     "courseId": "HIST468",
     "name": "The Age of Enlightenment",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3018,7 +3018,7 @@
   {
     "courseId": "HIST485",
     "name": "Russia to 1900",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3026,7 +3026,7 @@
   {
     "courseId": "JDST100",
     "name": "Introduction to Judaic Studies",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3034,7 +3034,7 @@
   {
     "courseId": "JDST274",
     "name": "Contemporary Jewish History: 1917 to the Presen",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3042,7 +3042,7 @@
   {
     "courseId": "JDST323",
     "name": "Modern Hebrew Literature",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3050,7 +3050,7 @@
   {
     "courseId": "JDST373",
     "name": "History of the Holocaust",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3058,7 +3058,7 @@
   {
     "courseId": "LING230",
     "name": "History of the Holocaust",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3066,7 +3066,7 @@
   {
     "courseId": "MLL219",
     "name": "Contemporary French Cinema",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3074,7 +3074,7 @@
   {
     "courseId": "MLL220",
     "name": "Film and Society in China",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3082,7 +3082,7 @@
   {
     "courseId": "MLL305",
     "name": "Introduction to Intercultural Communication",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3090,7 +3090,7 @@
   {
     "courseId": "MLL311",
     "name": "Introduction to Korean Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3098,7 +3098,7 @@
   {
     "courseId": "MLL315",
     "name": "Images of Society in Contemporary Korean Films",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3106,7 +3106,7 @@
   {
     "courseId": "MLL327",
     "name": "Modern Japanese Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3114,7 +3114,7 @@
   {
     "courseId": "MLL328",
     "name": "Traditional Chinese Fiction and Drama",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3122,7 +3122,7 @@
   {
     "courseId": "MLL334",
     "name": "Modern Chinese Poetry and Lyric Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [],
     "corequisites": []
@@ -3130,7 +3130,7 @@
   {
     "courseId": "MUSC230",
     "name": "Musics of the World",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3138,15 +3138,15 @@
   {
     "courseId": "MUSC252",
     "name": "Music in Wartime",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
-    "prerequisites": [["?AH1XX"]],
+    "prerequisites": [["$AH1XX"]],
     "corequisites": []
   },
   {
     "courseId": "MUSC321",
     "name": "Music History I",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["MUSC126"]],
     "corequisites": []
@@ -3154,7 +3154,7 @@
   {
     "courseId": "MUSC321",
     "name": "Music History I",
-    "credits": 3,
+    "credits": "3",
     "availability": "0010",
     "prerequisites": [["MUSC126"]],
     "corequisites": []
@@ -3162,7 +3162,7 @@
   {
     "courseId": "MUSC334",
     "name": "Women in Music",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [["ENGL100"]],
     "corequisites": []
@@ -3170,15 +3170,15 @@
   {
     "courseId": "PHIL357",
     "name": "Philosophy and Human Rights",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
-    "prerequisites": [["?PHILXXX"]],
+    "prerequisites": [["$PHILXXX"]],
     "corequisites": []
   },
   {
     "courseId": "POLI270",
     "name": "Culture and Politics",
-    "credits": 3,
+    "credits": "3",
     "availability": "1000",
     "prerequisites": [],
     "corequisites": []
@@ -3186,7 +3186,7 @@
   {
     "courseId": "PSYC230",
     "name": "Psychology and Culture",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [["PSYC100"]],
     "corequisites": []
@@ -3194,7 +3194,7 @@
   {
     "courseId": "SOCY204",
     "name": "Diversity and Pluralism: An Interdisciplinary Perspective",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
@@ -3202,7 +3202,7 @@
   {
     "courseId": "SOCY370",
     "name": "Sociology of Law",
-    "credits": 3,
+    "credits": "3",
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
