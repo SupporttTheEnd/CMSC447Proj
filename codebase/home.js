@@ -365,7 +365,7 @@ function checkClassSequence() {
         }
 
         if (JSON.parse(course.dataset.prereqs).length) {
-            prereqIsFullfilled(course);
+            prereqIsFulfilled(course);
         }
     })
     // bubble up
@@ -384,25 +384,29 @@ function coreqIsFulfilled(course) {
     console.log(course.closest('.container'));
 }
 
-function prereqIsFullfilled(course) {
-    // console.log(course);
+function prereqIsFulfilled(course) {
+    console.log(course);
+
     const SEMESTERS = {"fall": 1, "winter": 2, "spring": 3, "summer": 4};
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = parseInt(course.closest('.container').classList[3].slice(-1));
-    const semester = SEMESTERS[course.parentElement.classList[0]];
+    const semester = course.parentElement.classList[0];
+    let isFulfilled = 0;
 
-    console.log(prereqs)
-    console.log(year)
-    console.log(semester)
+    // console.log(prereqs)
+    // console.log(year)
+    // console.log(semester)
 
     // Iterates through each prereq combination
     prereqs.forEach(prereq => {
         console.log(prereq)
+
         const numberPrereqs = prereq.length;
-        const numberFullfilled = 0;
+        let numberFulfilled = 0;
 
         console.log(numberPrereqs)
-        console.log(numberFullfilled)
+        console.log(numberFulfilled)
+
         // Iterates through each requirement in prereq combination
         prereq.forEach(requirement => {
             console.log(requirement)
@@ -412,14 +416,17 @@ function prereqIsFullfilled(course) {
                 // Iterates through each semester
                 for (let j = 1; j <= 4; j++) {
                     // Checks if year and semester is same as requirement's year and semester
-                    if (i === year && j === semester) {
+                    console.log(i, j)
+                    if (i === year && j === SEMESTERS[semester]) {
                         break;
                     }
-                    
+                    // SEMESTER WILL ALWAYS BE CURRENT COURSE SEMESTER NEED TO UPDATE
                     const parent = document.querySelector(`.year-${i} .${semester}.dropzone`);
+
+                    console.log(parent)
                     
                     // Checks if semester contains requirement
-                    if (parent.contains(`#${course.id}`)) {
+                    if (parent.querySelector(`#${course.id}`)) {
                         numberFulfilled += 1;
                     }
                 }
@@ -427,23 +434,29 @@ function prereqIsFullfilled(course) {
         })
 
         // Checks if a prereq combination was fulfilled
-        if (numberPrereqs === numberFullfilled) {
-            break;
+        if (numberPrereqs === numberFulfilled) {
+            isFulfilled = 1;
         }
     })
-    console.log("HERE")
-    const parent = document.querySelector(`.year-1 .fall.dropzone`)
-    if (parent.querySelector("#" + "MATH151")) {
-        console.log("ONE")
+
+    if (isFulfilled) {
+        console.log("FULFILLED")
     } else {
-        console.log("TWO")
+        console.log("NOT FULFILLED")
     }
 
-    if(parent.querySelector("#" + "MATH152")) {
-        console.log("THREE")
-    } else {
-        console.log("FOUR")
-    }
+    // const parent = document.querySelector(`.year-1 .fall.dropzone`)
+    // if (parent.querySelector("#" + "MATH151")) {
+    //     console.log("ONE")
+    // } else {
+    //     console.log("TWO")
+    // }
+
+    // if(parent.querySelector("#" + "MATH152")) {
+    //     console.log("THREE")
+    // } else {
+    //     console.log("FOUR")
+    // }
 
 }
 
