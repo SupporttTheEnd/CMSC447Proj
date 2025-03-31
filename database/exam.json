@@ -1,0 +1,195 @@
+{
+    "African American Studies": {
+        "5": ["AFST100"],
+        "4": ["AFST100"],
+        "3": ["AFST100"]
+    },
+    "Art History": {
+        "5": ["ART216"],
+        "4": ["ART216"],
+        "3": ["ART216"]
+    },
+    "Art Studio - Drawing": {
+        "5": ["ART214"],
+        "4": ["ART214"],
+        "3": ["ART214"]
+    },
+    "Art Studio - 2D": {
+        "5": ["ART216"],
+        "4": ["ART216"],
+        "3": ["ART216"]
+    },
+    "Art Studio - 3D": {
+        "5": ["ART216"],
+        "4": ["ART216"],
+        "3": ["ART216"]
+    },
+    "Biology": {
+        "5": ["BIOL141", "BIOL142", "BIOL101L"],
+        "4": ["BIOL141", "BIOL101L"],
+        "3": ["BIOL101"]
+    },
+    "Chemistry": {
+        "5": ["CHEM101"],
+        "4": ["CHEM101"],
+        "3": ["CHEM100"]
+    },
+    "Chinese": {
+        "5": ["CHIN202", "CHIN301"],
+        "4": ["CHIN202"],
+        "3": ["CHIN201"]
+    },
+    "Computer Science A": {
+        "5": ["CMSC201"],
+        "4": ["CMSC104"],
+        "3": ["CMSC104"]
+    },
+    "Computer Science A (BTA/IS Major)": {
+        "5": ["IS125", "IS147"],
+        "4": ["IS125"],
+        "3": ["IS125"]
+    },
+    "Computer Science Principles": {
+        "5": ["CMSC104"],
+        "4": ["CMSC104"],
+        "3": ["CMSC104"]
+    },
+    "Economics - Macro": {
+        "5": ["ECON102"],
+        "4": ["ECON102"],
+        "3": ["ECON102"]
+    },
+    "Economics - Micro": {
+        "5": ["ECON101"],
+        "4": ["ECON101"],
+        "3": ["ECON101"]
+    },
+    "English Language and Composition": {
+        "5": ["ENGL100"],
+        "4": ["ENGL100"]
+    },
+    "English Literature and Composition": {
+        "5": ["ENGL100", "ENGL210"],
+        "4": ["ENGL100", "ENGL210"]
+    },
+    "Environmental Science": {
+        "5": ["GES120"],
+        "4": ["GES120"],
+        "3": ["GES120"]
+    },
+    "French": {
+        "5": ["FREN202", "FREN301"],
+        "4": ["FREN202"],
+        "3": ["FREN201"]
+    },
+    "German Language": {
+        "5": ["GERM202", "GERM301"],
+        "4": ["GERM202"],
+        "3": ["GERM201"]
+    },
+    "Government and Politics - American": {
+        "5": ["POLI100"],
+        "4": ["POLI100"],
+        "3": ["POLI100"]
+    },
+    "Government and Politics - Comparative": {
+        "5": ["POLI260"],
+        "4": ["POLI260"],
+        "3": ["POLI260"]
+    },
+    "History - European": {
+        "5": ["HIST110"],
+        "4": ["HIST110"],
+        "3": ["HIST110"]
+    },
+    "History - World": {
+        "5": ["HIST200"],
+        "4": ["HIST200"],
+        "3": ["HIST200"]
+    },
+    "History - United States": {
+        "5": ["HIST101"],
+        "4": ["HIST101"],
+        "3": ["HIST101"]
+    },
+    "Human Geography": {
+        "5": ["GES102"],
+        "4": ["GES102"],
+        "3": ["GES102"]
+    },
+    "Japanese Language": {
+        "5": ["JPNS202", "JPNS301"],
+        "4": ["JPNS202"],
+        "3": ["JPNS201"]
+    },
+    "Latin - Vergil": {
+        "5": ["LATN332"],
+        "4": ["LATN332"],
+        "3": ["LATN332"]
+    },
+    "Math - Calculus AB": {
+        "5": ["MATH151"],
+        "4": ["MATH151"],
+        "3": ["MATH150"]
+    },
+    "Math - Calculus BC": {
+        "5": ["MATH151", "MATH152"],
+        "4": ["MATH151", "MATH152"],
+        "3": ["MATH151"]
+    },
+    "Math - Precalculus": {
+        "5": ["MATH150"],
+        "4": ["MATH150"],
+        "3": ["MATH150"]
+    },
+    "Music - Theory": {
+        "5": ["MUSC101"],
+        "4": ["MUSC101"],
+        "3": ["MUSC101"]
+    },
+    "Physics B": {
+        "5": ["PHYS111", "PHYS112"],
+        "4": ["PHYS111", "PHYS112"],
+        "3": ["PHYS111"]
+    },
+    "Physics C - Mechanics": {
+        "5": ["PHYS121"],
+        "4": ["PHYS121"],
+        "3": ["PHYS121"]
+    },
+    "Physics C - Electricity & Magnetics": {
+        "5": ["PHYS122"],
+        "4": ["PHYS122"],
+        "3": ["PHYS122"]
+    },
+    "Physics 1": {
+        "5": ["PHYS111"],
+        "4": ["PHYS111"],
+        "3": ["PHYS111"]
+    },
+    "Physics 2": {
+        "5": ["PHYS112"],
+        "4": ["PHYS112"],
+        "3": ["PHYS112"]
+    },
+    "Psychology": {
+        "5": ["PSYC100"],
+        "4": ["PSYC100"],
+        "3": ["PSYC100"]
+    },
+    "Spanish Language": {
+        "5": ["SPAN202", "SPAN301"],
+        "4": ["SPAN202"],
+        "3": ["SPAN201"]
+    },
+    "Spanish Literature": {
+        "5": ["SPAN301"],
+        "4": ["SPAN301"],
+        "3": ["SPAN202"]
+    },
+    "Statistics": {
+        "5": ["STAT121"],
+        "4": ["STAT121"],
+        "3": ["STAT121"]
+    }
+}

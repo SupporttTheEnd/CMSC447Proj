@@ -1,14 +1,12 @@
 export async function main() {
     await loadTabContent('search');
-    await loadTabContent('decomposer');
+    await loadTabContent('exam');
     initializeSelect2();
     setupMajorMinorValidation();
     generateYears();
-    await loadAndPopulateClasses();
-    updateCredits();
-    dragAndDropEnable();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
 function initializeSelect2() {
@@ -21,18 +19,26 @@ function initializeSelect2() {
 
 function setupMajorMinorValidation() {
     $('#major').on('change', function () {
-        let selectedMajors = $(this).val() || [];
+        let selectedMajors = $(this).find(':selected').map(function () {
+            return $(this).text();
+        }).get();
+
         $('#minor option').each(function () {
-            $(this).prop('disabled', selectedMajors.includes($(this).val()));
+            $(this).prop('disabled', selectedMajors.includes($(this).text()));
         });
+
         $('#minor').trigger('change.select2');
     });
 
     $('#minor').on('change', function () {
-        let selectedMinors = $(this).val() || [];
+        let selectedMinors = $(this).find(':selected').map(function () {
+            return $(this).text();
+        }).get();
+
         $('#major option').each(function () {
-            $(this).prop('disabled', selectedMinors.includes($(this).val()));
+            $(this).prop('disabled', selectedMinors.includes($(this).text()));
         });
+
         $('#major').trigger('change.select2');
     });
 }
@@ -70,7 +76,6 @@ function generateYears(addNew = false) {
         return;
     }
 
-    container.innerHTML = "";
     for (let i = 1; i <= window.globalVariables.years; i++) {
         container.appendChild(createYear(i));
     }
@@ -158,15 +163,35 @@ function handleAdditionalSessions(event) {
 }
 
 async function loadAndPopulateClasses() {
+    clearClasses();
+
+    const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
+        .map(option => option.value);
+    const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
+        .map(option => option.value);
+
+    const selectedPrograms = [...selectedMajors, ...selectedMinors];
+
+    for (const program of selectedPrograms) {
+        await populateClass(program);
+    }
+    
+    dragAndDropEnable();
+    updateCredits();
+}
+
+async function populateClass(className) {
     const db = window.globalVariables.db;
 
     const query = `
-        SELECT classes.courseId, classes.name, classes.credits, computer_science.year, computer_science.semester
+        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester
         FROM classes
-        JOIN computer_science ON classes.courseId = computer_science.courseId
+        JOIN ${className} ON classes.courseId = ${className}.courseId
     `;
 
     const result = db.exec(query);
+    if (!result.length) return;
+
     const combinedData = result[0].values.map(row => {
         return {
             courseId: row[0],
@@ -199,6 +224,14 @@ async function loadAndPopulateClasses() {
 
             semesterContainer.appendChild(classDiv);
         }
+    });
+}
+
+function clearClasses() {
+    const dropzones = document.querySelectorAll(`#classes .dropzone`);
+
+    dropzones.forEach(dropzone => {
+        dropzone.innerHTML = "";
     });
 }
 

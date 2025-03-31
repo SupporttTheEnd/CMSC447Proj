@@ -17,7 +17,7 @@
     {
         "year": 1,
         "semester": "fall",
-        "requireId": "ENGLGEP"
+        "courseId": "ENGLGEP"
     },
     {
         "year": 1,
@@ -43,7 +43,7 @@
         "year": 1,
         "semester": "spring",
         "courseId": "MATH152"
-    },    
+    },
     {
         "year": 1,
         "semester": "spring",
@@ -192,7 +192,7 @@
     {
         "year": 4,
         "semester": "spring",
-        "requireId": "ENCH446"
+        "courseId": "ENCH446"
     },
     {
         "year": 4,
