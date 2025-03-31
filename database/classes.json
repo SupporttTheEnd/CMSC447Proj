@@ -1492,7 +1492,7 @@
     "name": "Computer Science II",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH 150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
+    "prerequisites": [["CMSC201","MATH150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
     "corequisites": []
   },
   {

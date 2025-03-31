@@ -184,7 +184,7 @@ async function populateClass(className) {
     const db = window.globalVariables.db;
 
     const query = `
-        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester
+        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester, classes.prerequisites, classes.corequisites
         FROM classes
         JOIN ${className} ON classes.courseId = ${className}.courseId
     `;
@@ -198,7 +198,9 @@ async function populateClass(className) {
             name: row[1],
             credits: row[2],
             year: row[3],
-            semester: row[4]
+            semester: row[4],
+            prereqs: row[5],
+            coreqs: row[6]
         };
     });
 
@@ -209,6 +211,8 @@ async function populateClass(className) {
             classDiv.classList.add("class-item", "draggable");
             classDiv.setAttribute("draggable", "true");
             classDiv.id = course.courseId;
+            classDiv.dataset.prereqs = course.prereqs;
+            classDiv.dataset.coreqs = course.coreqs;
 
             const courseName = document.createElement("span");
             courseName.classList.add("course-name");
@@ -287,6 +291,8 @@ function updateCredits() {
         }
 
         creditDisplay.textContent = message;
+
+        checkClassSequence();
     });
 }
 
@@ -346,6 +352,99 @@ async function loadTabContent(tabName) {
     } catch (error) {
         console.error(`Error loading ${tabName}.html:`, error);
     }
+}
+
+function checkClassSequence() {
+    const courses = document.querySelectorAll('.class-item');
+    // console.log(courses)
+
+    courses.forEach(course => {
+        // console.log(course)
+        if (JSON.parse(course.dataset.coreqs).length) {
+            coreqIsFulfilled(course);
+        }
+
+        if (JSON.parse(course.dataset.prereqs).length) {
+            prereqIsFullfilled(course);
+        }
+    })
+    // bubble up
+    // bubble down
+    // closest
+    // parent
+}
+
+function coreqIsFulfilled(course) {
+    // console.log(course);
+    const coreqs = JSON.parse(course.dataset.coreqs);
+    const year = course.closest('.container').classList[3];
+    const semester = course.parentElement.classList[0];
+
+    console.log(course.parentElement);
+    console.log(course.closest('.container'));
+}
+
+function prereqIsFullfilled(course) {
+    // console.log(course);
+    const SEMESTERS = {"fall": 1, "winter": 2, "spring": 3, "summer": 4};
+    const prereqs = JSON.parse(course.dataset.prereqs);
+    const year = parseInt(course.closest('.container').classList[3].slice(-1));
+    const semester = SEMESTERS[course.parentElement.classList[0]];
+
+    console.log(prereqs)
+    console.log(year)
+    console.log(semester)
+
+    // Iterates through each prereq combination
+    prereqs.forEach(prereq => {
+        console.log(prereq)
+        const numberPrereqs = prereq.length;
+        const numberFullfilled = 0;
+
+        console.log(numberPrereqs)
+        console.log(numberFullfilled)
+        // Iterates through each requirement in prereq combination
+        prereq.forEach(requirement => {
+            console.log(requirement)
+
+            // Iterates through each year until requirement's year
+            for (let i = 1; i <= year; i++) {
+                // Iterates through each semester
+                for (let j = 1; j <= 4; j++) {
+                    // Checks if year and semester is same as requirement's year and semester
+                    if (i === year && j === semester) {
+                        break;
+                    }
+                    
+                    const parent = document.querySelector(`.year-${i} .${semester}.dropzone`);
+                    
+                    // Checks if semester contains requirement
+                    if (parent.contains(`#${course.id}`)) {
+                        numberFulfilled += 1;
+                    }
+                }
+            }
+        })
+
+        // Checks if a prereq combination was fulfilled
+        if (numberPrereqs === numberFullfilled) {
+            break;
+        }
+    })
+    console.log("HERE")
+    const parent = document.querySelector(`.year-1 .fall.dropzone`)
+    if (parent.querySelector("#" + "MATH151")) {
+        console.log("ONE")
+    } else {
+        console.log("TWO")
+    }
+
+    if(parent.querySelector("#" + "MATH152")) {
+        console.log("THREE")
+    } else {
+        console.log("FOUR")
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
