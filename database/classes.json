@@ -2860,7 +2860,7 @@
     "name": "Cultural Diversity in Healthcare",
     "credits": 3,
     "availability": "1010",
-    "prerequisites": [["?SSGEP"]],
+    "prerequisites": [["$SSGEP"]],
     "corequisites": []
   },  
   {

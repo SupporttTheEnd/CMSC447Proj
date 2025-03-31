@@ -7,22 +7,22 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ENGLGEP"
+        "courseId": "$ENGLGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "MGEP"
+        "courseId": "$MGEP"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "LANG101"
+        "courseId": "$LANG101"
     },
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 1,
@@ -32,12 +32,12 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "LANG102"
+        "courseId": "$LANG102"
     },
     {
         "year": 2,
@@ -47,66 +47,66 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "LANG201"
+        "courseId": "$LANG201"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "SGEP"
+        "courseId": "$SGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "$COMPMINOR"
+        "courseId": "$COMPXXX"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SSGEP"
+        "courseId": "$SSGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SGEP"
+        "courseId": "$SGEP"
     },
     {
         "year": 2,
         "semester": "spring",
-        "courseId": "SCIENCELAB"
+        "courseId": "$SCIENCELAB"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "$COMPMINOR"
+        "courseId": "$COMPXXX"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "$COMPMINOR"
+        "courseId": "$COMPXXX"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "WIGEP"
+        "courseId": "$WIGEP"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "AHGEP"
+        "courseId": "$AHGEP"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "CGEP"
+        "courseId": "$CGEP"
     }
 ]
