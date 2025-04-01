@@ -76,7 +76,7 @@ function generateYears(addNew = false) {
         return;
     }
 
-    for (let i = 1; i <= window.globalVariables.years; i++) {
+    for (let i = 0; i <= window.globalVariables.years; i++) {
         container.appendChild(createYear(i));
     }
 }
@@ -85,31 +85,52 @@ function createYear(yearNumber) {
     let yearDiv = document.createElement("div");
     yearDiv.classList.add("container", "mt-4", "px-0", `year-${yearNumber}`);
 
-    yearDiv.innerHTML = `
-        <div class="year-header text-center">Year ${yearNumber}</div>
+    if (yearNumber == 0) {
+        yearDiv.innerHTML = `
+            <div class="transfer-box" style="display:none"> 
+                <div class="year-header text-center">Transfer Classes</div>
 
-        <div class="og-boxes">
-            <div class="semester-header d-flex">
-                <div class="fall semester-item">Fall Semester</div>
-                <div class="fall semester-credit">Credits</div>
-                <hr class="divider">
-                <div class="spring semester-item">Spring Semester</div>
-                <div class="spring semester-credit">Credits</div>
+                <div class="semester-header d-flex">
+                    <div class="transfer semester-item">Add Classes from Search or Convert AP Classes</div>
+                    <div class="transfer semester-credit">Credits</div>
+                </div>
+
+                <div class="d-flex">
+                    <div class="transfer w-100 border p-2 dropzone"></div>
+                </div>
             </div>
-
-            <div class="d-flex">
-                <div class="fall w-50 border p-2 dropzone"></div>
-                <div class="spring w-50 border p-2 dropzone"></div>
+            <div class="d-flex flex-column align-items-center add-line">
+                <button class="additionSession"></button>
+                <p> Want to add transfer classes? </p>
             </div>
-        <div>
+        `;
+        yearDiv.querySelector('.additionSession').addEventListener('click', showTransferBox);
+    } else {
+        yearDiv.innerHTML = `
+            <div class="year-header text-center">Year ${yearNumber}</div>
 
-        <div class="d-flex flex-column align-items-center">
-            <button class="additionSession"></button>
-            <p> Taking Winter Or Summer Session? </p>
-        </div>
-    `;
+            <div class="og-boxes">
+                <div class="semester-header d-flex">
+                    <div class="fall semester-item">Fall Semester</div>
+                    <div class="fall semester-credit">Credits</div>
+                    <hr class="divider">
+                    <div class="spring semester-item">Spring Semester</div>
+                    <div class="spring semester-credit">Credits</div>
+                </div>
 
-    yearDiv.querySelector('.additionSession').addEventListener('click', handleAdditionalSessions);
+                <div class="d-flex class-box">
+                    <div class="fall w-50 border p-2 dropzone"></div>
+                    <div class="spring w-50 border p-2 dropzone"></div>
+                </div>
+            <div>
+
+            <div class="d-flex flex-column align-items-center">
+                <button class="additionSession"></button>
+                <p> Taking Winter Or Summer Session? </p>
+            </div>
+        `;
+        yearDiv.querySelector('.additionSession').addEventListener('click', handleAdditionalSessions);
+    }
 
     return yearDiv;
 }
@@ -146,7 +167,7 @@ function handleAdditionalSessions(event) {
                     <div class="summer semester-credit">Credits</div>
                 </div>
 
-                <div class="d-flex">
+                <div class="d-flex class-box">
                     <div class = "winter w-50 border p-2 dropzone"></div>
                     <div class = "summer w-50 border p-2 dropzone"></div>
                 </div>
@@ -162,6 +183,24 @@ function handleAdditionalSessions(event) {
     updateCredits();
 }
 
+function showTransferBox(event) {
+    const button = event.target;
+    const transferbox = button.closest('.container').querySelector('.transfer-box');
+    if (button.dataset.inserted === "true") {
+        
+        transferbox.style.display = "none";
+
+        button.dataset.inserted = "false";
+        button.nextElementSibling.style.display = "block";
+        button.style.backgroundImage = `url('images/plus.png')`;
+    } else {
+        transferbox.style.display = "block";
+        button.dataset.inserted = "true";
+        button.nextElementSibling.style.display = "none";
+        button.style.backgroundImage = `url('images/minus.png')`;
+    }
+}
+
 async function loadAndPopulateClasses() {
     clearClasses();
 
@@ -175,7 +214,7 @@ async function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         await populateClass(program);
     }
-    
+
     dragAndDropEnable();
     updateCredits();
 }
@@ -228,7 +267,7 @@ async function populateClass(className) {
 }
 
 function clearClasses() {
-    const dropzones = document.querySelectorAll(`#classes .dropzone`);
+    const dropzones = document.querySelectorAll(`#classes .class-box .dropzone`);
 
     dropzones.forEach(dropzone => {
         dropzone.innerHTML = "";
@@ -259,7 +298,7 @@ function updateCredits() {
         } else if (semester === "summer" && totalCredits > 16) {
             isValid = false;
             message += " (OverFilled)";
-        } else if (semester !== "winter" && semester !== "summer") {
+        } else if (semester === "fall" || semester === "spring") {
             if (totalCredits < 12) {
                 isValid = false;
                 message += " (Underfilled)";
@@ -267,7 +306,7 @@ function updateCredits() {
                 isValid = false;
                 message += " (OverFilled)";
             }
-        }
+        } 
 
         // Update the UI based on the validity of the credits
         if (!isValid) {

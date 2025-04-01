@@ -507,3 +507,12 @@ button.secondary-button:hover {
         transform: rotateY(360deg);
     }
 }
+
+/* Add line to top of border*/
+
+.add-line {
+    position: relative;
+    border-top: 1px solid #dee2e6;
+}
+
+
