@@ -6,6 +6,7 @@ export async function main() {
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    addYearButton();
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
@@ -73,12 +74,14 @@ function generateYears(addNew = false) {
     if (addNew) {
         window.globalVariables.years++;
         container.appendChild(createYear(window.globalVariables.years));
+        updateLastYearButton();
         return;
     }
 
     for (let i = 0; i <= window.globalVariables.years; i++) {
         container.appendChild(createYear(i));
     }
+    updateLastYearButton();
 }
 
 function createYear(yearNumber) {
@@ -107,7 +110,11 @@ function createYear(yearNumber) {
         yearDiv.querySelector('.additionSession').addEventListener('click', showTransferBox);
     } else {
         yearDiv.innerHTML = `
-            <div class="year-header text-center">Year ${yearNumber}</div>
+            <div class="year-header text-center">
+                <span>
+                    Year ${yearNumber}
+                </span>
+            </div>
 
             <div class="og-boxes">
                 <div class="semester-header d-flex">
@@ -133,6 +140,29 @@ function createYear(yearNumber) {
     }
 
     return yearDiv;
+}
+
+function updateLastYearButton() {
+    const yearContainers = document.querySelectorAll('#classes .container');
+    yearContainers.forEach((container, index) => {
+        const removeButton = container.querySelector('.remove-year-btn');
+        if (removeButton) {
+            removeButton.remove();
+        }
+
+        if (index === yearContainers.length - 1 && index !== 0) {
+            console.log(index);
+            const header = container.querySelector('.year-header');
+            const button = document.createElement('span');
+            button.classList.add('remove-year-btn');
+            button.addEventListener('click', () => {
+                container.remove();
+                window.globalVariables.years--;
+                updateLastYearButton();
+            });
+            header.appendChild(button);
+        }
+    });
 }
 
 function handleAdditionalSessions(event) {
@@ -307,7 +337,7 @@ function updateCredits() {
                 message += " (OverFilled)";
             }
         } 
-
+        
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach(component => {
@@ -387,8 +417,18 @@ async function loadTabContent(tabName) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.additionSession').forEach(button => {
-        button.addEventListener('click', handleAdditionalSessions);
-    });
-});
+function addYearButton() {
+    let container = document.createElement("div"); 
+    container.classList.add("mt-5");
+    container.innerHTML = `
+        <div class="d-flex flex-column align-items-center add-line">
+            <button class="additionSession"></button>
+            <p> Add Another Year </p>
+        </div>
+    `;
+
+    let button = container.querySelector(".additionSession");
+    button.addEventListener("click", () => generateYears(true));
+
+    document.getElementById("classes").parentElement.appendChild(container);
+}
