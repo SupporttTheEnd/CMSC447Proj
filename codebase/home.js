@@ -430,5 +430,5 @@ function addYearButton() {
     let button = container.querySelector(".additionSession");
     button.addEventListener("click", () => generateYears(true));
 
-    document.getElementById("classes").parentElement.appendChild(container);
+    document.getElementById("classes").appendChild(container);
 }
