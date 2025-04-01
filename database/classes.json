@@ -3206,5 +3206,613 @@
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
+  },
+  {
+    "courseId": "AFST100",
+    "name": "Introduction to the Black Experience",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AFST206",
+    "name": "Introduction to African-American History: A Survey",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AFST211",
+    "name": "Introduction to Contemporary Africa",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AGNG100",
+    "name": "Revolutionizing Aging",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AGNG200",
+    "name": "Aging People, Policy, and Management",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "AMST100",
+    "name": "Intro to American Studies",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AMST200",
+    "name": "What is an American?",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "AMST210",
+    "name": "Introduction to Critical Sexuality",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANCS200",
+    "name": "Israel and the Ancient Near East",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANCS201",
+    "name": "The Ancient Greeks",
+    "credits": "3",
+    "availability": "0110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANCS202",
+    "name": "The Roman World",
+    "credits": "3",
+    "availability": "1100",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANTH101",
+    "name": "Introduction to Anthropology",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANTH211",
+    "name": "Cultural Anthropology",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ANTH302",
+    "name": "Human Evolution, Physical Anthropology, and Archaeology",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ANTH211"], ["SOCY101"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ARCH100",
+    "name": "Introduction to Archaeology of the Ancient World",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ARCH120",
+    "name": "World Archaeology",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ARCH200",
+    "name": "Greek Archaeology and Art",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ART215",
+    "name": "Intro to Art and Media Studies",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ART216",
+    "name": "Studies in Visual Culture",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ART321",
+    "name": "From the Enlightenment to the Birth of Modernism: 1750-1880",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": ["ART216"],
+    "corequisites": []
+  },
+  {
+    "courseId": "DANC202",
+    "name": "Dance History II: Contemporary Forms",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "DANC101",
+    "name": "Dance Appreciation",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "DANC201",
+    "name": "Dance History I: Cultural and Classical Forms",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON101",
+    "name": "Principles of Microeconomics",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON102",
+    "name": "Principles of Macroeconomics",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON363",
+    "name": "Sports Economics and Finance",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": ["ECON101"],
+    "corequisites": []
+  },
+  {
+    "courseId": "EDUC411",
+    "name": "Teaching Reading in the Content Areas-Part II",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "EDUC414",
+    "name": "Adolescent Literature",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENGL190",
+    "name": "The World of Language I",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENGL241",
+    "name": "Currents in British Literature",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENGL210",
+    "name": "Introduction to Literature",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "FREN340",
+    "name": "Interconnections: Social and Historical Confluences",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": ["FREN302"],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES102",
+    "name": "Human Geography",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES319",
+    "name": "Watershed Science and Management",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES326",
+    "name": "American Conservation Thought",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["ENGL100"], ["GES102"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GWST100",
+    "name": "Introduction to Gender and Women’s Studies",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "GWST200",
+    "name": "Studies in Feminist Activism",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "HCST100",
+    "name": "Introduction to the Human Context of Science and Technology",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "HIST101",
+    "name": "American History to 1877",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "HIST102",
+    "name": "American History 1877 to the Present",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "HIST103",
+    "name": "East Asian Civilization",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "JDST100",
+    "name": "Introduction to Judaic Studies",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "JDST200",
+    "name": "Israel and the Ancient Near East",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "JDST201",
+    "name": "Judaism in the Time of Jesus and Hillel",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "LING190",
+    "name": "The World of Language I",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "LING210",
+    "name": "Introduction to Language Structures",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MCS101",
+    "name": "Media Literacy",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MCS222",
+    "name": "Introduction to Media and Communication Studies",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MCS355",
+    "name": "Social Media: Networking and Mobility",
+    "credits": "3",
+    "availability": "0110",
+    "prerequisites": [["ENGL100"], ["MCS101"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MLL301",
+    "name": "Textual Analysis: Words, Images, Music",
+    "credits": "3",
+    "availability": "1011",
+    "prerequisites": ["ENGL100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "MLL210",
+    "name": "Africa: Culture and Development",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MLL320",
+    "name": "Transnational Feminist Film",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MUSC101",
+    "name": "Fundamentals of Music Theory",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MUSC214",
+    "name": "The History of Jazz",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "MUSC215",
+    "name": "Introduction to Black Music",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHIL100",
+    "name": "Introduction to Philosophy",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHIL146",
+    "name": "Critical Thinking",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHIL150",
+    "name": "Contemporary Moral Issues",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "POLI100",
+    "name": "American Government and Politics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "POLI200",
+    "name": "Introduction to Politics: Political Science",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "POLI210",
+    "name": "Political Philosophy",
+    "credits": "3",
+    "availability": "1011",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "PSYC100",
+    "name": "Introduction to Psychology",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "PSYC200",
+    "name": "Child Developmental Psychology",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": ["PSYC100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "PSYC210",
+    "name": "Psychology of Learning",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": ["PSYC100"],
+    "corequisites": []
+  },
+  {
+    "courseId": "RLST202",
+    "name": "Judaism in the Time of Jesus and Hillel",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "RLST200",
+    "name": "Philosophy of Religion",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "RLST201",
+    "name": "Israel and the Ancient Near East",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "SOCY101",
+    "name": "Basic Concepts of Sociology",
+    "credits": "3",
+    "availability": "1111",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "SOCY201",
+    "name": "Social Problems in American Society",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "SOCY204",
+    "name": "Diversity and Pluralism: An Interdisciplinary Perspective",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "SOWK255",
+    "name": "Psychology of the Black Experience in the U.S.",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "SOWK260",
+    "name": "Introduction to Social Welfare, Social Policy, and Social Work I",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR100",
+    "name": "Introduction to Scenography",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR104",
+    "name": "Introduction to Costume",
+    "credits": "3",
+    "availability": "1110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR110",
+    "name": "Introduction to Acting",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "VPA225",
+    "name": "Ideas in the Arts",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
   }
 ]
