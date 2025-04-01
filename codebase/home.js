@@ -73,7 +73,8 @@ function generateYears(addNew = false) {
 
     if (addNew) {
         window.globalVariables.years++;
-        container.appendChild(createYear(window.globalVariables.years));
+        const addButton = container.lastElementChild;
+        container.insertBefore(createYear(window.globalVariables.years), addButton);
         updateLastYearButton();
         return;
     }
