@@ -240,6 +240,7 @@ function clearClasses() {
 }
 
 function updateCredits() {
+    console.log("updateCredits")
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -356,18 +357,22 @@ async function loadTabContent(tabName) {
 
 function checkClassSequence() {
     const courses = document.querySelectorAll('.class-item');
-    // console.log(courses)
+    console.log(courses)
 
+    console.log("BEFORE")
     courses.forEach(course => {
-        // console.log(course)
-        if (JSON.parse(course.dataset.coreqs).length) {
-            coreqIsFulfilled(course);
-        }
+        console.log(course.id)
+        // Might have to query coreqs since searched classes do not have them
+        // Also querySelectorAll includes classes that were searched
+        // if (JSON.parse(course.dataset.coreqs).length) {
+        //     coreqIsFulfilled(course);
+        // }
 
-        if (JSON.parse(course.dataset.prereqs).length) {
-            prereqIsFulfilled(course);
-        }
+        // if (JSON.parse(course.dataset.prereqs).length) {
+        //     prereqIsFulfilled(course);
+        // }
     })
+    console.log("AFTER")
     // bubble up
     // bubble down
     // closest
@@ -387,77 +392,55 @@ function coreqIsFulfilled(course) {
 function prereqIsFulfilled(course) {
     console.log(course);
 
-    const SEMESTERS = {"fall": 1, "winter": 2, "spring": 3, "summer": 4};
+    const SEMESTERS = ["fall", "winter", "spring", "summer"];
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = parseInt(course.closest('.container').classList[3].slice(-1));
     const semester = course.parentElement.classList[0];
     let isFulfilled = 0;
 
-    // console.log(prereqs)
-    // console.log(year)
-    // console.log(semester)
-
     // Iterates through each prereq combination
-    prereqs.forEach(prereq => {
+    for (const prereq of prereqs) {
         console.log(prereq)
 
         const numberPrereqs = prereq.length;
         let numberFulfilled = 0;
 
-        console.log(numberPrereqs)
-        console.log(numberFulfilled)
-
         // Iterates through each requirement in prereq combination
-        prereq.forEach(requirement => {
+        for (const requirement of prereq) {
             console.log(requirement)
 
             // Iterates through each year until requirement's year
             for (let i = 1; i <= year; i++) {
                 // Iterates through each semester
-                for (let j = 1; j <= 4; j++) {
+                for (let j = 0; j <= SEMESTERS.length; j++) {
                     // Checks if year and semester is same as requirement's year and semester
-                    console.log(i, j)
-                    if (i === year && j === SEMESTERS[semester]) {
+                    if (i === year && SEMESTERS[j] === semester) {
                         break;
                     }
-                    // SEMESTER WILL ALWAYS BE CURRENT COURSE SEMESTER NEED TO UPDATE
-                    const parent = document.querySelector(`.year-${i} .${semester}.dropzone`);
-
-                    console.log(parent)
                     
+                    const parent = document.querySelector(`.year-${i} .${SEMESTERS[j]}.dropzone`);
+                
                     // Checks if semester contains requirement
-                    if (parent.querySelector(`#${course.id}`)) {
+                    if (parent && parent.querySelector(`#${requirement}`)) {
                         numberFulfilled += 1;
                     }
                 }
             }
-        })
+        }
 
         // Checks if a prereq combination was fulfilled
         if (numberPrereqs === numberFulfilled) {
             isFulfilled = 1;
+            break;
         }
-    })
-
-    if (isFulfilled) {
-        console.log("FULFILLED")
-    } else {
-        console.log("NOT FULFILLED")
     }
 
-    // const parent = document.querySelector(`.year-1 .fall.dropzone`)
-    // if (parent.querySelector("#" + "MATH151")) {
-    //     console.log("ONE")
-    // } else {
-    //     console.log("TWO")
-    // }
-
-    // if(parent.querySelector("#" + "MATH152")) {
-    //     console.log("THREE")
-    // } else {
-    //     console.log("FOUR")
-    // }
-
+    // Checks if prerequisites were fulfilled
+    if (!isFulfilled) {
+        console.log(course.id + " is missing a prereq");
+    } else {
+        console.log(course.id + " fulfills prereqs");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
