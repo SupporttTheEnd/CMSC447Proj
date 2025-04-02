@@ -184,7 +184,7 @@ async function populateClass(className) {
     const db = window.globalVariables.db;
 
     const query = `
-        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester, classes.prerequisites, classes.corequisites
+        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester
         FROM classes
         JOIN ${className} ON classes.courseId = ${className}.courseId
     `;
@@ -198,9 +198,7 @@ async function populateClass(className) {
             name: row[1],
             credits: row[2],
             year: row[3],
-            semester: row[4],
-            prereqs: row[5],
-            coreqs: row[6]
+            semester: row[4]
         };
     });
 
@@ -240,7 +238,6 @@ function clearClasses() {
 }
 
 function updateCredits() {
-    console.log("updateCredits")
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -356,23 +353,41 @@ async function loadTabContent(tabName) {
 }
 
 function checkClassSequence() {
-    const courses = document.querySelectorAll('.class-item');
-    console.log(courses)
+    const db = window.globalVariables.db;
+    const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
-    console.log("BEFORE")
-    courses.forEach(course => {
-        console.log(course.id)
-        // Might have to query coreqs since searched classes do not have them
-        // Also querySelectorAll includes classes that were searched
-        // if (JSON.parse(course.dataset.coreqs).length) {
-        //     coreqIsFulfilled(course);
-        // }
+    // Iterates through each semester in schedule
+    dropzones.forEach(dropzone => {
+        const courses = dropzone.querySelectorAll('.class-item');
 
-        // if (JSON.parse(course.dataset.prereqs).length) {
-        //     prereqIsFulfilled(course);
-        // }
+        // console.log(courses)
+        
+        // Iterates through each course in semester
+        courses.forEach(course => {
+            // console.log(course.id)
+            
+            const query = `
+                SELECT classes.prerequisites, classes.corequisites
+                FROM classes
+                WHERE courseId = '${course.id}'
+            `;
+            const result = db.exec(query);
+
+            // Identifies course's prereqs and coreqs
+            result[0].values.map(row => {
+                course.dataset.prereqs = row[0]
+                course.dataset.coreqs = row[1]
+            })
+
+            // if (JSON.parse(course.dataset.coreqs).length) {
+            //     coreqIsFulfilled(course);
+            // }
+
+            if (JSON.parse(course.dataset.prereqs).length) {
+                prereqIsFulfilled(course);
+            }
+        })
     })
-    console.log("AFTER")
     // bubble up
     // bubble down
     // closest
@@ -390,9 +405,9 @@ function coreqIsFulfilled(course) {
 }
 
 function prereqIsFulfilled(course) {
-    console.log(course);
+    // console.log(course);
 
-    const SEMESTERS = ["fall", "winter", "spring", "summer"];
+    const semesters = ["fall", "winter", "spring", "summer"];
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = parseInt(course.closest('.container').classList[3].slice(-1));
     const semester = course.parentElement.classList[0];
@@ -400,31 +415,18 @@ function prereqIsFulfilled(course) {
 
     // Iterates through each prereq combination
     for (const prereq of prereqs) {
-        console.log(prereq)
+        // console.log(prereq)
 
         const numberPrereqs = prereq.length;
         let numberFulfilled = 0;
 
         // Iterates through each requirement in prereq combination
         for (const requirement of prereq) {
-            console.log(requirement)
+            // console.log(requirement)
 
-            // Iterates through each year until requirement's year
-            for (let i = 1; i <= year; i++) {
-                // Iterates through each semester
-                for (let j = 0; j <= SEMESTERS.length; j++) {
-                    // Checks if year and semester is same as requirement's year and semester
-                    if (i === year && SEMESTERS[j] === semester) {
-                        break;
-                    }
-                    
-                    const parent = document.querySelector(`.year-${i} .${SEMESTERS[j]}.dropzone`);
-                
-                    // Checks if semester contains requirement
-                    if (parent && parent.querySelector(`#${requirement}`)) {
-                        numberFulfilled += 1;
-                    }
-                }
+            // Checks if requirement is fulfilled
+            if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
+                numberFulfilled += 1;
             }
         }
 
@@ -440,6 +442,26 @@ function prereqIsFulfilled(course) {
         console.log(course.id + " is missing a prereq");
     } else {
         console.log(course.id + " fulfills prereqs");
+    }
+}
+
+function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
+    // Iterates through each year until requirement's year
+    for (let i = 1; i <= year; i++) {
+        // Iterates through each semester
+        for (let j = 0; j <= semesters.length; j++) {
+            // Checks if year and semester is same as requirement's year and semester
+            if (i === year && semesters[j] === semester) {
+                return false;
+            }
+            
+            const parent = document.querySelector(`.year-${i} .${semesters[j]}.dropzone`);
+        
+            // Checks if semester contains requirement
+            if (parent && parent.querySelector(`#${requirement}`)) {
+                return true;
+            }
+        }
     }
 }
 
