@@ -6,6 +6,7 @@ export async function main() {
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    addYearButton();
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
@@ -73,45 +74,95 @@ function generateYears(addNew = false) {
     if (addNew) {
         window.globalVariables.years++;
         container.appendChild(createYear(window.globalVariables.years));
+        updateLastYearButton();
         return;
     }
 
-    for (let i = 1; i <= window.globalVariables.years; i++) {
+    for (let i = 0; i <= window.globalVariables.years; i++) {
         container.appendChild(createYear(i));
     }
+    updateLastYearButton();
 }
 
 function createYear(yearNumber) {
     let yearDiv = document.createElement("div");
     yearDiv.classList.add("container", "mt-4", "px-0", `year-${yearNumber}`);
 
-    yearDiv.innerHTML = `
-        <div class="year-header text-center">Year ${yearNumber}</div>
+    if (yearNumber == 0) {
+        yearDiv.innerHTML = `
+            <div class="transfer-box" style="display:none"> 
+                <div class="year-header text-center">Transfer Classes</div>
 
-        <div class="og-boxes">
-            <div class="semester-header d-flex">
-                <div class="fall semester-item">Fall Semester</div>
-                <div class="fall semester-credit">Credits</div>
-                <hr class="divider">
-                <div class="spring semester-item">Spring Semester</div>
-                <div class="spring semester-credit">Credits</div>
+                <div class="semester-header d-flex">
+                    <div class="transfer semester-item">Add Classes from Search or Convert AP Classes</div>
+                    <div class="transfer semester-credit">Credits</div>
+                </div>
+
+                <div class="d-flex">
+                    <div class="transfer w-100 border p-2 dropzone"></div>
+                </div>
+            </div>
+            <div class="d-flex flex-column align-items-center add-line">
+                <button class="additionSession"></button>
+                <p> Want to add transfer classes? </p>
+            </div>
+        `;
+        yearDiv.querySelector('.additionSession').addEventListener('click', showTransferBox);
+    } else {
+        yearDiv.innerHTML = `
+            <div class="year-header text-center">
+                <span>
+                    Year ${yearNumber}
+                </span>
             </div>
 
-            <div class="d-flex">
-                <div class="fall w-50 border p-2 dropzone"></div>
-                <div class="spring w-50 border p-2 dropzone"></div>
+            <div class="og-boxes">
+                <div class="semester-header d-flex">
+                    <div class="fall semester-item">Fall Semester</div>
+                    <div class="fall semester-credit">Credits</div>
+                    <hr class="divider">
+                    <div class="spring semester-item">Spring Semester</div>
+                    <div class="spring semester-credit">Credits</div>
+                </div>
+
+                <div class="d-flex class-box">
+                    <div class="fall w-50 border p-2 dropzone"></div>
+                    <div class="spring w-50 border p-2 dropzone"></div>
+                </div>
+            <div>
+
+            <div class="d-flex flex-column align-items-center">
+                <button class="additionSession"></button>
+                <p> Taking Winter Or Summer Session? </p>
             </div>
-        <div>
-
-        <div class="d-flex flex-column align-items-center">
-            <button class="additionSession"></button>
-            <p> Taking Winter Or Summer Session? </p>
-        </div>
-    `;
-
-    yearDiv.querySelector('.additionSession').addEventListener('click', handleAdditionalSessions);
+        `;
+        yearDiv.querySelector('.additionSession').addEventListener('click', handleAdditionalSessions);
+    }
 
     return yearDiv;
+}
+
+function updateLastYearButton() {
+    const yearContainers = document.querySelectorAll('#classes .container');
+    yearContainers.forEach((container, index) => {
+        const removeButton = container.querySelector('.remove-year-btn');
+        if (removeButton) {
+            removeButton.remove();
+        }
+
+        if (index === yearContainers.length - 1 && index !== 0) {
+            console.log(index);
+            const header = container.querySelector('.year-header');
+            const button = document.createElement('span');
+            button.classList.add('remove-year-btn');
+            button.addEventListener('click', () => {
+                container.remove();
+                window.globalVariables.years--;
+                updateLastYearButton();
+            });
+            header.appendChild(button);
+        }
+    });
 }
 
 function handleAdditionalSessions(event) {
@@ -146,7 +197,7 @@ function handleAdditionalSessions(event) {
                     <div class="summer semester-credit">Credits</div>
                 </div>
 
-                <div class="d-flex">
+                <div class="d-flex class-box">
                     <div class = "winter w-50 border p-2 dropzone"></div>
                     <div class = "summer w-50 border p-2 dropzone"></div>
                 </div>
@@ -162,6 +213,24 @@ function handleAdditionalSessions(event) {
     updateCredits();
 }
 
+function showTransferBox(event) {
+    const button = event.target;
+    const transferbox = button.closest('.container').querySelector('.transfer-box');
+    if (button.dataset.inserted === "true") {
+        transferbox.style.display = "none";
+        transferbox.querySelector(".dropzone").innerHTML = "";
+        
+        button.dataset.inserted = "false";
+        button.nextElementSibling.style.display = "block";
+        button.style.backgroundImage = `url('images/plus.png')`;
+    } else {
+        transferbox.style.display = "block";
+        button.dataset.inserted = "true";
+        button.nextElementSibling.style.display = "none";
+        button.style.backgroundImage = `url('images/minus.png')`;
+    }
+}
+
 async function loadAndPopulateClasses() {
     clearClasses();
 
@@ -175,7 +244,7 @@ async function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         await populateClass(program);
     }
-    
+
     dragAndDropEnable();
     updateCredits();
 }
@@ -230,7 +299,7 @@ async function populateClass(className) {
 }
 
 function clearClasses() {
-    const dropzones = document.querySelectorAll(`#classes .dropzone`);
+    const dropzones = document.querySelectorAll(`#classes .class-box .dropzone`);
 
     dropzones.forEach(dropzone => {
         dropzone.innerHTML = "";
@@ -261,7 +330,7 @@ function updateCredits() {
         } else if (semester === "summer" && totalCredits > 16) {
             isValid = false;
             message += " (OverFilled)";
-        } else if (semester !== "winter" && semester !== "summer") {
+        } else if (semester === "fall" || semester === "spring") {
             if (totalCredits < 12) {
                 isValid = false;
                 message += " (Underfilled)";
@@ -269,8 +338,8 @@ function updateCredits() {
                 isValid = false;
                 message += " (OverFilled)";
             }
-        }
-
+        } 
+        
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach(component => {
@@ -465,8 +534,18 @@ function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.additionSession').forEach(button => {
-        button.addEventListener('click', handleAdditionalSessions);
-    });
-});
+function addYearButton() {
+    let container = document.createElement("div"); 
+    container.classList.add("mt-5");
+    container.innerHTML = `
+        <div class="d-flex flex-column align-items-center add-line">
+            <button class="additionSession"></button>
+            <p> Add Another Year </p>
+        </div>
+    `;
+
+    let button = container.querySelector(".additionSession");
+    button.addEventListener("click", () => generateYears(true));
+
+    document.getElementById("classes").appendChild(container);
+}
