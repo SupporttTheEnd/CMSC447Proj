@@ -151,7 +151,6 @@ function updateLastYearButton() {
         }
 
         if (index === yearContainers.length - 1 && index !== 0) {
-            console.log(index);
             const header = container.querySelector('.year-header');
             const button = document.createElement('span');
             button.classList.add('remove-year-btn');
@@ -423,18 +422,14 @@ async function loadTabContent(tabName) {
 
 function checkClassSequence() {
     const db = window.globalVariables.db;
-    const dropzones = document.querySelectorAll(`#classes .dropzone`);
+    const [transfer, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
 
     // Iterates through each semester in schedule
     dropzones.forEach(dropzone => {
         const courses = dropzone.querySelectorAll('.class-item');
-
-        // console.log(courses)
         
         // Iterates through each course in semester
         courses.forEach(course => {
-            // console.log(course.id)
-            
             const query = `
                 SELECT classes.prerequisites, classes.corequisites
                 FROM classes
@@ -444,38 +439,24 @@ function checkClassSequence() {
 
             // Identifies course's prereqs and coreqs
             result[0].values.map(row => {
-                course.dataset.prereqs = row[0]
-                course.dataset.coreqs = row[1]
+                course.dataset.prereqs = row[0];
+                course.dataset.coreqs = row[1];
             })
 
-            // if (JSON.parse(course.dataset.coreqs).length) {
-            //     coreqIsFulfilled(course);
-            // }
-
+            // Checks if course has preqreqs
             if (JSON.parse(course.dataset.prereqs).length) {
                 prereqIsFulfilled(course);
             }
+
+            // Checks if course has coreqs
+            if (JSON.parse(course.dataset.coreqs).length) {
+                coreqIsFulfilled(course);
+            }
         })
     })
-    // bubble up
-    // bubble down
-    // closest
-    // parent
-}
-
-function coreqIsFulfilled(course) {
-    // console.log(course);
-    const coreqs = JSON.parse(course.dataset.coreqs);
-    const year = course.closest('.container').classList[3];
-    const semester = course.parentElement.classList[0];
-
-    console.log(course.parentElement);
-    console.log(course.closest('.container'));
 }
 
 function prereqIsFulfilled(course) {
-    // console.log(course);
-
     const semesters = ["fall", "winter", "spring", "summer"];
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = parseInt(course.closest('.container').classList[3].slice(-1));
@@ -484,18 +465,15 @@ function prereqIsFulfilled(course) {
 
     // Iterates through each prereq combination
     for (const prereq of prereqs) {
-        // console.log(prereq)
-
         const numberPrereqs = prereq.length;
         let numberFulfilled = 0;
 
         // Iterates through each requirement in prereq combination
         for (const requirement of prereq) {
-            // console.log(requirement)
-
             // Checks if requirement is fulfilled
             if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
                 numberFulfilled += 1;
+                removeCoreq(requirement);
             }
         }
 
@@ -506,7 +484,7 @@ function prereqIsFulfilled(course) {
         }
     }
 
-    // Checks if prerequisites were fulfilled
+    // Checks if course's prereqs were fulfilled
     if (!isFulfilled) {
         console.log(course.id + " is missing a prereq");
     } else {
@@ -515,23 +493,81 @@ function prereqIsFulfilled(course) {
 }
 
 function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
-    // Iterates through each year until requirement's year
-    for (let i = 1; i <= year; i++) {
-        // Iterates through each semester
-        for (let j = 0; j <= semesters.length; j++) {
-            // Checks if year and semester is same as requirement's year and semester
-            if (i === year && semesters[j] === semester) {
-                return false;
-            }
-            
-            const parent = document.querySelector(`.year-${i} .${semesters[j]}.dropzone`);
-        
-            // Checks if semester contains requirement
-            if (parent && parent.querySelector(`#${requirement}`)) {
+    // Iterates through each year
+    for (let i = 0; i <= year; i++) {
+        // Checks for transfer credits
+        if (i === 0) {
+            const transferCourses = document.querySelector(`.year-0 .dropzone`);
+
+            if (transferCourses && transferCourses.querySelector(`#${requirement}`)) {
+
                 return true;
+            }
+        } else {
+            // Iterates through each semester
+            for (let j = 0; j <= semesters.length; j++) {
+                // Checks if course's year and semester was reached
+                if (i === year && semesters[j] === semester) {
+                    return false;
+                }
+                
+                const prevSemester = document.querySelector(`.year-${i} .${semesters[j]}.dropzone`);
+            
+                // Checks if a previous semester contains requirement
+                if (prevSemester && prevSemester.querySelector(`#${requirement}`)) {
+                    return true;
+                }
             }
         }
     }
+}
+
+function removeCoreq(requirement) {
+
+}
+
+function coreqIsFulfilled(course) {
+    const coreqs = JSON.parse(course.dataset.coreqs);
+    const year = course.closest('.container').classList[3];
+    const semester = course.parentElement.classList[0];
+    let isFulfilled = 0;
+
+    // Iterates through each coreq combination
+    for (const coreq of coreqs) {
+        const numberCoreqs = coreq.length;
+        let numberFulfilled = 0;
+
+        // Iterates through each requirement in coreq combination
+        for (const requirement of coreq) {
+            // Checks if requirement is fulfilled
+            if (coreqRequirementIsFulfilled(requirement, year, semester)) {
+                numberFulfilled += 1;
+            }
+        }
+
+        // Checks if a coreq combination was fulfilled
+        if (numberCoreqs === numberFulfilled) {
+            isFulfilled = 1;
+            break;
+        }
+    }
+
+    // Checks if corequisites were fulfilled
+    if (!isFulfilled) {
+        console.log(course.id + " is missing a coreq");
+    } else {
+        console.log(course.id + " fulfills coreqs");
+    }
+}
+
+function coreqRequirementIsFulfilled(requirement, year, semester) {
+    const currSemester = document.querySelector(`.${year} .${semester}.dropzone`);
+
+    if (currSemester.querySelector(`#${requirement}`)) {
+        return true;
+    }
+
+    return false;
 }
 
 function addYearButton() {
