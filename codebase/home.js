@@ -151,7 +151,6 @@ function updateLastYearButton() {
         }
 
         if (index === yearContainers.length - 1 && index !== 0) {
-            console.log(index);
             const header = container.querySelector('.year-header');
             const button = document.createElement('span');
             button.classList.add('remove-year-btn');
@@ -241,15 +240,24 @@ async function loadAndPopulateClasses() {
 
     const selectedPrograms = [...selectedMajors, ...selectedMinors];
 
+    let classList = [];
     for (const program of selectedPrograms) {
-        await populateClass(program);
+        let classReturns = grabClasses(program);
+        console.log(classReturns);
+        for (const testClass of classReturns) {
+            classList.push(testClass);
+            
+        }
     }
+
+    classList = pruneClasses(classList);
+    await populateClasses(classList);
 
     dragAndDropEnable();
     updateCredits();
 }
 
-async function populateClass(className) {
+function grabClasses(className) {
     const db = window.globalVariables.db;
 
     const query = `
@@ -270,8 +278,22 @@ async function populateClass(className) {
             semester: row[4]
         };
     });
+    return combinedData;
+}
 
-    combinedData.forEach(course => {
+function pruneClasses(rawClasses) {
+    let prunedList = []
+    for (const testClass of rawClasses) {
+        if(!(prunedList.find((element) => element.courseId == testClass.courseId))) { //gets rid of duplicates
+            prunedList.push(testClass);
+        }
+    }
+
+    return prunedList;
+}
+
+async function populateClasses(prunedClasses) {
+    prunedClasses.forEach(course => {
         const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
         if (semesterContainer) {
             const classDiv = document.createElement("div");
