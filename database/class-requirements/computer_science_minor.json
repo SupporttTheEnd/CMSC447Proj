@@ -92,12 +92,12 @@
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "$CMSC4XX"
+        "courseId": "$CMSC4XX Upper-Level Elective"
     },
     {
         "year": 3,
         "semester": "fall",
-        "courseId": "$CMSC4XX"
+        "courseId": "$CMSC4XX Upper-Level Elective"
     },
     {
         "year": 3,
@@ -112,7 +112,7 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "$CMSC4XX"
+        "courseId": "$CMSC3XX"
     },
     {
         "year": 3,
