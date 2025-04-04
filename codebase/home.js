@@ -243,10 +243,8 @@ async function loadAndPopulateClasses() {
     let classList = [];
     for (const program of selectedPrograms) {
         let classReturns = grabClasses(program);
-        console.log(classReturns);
         for (const testClass of classReturns) {
             classList.push(testClass);
-            
         }
     }
 
