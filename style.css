@@ -13,7 +13,8 @@
     --button-hover-color: #0056b3;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --divider-color: #000;
-    --toggle-bg-color: #f5d64d;
+    --toggle-bg-color: #ffca39;
+    --requirement-color: #fff2b8;
     --toggle-slider-color: white;
     --toggle-active-bg-color: #3d518d;
     --toggle-active-slider-color: translateX(26px);
@@ -106,9 +107,9 @@ p {
     background-color: rgba(255, 49, 49, 0.241) !important;
 }
 
-
 .class-item {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background-color: var(--base-color);
     padding: 12px;
@@ -126,6 +127,28 @@ p {
     cursor: grabbing;
     transform: scale(1.05);
     box-shadow: 3px 3px 8px var(--shadow-color);
+}
+
+.class-item.require-item {
+    background-color: var(--requirement-color);
+    border-color: var(--highlight-color);
+    flex-wrap: wrap; 
+    column-gap: 5px;
+}
+
+.require-item .course-name {
+    width: 100%; 
+    overflow-wrap: break-word; 
+}
+
+.require-item .require-select {
+    flex-grow: 1;
+    font-size: 13px;
+    padding: 2px;
+    max-width: 300px;
+    min-width: 150px;
+    margin-left: -5px;
+    border-radius: 2px;
 }
 
 button.additionSession {
@@ -183,6 +206,10 @@ button.additionSession:hover {
 .class-item .credits {
     font-weight: 400;
     margin-left: 10px;
+}
+
+.require-item.class-item .credits {
+    margin-left: 0px;
 }
 
 .divider {
