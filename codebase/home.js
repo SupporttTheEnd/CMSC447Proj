@@ -7,6 +7,7 @@ export async function main() {
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
     addYearButton();
+    // generateWarning();
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
@@ -473,7 +474,7 @@ function prereqIsFulfilled(course) {
             // Checks if requirement is fulfilled
             if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
                 numberFulfilled += 1;
-                removeCoreq(requirement);
+                removeCoreq(course, requirement);
             }
         }
 
@@ -487,6 +488,7 @@ function prereqIsFulfilled(course) {
     // Checks if course's prereqs were fulfilled
     if (!isFulfilled) {
         console.log(course.id + " is missing a prereq");
+        // addWarning(course);
     } else {
         console.log(course.id + " fulfills prereqs");
     }
@@ -522,8 +524,14 @@ function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
     }
 }
 
-function removeCoreq(requirement) {
+function removeCoreq(course, requirement) {
+    const coreqs = JSON.parse(course.dataset.coreqs);
 
+    // for (const coreq of coreqs) {
+    //     if (coreq.includes(requirement)) {
+
+    //     }
+    // }
 }
 
 function coreqIsFulfilled(course) {
@@ -585,3 +593,24 @@ function addYearButton() {
 
     document.getElementById("classes").appendChild(container);
 }
+
+// function generateWarning() {
+//     let container = document.createElement("div");
+//     container.classList.add("container", "mt-5", "px-0", "warning");
+
+//     document.getElementById("classes").appendChild(container);
+// }
+
+// function addWarning(course) {
+//     const warningContainer = document.querySelector("warning");
+//     const warningDiv = document.createElement("div");
+//     warningDiv.classList.add("warning-item");
+//     warningDiv.id = course.courseId;
+
+//     warningContainer.appendChild(warningDiv);
+// }
+
+// function clearWarnings() {
+//     const warningContainer = document.querySelector("warning");
+//     warningContainer.innerHTML = "";
+// }
