@@ -69,7 +69,7 @@ async function setupSQL() {
 
         db.run(`
             CREATE TABLE IF NOT EXISTS ${file} (
-                courseId TEXT PRIMARY KEY,
+                courseId TEXT,
                 year INTEGER,
                 semester TEXT
             );
@@ -80,4 +80,19 @@ async function setupSQL() {
                 [course.courseId, course.year, course.semester]);
         });
     }
+
+    const requirementResponse = await fetch("database/requirements.json");
+    const requirementData = await requirementResponse.json();
+
+    db.run(`
+        CREATE TABLE IF NOT EXISTS requirements (
+            category TEXT,
+            courses TEXT
+        );
+    `);
+
+    Object.entries(requirementData).forEach(([category, courses]) => {
+        db.run("INSERT OR REPLACE INTO requirements (category, courses) VALUES (?, ?)",
+            [category, JSON.stringify(courses)]);
+    });
 }
