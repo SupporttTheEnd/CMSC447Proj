@@ -63,7 +63,13 @@ export function dragAndDropEnable() {
             e.preventDefault();
             const dragging = document.querySelector('.dragging');
             zone.appendChild(dragging);
-            updateCredits();
+        });
+
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (zone.closest('#classes')) {
+                updateCredits();
+            }
         });
     });
 }
@@ -75,13 +81,14 @@ function generateYears(addNew = false) {
         window.globalVariables.years++;
         const addButton = container.lastElementChild;
         container.insertBefore(createYear(window.globalVariables.years), addButton);
-        updateLastYearButton();
-        return;
+    }
+    else {
+        for (let i = 0; i <= window.globalVariables.years; i++) {
+            container.appendChild(createYear(i));
+        }
     }
 
-    for (let i = 0; i <= window.globalVariables.years; i++) {
-        container.appendChild(createYear(i));
-    }
+    dragAndDropEnable();
     updateLastYearButton();
 }
 
@@ -152,7 +159,6 @@ function updateLastYearButton() {
         }
 
         if (index === yearContainers.length - 1 && index !== 0) {
-            console.log(index);
             const header = container.querySelector('.year-header');
             const button = document.createElement('span');
             button.classList.add('remove-year-btn');
@@ -220,7 +226,7 @@ function showTransferBox(event) {
     if (button.dataset.inserted === "true") {
         transferbox.style.display = "none";
         transferbox.querySelector(".dropzone").innerHTML = "";
-        
+
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
         button.style.backgroundImage = `url('images/plus.png')`;
@@ -232,7 +238,7 @@ function showTransferBox(event) {
     }
 }
 
-async function loadAndPopulateClasses() {
+function loadAndPopulateClasses() {
     clearClasses();
 
     const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
@@ -243,58 +249,182 @@ async function loadAndPopulateClasses() {
     const selectedPrograms = [...selectedMajors, ...selectedMinors];
 
     for (const program of selectedPrograms) {
-        await populateClass(program);
+        populateClassData(program);
+    }
+
+    for (const program of selectedPrograms) {
+        populateRequirementData(program);
     }
 
     dragAndDropEnable();
     updateCredits();
 }
 
-async function populateClass(className) {
+function populateClassData(program) {
     const db = window.globalVariables.db;
 
-    const query = `
-        SELECT classes.courseId, classes.name, classes.credits, ${className}.year, ${className}.semester
-        FROM classes
-        JOIN ${className} ON classes.courseId = ${className}.courseId
+    const classQuery = `
+        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester
+        FROM ${program}
+        JOIN classes ON ${program}.courseId = classes.courseId
     `;
 
-    const result = db.exec(query);
-    if (!result.length) return;
+    const classResult = db.exec(classQuery);
+    if (classResult.length) {
+        const classData = classResult[0].values.map(row => {
+            return {
+                courseId: row[0],
+                name: row[1],
+                credits: row[2],
+                year: row[3],
+                semester: row[4]
+            };
+        });
 
-    const combinedData = result[0].values.map(row => {
-        return {
-            courseId: row[0],
-            name: row[1],
-            credits: row[2],
-            year: row[3],
-            semester: row[4]
-        };
-    });
+        classData.forEach(course => {
+            const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
+            if (!document.querySelector(`#classes #${course.courseId}`)) {
+                const classDiv = document.createElement("div");
+                classDiv.classList.add("class-item", "draggable");
+                classDiv.setAttribute("draggable", "true");
+                classDiv.id = course.courseId;
 
-    combinedData.forEach(course => {
-        const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
-        if (semesterContainer) {
-            const classDiv = document.createElement("div");
-            classDiv.classList.add("class-item", "draggable");
-            classDiv.setAttribute("draggable", "true");
-            classDiv.id = course.courseId;
+                const courseName = document.createElement("span");
+                courseName.classList.add("course-name");
+                courseName.textContent = `[${course.courseId}] ${course.name}`;
 
-            const courseName = document.createElement("span");
-            courseName.classList.add("course-name");
-            courseName.textContent = "[" + course.courseId + "] " + course.name;
+                const credits = document.createElement("span");
+                credits.classList.add("credits");
+                credits.textContent = `${course.credits} Credits`;
+                credits.style.whiteSpace = "nowrap";
+
+                classDiv.appendChild(courseName);
+                classDiv.appendChild(credits);
+                semesterContainer.appendChild(classDiv);
+            }
+        });
+    }
+}
+
+function populateRequirementData(program) {
+    const db = window.globalVariables.db;
+
+    const requirementQuery = `
+        SELECT ${program}.courseId, ${program}.year, ${program}.semester
+        FROM ${program}
+        WHERE ${program}.courseId LIKE '$%'
+    `;
+
+    const requirementResult = db.exec(requirementQuery);
+    if (requirementResult.length) {
+        const requirementData = requirementResult[0].values.map(row => {
+            return {
+                courseId: row[0],
+                year: row[1],
+                semester: row[2]
+            };
+        });
+
+        requirementData.forEach(requirement => {
+            const existingRequirements = document.querySelectorAll(`#classes .require-item[data-requirement="${requirement.courseId}"]`);
+            const existingCount = existingRequirements.length;
+
+            const requiredCount = requirementData.filter(req => req.courseId === requirement.courseId).length;
+
+            if (existingCount >= requiredCount) {
+                return; 
+            }
+
+            const semesterContainer = document.querySelector(`.year-${requirement.year} .${requirement.semester}.dropzone`);
+            const requireDiv = document.createElement("div");
+            requireDiv.classList.add("require-item", "class-item", "draggable");
+            requireDiv.setAttribute("draggable", "true");
+            requireDiv.dataset.requirement = requirement.courseId;
+
+            const selectElement = document.createElement("select");
+            selectElement.classList.add("require-select");
+
+            const category = requirement.courseId.replace('$', '');
+            const emptyOption = document.createElement("option");
+            emptyOption.value = "";
+            emptyOption.textContent = "Select a Class";
+            selectElement.appendChild(emptyOption);
+
+            if (category.includes(".")) {
+                const wildcardQuery = `
+                    SELECT courseId, name, credits
+                    FROM classes
+                    WHERE courseId LIKE '${category.replace(/\./g, "_")}'
+                `;
+                const wildcardResult = db.exec(wildcardQuery);
+                if (wildcardResult.length) {
+                    wildcardResult[0].values.forEach(courseData => {
+                        const optionElement = document.createElement("option");
+                        optionElement.value = courseData[0];
+                        optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
+                        optionElement.dataset.credits = courseData[2];
+                        selectElement.appendChild(optionElement);
+                    });
+                }
+            } else {
+                const optionsQuery = `
+                    SELECT category, courses
+                    FROM requirements
+                    WHERE category = '${category}'
+                `;
+                const optionsResult = db.exec(optionsQuery);
+                if (optionsResult.length) {
+                    const optionsData = optionsResult[0].values;
+                    optionsData.forEach(option => {
+                        const courses = option[1].replace(/["\[\]]/g, "").split(",");
+                        courses.forEach(course => {
+                            const courseQuery = `
+                                SELECT courseId, name, credits
+                                FROM classes
+                                WHERE courseId = '${course.trim()}'
+                            `;
+                            const courseResult = db.exec(courseQuery);
+                            if (courseResult.length) {
+                                const courseData = courseResult[0].values[0];
+                                const optionElement = document.createElement("option");
+                                optionElement.value = courseData[0];
+                                optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
+                                optionElement.dataset.credits = courseData[2];
+                                selectElement.appendChild(optionElement);
+                            }
+                        });
+                    });
+                }
+            }
+
+            const requireName = document.createElement("span");
+            requireName.classList.add("course-name");
+            requireName.textContent = category;
 
             const credits = document.createElement("span");
             credits.classList.add("credits");
-            credits.textContent = `${course.credits} Credits`;
+            credits.textContent = "0 Credits";
             credits.style.whiteSpace = "nowrap";
 
-            classDiv.appendChild(courseName);
-            classDiv.appendChild(credits);
+            selectElement.addEventListener("change", function () {
+                const selectedOption = selectElement.options[selectElement.selectedIndex];
+                if (selectedOption && selectedOption.dataset.credits) {
+                    credits.textContent = `${selectedOption.dataset.credits} Credits`;
+                    requireDiv.id = selectedOption.value;
+                } else {
+                    credits.textContent = "0 Credits";
+                    requireDiv.id = "";
+                }
+                updateCredits();
+            });
 
-            semesterContainer.appendChild(classDiv);
-        }
-    });
+            requireDiv.appendChild(requireName);
+            requireDiv.appendChild(selectElement);
+            requireDiv.appendChild(credits);
+
+            semesterContainer.appendChild(requireDiv);
+        });
+    }
 }
 
 function clearClasses() {
@@ -337,8 +467,8 @@ function updateCredits() {
                 isValid = false;
                 message += " (OverFilled)";
             }
-        } 
-        
+        }
+
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach(component => {
@@ -419,7 +549,7 @@ async function loadTabContent(tabName) {
 }
 
 function addYearButton() {
-    let container = document.createElement("div"); 
+    let container = document.createElement("div");
     container.classList.add("mt-5");
     container.innerHTML = `
         <div class="d-flex flex-column align-items-center add-line">
