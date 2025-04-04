@@ -49,28 +49,36 @@ export function dragAndDropEnable() {
     const dropzones = document.querySelectorAll('.dropzone');
 
     draggables.forEach(draggable => {
-        draggable.addEventListener('dragstart', (e) => {
-            e.target.classList.add('dragging');
-        });
+        if (!draggable.dataset.dragEventAttached) {
+            draggable.addEventListener('dragstart', (e) => {
+                e.target.classList.add('dragging');
+            });
 
-        draggable.addEventListener('dragend', (e) => {
-            e.target.classList.remove('dragging');
-        });
+            draggable.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+            });
+
+            draggable.dataset.dragEventAttached = true;
+        }
     });
 
     dropzones.forEach(zone => {
-        zone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            const dragging = document.querySelector('.dragging');
-            zone.appendChild(dragging);
-        });
+        if (!zone.dataset.dropEventAttached) {
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                zone.appendChild(dragging);
+            });
 
-        zone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            if (zone.closest('#classes')) {
-                updateCredits();
-            }
-        });
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                if (zone.closest('#classes')) {
+                    updateCredits();
+                }
+            });
+
+            zone.dataset.dropEventAttached = true;
+        }
     });
 }
 
@@ -539,13 +547,9 @@ function makeDraggable(element, excludeClasses = []) {
 }
 
 async function loadTabContent(tabName) {
-    try {
-        const response = await fetch(`tabs/${tabName}.html`);
-        const tabHtml = await response.text();
-        document.getElementById(tabName).innerHTML = tabHtml;
-    } catch (error) {
-        console.error(`Error loading ${tabName}.html:`, error);
-    }
+    const response = await fetch(`tabs/${tabName}.html`);
+    const tabHtml = await response.text();
+    document.getElementById(tabName).innerHTML = tabHtml;
 }
 
 function addYearButton() {
