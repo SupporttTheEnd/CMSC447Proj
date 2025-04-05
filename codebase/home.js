@@ -300,8 +300,6 @@ function populateClassData(program) {
                 classDiv.classList.add("class-item", "draggable");
                 classDiv.setAttribute("draggable", "true");
                 classDiv.id = course.courseId;
-            classDiv.dataset.prereqs = course.prereqs;
-            classDiv.dataset.coreqs = course.coreqs;
 
                 const courseName = document.createElement("span");
                 courseName.classList.add("course-name");
@@ -501,9 +499,9 @@ function updateCredits() {
         }
 
         creditDisplay.textContent = message;
-
-        checkClassSequence();
     });
+
+    checkClassSequence();
 }
 
 function darkMode() {

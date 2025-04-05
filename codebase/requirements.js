@@ -1,4 +1,6 @@
 export function checkClassSequence() {
+    clearWarnings();
+    
     const db = window.globalVariables.db;
     const [transfer, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
 
@@ -43,9 +45,10 @@ export function checkClassSequence() {
 }
 
 function prereqIsFulfilled(course) {
+    const type = "prereq";
     const semesters = ["fall", "winter", "spring", "summer"];
     const prereqs = JSON.parse(course.dataset.prereqs);
-    const year = parseInt(course.closest('.container').classList[3].slice(-1));
+    const year = course.closest('.container').classList[3];
     const semester = course.parentElement.classList[0];
     const db = window.globalVariables.db;
     let isFulfilled = 0;
@@ -74,7 +77,7 @@ function prereqIsFulfilled(course) {
                         // Iterates through each result for wildcard requirement
                         for (const result of wildcardResult[0].values) {
                             // Checks if wildcard requirement is fulfilled
-                            if (prereqRequirementIsFulfilled(result[0], semesters, year, semester)) {
+                            if (prereqRequirementIsFulfilled(result[0], semesters, parseInt(year.slice(-1)), semester)) {
                                 numberFulfilled += 1;
                                 break;
                             }
@@ -93,7 +96,7 @@ function prereqIsFulfilled(course) {
                         // Iterates through each result for GEP requirement
                         for (const result of gepData.replace(/["\[\]]/g, "").split(",")) {
                             // Checks if gep requirement is fulfilled
-                            if (prereqRequirementIsFulfilled(result, semesters, year, semester)) {
+                            if (prereqRequirementIsFulfilled(result, semesters, parseInt(year.slice(-1)), semester)) {
                                 numberFulfilled += 1;
                                 break;
                             }
@@ -102,7 +105,7 @@ function prereqIsFulfilled(course) {
                 }
             } else {
                 // Checks if requirement is fulfilled
-                if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
+                if (prereqRequirementIsFulfilled(requirement, semesters, parseInt(year.slice(-1)), semester) || prereqIsCoreq(course, requirement, year, semester)) {
                     numberFulfilled += 1;
                     removeCoreq(course, requirement);
                 }
@@ -112,15 +115,12 @@ function prereqIsFulfilled(course) {
         // Checks if a prereq combination was fulfilled
         if (numberPrereqs === numberFulfilled) {
             isFulfilled = 1;
-            break;
         }
     }
 
     // Checks if course's prereqs were fulfilled
     if (!isFulfilled) {
-        console.log(course.id + " is missing a prereq");
-    } else {
-        console.log(course.id + " fulfills prereqs");
+        addWarning(course, type);
     }
 }
 
@@ -155,16 +155,34 @@ function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
 }
 
 function removeCoreq(course, requirement) {
-    const coreqs = JSON.parse(course.dataset.coreqs);
+    let coreqs = JSON.parse(course.dataset.coreqs);
 
-    // for (const coreq of coreqs) {
-    //     if (coreq.includes(requirement)) {
+    // Iterates through each coreq combination
+    for (const coreq of coreqs) {
+        // Checks if coreq combination contains prereq requirement
+        if (coreq.includes(requirement)) {
+            course.dataset.coreqs = "[]";
+            break;
+        }
+    }
+}
 
-    //     }
-    // }
+function prereqIsCoreq(course, requirement, year, semester) {
+    let coreqs = JSON.parse(course.dataset.coreqs);
+
+    // Iterates through each coreq combination
+    for (const coreq of coreqs) {
+        // Checks if coreq combination contains prereq requirement
+        if (coreq.includes(requirement) && coreqRequirementIsFulfilled(requirement, year, semester)) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function coreqIsFulfilled(course) {
+    const type = "coreq";
     const coreqs = JSON.parse(course.dataset.coreqs);
     const year = course.closest('.container').classList[3];
     const semester = course.parentElement.classList[0];
@@ -192,9 +210,7 @@ function coreqIsFulfilled(course) {
 
     // Checks if corequisites were fulfilled
     if (!isFulfilled) {
-        console.log(course.id + " is missing a coreq");
-    } else {
-        console.log(course.id + " fulfills coreqs");
+        addWarning(course, type);
     }
 }
 
@@ -213,18 +229,16 @@ export function generateWarning() {
     container.classList.add("mt-5", "px-0", "warning");
     container.innerHTML = `
         <div class="warning-box" style="display:none"> 
-            <div class="year-header text-center">Warnings</div>
-
             <div class="semester-header d-flex">
                 <div class="transfer semester-item">Warnings</div>
             </div>
 
-            <div class="d-flex warnings-here">
+            <div class="d-flex warning-list">
             </div>
         </div>
         <div class="d-flex flex-column align-items-center add-line">
             <button class="additionSession"></button>
-            <p> Want to see warnings? </p>
+            <p> Show Warnings </p>
         </div>
     `;
     container.querySelector('.additionSession').addEventListener('click', showWarningBox);
@@ -235,9 +249,9 @@ export function generateWarning() {
 function showWarningBox(event) {
     const button = event.target;
     const warningbox = button.closest('.warning').querySelector('.warning-box');
+
     if (button.dataset.inserted === "true") {
         warningbox.style.display = "none";
-        warningbox.querySelector(".warnings-here").innerHTML = "";
 
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
@@ -250,16 +264,20 @@ function showWarningBox(event) {
     }
 }
 
-function addWarning(course) {
-    const warningContainer = document.querySelector("warning");
+function addWarning(course, type) {
+    const warningContainer = document.querySelector(".warning-list");
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
-    warningDiv.id = course.courseId;
+    warningDiv.id = course.id;
 
+    const warningMessage = document.createElement("span");
+    warningMessage.textContent = `${course.id} is missing a ${type}`;
+
+    warningDiv.appendChild(warningMessage);
     warningContainer.appendChild(warningDiv);
 }
 
 function clearWarnings() {
-    const warningContainer = document.querySelector("warning");
+    const warningContainer = document.querySelector(".warning-list");
     warningContainer.innerHTML = "";
 }

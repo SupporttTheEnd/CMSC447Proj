@@ -3108,7 +3108,7 @@
     "name": "Music in Wartime",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["$AH1XX"]],
+    "prerequisites": [["$AH1.."]],
     "corequisites": []
   },
   {
@@ -3132,7 +3132,7 @@
     "name": "Philosophy and Human Rights",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["$PHILXXX"]],
+    "prerequisites": [["$PHIL..."]],
     "corequisites": []
   },
   {
