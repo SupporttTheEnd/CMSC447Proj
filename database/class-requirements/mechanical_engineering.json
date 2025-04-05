@@ -32,12 +32,12 @@
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "$CHEM102L"
+        "courseId": "CHEM102L"
     },
     {
         "year": 1,
         "semester": "spring",
-        "courseId": "$PHYS121"
+        "courseId": "PHYS121"
     },
     {
         "year": 1,
@@ -162,7 +162,7 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "$ENME4XX"
+        "courseId": "$ENME4XX Design Elective"
     },
     {
         "year": 4,
@@ -192,7 +192,7 @@
     {
         "year": 4,
         "semester": "spring",
-        "courseId": "$ENME4XX"
+        "courseId": "$ENME4XX Technical Elective"
     },
     {
         "year": 4,

@@ -2616,30 +2616,6 @@
     "corequisites": []
   },
   {
-    "courseId": "ANCS200",
-    "name": "Israel and the Ancient Near East",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ANCS201",
-    "name": "The Ancient Greeks",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ANCS202",
-    "name": "The Roman World",
-    "credits": "3",
-    "availability": "1000",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
     "courseId": "ANCS210",
     "name": "Classical Mythology",
     "credits": "3",
@@ -2936,14 +2912,6 @@
     "corequisites": []
   },
   {
-    "courseId": "HIST103",
-    "name": "East Asian Civilization",
-    "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
     "courseId": "HIST110",
     "name": "Western Civilization to 1700",
     "credits": "3",
@@ -3152,14 +3120,6 @@
     "corequisites": []
   },
   {
-    "courseId": "MUSC321",
-    "name": "Music History I",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [["MUSC126"]],
-    "corequisites": []
-  },
-  {
     "courseId": "MUSC334",
     "name": "Women in Music",
     "credits": "3",
@@ -3208,24 +3168,8 @@
     "corequisites": []
   },
   {
-    "courseId": "AFST100",
-    "name": "Introduction to the Black Experience",
-    "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
     "courseId": "AFST206",
     "name": "Introduction to African-American History: A Survey",
-    "credits": "3",
-    "availability": "1000",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "AFST211",
-    "name": "Introduction to Contemporary Africa",
     "credits": "3",
     "availability": "1000",
     "prerequisites": [],
@@ -3252,14 +3196,6 @@
     "name": "Intro to American Studies",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "AMST200",
-    "name": "What is an American?",
-    "credits": "3",
-    "availability": "1111",
     "prerequisites": [],
     "corequisites": []
   },
@@ -3296,75 +3232,11 @@
     "corequisites": []
   },
   {
-    "courseId": "ANTH101",
-    "name": "Introduction to Anthropology",
-    "credits": "3",
-    "availability": "1110",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ANTH211",
-    "name": "Cultural Anthropology",
-    "credits": "3",
-    "availability": "1110",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ANTH302",
-    "name": "Human Evolution, Physical Anthropology, and Archaeology",
-    "credits": "3",
-    "availability": "1010",
-    "prerequisites": [["ANTH211"], ["SOCY101"]],
-    "corequisites": []
-  },
-  {
-    "courseId": "ARCH100",
-    "name": "Introduction to Archaeology of the Ancient World",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ARCH120",
-    "name": "World Archaeology",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ARCH200",
-    "name": "Greek Archaeology and Art",
-    "credits": "3",
-    "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
     "courseId": "ART215",
     "name": "Intro to Art and Media Studies",
     "credits": "3",
     "availability": "1010",
     "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ART216",
-    "name": "Studies in Visual Culture",
-    "credits": "3",
-    "availability": "1000",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ART321",
-    "name": "From the Enlightenment to the Birth of Modernism: 1750-1880",
-    "credits": "3",
-    "availability": "1000",
-    "prerequisites": ["ART216"],
     "corequisites": []
   },
   {
@@ -3380,30 +3252,6 @@
     "name": "Dance Appreciation",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "DANC201",
-    "name": "Dance History I: Cultural and Classical Forms",
-    "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ECON101",
-    "name": "Principles of Microeconomics",
-    "credits": "3",
-    "availability": "1111",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "ECON102",
-    "name": "Principles of Macroeconomics",
-    "credits": "3",
-    "availability": "1111",
     "prerequisites": [],
     "corequisites": []
   },
@@ -3488,14 +3336,6 @@
     "corequisites": []
   },
   {
-    "courseId": "GWST100",
-    "name": "Introduction to Gender and Women’s Studies",
-    "credits": "3",
-    "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
     "courseId": "GWST200",
     "name": "Studies in Feminist Activism",
     "credits": "3",
@@ -3524,22 +3364,6 @@
     "name": "American History 1877 to the Present",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "HIST103",
-    "name": "East Asian Civilization",
-    "credits": "3",
-    "availability": "1110",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "JDST100",
-    "name": "Introduction to Judaic Studies",
-    "credits": "3",
-    "availability": "0010",
     "prerequisites": [],
     "corequisites": []
   },
@@ -3756,14 +3580,6 @@
     "name": "Social Problems in American Society",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [],
-    "corequisites": []
-  },
-  {
-    "courseId": "SOCY204",
-    "name": "Diversity and Pluralism: An Interdisciplinary Perspective",
-    "credits": "3",
-    "availability": "1110",
     "prerequisites": [],
     "corequisites": []
   },
