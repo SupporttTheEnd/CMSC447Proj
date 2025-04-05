@@ -8,7 +8,7 @@ export function checkClassSequence() {
         
         // Iterates through each course in semester
         courses.forEach(course => {
-            // Checks if GEP has been selected
+            // Checks if course has been selected for GEP
             if (course.id) {
                 const query = `
                     SELECT classes.prerequisites, classes.corequisites
@@ -47,6 +47,7 @@ function prereqIsFulfilled(course) {
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = parseInt(course.closest('.container').classList[3].slice(-1));
     const semester = course.parentElement.classList[0];
+    const db = window.globalVariables.db;
     let isFulfilled = 0;
 
     // Iterates through each prereq combination
@@ -56,10 +57,55 @@ function prereqIsFulfilled(course) {
 
         // Iterates through each requirement in prereq combination
         for (const requirement of prereq) {
-            // Checks if requirement is fulfilled
-            if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
-                numberFulfilled += 1;
-                removeCoreq(course, requirement);
+            // Checks if requirement is not a single course
+            if (requirement.includes("$")) {
+                const category = requirement.replace('$', '');
+
+                // Checks if requirement is a wildcard
+                if(category.includes(".")) {
+                    const wildcardQuery = `
+                        SELECT courseId
+                        FROM classes
+                        WHERE courseId LIKE '${category.replace(/\./g, "_")}'
+                    `;
+                    const wildcardResult = db.exec(wildcardQuery);
+                    
+                    if (wildcardResult.length) {
+                        // Iterates through each result for wildcard requirement
+                        for (const result of wildcardResult[0].values) {
+                            // Checks if wildcard requirement is fulfilled
+                            if (prereqRequirementIsFulfilled(result[0], semesters, year, semester)) {
+                                numberFulfilled += 1;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    const gepQuery = `
+                        SELECT courses
+                        FROM requirements
+                        WHERE category = '${category}'
+                    `;
+                    const gepResult = db.exec(gepQuery);
+
+                    if (gepResult.length) {
+                        const gepData = gepResult[0].values[0][0];
+                        // Iterates through each result for GEP requirement
+                        for (const result of gepData.replace(/["\[\]]/g, "").split(",")) {
+                            // Checks if gep requirement is fulfilled
+                            if (prereqRequirementIsFulfilled(result, semesters, year, semester)) {
+                                numberFulfilled += 1;
+                                break;
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Checks if requirement is fulfilled
+                if (prereqRequirementIsFulfilled(requirement, semesters, year, semester)) {
+                    numberFulfilled += 1;
+                    removeCoreq(course, requirement);
+                }
             }
         }
 
@@ -111,11 +157,11 @@ function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
 function removeCoreq(course, requirement) {
     const coreqs = JSON.parse(course.dataset.coreqs);
 
-    for (const coreq of coreqs) {
-        if (coreq.includes(requirement)) {
+    // for (const coreq of coreqs) {
+    //     if (coreq.includes(requirement)) {
 
-        }
-    }
+    //     }
+    // }
 }
 
 function coreqIsFulfilled(course) {
