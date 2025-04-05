@@ -1,14 +1,17 @@
 import { generateInformation } from './information.js';
+import { checkClassSequence, generateWarning } from './requirements.js';
 
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
     initializeSelect2();
     setupMajorMinorValidation();
+    generateWarning();
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
     addYearButton();
+    
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
@@ -505,6 +508,8 @@ function updateCredits() {
 
         creditDisplay.textContent = message;
     });
+
+    checkClassSequence();
 }
 
 function darkMode() {
