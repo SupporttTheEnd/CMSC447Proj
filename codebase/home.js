@@ -1,12 +1,16 @@
+import { checkClassSequence, generateWarning } from './requirements.js';
+
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
     initializeSelect2();
     setupMajorMinorValidation();
+    generateWarning();
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
     addYearButton();
+    
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
 }
 
@@ -72,7 +76,7 @@ export function dragAndDropEnable() {
 
             zone.addEventListener('drop', (e) => {
                 e.preventDefault();
-                if (zone.closest('#classes')) {
+                if (zone.closest('#classes') || zone.closest('.sidebar')) {
                     updateCredits();
                 }
             });
@@ -496,6 +500,8 @@ function updateCredits() {
 
         creditDisplay.textContent = message;
     });
+
+    checkClassSequence();
 }
 
 function darkMode() {

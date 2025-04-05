@@ -1492,7 +1492,7 @@
     "name": "Computer Science II",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH 150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
+    "prerequisites": [["CMSC201","MATH150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
     "corequisites": []
   },
   {
@@ -2237,6 +2237,14 @@
     "credits": "4",
     "availability": "1111",
     "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"], ["MATH225"], ["MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT355",
+    "name": "Introduction to Probability and Statistics for Scientists and Engineers",
+    "credits": "4",
+    "availability": "1111",
+    "prerequisites": [["MATH142"], ["MATH152"], ["MATH225"], ["MATH251"]],
     "corequisites": []
   },
   {
@@ -3108,7 +3116,7 @@
     "name": "Music in Wartime",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["$AH1XX"]],
+    "prerequisites": [["$AH1.."]],
     "corequisites": []
   },
   {
@@ -3132,7 +3140,7 @@
     "name": "Philosophy and Human Rights",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["$PHILXXX"]],
+    "prerequisites": [["$PHIL..."]],
     "corequisites": []
   },
   {

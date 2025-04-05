@@ -36,7 +36,8 @@ async function setupSQL() {
             name TEXT,
             availability TEXT,
             credits TEXT,
-            prerequisites TEXT
+            prerequisites TEXT,
+            corequisites TEXT
         );
     `);
 
@@ -44,8 +45,8 @@ async function setupSQL() {
     const classData = await classResponse.json();
 
     classData.forEach(course => {
-        db.run("INSERT OR REPLACE INTO classes (courseId, name, credits, availability, prerequisites) VALUES (?, ?, ?, ?, ?)",
-            [course.courseId, course.name, course.credits, course.availability, JSON.stringify(course.prerequisites)]);
+        db.run("INSERT OR REPLACE INTO classes (courseId, name, credits, availability, prerequisites, corequisites) VALUES (?, ?, ?, ?, ?, ?)",
+            [course.courseId, course.name, course.credits, course.availability, JSON.stringify(course.prerequisites), JSON.stringify(course.corequisites)]);
     });
 
     const requirementFiles = [
