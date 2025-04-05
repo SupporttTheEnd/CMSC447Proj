@@ -42,6 +42,10 @@ p {
     width: 100%;
     position: relative;
     min-height: 1200px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 50px; 
 }
 
 #site-header {
@@ -50,6 +54,32 @@ p {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
+}
+
+.footer{
+    background-color: var(--base-color) !important;
+    min-width: 500px;
+    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer .umbc-logo {
+    filter: grayscale(100%) brightness(200%) !important;
+    width: 120px;
+}
+
+.footer .container {
+    width: fit-content;
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer .location {
+    width: 100%;
+    text-align: center;
 }
 
 #site-header span.label {
@@ -317,15 +347,16 @@ input:checked+.slider:before {
 
 .sidebar .toggle-btn {
     position: absolute;
-    top: 20px;
-    right: 10px;
+    top: 0px;
+    right: 5px;
+    background-size: 30px 30px;
+    background-position: 5px 50%;
     filter: invert(1);
     background-image: url('images/arrow.svg');
-    background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 70px;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -436,7 +467,7 @@ div#search-form {
 }
 
 #search .dropzone {
-    padding: 10px 0px 20px 0px;
+    padding: 10px 0px 10px 0px;
     border-radius: 10px;
 }
 
@@ -575,6 +606,46 @@ button.secondary-button:hover {
 .remove-year-btn:hover::before,
 .remove-year-btn:hover::after {
     width: 120%;
+}
+
+.info-popup{
+    display: none;
+    position: absolute;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 20;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-size: 14px;
+    max-width: 260px;
+}
+
+.info-popup {
+    display: none;
+    position: absolute;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 20;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-size: 14px;
+    max-width: 260px;
+}
+
+span.information {
+    color: var(--accent-color)
+}
+
+.require-item span.information {
+    margin-right: -10px;
+}
+
+span.information:hover {
+    font-size: 16px; 
+    color: var(--button-hover-color);
+    cursor: pointer;
 }
 
 .warning-list {
