@@ -2240,6 +2240,14 @@
     "corequisites": []
   },
   {
+    "courseId": "STAT355",
+    "name": "Introduction to Probability and Statistics for Scientists and Engineers",
+    "credits": "4",
+    "availability": "1111",
+    "prerequisites": [["MATH142"], ["MATH152"], ["MATH225"], ["MATH251"]],
+    "corequisites": []
+  },
+  {
     "courseId": "BIOL101",
     "name": "Concepts of Biology",
     "credits": "3",

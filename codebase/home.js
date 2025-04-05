@@ -76,7 +76,7 @@ export function dragAndDropEnable() {
 
             zone.addEventListener('drop', (e) => {
                 e.preventDefault();
-                if (zone.closest('#classes')) {
+                if (zone.closest('#classes') || zone.closest('.sidebar')) {
                     updateCredits();
                 }
             });

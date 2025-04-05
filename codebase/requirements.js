@@ -1,8 +1,10 @@
 export function checkClassSequence() {
+    document.querySelector(".warning").style.display = "none";
+
     clearWarnings();
     
     const db = window.globalVariables.db;
-    const [transfer, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
+    const [_, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
 
     // Iterates through each semester in schedule
     dropzones.forEach(dropzone => {
@@ -24,7 +26,7 @@ export function checkClassSequence() {
                 }
 
                 // Identifies course's prereqs and coreqs
-                result[0].values.map(row => {
+                result[0].values.forEach(row => {
                     course.dataset.prereqs = row[0];
                     course.dataset.coreqs = row[1];
                 })
@@ -41,6 +43,10 @@ export function checkClassSequence() {
             }
         })
     })
+
+    if (document.querySelector(".warning-list").childElementCount > 0) {
+        document.querySelector(".warning").style.display = "block";
+    }
 }
 
 function prereqIsFulfilled(course) {
@@ -227,10 +233,11 @@ function coreqRequirementIsFulfilled(requirement, year, semester) {
 export function generateWarning() {
     let container = document.createElement("div");
     container.classList.add("mt-5", "px-0", "warning");
+    container.style.display = "none";
     container.innerHTML = `
         <div class="warning-box" style="display:none"> 
-            <div class="semester-header d-flex">
-                <div class="transfer semester-item">Warnings</div>
+            <div class="year-header text-center">
+                <span>Warnings</span>
             </div>
 
             <div class="d-flex warning-list">
