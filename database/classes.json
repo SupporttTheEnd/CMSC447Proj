@@ -3188,7 +3188,7 @@
     "name": "Aging People, Policy, and Management",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3260,7 +3260,7 @@
     "name": "Sports Economics and Finance",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["ECON101"],
+    "prerequisites": [["ECON101"]],
     "corequisites": []
   },
   {
@@ -3268,7 +3268,7 @@
     "name": "Teaching Reading in the Content Areas-Part II",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3276,7 +3276,7 @@
     "name": "Adolescent Literature",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3308,7 +3308,7 @@
     "name": "Interconnections: Social and Historical Confluences",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["FREN302"],
+    "prerequisites": [["FREN302"]],
     "corequisites": []
   },
   {
@@ -3324,7 +3324,7 @@
     "name": "Watershed Science and Management",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3348,7 +3348,7 @@
     "name": "Introduction to the Human Context of Science and Technology",
     "credits": "3",
     "availability": "1111",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3428,7 +3428,7 @@
     "name": "Textual Analysis: Words, Images, Music",
     "credits": "3",
     "availability": "1011",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3532,7 +3532,7 @@
     "name": "Child Developmental Psychology",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": ["PSYC100"],
+    "prerequisites": [["PSYC100"]],
     "corequisites": []
   },
   {
@@ -3540,7 +3540,7 @@
     "name": "Psychology of Learning",
     "credits": "3",
     "availability": "1111",
-    "prerequisites": ["PSYC100"],
+    "prerequisites": [["PSYC100"]],
     "corequisites": []
   },
   {

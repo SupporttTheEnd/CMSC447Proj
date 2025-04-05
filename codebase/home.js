@@ -1,3 +1,5 @@
+import { generateInformation } from './information.js';
+
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
@@ -267,12 +269,11 @@ function loadAndPopulateClasses() {
     dragAndDropEnable();
     updateCredits();
 }
-
 function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
-        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester
+        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester, classes.availability, classes.prerequisites
         FROM ${program}
         JOIN classes ON ${program}.courseId = classes.courseId
     `;
@@ -285,7 +286,9 @@ function populateClassData(program) {
                 name: row[1],
                 credits: row[2],
                 year: row[3],
-                semester: row[4]
+                semester: row[4],
+                availability: row[5],
+                prerequisites: row[6]
             };
         });
 
@@ -297,18 +300,14 @@ function populateClassData(program) {
                 classDiv.setAttribute("draggable", "true");
                 classDiv.id = course.courseId;
 
-                const courseName = document.createElement("span");
-                courseName.classList.add("course-name");
-                courseName.textContent = `[${course.courseId}] ${course.name}`;
+                const spansHtml = `
+                    <span class="course-name"><span class="information">🛈 </span>[${course.courseId}] ${course.name}</span>
+                    <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
+                `;
+                classDiv.innerHTML = spansHtml;
 
-                const credits = document.createElement("span");
-                credits.classList.add("credits");
-                credits.textContent = `${course.credits} Credits`;
-                credits.style.whiteSpace = "nowrap";
-
-                classDiv.appendChild(courseName);
-                classDiv.appendChild(credits);
                 semesterContainer.appendChild(classDiv);
+                generateInformation(course.prerequisites, course.availability, classDiv);
             }
         });
     }
@@ -349,6 +348,10 @@ function populateRequirementData(program) {
             requireDiv.setAttribute("draggable", "true");
             requireDiv.dataset.requirement = requirement.courseId;
 
+            const infoSpan = document.createElement("span");
+            infoSpan.classList.add("information");
+            infoSpan.textContent = "🛈 ";
+
             const selectElement = document.createElement("select");
             selectElement.classList.add("require-select");
 
@@ -360,7 +363,7 @@ function populateRequirementData(program) {
 
             if (category.includes(".")) {
                 const wildcardQuery = `
-                    SELECT courseId, name, credits
+                    SELECT courseId, name, credits, prerequisites, availability
                     FROM classes
                     WHERE courseId LIKE '${category.replace(/\./g, "_")}'
                 `;
@@ -371,6 +374,8 @@ function populateRequirementData(program) {
                         optionElement.value = courseData[0];
                         optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
                         optionElement.dataset.credits = courseData[2];
+                        optionElement.dataset.prerequisites = courseData[3];
+                        optionElement.dataset.availability = courseData[4];
                         selectElement.appendChild(optionElement);
                     });
                 }
@@ -387,7 +392,7 @@ function populateRequirementData(program) {
                         const courses = option[1].replace(/["\[\]]/g, "").split(",");
                         courses.forEach(course => {
                             const courseQuery = `
-                                SELECT courseId, name, credits
+                                SELECT courseId, name, credits, prerequisites, availability
                                 FROM classes
                                 WHERE courseId = '${course.trim()}'
                             `;
@@ -398,6 +403,8 @@ function populateRequirementData(program) {
                                 optionElement.value = courseData[0];
                                 optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
                                 optionElement.dataset.credits = courseData[2];
+                                optionElement.dataset.prerequisites = courseData[3];
+                                optionElement.dataset.availability = courseData[4];
                                 selectElement.appendChild(optionElement);
                             }
                         });
@@ -419,6 +426,7 @@ function populateRequirementData(program) {
                 if (selectedOption && selectedOption.dataset.credits) {
                     credits.textContent = `${selectedOption.dataset.credits} Credits`;
                     requireDiv.id = selectedOption.value;
+                    generateInformation(selectedOption.dataset.prerequisites, selectedOption.dataset.availability, requireDiv);
                 } else {
                     credits.textContent = "0 Credits";
                     requireDiv.id = "";
@@ -427,6 +435,7 @@ function populateRequirementData(program) {
             });
 
             requireDiv.appendChild(requireName);
+            requireDiv.appendChild(infoSpan);
             requireDiv.appendChild(selectElement);
             requireDiv.appendChild(credits);
 
