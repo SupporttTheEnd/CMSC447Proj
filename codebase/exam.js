@@ -1,11 +1,11 @@
 import { dragAndDropEnable } from './home.js';
-
+import { generateInformation } from './information.js';
 
 export async function main() {
     await setupExamFilter();
     setupScoreFilter();
     await handleSubmission();
-    resetFilters()
+    resetFilters();
 }
 
 async function setupExamFilter() {
@@ -65,7 +65,7 @@ async function handleSubmission() {
             const query = classList.map(course => `courseId LIKE '%${course}%'`).join(' OR ');
 
             const filteredData = db.exec(`
-                SELECT courseId, name, credits
+                SELECT courseId, name, credits, availability, prerequisites
                 FROM classes
                 WHERE ${query} 
                 LIMIT 500
@@ -75,12 +75,19 @@ async function handleSubmission() {
             dropzone.empty();
 
             filteredData[0].values.forEach(row => {
-                dropzone.append(`
-                    <div class="class-item draggable" draggable="true" id="${row[0]}">
-                        <span class="course-name">[${row[0]}] ${row[1]}</span>
-                        <span class="credits" style="white-space: nowrap;">${row[2]} Credits</span>
-                    </div>
-                `);
+                const classDiv = document.createElement("div");
+                classDiv.classList.add("class-item", "draggable");
+                classDiv.setAttribute("draggable", "true");
+                classDiv.id = row[0];
+
+                const spansHtml = `
+                    <span class="course-name"><span class="information">🛈 </span>[${row[0]}] ${row[1]}</span>
+                    <span class="credits" style="white-space: nowrap;">${row[2]} Credits</span>
+                `;
+                classDiv.innerHTML = spansHtml;
+
+                dropzone.append(classDiv);
+                generateInformation(row[4], row[3], classDiv); 
             });
             dragAndDropEnable();
         } else {

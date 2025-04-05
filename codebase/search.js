@@ -1,4 +1,5 @@
 import { dragAndDropEnable } from './home.js';
+import { generateInformation } from './information.js';
 
 export async function main() {
     setupClassCategory();
@@ -84,7 +85,7 @@ function handleSubmission() {
         const selectedCredits = $('#class-credits').val();
         const selectedAvailability = $('#class-availability').val();
         const filteredData = db.exec(`
-            SELECT courseId, name, credits, availability 
+            SELECT courseId, name, credits, availability, prerequisites
             FROM classes 
             WHERE (LOWER(courseId) LIKE '%${query}%' 
             OR LOWER(name) LIKE '%${query}%')
@@ -117,12 +118,21 @@ function displayPage(data, page, resultsPerPage, dropzone) {
 
     dropzone.empty();
     pageData.forEach(row => {
-        dropzone.append(`
-            <div class="class-item draggable" draggable="true" id="${row[0]}">
-                <span class="course-name">[${row[0]}] ${row[1]}</span>
+        if (!document.querySelector(`.sidebar .dropzone #${row[0]}`)) {
+            const classDiv = document.createElement("div");
+            classDiv.classList.add("class-item", "draggable");
+            classDiv.setAttribute("draggable", "true");
+            classDiv.id = row[0];
+
+            const spansHtml = `
+                <span class="course-name"><span class="information">🛈 </span>[${row[0]}] ${row[1]}</span>
                 <span class="credits" style="white-space: nowrap;">${row[2]} Credits</span>
-            </div>
-        `);
+            `;
+            classDiv.innerHTML = spansHtml;
+
+            dropzone.append(classDiv);
+            generateInformation(row[4], row[3], classDiv); 
+        }
     });
 }
 
