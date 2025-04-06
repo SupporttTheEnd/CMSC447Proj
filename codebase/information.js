@@ -29,7 +29,7 @@ export function generateInformation(prereqs, availability, target) {
 
         const rect = target.getBoundingClientRect();
         popup.style.left = `${rect.left + 10 + window.scrollX}px`;
-        popup.style.top = `${rect.bottom + 10 + window.scrollY}px`;
+        popup.style.top = `${rect.bottom - 10 + window.scrollY}px`;
         popup.style.display = "block";
 
         infoSpan.addEventListener("mouseleave", () => {

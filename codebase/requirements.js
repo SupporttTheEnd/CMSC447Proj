@@ -1,15 +1,17 @@
+import { createMessage } from './login.js';
+
 export function checkClassSequence() {
     document.querySelector(".warning").style.display = "none";
 
     clearWarnings();
-    
+
     const db = window.globalVariables.db;
     const [_, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
 
     // Iterates through each semester in schedule
     dropzones.forEach(dropzone => {
         const courses = dropzone.querySelectorAll('.class-item');
-        
+
         // Iterates through each course in semester
         courses.forEach(course => {
             // Checks if course has been selected for GEP
@@ -44,9 +46,18 @@ export function checkClassSequence() {
         })
     })
 
-    if (document.querySelector(".warning-list").childElementCount > 0) {
+    const warningCount = document.querySelector(".warning-list").childElementCount;
+    if (warningCount > 0) {
         document.querySelector(".warning").style.display = "block";
+        createMessage(`There are ${warningCount} prerequisite/corequisite warnings. Please review your schedule.`);
     }
+
+    const warningText = document.querySelector(".warnings-text span");
+    if (warningText) {
+        warningText.textContent = warningCount;
+    }
+
+    checkDuplicateIds();
 }
 
 function prereqIsFulfilled(course) {
@@ -70,14 +81,14 @@ function prereqIsFulfilled(course) {
                 const category = requirement.replace('$', '');
 
                 // Checks if requirement is a wildcard
-                if(category.includes(".")) {
+                if (category.includes(".")) {
                     const wildcardQuery = `
                         SELECT courseId
                         FROM classes
                         WHERE courseId LIKE '${category.replace(/\./g, "_")}'
                     `;
                     const wildcardResult = db.exec(wildcardQuery);
-                    
+
                     if (wildcardResult.length) {
                         // Iterates through each result for wildcard requirement
                         for (const result of wildcardResult[0].values) {
@@ -147,9 +158,9 @@ function prereqRequirementIsFulfilled(requirement, semesters, year, semester) {
                 if (i === year && semesters[j] === semester) {
                     return false;
                 }
-                
+
                 const prevSemester = document.querySelector(`.year-${i} .${semesters[j]}.dropzone`);
-            
+
                 // Checks if a previous semester contains requirement
                 if (prevSemester && prevSemester.querySelector(`#${requirement}`)) {
                     return true;
@@ -230,6 +241,35 @@ function coreqRequirementIsFulfilled(requirement, year, semester) {
     return false;
 }
 
+function checkDuplicateIds() {
+    const ids = new Set();
+    const duplicates = new Set();
+    const courses = document.querySelectorAll(`#classes .class-item`);
+
+    courses.forEach(course => {
+        if (course.id) {
+            if (ids.has(course.id)) {
+                duplicates.add(course.id);
+            } else {
+                ids.add(course.id);
+            }
+        }
+    });
+
+    if (duplicates.size > 0) {
+        const warningContainer = document.querySelector(".warning-list");
+        duplicates.forEach(duplicateId => {
+            const warningDiv = document.createElement("div");
+            warningDiv.classList.add("warning-item");
+            warningDiv.textContent = `Duplicate course ID found: ${duplicateId}`;
+            warningContainer.appendChild(warningDiv);
+        });
+
+        document.querySelector(".warning").style.display = "block";
+        createMessage(`Duplicate course IDs detected`);
+    }
+}
+
 export function generateWarning() {
     let container = document.createElement("div");
     container.classList.add("mt-5", "px-0", "warning");
@@ -245,7 +285,7 @@ export function generateWarning() {
         </div>
         <div class="d-flex flex-column align-items-center add-line">
             <button class="additionSession"></button>
-            <p> Show Warnings </p>
+            <p class="warnings-text"> Show Warnings <span></span></p>
         </div>
     `;
     container.querySelector('.additionSession').addEventListener('click', showWarningBox);

@@ -1,10 +1,12 @@
 import * as home from './codebase/home.js';
 import * as search from './codebase/search.js';
 import * as exam from './codebase/exam.js';
+import * as login from './codebase/login.js';
 
 window.globalVariables = {
     years: 4,
-    db: null
+    db: null,
+    account: null
 }
 
 $(document).ready(function () {
@@ -19,6 +21,7 @@ async function controller() {
     await home.main();
     await search.main();
     await exam.main();
+    await login.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';

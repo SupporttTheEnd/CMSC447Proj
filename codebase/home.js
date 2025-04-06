@@ -1,9 +1,11 @@
 import { generateInformation } from './information.js';
 import { checkClassSequence, generateWarning } from './requirements.js';
+import { createMessage } from './login.js';
 
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
+    await loadTabContent('feedback');
     initializeSelect2();
     setupMajorMinorValidation();
     generateWarning();
@@ -71,15 +73,20 @@ export function dragAndDropEnable() {
         if (!zone.dataset.dropEventAttached) {
             zone.addEventListener('dragover', (e) => {
                 e.preventDefault();
-                const dragging = document.querySelector('.dragging');
-                zone.appendChild(dragging);
             });
 
             zone.addEventListener('drop', (e) => {
                 e.preventDefault();
-                if (zone.closest('#classes') || zone.closest('.sidebar')) {
-                    updateCredits();
+                const dragging = document.querySelector('.dragging');
+
+                if (zone.closest('.sidebar') && duplicatesInCart(dragging)) {
+                    return; 
                 }
+                
+                zone.appendChild(dragging);
+                if (document.querySelector('#classes-tab').classList.contains('active')) {
+                    updateCredits();
+                } 
             });
 
             zone.dataset.dropEventAttached = true;
@@ -304,7 +311,7 @@ function populateClassData(program) {
                 classDiv.id = course.courseId;
 
                 const spansHtml = `
-                    <span class="course-name"><span class="information">🛈 </span>[${course.courseId}] ${course.name}</span>
+                    <span class="course-name"><span class="information">ⓘ </span>[${course.courseId}] ${course.name}</span>
                     <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
                 `;
                 classDiv.innerHTML = spansHtml;
@@ -353,7 +360,7 @@ function populateRequirementData(program) {
 
             const infoSpan = document.createElement("span");
             infoSpan.classList.add("information");
-            infoSpan.textContent = "🛈 ";
+            infoSpan.textContent = "ⓘ ";
 
             const selectElement = document.createElement("select");
             selectElement.classList.add("require-select");
@@ -580,4 +587,18 @@ function addYearButton() {
     button.addEventListener("click", () => generateYears(true));
 
     document.getElementById("classes").appendChild(container);
+}
+
+function duplicatesInCart(element) {
+    const courses = document.querySelectorAll(`.sidebar .class-item`);
+    const elementId = element.id;
+
+    for (const course of courses) {
+        if (course.id === elementId) {
+            createMessage(`Cannot insert duplicate class in the cart.`);
+            return true;
+        }
+    }
+
+    return false;
 }

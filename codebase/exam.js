@@ -81,7 +81,7 @@ async function handleSubmission() {
                 classDiv.id = row[0];
 
                 const spansHtml = `
-                    <span class="course-name"><span class="information">🛈 </span>[${row[0]}] ${row[1]}</span>
+                    <span class="course-name"><span class="information">ⓘ </span>[${row[0]}] ${row[1]}</span>
                     <span class="credits" style="white-space: nowrap;">${row[2]} Credits</span>
                 `;
                 classDiv.innerHTML = spansHtml;

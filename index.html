@@ -30,10 +30,15 @@
 
     <!-- Non-Modular functions-->
     <script src="non-modular.js"></script>
+
+    <!-- Google Authentication-->
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 </head>
 
 <body>
     <div id="content">
+        <div class="message-container"></div>
         <div class="sidebar hide">
             <button class="toggle-btn" onclick="toggleSidebar()"></button>
             <button class="empty-btn" onclick="emptyBin()"></button>
@@ -45,10 +50,13 @@
                 <img src="images/logo.svg" alt="Logo" class="umbc-logo">
 
                 <div class="toggle-container">
+                    <h6 id="google-logout-button" style="display: none;">👤 Logout</h6>
+                    <span id="google-login-button"></span>
                     <label class="switch">
                         <input type="checkbox" id="dark-mode-toggle">
                         <span class="slider"></span>
                     </label>
+                    <p id="user-email" style="display: none;"></p>
                 </div>
             </div>
 
@@ -56,7 +64,10 @@
                 <h1><span class="label">Four-Year Academic Pathways</span></h1>
             </header>
 
+            
+
             <div class="content-wrapper container mt-5">
+                <h3 class="welcome-text" style="display: none;"></h3>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
@@ -68,6 +79,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#exam">Search APs 📚</a>
+                    </li>
+                    <li class="nav-item account-student">
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#feedback">Enter Feedback 📝</a>
                     </li>
                 </ul>
 
@@ -114,6 +128,7 @@
                     </div>
                     <div class="tab-pane fade" id="search"></div>
                     <div class="tab-pane fade" id="exam"></div>
+                    <div class="tab-pane fade account-student" id="feedback"></div>
                 </div>
             </div>
         </div>
@@ -125,7 +140,8 @@
             <div class="container text-center">
                 <a href="mailto:andrew73@umbc.edu">📧Contact Us</a> | <span>📱Phone: 443-851-9937</span>
             </div>
-            <span class="location">© University of Maryland, Baltimore County • 1000 Hilltop Circle • Baltimore, MD 21250</span>
+            <span class="location">© University of Maryland, Baltimore County • 1000 Hilltop Circle • Baltimore, MD
+                21250</span>
         </footer>
 
     </div>
