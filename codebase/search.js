@@ -94,7 +94,7 @@ function handleSubmission() {
             ${selectedAvailability ? `AND SUBSTR(availability, ${selectedAvailability}, 1) = '1'` : ''}
             LIMIT 500
         `);        
-
+            
         const dropzone = $('#class-dropzone');
         dropzone.empty();
         const paginationContainer = $('.pagination-controls');
