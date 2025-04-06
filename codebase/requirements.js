@@ -315,7 +315,6 @@ function addWarning(course, type) {
     const warningContainer = document.querySelector(".warning-list");
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
-    warningDiv.id = course.id;
 
     const warningMessage = document.createElement("span");
     warningMessage.textContent = `${course.id} is missing a ${type}`;

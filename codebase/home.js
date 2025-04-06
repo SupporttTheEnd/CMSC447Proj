@@ -260,7 +260,7 @@ function showTransferBox(event) {
 
 function loadAndPopulateClasses() {
     clearClasses();
-
+    
     const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
         .map(option => option.value);
     const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
@@ -275,10 +275,11 @@ function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         populateRequirementData(program);
     }
-
+    
     dragAndDropEnable();
     updateCredits();
 }
+
 function populateClassData(program) {
     const db = window.globalVariables.db;
 

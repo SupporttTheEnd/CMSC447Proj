@@ -74,7 +74,7 @@ function toggleAccountStudentItems() {
     const isLoggedIn = (window.globalVariables.account != null);
     const elements = document.querySelectorAll('.account-student');
     elements.forEach(element => {
-        element.style.display = isLoggedIn ? 'block' : 'none';
+        element.style.display = isLoggedIn ? 'unset' : 'none';
     });
 }
 
