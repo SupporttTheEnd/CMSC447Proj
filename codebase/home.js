@@ -311,7 +311,7 @@ function populateClassData(program) {
                 classDiv.id = course.courseId;
 
                 const spansHtml = `
-                    <span class="course-name"><span class="information">🛈 </span>[${course.courseId}] ${course.name}</span>
+                    <span class="course-name"><span class="information">ⓘ </span>[${course.courseId}] ${course.name}</span>
                     <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
                 `;
                 classDiv.innerHTML = spansHtml;
@@ -360,7 +360,7 @@ function populateRequirementData(program) {
 
             const infoSpan = document.createElement("span");
             infoSpan.classList.add("information");
-            infoSpan.textContent = "🛈 ";
+            infoSpan.textContent = "ⓘ ";
 
             const selectElement = document.createElement("select");
             selectElement.classList.add("require-select");

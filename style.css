@@ -677,6 +677,7 @@ button.secondary-button:hover {
 }
 
 span.information {
+    font-size: 16px; 
     color: var(--accent-color)
 }
 
@@ -685,7 +686,7 @@ span.information {
 }
 
 span.information:hover {
-    font-size: 16px; 
+    font-size: 20px; 
     color: var(--button-hover-color);
     cursor: pointer;
 }
