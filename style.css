@@ -779,3 +779,9 @@ span.information:hover {
     font-size: 16px;
     cursor: pointer;
 }
+
+.feedback {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
