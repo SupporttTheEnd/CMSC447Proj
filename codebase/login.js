@@ -1,6 +1,6 @@
 export async function main() {
-    const userEmail = sessionStorage.getItem('userEmail');
-    const userName = sessionStorage.getItem('userName');
+    const userEmail = localStorage.getItem('userEmail');
+    const userName = localStorage.getItem('userName');
     if (userEmail && userName) {
         window.globalVariables.account = userEmail;
 
@@ -32,8 +32,8 @@ function handleCredentialResponse(response) {
     const userName = userObject.name;
 
     if (isUMBCStudent(userEmail)) {
-        sessionStorage.setItem('userEmail', userEmail);
-        sessionStorage.setItem('userName', userName);
+        localStorage.setItem('userEmail', userEmail);
+        localStorage.setItem('userName', userName);
 
         document.getElementById("user-email").textContent = "Logged in as: " + userEmail;
         document.getElementById("user-email").style.display = "block";
@@ -55,8 +55,8 @@ function handleCredentialResponse(response) {
 function googleLogout() {
     google.accounts.id.disableAutoSelect();
 
-    sessionStorage.removeItem('userEmail');
-    sessionStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
 
     document.getElementById("google-logout-button").style.display = "none";
     document.getElementById("google-login-button").style.display = "inline-block";
@@ -74,7 +74,7 @@ function toggleAccountStudentItems() {
     const isLoggedIn = (window.globalVariables.account != null);
     const elements = document.querySelectorAll('.account-student');
     elements.forEach(element => {
-        element.style.display = isLoggedIn ? 'block' : 'none';
+        element.style.display = isLoggedIn ? 'unset' : 'none';
     });
 }
 
