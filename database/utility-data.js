@@ -60,7 +60,6 @@ console.log('');
 const reqPath = 'requirements.json';
 const reqs = loadData(reqPath);
 const reqKeys = Object.keys(reqs);
-const reqVals = Object.values(reqs);
 
 if (!reqs.length) {
   program_req_paths = [
@@ -86,5 +85,35 @@ if (!reqs.length) {
   }
   else {
     console.log("No Unlinked Requirements Found");
+  }
+  console.log('');
+}
+
+
+const reqVals = new Set(Object.values(reqs));
+const courseIds = new Set();
+const courseFails = new Set();
+
+
+if (!reqs.length) {
+  courses.forEach(course => {
+    courseIds.add(course.courseId);
+  });
+
+  reqVals.forEach(requirement => {
+    requirement.forEach(course => {
+      if (!courseIds.has(course)) {
+        courseFails.add(course);
+      }
+    });
+  });
+
+  if (courseFails.size > 0) {
+    console.log("Found Unlinked Courses: ");
+    console.log(courseFails);
+    console.log(courseFails.size);
+  }
+  else {
+    console.log("No Unlinked Courses Found");
   }
 }
