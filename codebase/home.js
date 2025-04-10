@@ -319,8 +319,10 @@ function populateClassData(program) {
                     <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
                 `;
                 classDiv.innerHTML = spansHtml;
+                if (semesterContainer){
+                    semesterContainer.appendChild(classDiv);
+                }
 
-                semesterContainer.appendChild(classDiv);
                 generateInformation(course.prerequisites, course.availability, classDiv);
             }
         });
@@ -453,7 +455,9 @@ function populateRequirementData(program) {
             requireDiv.appendChild(selectElement);
             requireDiv.appendChild(credits);
 
-            semesterContainer.appendChild(requireDiv);
+            if (semesterContainer) {
+                semesterContainer.appendChild(requireDiv);
+            }
         });
     }
 }
