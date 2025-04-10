@@ -7,7 +7,7 @@ window.globalVariables = {
     years: 4,
     db: null,
     account: null
-}
+};
 
 $(document).ready(function () {
     controller();

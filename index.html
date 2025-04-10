@@ -27,6 +27,7 @@
 
     <!-- Include Code-->
     <script type="module" src="controller.js"></script>
+    <script type="module" src="codebase/file.js"></script>
 
     <!-- Non-Modular functions-->
     <script src="non-modular.js"></script>
@@ -34,6 +35,10 @@
     <!-- Google Authentication-->
     <script src="https://accounts.google.com/gsi/client"></script>
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    
+    <!-- PDF Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
 
 <body>
@@ -64,15 +69,13 @@
                 <h1><span class="label">Four-Year Academic Pathways</span></h1>
             </header>
 
-            
 
             <div class="content-wrapper container mt-5">
                 <h3 class="welcome-text" style="display: none;"></h3>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building
-                            🏗️</a>
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building 🏗️</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search 🔍</a>
@@ -92,38 +95,32 @@
                             <!-- Major Selection -->
                             <div class="col-md-6">
                                 <h3>Select your Major(s):</h3>
-                                <select id="major" name="major" class="searchable-dropdown form-select"
-                                    multiple="multiple">
-                                    <option value="business_technology_administration">Business Technology
-                                        Administration</option>
-                                    <option value="chemical_engineering">Chemical Engineering</option>
-                                    <option value="computer_engineering_communications">Computer Engineering
-                                        Communications</option>
-                                    <option value="computer_engineering_cybersecurity">Computer Engineering
-                                        Cybersecurity</option>
-                                    <option value="computer_engineering_electronic_systems">Computer Engineering
-                                        Electronic Systems</option>
-                                    <option value="computer_science">Computer Science</option>
-                                    <option value="information_systems">Information Systems</option>
-                                    <option value="mechanical_engineering">Mechanical Engineering</option>
+                                <select id="major" name="major" class="searchable-dropdown form-select" multiple="multiple">
+                                    <option value="business_technology_administration">📊Business Technology Administration</option>
+                                    <option value="chemical_engineering">⚗️Chemical Engineering</option>
+                                    <option value="computer_engineering_communications">📡Computer Engineering Communications</option>
+                                    <option value="computer_engineering_cybersecurity">🔐Computer Engineering Cybersecurity</option>
+                                    <option value="computer_engineering_electronic_systems">⚡Computer Engineering Electronic Systems</option>
+                                    <option value="computer_science">💻Computer Science</option>
+                                    <option value="information_systems">📂Information Systems</option>
+                                    <option value="mechanical_engineering">⚙️Mechanical Engineering</option>
                                 </select>
                             </div>
 
                             <!-- Minor Selection -->
                             <div class="col-md-6">
                                 <h3>Select your Minor(s):</h3>
-                                <select id="minor" name="minor" class="searchable-dropdown form-select"
-                                    multiple="multiple">
-                                    <option value="management_minor">Business Technology
-                                        Administration</option>
-                                    <option value="computer_science_minor">Computer Science</option>
-                                    <option value="computing_minor">Computing</option>
-                                    <option value="information_systems_minor">Information Systems</option>
+                                <select id="minor" name="minor" class="searchable-dropdown form-select" multiple="multiple">
+                                    <option value="management_minor">📊Business Technology Administration</option>
+                                    <option value="computer_science_minor">💻Computer Science</option>
+                                    <option value="computing_minor">⌨️Computing</option>
+                                    <option value="information_systems_minor">📂Information Systems</option>
                                 </select>
                             </div>
 
-                            <button type="button" id="generateButton" class="primary-button btn btn-primary"
-                                style="margin:10px">Generate Schedule</button>
+                            <!-- Buttons -->
+                            <button type="button" id="generateButton" class="primary-button btn btn-primary" style="margin:10px">Generate Schedule</button>
+                            <button type="button" id="downloadButton" class="secondary-button btn" style="margin:10px">🖨️ Print Schedule</button>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="search"></div>
