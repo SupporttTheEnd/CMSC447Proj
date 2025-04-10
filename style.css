@@ -47,6 +47,10 @@ h6 {
     color: var(--text-color);
 }
 
+h6#google-logout-button:hover {
+    color:var(--button-hover-color)
+}
+
 p {
     color: var(--text-color);
 }

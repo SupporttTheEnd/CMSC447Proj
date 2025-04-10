@@ -103,5 +103,7 @@ export function downloadScheduleAsPDF() {
         });
     }
 
-    doc.save("Four-Year-Plan-Schedule.pdf");
+    const now = new Date();
+
+    doc.save(`Four-Year-Plan-Schedule-${now.toISOString().replace(/[:.]/g, "-")}.pdf`);
 }
