@@ -1,4 +1,11 @@
+import { isPlanValid} from './requirements.js';
+import { createMessage } from './login.js';
+
 export function downloadScheduleAsPDF() {
+    if (!isPlanValid()){
+        createMessage("Invalid Schedule. Please resolve before downloading class data.");
+        return; 
+    }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
