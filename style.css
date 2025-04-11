@@ -790,8 +790,8 @@ span.information:hover {
 
 .message-box .close-button {
     position: absolute;
-    top: 8px;
-    right: 10px;
+    top: 0px;
+    right: 5px;
     background: none;
     border: none;
     color: #fff;

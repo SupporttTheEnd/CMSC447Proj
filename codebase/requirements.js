@@ -64,6 +64,7 @@ export function checkClassSequence() {
     const validationResult = isPlanValid();
     if (validationResult.isValid) {
         createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
+        confetti();
     }
 }
 

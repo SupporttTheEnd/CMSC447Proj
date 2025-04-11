@@ -2,11 +2,14 @@ import { isPlanValid} from './requirements.js';
 import { createMessage } from './login.js';
 
 export function downloadScheduleAsPDF() {
+
     const validation = isPlanValid();
     if (!validation.isValid) {
         createMessage(`The schedule is invalid because: ${validation.reason}`);
         return;
     }
+    
+    confetti();
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();

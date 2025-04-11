@@ -21,8 +21,15 @@ export async function main() {
 }
 
 function initializeSelect2() {
-    $('.searchable-dropdown').select2({
-        placeholder: "Select an Option",
+    // Ensure the dropdowns are initialized with Select2
+    $('#major').select2({
+        placeholder: "Select your Major(s)",
+        allowClear: true,
+        width: '400px',
+    });
+
+    $('#minor').select2({
+        placeholder: "Select your Minor(s)",
         allowClear: true,
         width: '400px'
     });
