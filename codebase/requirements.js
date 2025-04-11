@@ -61,8 +61,9 @@ export function checkClassSequence() {
         warningText.textContent = warningCount;
     }
 
-    if (isPlanValid()){
-        createMessage("Plan has been validated you can now print a copy of your schedule."); 
+    const validationResult = isPlanValid();
+    if (validationResult.isValid) {
+        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
     }
 }
 
@@ -334,27 +335,28 @@ function clearWarnings() {
     warningContainer.innerHTML = "";
 }
 
-export function isPlanValid () {
+export function isPlanValid() {
     const warningCount = document.querySelector(".warning-list").childElementCount;
     if (warningCount > 0) {
-        return false;
+        return { isValid: false, reason: "There are prerequisite/corequisite warnings." };
     }
 
-    const classCount = document.querySelectorAll("#classes .class-items");
+    const classCount = document.querySelectorAll("#classes .class-item");
     if (classCount.length == 0) {
-        return false;
+        return { isValid: false, reason: "No classes have been added to the schedule." };
     }
 
     const creditsInvalid = document.querySelector(".invalid-credits");
     if (creditsInvalid) {
-        return false;
+        return { isValid: false, reason: "Invalid credit count detected." };
     }
 
     const requirements = document.querySelectorAll(".require-item");
-    requirements.forEach(requirement => {
-        if(requirement.querySelector(".require-select").selectedIndex === 0) {
-            return false; 
+    for (const requirement of requirements) {
+        if (requirement.querySelector(".require-select").selectedIndex === 0) {
+            return { isValid: false, reason: "Not all requirements have been selected." };
         }
-    });
-    return true; 
+    }
+
+    return { isValid: true, reason: "Plan is valid." };
 }

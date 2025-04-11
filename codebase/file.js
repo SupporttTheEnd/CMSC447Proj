@@ -2,9 +2,10 @@ import { isPlanValid} from './requirements.js';
 import { createMessage } from './login.js';
 
 export function downloadScheduleAsPDF() {
-    if (!isPlanValid()){
-        createMessage("Invalid Schedule. Please resolve before downloading class data.");
-        return; 
+    const validation = isPlanValid();
+    if (!validation.isValid) {
+        createMessage(`The schedule is invalid because: ${validation.reason}`);
+        return;
     }
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
