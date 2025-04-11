@@ -46,18 +46,26 @@ export function checkClassSequence() {
         })
     })
 
-    const warningCount = document.querySelector(".warning-list").childElementCount;
+    let warningCount = document.querySelector(".warning-list").childElementCount;
     if (warningCount > 0) {
         document.querySelector(".warning").style.display = "block";
         createMessage(`There are ${warningCount} prerequisite/corequisite warnings. Please review your schedule.`);
     }
+
+    checkDuplicateIds();
+
+    warningCount = document.querySelector(".warning-list").childElementCount; //updated warning count from duplicates
 
     const warningText = document.querySelector(".warnings-text span");
     if (warningText) {
         warningText.textContent = warningCount;
     }
 
-    checkDuplicateIds();
+    const validationResult = isPlanValid();
+    if (validationResult.isValid) {
+        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
+        confetti();
+    }
 }
 
 function prereqIsFulfilled(course) {
@@ -326,4 +334,30 @@ function addWarning(course, type) {
 function clearWarnings() {
     const warningContainer = document.querySelector(".warning-list");
     warningContainer.innerHTML = "";
+}
+
+export function isPlanValid() {
+    const warningCount = document.querySelector(".warning-list").childElementCount;
+    if (warningCount > 0) {
+        return { isValid: false, reason: "There are prerequisite/corequisite warnings." };
+    }
+
+    const classCount = document.querySelectorAll("#classes .class-item");
+    if (classCount.length == 0) {
+        return { isValid: false, reason: "No classes have been added to the schedule." };
+    }
+
+    const creditsInvalid = document.querySelector(".invalid-credits");
+    if (creditsInvalid) {
+        return { isValid: false, reason: "Invalid credit count detected." };
+    }
+
+    const requirements = document.querySelectorAll(".require-item");
+    for (const requirement of requirements) {
+        if (requirement.querySelector(".require-select").selectedIndex === 0) {
+            return { isValid: false, reason: "Not all requirements have been selected." };
+        }
+    }
+
+    return { isValid: true, reason: "Plan is valid." };
 }

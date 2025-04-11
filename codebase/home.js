@@ -1,6 +1,7 @@
 import { generateInformation } from './information.js';
 import { checkClassSequence, generateWarning } from './requirements.js';
 import { createMessage } from './login.js';
+import { downloadScheduleAsPDF } from './file.js';
 
 export async function main() {
     await loadTabContent('search');
@@ -14,12 +15,21 @@ export async function main() {
     darkMode();
     addYearButton();
     
+    // setup main buttons
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
+    document.getElementById("downloadButton").addEventListener("click", downloadScheduleAsPDF);
 }
 
 function initializeSelect2() {
-    $('.searchable-dropdown').select2({
-        placeholder: "Select an Option",
+    // Ensure the dropdowns are initialized with Select2
+    $('#major').select2({
+        placeholder: "Select your Major(s)",
+        allowClear: true,
+        width: '400px',
+    });
+
+    $('#minor').select2({
+        placeholder: "Select your Minor(s)",
         allowClear: true,
         width: '400px'
     });
@@ -316,8 +326,10 @@ function populateClassData(program) {
                     <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
                 `;
                 classDiv.innerHTML = spansHtml;
+                if (semesterContainer){
+                    semesterContainer.appendChild(classDiv);
+                }
 
-                semesterContainer.appendChild(classDiv);
                 generateInformation(course.prerequisites, course.availability, classDiv);
             }
         });
@@ -450,7 +462,9 @@ function populateRequirementData(program) {
             requireDiv.appendChild(selectElement);
             requireDiv.appendChild(credits);
 
-            semesterContainer.appendChild(requireDiv);
+            if (semesterContainer) {
+                semesterContainer.appendChild(requireDiv);
+            }
         });
     }
 }
@@ -501,6 +515,7 @@ function updateCredits() {
         if (!isValid) {
             headerComponents.forEach(component => {
                 component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
+                component.style.color = "rgba(255, 255, 255, 0.93)";
             });
             dropzone.style.backgroundColor = "rgba(255, 143, 143, 0.36)";
             dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.5)", "important");
@@ -508,6 +523,7 @@ function updateCredits() {
         } else {
             headerComponents.forEach(component => {
                 component.style.backgroundColor = "";
+                component.style.color = "";
             });
             dropzone.style.removeProperty("border-color");
             dropzone.style.backgroundColor = "";
