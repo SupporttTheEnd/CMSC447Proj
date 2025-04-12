@@ -27,16 +27,16 @@ body {
 
 body::before {
     content: '';
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-image: url('images/grey-background.jpg');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
-    opacity: 0.2; 
-    background-attachment: fixed; 
+    opacity: 0.2;
+    background-attachment: fixed;
 }
 
 h3 {
@@ -45,10 +45,11 @@ h3 {
 
 h6 {
     color: var(--text-color);
+    margin-bottom: 0px;
 }
 
 h6#google-logout-button:hover {
-    color:var(--button-hover-color)
+    color: var(--button-hover-color)
 }
 
 p {
@@ -78,7 +79,7 @@ h3.welcome-text {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 20px;
-    padding-bottom: 50px; 
+    padding-bottom: 50px;
 }
 
 #site-header {
@@ -86,10 +87,12 @@ h3.welcome-text {
     color: whitesmoke;
     position: relative;
     display: flex;
-    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.footer{
+.footer {
     background-color: var(--base-color) !important;
     min-width: 500px;
     color: var(--text-color);
@@ -198,14 +201,14 @@ h3.welcome-text {
 .class-item.require-item {
     background-color: var(--requirement-color);
     border-color: var(--highlight-color);
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     column-gap: 5px;
     justify-content: left;
 }
 
 .require-item .course-name {
-    width: 100%; 
-    overflow-wrap: break-word; 
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .require-item .require-select {
@@ -294,9 +297,9 @@ button.additionSession:hover {
 }
 
 /* Top Bar*/
-#top-bar{
-    display: flex; 
-    align-items: center;
+#top-bar {
+    display: flex;
+    align-items: flex-end;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -304,18 +307,21 @@ button.additionSession:hover {
 .toggle-container {
     display: flex;
     margin-right: 20px;
-    margin-top: 20px;
-    column-gap: 30px;
+    margin-top: 10px;
+    column-gap: 20px;
     flex-wrap: wrap;
     justify-content: right;
     align-items: center;
 }
 
 p#user-email {
-    width: 100%;
+    color: var(--bar-color);
     font-size: 13px;
     font-weight: 600;
     text-align: right;
+    margin-bottom: 0px;
+    margin-right: 30px;
+    padding-left: 30px;
 }
 
 /* Toggle Switch*/
@@ -357,7 +363,7 @@ input:checked+.slider {
     background-color: var(--toggle-bg-color);
 }
 
-input:checked + .slider::before {
+input:checked+.slider::before {
     content: "🌕";
     transform: translateX(23px);
 }
@@ -365,24 +371,50 @@ input:checked + .slider::before {
 /* Full/Part Slider */
 .time-toggle.switch {
     height: 28px;
+    width: 50px;
 }
 
 .time-toggle .slider {
     background-color: var(--med-color);
 }
+
 .time-toggle .slider:before {
-    bottom: 12px;
+    top: 2px;
+    left: 15px;
     content: "🔋";
-    height: 20px;
-    width: 20px;
+    transform: rotate(90deg);
 }
 
 .time-toggle input:checked+.slider {
     background-color: var(--med-color);
 }
 
-.time-toggle input:checked + .slider::before {
+.time-toggle input:checked+.slider::before {
     content: "🪫";
+    transform: rotate(270deg) translateY(-12px);
+}
+
+/* Alert Slider */
+.alert-toggle.switch {
+    width: 40px;
+}
+
+.alert-toggle .slider {
+    background-color: var(--med-color);
+}
+
+.alert-toggle .slider:before {
+    bottom: 4px;
+    content: "🔔";
+}
+
+.alert-toggle input:checked+.slider {
+    background-color: var(--med-color);
+}
+
+.alert-toggle input:checked+.slider::before {
+    content: "🔕";
+    transform: none;
 }
 
 /* Tabs */
@@ -692,7 +724,7 @@ button.secondary-button:hover {
     width: 120%;
 }
 
-.info-popup{
+.info-popup {
     display: none;
     position: absolute;
     background: #f9f9f9;
@@ -700,7 +732,7 @@ button.secondary-button:hover {
     padding: 8px;
     z-index: 20;
     border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     font-size: 14px;
     max-width: 260px;
 }
@@ -713,13 +745,13 @@ button.secondary-button:hover {
     padding: 8px;
     z-index: 20;
     border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     font-size: 14px;
     max-width: 260px;
 }
 
 span.information {
-    font-size: 16px; 
+    font-size: 16px;
     color: var(--accent-color)
 }
 
@@ -728,20 +760,20 @@ span.information {
 }
 
 span.information:hover {
-    font-size: 20px; 
+    font-size: 20px;
     color: var(--button-hover-color);
     cursor: pointer;
 }
 
 .warning-list {
     width: 100%;
-    flex-direction: row; 
-    flex-wrap: wrap; 
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .warning-item {
-    width: 50%; 
+    width: 50%;
     background-color: rgba(255, 143, 143, 0.36);
     padding: 6px;
     border: 1px solid rgba(177, 48, 48, 0.5);
@@ -826,4 +858,52 @@ span.information:hover {
     margin-top: 40px;
     display: flex;
     justify-content: center;
+}
+
+/* Settings */
+.settings-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#settings-button {
+    font-size: 30px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.settings-dropdown:hover #settings-button{
+    transform: rotate(360deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: -20px;
+    background-color: var(--base-color);
+    min-width: 230px;
+    box-shadow: 0 0 8px var(--shadow-color);
+    z-index: 1;
+    border-radius: 1px;
+    padding: 8px 25px 8px 10px; 
+}
+
+.settings-dropdown:hover .dropdown-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    justify-items: end;
+    align-items: center;
+}
+
+.settings-dropdown:hover .dropdown-content > :nth-child(odd) {
+    justify-self: start;
+}
+
+.settings-dropdown:hover .dropdown-content > :nth-child(even):hover {
+    filter: hue-rotate(2deg) saturate(1.5) brightness(0.8);
 }

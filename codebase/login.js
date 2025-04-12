@@ -83,6 +83,10 @@ function isUMBCStudent(email) {
 }
 
 export function createMessage(message, isError = true) {
+    if(document.querySelector(".alert-toggle input:checked")){
+        return;
+    }
+
     const existingMessages = Array.from(document.querySelectorAll('.message-box'));
     
     if (existingMessages.some(msgBox => msgBox.textContent.includes(message))) {

@@ -27,7 +27,6 @@
 
     <!-- Include Code-->
     <script type="module" src="controller.js"></script>
-    <script type="module" src="codebase/file.js"></script>
 
     <!-- Non-Modular functions-->
     <script src="non-modular.js"></script>
@@ -42,6 +41,9 @@
 
     <!-- Celebration -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Include Font Awesome (latest version via CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -64,12 +66,24 @@
                         <input type="checkbox" id="dark-mode-toggle">
                         <span class="slider"></span>
                     </label>
-                    <p id="user-email" style="display: none;"></p>
+                    <div class="settings-dropdown">
+                        <div id="settings-button">⚙️</div>
+                        <div class="dropdown-content">
+                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;"> Toggle Alerts</p>
+                            <label class="switch alert-toggle">
+                                <input type="checkbox" id="alert-toggle">
+                                <span class="slider"></span>
+                            </label>
+                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
+                            <div style="font-size: 30px;" onclick="switchAccount()">🔄</div>
+                        </div>
+                      </div>
                 </div>
             </div>
 
             <header role="banner" id="site-header">
                 <h1><span class="label">Four-Year Academic Pathways</span></h1>
+                <p id="user-email" style="display: none;"></p>
             </header>
 
 
@@ -78,8 +92,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building
-                            🏗️</a>
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building 🏗️</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search 🔍</a>
@@ -88,8 +101,7 @@
                         <a class="nav-link" id="exam-tab" data-bs-toggle="tab" href="#exam">Search APs 📚</a>
                     </li>
                     <li class="nav-item account-student">
-                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback">Enter Feedback
-                            📝</a>
+                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback">Enter Feedback 📝</a>
                     </li>
                 </ul>
 
@@ -100,7 +112,8 @@
                             <!-- Major Selection -->
                             <div class="col-md-6">
                                 <h3>Select your Major(s):</h3>
-                                <select id="major" name="major" class="searchable-dropdown form-select" multiple="multiple">
+                                <select id="major" name="major" class="searchable-dropdown form-select"
+                                    multiple="multiple">
                                     <option value="business_technology_administration">📊Business Technology Administration</option>
                                     <option value="chemical_engineering">⚗️Chemical Engineering</option>
                                     <option value="computer_engineering_communications">📡Computer Engineering Communications</option>
@@ -115,7 +128,8 @@
                             <!-- Minor Selection -->
                             <div class="col-md-6">
                                 <h3>Select your Minor(s):</h3>
-                                <select id="minor" name="minor" class="searchable-dropdown form-select" multiple="multiple">
+                                <select id="minor" name="minor" class="searchable-dropdown form-select"
+                                    multiple="multiple">
                                     <option value="management_minor">📊Business Technology Administration</option>
                                     <option value="computer_science_minor">💻Computer Science</option>
                                     <option value="computing_minor">⌨️Computing</option>
@@ -162,5 +176,5 @@
     </div>
     <img src="images/umbc.png" class="spinner" alt="UMBC Logo">
 </body>
-
 </html>
+
