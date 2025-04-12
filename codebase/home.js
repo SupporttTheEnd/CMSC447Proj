@@ -573,33 +573,44 @@ function updateTimeLabel() {
 function makeDraggable(element, excludeClasses = []) {
     const object = document.querySelector("." + element);
 
-    let isMouseDown = false;
+    let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-    object.addEventListener("mousedown", (e) => {
+    function startDrag(e) {
         if (excludeClasses.some(excludeClass => object.classList.contains(excludeClass) || e.target.closest(`.${excludeClass}`))) {
             return;
         }
-        isMouseDown = true;
-        offsetX = e.clientX - object.getBoundingClientRect().left;
-        offsetY = e.clientY - object.getBoundingClientRect().top;
+        isDragging = true;
+        const event = e.touches ? e.touches[0] : e;
+        offsetX = event.clientX - object.getBoundingClientRect().left;
+        offsetY = event.clientY - object.getBoundingClientRect().top;
         object.style.cursor = "grabbing";
-    });
+    }
 
-    document.addEventListener("mousemove", (e) => {
-        if (isMouseDown) {
-            const left = e.clientX - offsetX;
-            const top = e.clientY - offsetY;
+    function drag(e) {
+        if (isDragging) {
+            const event = e.touches ? e.touches[0] : e;
+            const left = event.clientX - offsetX;
+            const top = event.clientY - offsetY;
             object.style.left = `${left}px`;
             object.style.top = `${top}px`;
         }
-    });
+    }
 
-    document.addEventListener("mouseup", () => {
-        isMouseDown = false;
+    function stopDrag() {
+        isDragging = false;
         object.style.cursor = "grab";
-    });
+    }
+
+    object.addEventListener("mousedown", startDrag);
+    object.addEventListener("touchstart", startDrag);
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("touchmove", drag);
+
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchend", stopDrag);
 }
 
 async function loadTabContent(tabName) {
