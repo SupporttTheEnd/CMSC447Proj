@@ -15,7 +15,7 @@ export function downloadScheduleAsPDF() {
     const pageWidth = doc.internal.pageSize.getWidth();
 
     let yOffset = 15;
-    doc.addImage('/images/black-header.jpg', 'JPEG', 0, 0, pageWidth, 25);
+    doc.addImage('images/black-header.jpg', 'JPEG', 0, 0, pageWidth, 25);
 
     doc.setFontSize(25);
     doc.setTextColor(255, 255, 255);

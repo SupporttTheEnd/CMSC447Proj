@@ -18,6 +18,7 @@ export async function main() {
     // setup main buttons
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
     document.getElementById("downloadButton").addEventListener("click", downloadScheduleAsPDF);
+    document.getElementById("full-time-toggle").addEventListener("change", updateTimeLabel);
 }
 
 function initializeSelect2() {
@@ -477,7 +478,7 @@ function clearClasses() {
     });
 }
 
-function updateCredits() {
+function updateCredits(checkClass = true) {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -495,22 +496,23 @@ function updateCredits() {
         let isValid = true;
         let message = `Credits: ${totalCredits}`;
 
-        if (semester === "winter" && totalCredits > 4.5) {
-            isValid = false;
-            message += " (OverFilled)";
-        } else if (semester === "summer" && totalCredits > 16) {
-            isValid = false;
-            message += " (OverFilled)";
-        } else if (semester === "fall" || semester === "spring") {
-            if (totalCredits < 12) {
-                isValid = false;
-                message += " (Underfilled)";
-            } else if (totalCredits > 19.5) {
+        if (!document.querySelector(".time-toggle input:checked")){
+            if (semester === "winter" && totalCredits > 4.5) {
                 isValid = false;
                 message += " (OverFilled)";
+            } else if (semester === "summer" && totalCredits > 16) {
+                isValid = false;
+                message += " (OverFilled)";
+            } else if (semester === "fall" || semester === "spring") {
+                if (totalCredits < 12) {
+                    isValid = false;
+                    message += " (Underfilled)";
+                } else if (totalCredits > 19.5) {
+                    isValid = false;
+                    message += " (OverFilled)";
+                }
             }
         }
-
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach(component => {
@@ -533,23 +535,39 @@ function updateCredits() {
         creditDisplay.textContent = message;
     });
 
-    checkClassSequence();
+    if (checkClass) {
+        checkClassSequence();
+    }
 }
 
 function darkMode() {
     const darkModeButton = document.querySelector('#dark-mode-toggle');
-    darkModeButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
+    const isDarkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+
+    // Set the initial state of the checkbox based on saved preference
+    darkModeButton.checked = isDarkModeEnabled;
+
+    // Apply dark mode if it was previously enabled
+    if (isDarkModeEnabled) {
+        document.body.classList.add('dark-mode');
+    }
+
+    darkModeButton.addEventListener('change', () => {
+        if (darkModeButton.checked) {
+            document.body.classList.add('dark-mode');
             localStorage.setItem('dark-mode', 'enabled');
         } else {
+            document.body.classList.remove('dark-mode');
             localStorage.setItem('dark-mode', 'disabled');
         }
     });
+}
 
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
+function updateTimeLabel() {
+    updateCredits(false);
+    const checkbox = document.getElementById('full-time-toggle');
+    const label = document.getElementById('time-label');
+    label.textContent = checkbox.checked ? 'Part Time' : 'Full Time';
 }
 
 function makeDraggable(element, excludeClasses = []) {

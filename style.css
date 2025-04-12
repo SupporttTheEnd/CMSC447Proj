@@ -4,20 +4,20 @@
     --text-color: #111528;
     --secondary-text: #1f222f;
     --bar-color: #d8d8d8;
+    --med-color: #c0c0c0a9;
     --primary-color: #000;
     --accent-color: #093565;
     --border-color: #e4e4e4;
-    --hover-color: #ebebeb;
+    --hover-color: #ebebeb6b;
     --sidebar-color: #636466;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --divider-color: #000;
-    --toggle-bg-color: #ffca39;
+    --toggle-bg-color: #333;
     --requirement-color: #fff2b8;
     --toggle-slider-color: white;
-    --toggle-active-bg-color: #3d518d;
-    --toggle-active-slider-color: translateX(26px);
+    --toggle-active-bg-color: #4964b6;
 }
 
 body {
@@ -32,7 +32,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/grey-background.jpg');
+    background-image: url('images/grey-background.jpg');
     background-size: cover; 
     background-position: center;
     opacity: 0.2; 
@@ -244,6 +244,7 @@ button.additionSession:hover {
     gap: 18px;
     padding: 20px 10px 0px 10px;
     justify-content: center;
+    align-items: baseline;
 }
 
 .major-minor-container .col-md-6 {
@@ -292,7 +293,7 @@ button.additionSession:hover {
     margin: -1px;
 }
 
-/* Toggle Switch*/
+/* Top Bar*/
 #top-bar{
     display: flex; 
     align-items: center;
@@ -317,6 +318,7 @@ p#user-email {
     text-align: right;
 }
 
+/* Toggle Switch*/
 .switch {
     position: relative;
     display: inline-block;
@@ -342,15 +344,12 @@ p#user-email {
     border-radius: 34px;
 }
 
-.slider:before {
+.slider::before {
     position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
+    content: "☀️";
+    font-size: 22px;
     left: 4px;
-    bottom: 4px;
-    background-color: var(--toggle-slider-color);
+    bottom: 2px;
     transition: 0.4s;
 }
 
@@ -358,8 +357,32 @@ input:checked+.slider {
     background-color: var(--toggle-bg-color);
 }
 
-input:checked+.slider:before {
-    transform: var(--toggle-active-slider-color);
+input:checked + .slider::before {
+    content: "🌕";
+    transform: translateX(23px);
+}
+
+/* Full/Part Slider */
+.time-toggle.switch {
+    height: 28px;
+}
+
+.time-toggle .slider {
+    background-color: var(--med-color);
+}
+.time-toggle .slider:before {
+    bottom: 12px;
+    content: "🔋";
+    height: 20px;
+    width: 20px;
+}
+
+.time-toggle input:checked+.slider {
+    background-color: var(--med-color);
+}
+
+.time-toggle input:checked + .slider::before {
+    content: "🪫";
 }
 
 /* Tabs */
