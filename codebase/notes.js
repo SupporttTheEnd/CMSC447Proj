@@ -65,7 +65,7 @@ async function postNewNote() {
 
     await new Promise(resolve => setTimeout(resolve, 1000));
     await refreshData();
-    
+
     document.getElementById("post-note-button").disabled = false;
 }
 
@@ -73,13 +73,15 @@ function setupClassDropdown() {
     const db = window.globalVariables.db;
 
     const classResult = db.exec("SELECT courseId, name FROM classes");
-    const classData = classResult[0].values.map(row => {
-        return {
-            id: row[0],
-            text: `[${row[0]}] ${row[1]}`,
-        };
-    });
-
+    const classData = [{ id: '', text: '' }].concat(
+        classResult[0].values.map(row => {
+            return {
+                id: row[0],
+                text: `[${row[0]}] ${row[1]}`,
+            };
+        })
+    );
+    
     $('#post-class').select2({
         data: classData,
         width: '400px',
@@ -90,15 +92,51 @@ function setupClassDropdown() {
 
 function setupRating() {
     $('#post-score').select2({
-        data: Array.from({ length: 10 }, (_, i) => ({
-            id: i + 1,
-            text: `${i + 1} ${i + 1 === 1 ? 'Star' : 'Stars'}`
-        })),
+        data: [{ id: '', text: '' }].concat(
+            Array.from({ length: 10 }, (_, i) => {
+                const score = i + 1;
+                let label = `${score}`;
+                switch (score) {
+                    case 1:
+                        label += ' (very easy to get into)';
+                        break;
+                    case 2:
+                        label += ' (easy to get into)';
+                        break;
+                    case 3:
+                        label += ' (somewhat easy)';
+                        break;
+                    case 4:
+                        label += ' (below average difficulty)';
+                        break;
+                    case 5:
+                        label += ' (moderate difficulty)';
+                        break;
+                    case 6:
+                        label += ' (slightly competitive)';
+                        break;
+                    case 7:
+                        label += ' (competitive)';
+                        break;
+                    case 8:
+                        label += ' (hard to get into)';
+                        break;
+                    case 9:
+                        label += ' (very hard)';
+                        break;
+                    case 10:
+                        label += ' (extremely hard to get into)';
+                        break;
+                }
+                return { id: score, text: label };
+            })
+        ),
         width: '400px',
-        placeholder: "Select a score...",
+        placeholder: "How competitive was it to get into this class?",
         allowClear: true,
         minimumResultsForSearch: Infinity
     });
+    
 }
 
 async function refreshData() {

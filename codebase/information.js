@@ -57,7 +57,7 @@ export function generateInformation(courseId, target) {
                     <hr>
                     <p><strong>Availability:</strong> ${availabilityText}</p>
                     <p><strong>Prerequisites:</strong> ${prereqText || "None"}</p>
-                    <h3>Latest Notes</h3>
+                    <h3>Latest Availability Insights</h3>
                     <ul>
                     ${validNotes.length > 0 ? validNotes.map(note => `
                         <li>
