@@ -6,6 +6,7 @@ import { downloadScheduleAsPDF } from './file.js';
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
+    await loadTabContent('notes');
     await loadTabContent('feedback');
     initializeSelect2();
     setupMajorMinorValidation();
@@ -295,7 +296,7 @@ function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
-        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester, classes.availability, classes.prerequisites
+        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester
         FROM ${program}
         JOIN classes ON ${program}.courseId = classes.courseId
     `;
@@ -308,9 +309,7 @@ function populateClassData(program) {
                 name: row[1],
                 credits: row[2],
                 year: row[3],
-                semester: row[4],
-                availability: row[5],
-                prerequisites: row[6]
+                semester: row[4]
             };
         });
 
@@ -331,7 +330,7 @@ function populateClassData(program) {
                     semesterContainer.appendChild(classDiv);
                 }
 
-                generateInformation(course.prerequisites, course.availability, classDiv);
+                generateInformation(course.courseId, classDiv);
             }
         });
     }

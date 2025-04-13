@@ -105,7 +105,7 @@ export function createMessage(message, isError = true) {
     messageBox.textContent = message;
     const closeButton = document.createElement('button');
     closeButton.classList.add('close-button');
-    closeButton.textContent = 'x';
+    closeButton.textContent = '×';
     closeButton.addEventListener('click', () => {
         messageBox.remove();
     });

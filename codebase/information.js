@@ -1,6 +1,36 @@
-export function generateInformation(prereqs, availability, target) {
-    const prereqText = formatPrereq(JSON.parse(prereqs));
+export function generateInformation(courseId, target) {
+    const db = window.globalVariables.db;
+
+    const classQuery = `
+    SELECT 
+        classes.availability, classes.prerequisites, notes.name, notes.email, notes.notes, notes.score, notes.dateTime
+        FROM classes
+        LEFT JOIN notes ON classes.courseId = notes.classId
+        WHERE classes.courseId = '${courseId}'
+    `;
+
+    const classResult = db.exec(classQuery);
+    if (!classResult.length || !classResult[0].values.length) {
+        return;
+    }
+
+    const [availability, prerequisites] = classResult[0].values[0];
+    const prereqText = formatPrereq(JSON.parse(prerequisites));
     const availabilityText = formatAvailability(availability);
+
+    const notes = classResult[0].values
+        .map(([_, __, name, email, note, score, dateTime]) => ({
+            name,
+            email,
+            note,
+            score,
+            dateTime: new Date(dateTime)
+        }))
+        .sort((a, b) => b.dateTime - a.dateTime) 
+        .map(note => ({
+            ...note,
+            dateTime: note.dateTime.toLocaleString() 
+        }));
 
     function createPopup() {
         const popupHTML = `
@@ -16,6 +46,38 @@ export function generateInformation(prereqs, availability, target) {
         return wrapper.firstElementChild;
     }
 
+    function createModal() {
+        const validNotes = notes.filter(note => note.name && note.email && note.note && note.score && note.dateTime);
+
+        const modalHTML = `
+            <div class="info-modal">
+                <button id="close-modal" class="close-button">×</button>
+                <div class="modal-content">
+                    <h2><strong> ${courseId} </strong> Course Information</h2>
+                    <hr>
+                    <p><strong>Availability:</strong> ${availabilityText}</p>
+                    <p><strong>Prerequisites:</strong> ${prereqText || "None"}</p>
+                    <h3>Latest Notes</h3>
+                    <ul>
+                    ${validNotes.length > 0 ? validNotes.map(note => `
+                        <li>
+                            <strong>${note.name}</strong> (${note.email})<br>
+                            <em>${note.dateTime}</em><br>
+                            <strong>Score:</strong> ${note.score} Stars<br>
+                            <p>${note.note}</p>
+                        </li>
+                    `).join('') : '<li>No messages yet</li>'}
+                    </ul>
+                
+                </div>
+            </div>
+        `;
+
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = modalHTML;
+        return wrapper.firstElementChild;
+    }
+
     let infoSpan = target.querySelector(".information");
 
     const newInfoSpan = infoSpan.cloneNode(true);
@@ -23,9 +85,9 @@ export function generateInformation(prereqs, availability, target) {
     infoSpan = newInfoSpan;
 
     infoSpan.addEventListener("mouseenter", () => {
-        const popup = createPopup(); 
+        const popup = createPopup();
 
-        document.body.appendChild(popup); 
+        document.body.appendChild(popup);
 
         const rect = target.getBoundingClientRect();
         popup.style.left = `${rect.left + 10 + window.scrollX}px`;
@@ -37,6 +99,30 @@ export function generateInformation(prereqs, availability, target) {
                 popup.style.display = "none";
                 document.body.removeChild(popup);
             }
+        });
+    });
+
+    infoSpan.addEventListener("click", () => {
+        const modal = createModal();
+        document.body.appendChild(modal);
+
+        // Gray out the background
+        document.body.style.overflow = "hidden";
+        const overlay = document.createElement("div");
+        overlay.className = "modal-overlay";
+        document.body.appendChild(overlay);
+
+        // Close modal logic
+        document.getElementById("close-modal").addEventListener("click", () => {
+            document.body.removeChild(modal);
+            document.body.removeChild(overlay);
+            document.body.style.overflow = "auto";
+        });
+
+        document.querySelector(".modal-overlay").addEventListener("click", () => {
+            document.body.removeChild(modal);
+            document.body.removeChild(overlay);
+            document.body.style.overflow = "auto";
         });
     });
 }
@@ -72,8 +158,8 @@ function formatPrereq(prereqGroups) {
 }
 
 function formatAvailability(availabilityCode) {
-  const seasonNames = ['Spring', 'Summer', 'Fall', 'Winter'];
-  return seasonNames
-    .filter((_, index) => availabilityCode[index] === '1')
-    .join(', ');
+    const seasonNames = ['Spring', 'Summer', 'Fall', 'Winter'];
+    return seasonNames
+        .filter((_, index) => availabilityCode[index] === '1')
+        .join(', ');
 }

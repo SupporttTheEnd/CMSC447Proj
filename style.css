@@ -12,6 +12,7 @@
     --sidebar-color: #636466;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
+    --row-color: #d96c0d; 
     --shadow-color: rgba(0, 0, 0, 0.1);
     --divider-color: #000;
     --toggle-bg-color: #333;
@@ -571,11 +572,11 @@ input#class-query:focus {
     outline: none;
 }
 
-#search-form .select2-selection.select2-selection--single {
+.search-form .select2-selection.select2-selection--single {
     height: 35px;
 }
 
-div#search-form {
+div .search-form {
     display: flex;
     flex-wrap: wrap;
     gap: 10px 20px;
@@ -843,15 +844,19 @@ span.information:hover {
     background-color: #d9544f9b;
 }
 
-.message-box .close-button {
+.close-button {
     position: absolute;
     top: 0px;
     right: 5px;
     background: none;
     border: none;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
+}
+
+.close-button:hover {
+    opacity: 0.6;
 }
 
 .feedback {
@@ -906,4 +911,76 @@ span.information:hover {
 
 .settings-dropdown:hover .dropdown-content > :nth-child(even):hover {
     filter: hue-rotate(2deg) saturate(1.5) brightness(0.8);
+}
+
+textarea#post-notes {
+    flex-basis: 820px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    color: #333;
+    min-height: 35px;
+    padding-left: 8px;
+    padding-bottom: 6px;
+}
+
+/* Window Display */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.info-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+}
+
+.info-modal .modal-content {
+    margin-top: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.info-modal h2, .info-modal h3 {
+    margin-top: 0;
+}
+
+.info-modal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-modal ul li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.info-modal .close-button {
+    position: absolute;
+    top: 0px;
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+hr{
+    border-color: var(--row-color);
+    margin: 0px 0px 10px 0px;
+    opacity: 1;
 }
