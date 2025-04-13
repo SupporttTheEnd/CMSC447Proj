@@ -32,6 +32,8 @@ export function generateInformation(courseId, target) {
             dateTime: note.dateTime.toLocaleString() 
         }));
 
+    const averageScore = ((notes.reduce((acc, note) => acc + Number(note.score), 0)) / notes.length).toFixed(1);;
+
     function createPopup() {
         const popupHTML = `
             <div class="info-popup">
@@ -58,17 +60,19 @@ export function generateInformation(courseId, target) {
                     <p><strong>Availability:</strong> ${availabilityText}</p>
                     <p><strong>Prerequisites:</strong> ${prereqText || "None"}</p>
                     <h3>Latest Availability Insights</h3>
+                    ${validNotes.length > 0 ? 
+                        `<p><strong>Average Difficulty (1 = easiest, 10 = hardest):</strong> ${averageScore}</p>` 
+                        : ''}
                     <ul>
                     ${validNotes.length > 0 ? validNotes.map(note => `
                         <li>
                             <strong>${note.name}</strong> (${note.email})<br>
                             <em>${note.dateTime}</em><br>
-                            <strong>Score:</strong> ${note.score} Stars<br>
+                            <strong>Difficulty:</strong> ${note.score}<br>
                             <p>${note.note}</p>
                         </li>
                     `).join('') : '<li>No messages yet</li>'}
                     </ul>
-                
                 </div>
             </div>
         `;
