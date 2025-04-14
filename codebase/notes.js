@@ -147,7 +147,7 @@ async function refreshData() {
     if (noteData) {
         Object.entries(noteData).forEach(([key, note]) => {
             db.run("INSERT OR IGNORE INTO notes (id, classId, name, email, notes, score, dateTime) VALUES (?, ?, ?, ?, ?, ?, ?)", [
-                key, note.classId, note.name, note.email, note.notes, note.score, new Date().toISOString()
+                key, note.classId, note.name, note.email, note.notes, note.score, note.dateTime
             ]);            
         });
     }
