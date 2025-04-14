@@ -69,7 +69,19 @@ export function dragAndDropEnable() {
 
     draggables.forEach(draggable => {
         if (!draggable.dataset.dragEventAttached) {
+            
+            draggable.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.information')) {
+                    draggable.classList.add('no-active-effect');
+                } else {
+                    draggable.classList.remove('no-active-effect');
+                }
+            });
+
             draggable.addEventListener('dragstart', (e) => {
+                if (e.target.closest('.information')) {
+                    return;
+                }
                 e.target.classList.add('dragging');
             });
 

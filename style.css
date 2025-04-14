@@ -193,7 +193,7 @@ h3.welcome-text {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.class-item:active {
+.class-item:active:not(.no-active-effect) {
     cursor: grabbing;
     transform: scale(1.05);
     box-shadow: 3px 3px 8px var(--shadow-color);
