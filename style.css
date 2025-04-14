@@ -353,20 +353,25 @@ p#user-email {
 
 .slider::before {
     position: absolute;
-    content: "☀️";
-    font-size: 22px;
-    left: 4px;
-    bottom: 2px;
+    content: '';
+    width: 23px;
+    height: 23px;
+    left: 6px;
+    bottom: 6px;
     transition: 0.4s;
+    background-image: url('images/icons/sun.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
-input:checked+.slider {
+input:checked + .slider {
     background-color: var(--toggle-bg-color);
 }
 
-input:checked+.slider::before {
-    content: "🌕";
+input:checked + .slider::before {
     transform: translateX(23px);
+    background-image: url('images/icons/moon.svg');
 }
 
 /* Full/Part Slider */
@@ -382,8 +387,10 @@ input:checked+.slider::before {
 .time-toggle .slider:before {
     top: 2px;
     left: 15px;
-    content: "🔋";
+    width: 22px;
+    height: 22px;
     transform: rotate(90deg);
+    background-image: url('images/icons/full-battery.svg');
 }
 
 .time-toggle input:checked+.slider {
@@ -391,8 +398,8 @@ input:checked+.slider::before {
 }
 
 .time-toggle input:checked+.slider::before {
-    content: "🪫";
-    transform: rotate(270deg) translateY(-12px);
+    background-image: url('images/icons/half-battery.svg');
+    transform: rotate(270deg) translateY(-2px);
 }
 
 /* Alert Slider */
@@ -405,8 +412,8 @@ input:checked+.slider::before {
 }
 
 .alert-toggle .slider:before {
-    bottom: 4px;
-    content: "🔔";
+    left: 8px;
+    background-image: url('images/icons/bell.svg');
 }
 
 .alert-toggle input:checked+.slider {
@@ -414,7 +421,7 @@ input:checked+.slider::before {
 }
 
 .alert-toggle input:checked+.slider::before {
-    content: "🔕";
+    background-image: url('images/icons/no-bell.svg');
     transform: none;
 }
 
@@ -873,11 +880,13 @@ span.information:hover {
 
 #settings-button {
     font-size: 30px;
-    text-align: center;
     transition: transform 0.5s ease-in-out;
     width: 40px;
     height: 40px;
     line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .settings-dropdown:hover #settings-button{
