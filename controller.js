@@ -1,10 +1,12 @@
 import * as home from './codebase/home.js';
 import * as search from './codebase/search.js';
 import * as exam from './codebase/exam.js';
+import * as login from './codebase/login.js';
 
 window.globalVariables = {
     years: 4,
-    db: null
+    db: null,
+    account: null
 }
 
 $(document).ready(function () {
@@ -19,6 +21,7 @@ async function controller() {
     await home.main();
     await search.main();
     await exam.main();
+    await login.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';
@@ -36,7 +39,8 @@ async function setupSQL() {
             name TEXT,
             availability TEXT,
             credits TEXT,
-            prerequisites TEXT
+            prerequisites TEXT,
+            corequisites TEXT
         );
     `);
 
@@ -44,8 +48,8 @@ async function setupSQL() {
     const classData = await classResponse.json();
 
     classData.forEach(course => {
-        db.run("INSERT OR REPLACE INTO classes (courseId, name, credits, availability, prerequisites) VALUES (?, ?, ?, ?, ?)",
-            [course.courseId, course.name, course.credits, course.availability, JSON.stringify(course.prerequisites)]);
+        db.run("INSERT OR REPLACE INTO classes (courseId, name, credits, availability, prerequisites, corequisites) VALUES (?, ?, ?, ?, ?, ?)",
+            [course.courseId, course.name, course.credits, course.availability, JSON.stringify(course.prerequisites), JSON.stringify(course.corequisites)]);
     });
 
     const requirementFiles = [

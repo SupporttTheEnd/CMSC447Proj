@@ -1516,7 +1516,7 @@
     "name": "Computer Science II",
     "credits": "4",
     "availability": "1010",
-    "prerequisites": [["CMSC201","MATH 150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
+    "prerequisites": [["CMSC201","MATH150"], ["CMSC201","MATH151"], ["CMSC201","MATH152"], ["CMSC201","MATH155"]],
     "corequisites": []
   },
   {
@@ -2261,6 +2261,14 @@
     "credits": "4",
     "availability": "1111",
     "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"], ["MATH225"], ["MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT355",
+    "name": "Introduction to Probability and Statistics for Scientists and Engineers",
+    "credits": "4",
+    "availability": "1111",
+    "prerequisites": [["MATH142"], ["MATH152"], ["MATH225"], ["MATH251"]],
     "corequisites": []
   },
   {
@@ -3156,7 +3164,7 @@
     "name": "Music in Wartime",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": [["$AH1XX"]],
+    "prerequisites": [["$AH1.."]],
     "corequisites": []
   },
   {
@@ -3180,7 +3188,7 @@
     "name": "Philosophy and Human Rights",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["$PHILXXX"]],
+    "prerequisites": [["$PHIL..."]],
     "corequisites": []
   },
   {
@@ -3236,7 +3244,7 @@
     "name": "Aging People, Policy, and Management",
     "credits": "3",
     "availability": "1010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3308,7 +3316,7 @@
     "name": "Sports Economics and Finance",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["ECON101"],
+    "prerequisites": [["ECON101"]],
     "corequisites": []
   },
   {
@@ -3316,7 +3324,7 @@
     "name": "Teaching Reading in the Content Areas-Part II",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3324,7 +3332,7 @@
     "name": "Adolescent Literature",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3356,7 +3364,7 @@
     "name": "Interconnections: Social and Historical Confluences",
     "credits": "3",
     "availability": "0010",
-    "prerequisites": ["FREN302"],
+    "prerequisites": [["FREN302"]],
     "corequisites": []
   },
   {
@@ -3372,7 +3380,7 @@
     "name": "Watershed Science and Management",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3396,7 +3404,7 @@
     "name": "Introduction to the Human Context of Science and Technology",
     "credits": "3",
     "availability": "1111",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3500,7 +3508,7 @@
     "name": "Textual Analysis: Words, Images, Music",
     "credits": "3",
     "availability": "1011",
-    "prerequisites": ["ENGL100"],
+    "prerequisites": [["ENGL100"]],
     "corequisites": []
   },
   {
@@ -3604,7 +3612,7 @@
     "name": "Child Developmental Psychology",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": ["PSYC100"],
+    "prerequisites": [["PSYC100"]],
     "corequisites": []
   },
   {
@@ -3612,7 +3620,7 @@
     "name": "Psychology of Learning",
     "credits": "3",
     "availability": "1111",
-    "prerequisites": ["PSYC100"],
+    "prerequisites": [["PSYC100"]],
     "corequisites": []
   },
   {
