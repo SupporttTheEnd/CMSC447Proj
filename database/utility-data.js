@@ -77,7 +77,6 @@ if (invalidPrereqs.length > 0) {
 const reqPath = 'requirements.json';
 const reqs = loadData(reqPath);
 const reqKeys = Object.keys(reqs);
-const reqVals = Object.values(reqs);
 
 if (!reqs.length) {
     const programReqPaths = [
@@ -99,10 +98,8 @@ if (!reqs.length) {
 
     programReqPaths.forEach(reqPath => {
         const programReqs = loadData(reqPath);
-
         if (programReqs.length > 0) {
-            const fails = checkRequirementLinks(programReqs, reqKeys);
-            fails.forEach(fail => requirementFails.add(fail));
+        requirementFails.add(checkRequirementLinks(programReqs, reqKeys));
         }
     });
 
@@ -112,4 +109,34 @@ if (!reqs.length) {
     } else {
         console.log('No Unlinked Requirements Found');
     }
+  console.log('');
+}
+
+
+const reqVals = new Set(Object.values(reqs));
+const courseIds = new Set();
+const courseFails = new Set();
+
+
+if (!reqs.length) {
+  courses.forEach(course => {
+    courseIds.add(course.courseId);
+  });
+
+  reqVals.forEach(requirement => {
+    requirement.forEach(course => {
+      if (!courseIds.has(course)) {
+        courseFails.add(course);
+      }
+    });
+  });
+
+  if (courseFails.size > 0) {
+    console.log("Found Unlinked Courses: ");
+    console.log(courseFails);
+    console.log(courseFails.size);
+  }
+  else {
+    console.log("No Unlinked Courses Found");
+  }
 }

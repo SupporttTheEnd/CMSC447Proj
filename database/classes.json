@@ -169,7 +169,7 @@
   },
   {
     "courseId": "GREK101",
-    "name": "Elementary Modern Hebrew I",
+    "name": "Elementary Modern Greek I",
     "credits": "4",
     "availability": "0010",
     "prerequisites": [],
@@ -177,7 +177,7 @@
   },
   {
     "courseId": "GREK102",
-    "name": "Elementary Modern Hebrew II",
+    "name": "Elementary Modern Greek II",
     "credits": "4",
     "availability": "1000",
     "prerequisites": [["GREK101"]],
@@ -185,10 +185,34 @@
   },
   {
     "courseId": "GREK201",
-    "name": "Intermediate Modern Hebrew I",
+    "name": "Intermediate Modern Greek I",
     "credits": "4",
     "availability": "0010",
     "prerequisites": [["GREK102"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "HEBR101",
+    "name": "Elementary Modern Hebrew I",
+    "credits": "4",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "HEBR102",
+    "name": "Elementary Modern Hebrew II",
+    "credits": "4",
+    "availability": "1000",
+    "prerequisites": [["HEBR101"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "HEBR201",
+    "name": "Intermediate Modern Hebrew I",
+    "credits": "4",
+    "availability": "0010",
+    "prerequisites": [["HEBR102"]],
     "corequisites": []
   },
   {
@@ -860,7 +884,7 @@
     "name": "Decision Support Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["IS410", "MGMT210", "MATH251"]],
+    "prerequisites": [["IS410", "MGMT210", "MATH215"], ["IS410", "MGMT210", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1485,7 +1509,7 @@
     "credits": "4",
     "availability": "1010",
     "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]],
-    "corequisites": []
+    "corequisites": [["MATH151"]]
   },
   {
     "courseId": "CMSC202",
@@ -2341,7 +2365,7 @@
     "credits": "4",
     "availability": "1110",
     "prerequisites": [["MATH106"], ["MATH150"], ["MATH151"], ["MATH155"]],
-    "corequisites": []
+    "corequisites": [["MATH151"]]
   },
   {
     "courseId": "CHEM102",
@@ -2632,6 +2656,14 @@
     "corequisites": []
   },
   {
+    "courseId": "RLST210",
+    "name": "Classical Mythology",
+    "credits": "3",
+    "availability": "0110",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
     "courseId": "ANCS305",
     "name": "Warfare in the Ancient World",
     "credits": "3",
@@ -2840,7 +2872,7 @@
     "corequisites": []
   },
   {
-    "courseId": "EDHS340",
+    "courseId": "EHS340",
     "name": "Cultural Diversity in Healthcare",
     "credits": "3",
     "availability": "1010",
@@ -3009,6 +3041,22 @@
   },
   {
     "courseId": "JDST274",
+    "name": "Contemporary Jewish History: 1917 to the Presen",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "RLST274",
+    "name": "Contemporary Jewish History: 1917 to the Presen",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "HIST274",
     "name": "Contemporary Jewish History: 1917 to the Presen",
     "credits": "3",
     "availability": "0010",
@@ -3392,6 +3440,30 @@
     "corequisites": []
   },
   {
+    "courseId": "ANCS220",
+    "name": "Judaism in the Time of Jesus and Hillel",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ASIA100",
+    "name": "Introduction to Asian Studies",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ASIA214",
+    "name": "Focused Cultural Study: South Asia",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
     "courseId": "LING190",
     "name": "The World of Language I",
     "credits": "3",
@@ -3638,5 +3710,726 @@
     "availability": "1010",
     "prerequisites": [],
     "corequisites": []
+  },
+  {
+    "courseId": "CHEM300",
+    "name": "Analytical Chemistry",
+    "credits": "4",
+    "availability": "1010",
+    "prerequisites": [["CHEM102L", "CHEM102"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH301",
+    "name": "Introduction to Mathematical Analysis I",
+    "credits": "4",
+    "availability": "1010",
+    "prerequisites": [["MATH300", "MATH142"], ["MATH300", "MATH152"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH404",
+    "name": "Introduction to Partial Differential Equations I",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH225", "MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT355",
+    "name": "Introduction to Probability and Statistics for Scientists and Engineers",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH142"], ["MATH152"], ["MATH225"], ["MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENCH456",
+    "name": "Polymeric Materials",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENCH427"], ["ENCH440"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENCH459",
+    "name": "Statistical Design of Experiments",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENCH427"], ["ENCH440"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENCH472",
+    "name": "Environmental Fate and Transport",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENCH427"], ["ENCH440"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC427",
+    "name": "Wearable Computing",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC428",
+    "name": "Introduction to Mobile Computing",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC421"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC431",
+    "name": "Compiler Design Principles",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC421", "CMSC331", "CMSC341"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC444",
+    "name": "Information Assurance",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC421", "CMSC481"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC446",
+    "name": "Introduction to Design Patterns",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC331", "CMSC341"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC448",
+    "name": "Software Engineering II",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC447"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC452",
+    "name": "Logic for Computer Science",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC203"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC453",
+    "name": "Applied Combinatorics and Graph Theory",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC341", "MATH221", "MATH142"], ["CMSC341", "MATH221", "MATH152"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC457",
+    "name": "Quantum Computation",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC203", "MATH221"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC474",
+    "name": "Introduction to Brain-Computer Interaction",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC341"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC477",
+    "name": "Agent Architectures and Multi-Agent Systems",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMSC471"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMSC486",
+    "name": "Mobile Radio Communications",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH152", "CMPE212"], ["MATH152", "CMPE313"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH430",
+    "name": "Matrix Analysis",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["MATH251", "MATH301"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH441",
+    "name": "Introduction to Numerical Analysis",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["CMSC201", "MATH225", "MATH251", "MATH301"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH452",
+    "name": "Introduction to Stochastic Processes",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["STAT355"], ["STAT451"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH475",
+    "name": "Combinatorics and Graph Theory",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH301"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH481",
+    "name": "Mathematical Modeling",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["ENGL100", "MATH221", "MATH225", "MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH483",
+    "name": "Linear and Combinatorial Optimization",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH481"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "AGNG361",
+    "name": "Technology for Management of Aging Services",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["$AGNG...", "$CMSC...", "$IS..."], ["$AGNG...", "COMP101", "$IS..."]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ART486",
+    "name": "Real Time Animation",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ART341"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "BIOL313",
+    "name": "Introduction to Bioinformatics and Computational Biology",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH151", "MATH141"], ["MATH151", "CMSC104"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "BIOL410",
+    "name": "Modeling in the Life Sciences",
+    "credits": "4",
+    "availability": "1010",
+    "prerequisites": [["BIOL142", "BIOL302", "BIOL303", "ENGL100", "MATH151"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "MATH155"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "STAT350"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "STAT355"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "BIOL415",
+    "name": "Systems Biology",
+    "credits": "4",
+    "availability": "1000",
+    "prerequisites": [["BIOL142", "BIOL302", "BIOL303", "ENGL100", "MATH151"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "MATH155"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "STAT350"], ["BIOL142", "BIOL302", "BIOL303", "ENGL100", "STAT355"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "BIOL428",
+    "name": "Computer Applications in Molecular Biology",
+    "credits": "4",
+    "availability": "1010",
+    "prerequisites": [["BIOL302", "BIOL303"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "BIOL495",
+    "name": "Seminar Bioinformatics",
+    "credits": "4",
+    "availability": "1000",
+    "prerequisites": [["BIOL302", "BIOL303", "CMSC201"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECAC317",
+    "name": "Accounting Information Systems",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ECON102"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON320",
+    "name": "Quantitative Methods for Management",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ECON101", "CMPE320"], ["ECON101", "ECON310"], ["ECON101", "STAT121"], ["ECON101", "STAT350"], ["ECON101", "STAT351"], ["ECON101", "STAT355"], ["ECON101", "STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON421",
+    "name": "Introduction to Econometrics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ECON101", "CMPE320"], ["ECON101", "ECON310"], ["ECON101", "STAT121"], ["ECON101", "STAT350"], ["ECON101", "STAT351"], ["ECON101", "STAT355"], ["ECON101", "STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON422",
+    "name": "Topics in Econometrics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ECON101", "ECON102", "MATH151", "CMPE320"], ["ECON101", "ECON102", "MATH151", "ECON310"], ["ECON101", "ECON102", "MATH151", "STAT350"], ["ECON101", "ECON102", "MATH151", "STAT351"], ["ECON101", "ECON102", "MATH151", "STAT355"], ["ECON101", "ECON102", "MATH151", "STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ECON423",
+    "name": "Time Series and Forecasting",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["ECON312", "CMPE320"], ["ECON312", "ECON310"], ["ECON312", "STAT121"], ["ECON312", "STAT350"], ["ECON312", "STAT351"], ["ECON312", "STAT355"], ["ECON312", "STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH341",
+    "name": "Computational Methods",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["CMSC201", "MATH221", "MATH142"], ["CMSC201", "MATH221", "MATH152"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH447",
+    "name": "Introduction to Parallel Computing",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["CMSC201"], ["IS247"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT433",
+    "name": "Statistical Computing",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["STAT355"], ["STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR231",
+    "name": "Drafting for the Theatre",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR235",
+    "name": "Lighting Design",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR237",
+    "name": "Sound Design",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR335",
+    "name": "Theatre Design III: Lighting",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["THTR215"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "THTR337",
+    "name": "Theatre Design III: Sound",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["THTR215"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "IS387",
+    "name": "Information Architecture for the Web",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["IS303", "CMSC202"], ["IS303", "IS247"]],
+    "corequisites": [["IS303"]]
+  },
+  {
+    "courseId": "IS417",
+    "name": "Information Systems for Auditors",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ECAC321"], ["IS300"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "IS432",
+    "name": "Computer Viruses",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["IS300"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "IS434",
+    "name": "The Evolution of Modern Information Systems",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["IS300"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "IS437",
+    "name": "Applied Systems Design",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["IS436"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "CMPE440",
+    "name": "Analog and Mixed Signal Circuits",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["CMPE314"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES310",
+    "name": "Geomorphology",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["GES110", "MATH150"], ["GES111", "MATH150"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES311",
+    "name": "Weather and Climate",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["GES110"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES313",
+    "name": "Biogeography",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["GES110"], ["GES120"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES314",
+    "name": "Geography of Soils",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["GES110"], ["GES120"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES317",
+    "name": "Water Quality",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["GES110"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "GES318",
+    "name": "Natural Environment of the Chesapeake Bay",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["GES110"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH381",
+    "name": "Linear Methods in Operations Research",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["MATH221"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH385",
+    "name": "Introduction to Mathematical Modeling",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH225"], ["MATH355"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH410",
+    "name": "Introduction to Complex Analysis",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH456",
+    "name": "Mathematical Methods for Science and Engineering",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH221", "MATH225", "MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH476",
+    "name": "Introduction to Game Theory",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["MATH221", "MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH482",
+    "name": "Nonlinear Optimization",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH301", "MATH251"]],
+    "corequisites": [["MATH301"]]
+  },
+  {
+    "courseId": "NAVY300",
+    "name": "Naval Ship Systems I (Engineering)",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["MATH151", "MATH152", "PHYS121"]],
+    "corequisites": [["PHYS121"]]
+  },
+  {
+    "courseId": "PHYS303",
+    "name": "Thermal and Statistical Physics",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["MATH251", "PHYS324"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS304",
+    "name": "Fundamentals of Astrophysics",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["PHYS324"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS315",
+    "name": "Galaxies and the Interstellar Medium",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["PHYS122"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS324",
+    "name": "Modern Physics",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["PHYS224"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS335",
+    "name": "Physics and Chemistry of the Atmosphere",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["PHYS122"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS405",
+    "name": "Stellar Astrophysics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["PHYS324"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS407",
+    "name": "Electromagnetic Theory",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["MATH225", "PHYS224"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS416",
+    "name": "Cosmology",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["PHYS324"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "PHYS430",
+    "name": "Introduction to Materials",
+    "credits": "3",
+    "availability": "1000",
+    "prerequisites": [["PHYS324", "PHYS303"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT417",
+    "name": "Introduction to Time Series Data Analysis",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["STAT355", "STAT453"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT420",
+    "name": "Statistics for Bioinformatics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["STAT350", "MATH152"], ["STAT355", "MATH152"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "STAT451",
+    "name": "Introduction to Probability Theory",
+    "credits": "3",
+    "availability": "0010",
+    "prerequisites": [["MATH251"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "MATH484",
+    "name": "Stochastic Methods in Operations Research",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["STAT451"], ["STAT355"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME405",
+    "name": "Energy Conversion Design",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME321"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME460",
+    "name": "Kinematics and Mechanism Design",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME303"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME471",
+    "name": "Computer Aided Finite Element Based Design",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME473",
+    "name": "Mechanical Design of Electronic Systems",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME304", "ENME321", "ENME360"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME410",
+    "name": "Operations Research I",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME416",
+    "name": "Intermediate Thermodynamics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME217"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME421",
+    "name": "Advanced Conduction and Radiation Heat Transfer",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME321"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME442",
+    "name": "Fluid Mechanics II",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME320"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME461",
+    "name": "Dynamics II",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME360"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME462",
+    "name": "Introduction to Engineering Acoustics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [["ENME304", "ENME321", "ENME332L", "ENME360"]],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME463",
+    "name": "Mechanical Engineering Analysis",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME465",
+    "name": "Introductory Fracture Mechanics",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "courseId": "ENME480",
+    "name": "Engineering Experimentation",
+    "credits": "3",
+    "availability": "1010",
+    "prerequisites": [],
+    "corequisites": []
   }
 ]
+
