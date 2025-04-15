@@ -17,7 +17,7 @@
     {
         "year": 1,
         "semester": "fall",
-        "courseId": "ENGLGEP"
+        "courseId": "$ENGLGEP"
     },
     {
         "year": 1,

@@ -884,7 +884,7 @@
     "name": "Decision Support Systems",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["IS410", "MGMT210", "MATH251"]],
+    "prerequisites": [["IS410", "MGMT210", "MATH215"], ["IS410", "MGMT210", "MATH221"]],
     "corequisites": []
   },
   {
@@ -1509,7 +1509,7 @@
     "credits": "4",
     "availability": "1010",
     "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]],
-    "corequisites": []
+    "corequisites": [["MATH151"]]
   },
   {
     "courseId": "CMSC202",
@@ -2365,7 +2365,7 @@
     "credits": "4",
     "availability": "1110",
     "prerequisites": [["MATH106"], ["MATH150"], ["MATH151"], ["MATH155"]],
-    "corequisites": []
+    "corequisites": [["MATH151"]]
   },
   {
     "courseId": "CHEM102",
