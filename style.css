@@ -13,7 +13,8 @@
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --row-color: #d96c0d; 
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --dark-shadow-color: rgba(0, 0, 0, 0.5);
     --divider-color: #000;
     --toggle-bg-color: #333;
     --requirement-color: #fff2b8;
@@ -905,7 +906,7 @@ span.information:hover {
     right: -20px;
     background-color: var(--base-color);
     min-width: 230px;
-    box-shadow: 0 0 8px var(--shadow-color);
+    box-shadow: 0 0 8px var(--dark-shadow-color);
     z-index: 1;
     border-radius: 1px;
     padding: 8px 25px 8px 10px; 
