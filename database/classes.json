@@ -948,7 +948,7 @@
     "name": "Data Communications and Networks",
     "credits": "3",
     "availability": "1110",
-    "prerequisites": [["IS300", "IS310", "MATH221"]],
+    "prerequisites": [["IS300", "IS310", "MATH221"], ["IS300", "IS310", "MATH215"]],
     "corequisites": []
   },
   {
@@ -1204,7 +1204,7 @@
     "name": "Process Engineering Economics and Design II",
     "credits": "3",
     "availability": "1000",
-    "prerequisites": [["ENCH444", "ENCH445"]],
+    "prerequisites": [["ENCH444", "ENCH445", "ENCH442"]],
     "corequisites": [["ENCH442"]]
   },
   {

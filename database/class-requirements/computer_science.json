@@ -26,11 +26,6 @@
     },
     {
         "year": 1,
-        "semester": "fall",
-        "courseId": "$SSGEP"
-    },
-    {
-        "year": 1,
         "semester": "spring",
         "courseId": "CMSC202"
     },
@@ -72,11 +67,6 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "$SCIENCESEQUENCE1"
-    },
-    {
-        "year": 2,
-        "semester": "fall",
         "courseId": "$SSGEP"
     },
     {
@@ -93,11 +83,6 @@
         "year": 2,
         "semester": "spring",
         "courseId": "MATH221"
-    },
-    {
-        "year": 2,
-        "semester": "spring",
-        "courseId": "$SCIENCESEQUENCE2"
     },
     {
         "year": 2,
@@ -142,11 +127,6 @@
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "$CMSC4** Technical Elective"
-    },
-    {
-        "year": 3,
-        "semester": "spring",
         "courseId": "$AHGEP"
     },
     {
@@ -171,6 +151,16 @@
     },
     {
         "year": 4,
+        "semester": "fall",
+        "courseId": "$SCIENCESEQUENCE1"
+    },
+    {
+        "year": 4,
+        "semester": "fall",
+        "courseId": "$CMSC4** Technical Elective"
+    },
+    {
+        "year": 4,
         "semester": "spring",
         "courseId": "$CMSC4** Technical Elective"
     },
@@ -178,5 +168,15 @@
         "year": 4,
         "semester": "spring",
         "courseId": "$CMSC4** Technical Elective"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "$SCIENCESEQUENCE2"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "$SSGEP"
     }
 ]

@@ -26,6 +26,11 @@
     },
     {
         "year": 1,
+        "semester": "fall",
+        "courseId": "$AHGEP"
+    },
+    {
+        "year": 1,
         "semester": "spring",
         "courseId": "IS147"
     },
@@ -38,11 +43,6 @@
         "year": 1,
         "semester": "spring",
         "courseId": "ECON102"
-    },
-    {
-        "year": 1,
-        "semester": "spring",
-        "courseId": "$AHGEP"
     },
     {
         "year": 1,
@@ -121,13 +121,13 @@
     },
     {
         "year": 3,
-        "semester": "spring",
-        "courseId": "IS420"
+        "semester": "fall",
+        "courseId": "IS451"
     },
     {
         "year": 3,
         "semester": "spring",
-        "courseId": "IS451"
+        "courseId": "IS420"
     },
     {
         "year": 3,
