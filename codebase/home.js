@@ -1,6 +1,7 @@
 import { generateInformation } from './information.js';
 import { checkClassSequence, generateWarning } from './requirements.js';
 import { createMessage } from './login.js';
+import { balanceClassData } from './balance.js';
 
 export async function main() {
     await loadTabContent('search');
@@ -94,7 +95,7 @@ export function dragAndDropEnable() {
     });
 }
 
-function generateYears(addNew = false) {
+export function generateYears(addNew = false) {
     let container = document.getElementById("classes");
 
     if (addNew) {
@@ -283,13 +284,15 @@ function loadAndPopulateClasses() {
         returnedCourses = splitCombinedClassData(combinedData, 0);
         returnedRequirements = splitCombinedClassData(combinedData, 1);
 
+        console.log(returnedCourses);
+        console.log(returnedRequirements);
     }
     else {
         returnedCourses = returnedCourses[0];
         returnedRequirements = returnedRequirements[0];
     }
 
-    
+
     populateCourses(returnedCourses);
     returnedRequirements.forEach(req => {
         populateRequirement(req, returnedRequirements);
@@ -481,72 +484,18 @@ function populateRequirement(requirement, requirementData) {
     semesterContainer.appendChild(requireDiv);
 }
 
-function balanceClassData(rawCourses, rawRequirements) {
-    const rawCombinedList = [];
-    const combinedList = [];
-
-    for (let i = 0; i < rawCourses.length; i++) {
-        rawCombinedList.push(rawCourses[i].concat(rawRequirements[i]));
-        rawCombinedList[i].sort((a, b) => ((a.year - b.year) * 10) + a.semester.localeCompare(b.semester));
-    }
-
-    rawCombinedList.sort((a, b) => b.length - a.length);
-
-    var totalActivePrograms = rawCombinedList.length;
-    var currClassesInSem = 0;
-    var currYear = 1;
-    var currSem = "fall";
-    for (let i = 0; i < rawCombinedList[0].length; i++) {
-        for (let j = 0; j < totalActivePrograms; j++) {
-            if ((i + 1) > (rawCombinedList[j].length)) {
-                totalActivePrograms--;
-                continue;
-            }
-
-            var modifiedClass = rawCombinedList[j][i];
-            
-            if (currClassesInSem >= 5) {
-                if (currSem == "fall") {
-                    currSem = "spring";
-                }
-                else {
-                    currSem = "fall";
-                    currYear++;
-                }
-                currClassesInSem = 0;
-            }
-
-            if (modifiedClass.courseId.startsWith('$') || !(combinedList.find(element => 
-                modifiedClass.courseId == element.courseId))){
-
-                modifiedClass.year = currYear;
-                modifiedClass.semester = currSem;
-                currClassesInSem++;
-                
-                combinedList.push(modifiedClass);
-            }
-        }
-    }
-
-    window.globalVariables.years = currYear;
-    return combinedList;
-}
-
 function splitCombinedClassData(combinedClassData, mode) {
     const splitData = [];
-    if (!mode) {
-        combinedClassData.forEach(course => {
+    combinedClassData.forEach(course => {
+        if(!mode){
             if (!course.courseId.startsWith('$')) {
                 splitData.push(course);
             }
-        });
-        return splitData;
-    }
-
-    combinedClassData.forEach(course => {
-        if (course.courseId.startsWith('$')) {
+        }
+        else if (course.courseId.startsWith('$')) {
             splitData.push(course);
         }
+
     });
     return splitData;
 }
