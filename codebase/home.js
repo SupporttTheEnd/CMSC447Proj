@@ -398,7 +398,7 @@ function populateRequirementData(program) {
 
             if (category.includes(".")) {
                 const wildcardQuery = `
-                    SELECT courseId, name, credits, prerequisites, availability
+                    SELECT courseId, name, credits
                     FROM classes
                     WHERE courseId LIKE '${category.replace(/\./g, "_")}'
                 `;
@@ -409,8 +409,6 @@ function populateRequirementData(program) {
                         optionElement.value = courseData[0];
                         optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
                         optionElement.dataset.credits = courseData[2];
-                        optionElement.dataset.prerequisites = courseData[3];
-                        optionElement.dataset.availability = courseData[4];
                         selectElement.appendChild(optionElement);
                     });
                 }
