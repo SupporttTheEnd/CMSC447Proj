@@ -65,7 +65,7 @@ async function handleSubmission() {
             const query = classList.map(course => `courseId LIKE '%${course}%'`).join(' OR ');
 
             const filteredData = db.exec(`
-                SELECT courseId, name, credits, availability, prerequisites
+                SELECT courseId, name, credits
                 FROM classes
                 WHERE ${query} 
                 LIMIT 500
@@ -87,7 +87,7 @@ async function handleSubmission() {
                 classDiv.innerHTML = spansHtml;
 
                 dropzone.append(classDiv);
-                generateInformation(row[4], row[3], classDiv); 
+                generateInformation(row[0], classDiv); 
             });
             dragAndDropEnable();
         } else {
