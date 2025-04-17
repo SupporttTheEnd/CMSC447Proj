@@ -427,7 +427,7 @@ function populateRequirementData(program) {
                         const courses = option[1].replace(/["\[\]]/g, "").split(",");
                         courses.forEach(course => {
                             const courseQuery = `
-                                SELECT courseId, name, credits, prerequisites, availability
+                                SELECT courseId, name, credits
                                 FROM classes
                                 WHERE courseId = '${course.trim()}'
                             `;
@@ -438,8 +438,6 @@ function populateRequirementData(program) {
                                 optionElement.value = courseData[0];
                                 optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
                                 optionElement.dataset.credits = courseData[2];
-                                optionElement.dataset.prerequisites = courseData[3];
-                                optionElement.dataset.availability = courseData[4];
                                 selectElement.appendChild(optionElement);
                             }
                         });
@@ -461,7 +459,7 @@ function populateRequirementData(program) {
                 if (selectedOption && selectedOption.dataset.credits) {
                     credits.textContent = `${selectedOption.dataset.credits} Credits`;
                     requireDiv.id = selectedOption.value;
-                    generateInformation(selectedOption.dataset.prerequisites, selectedOption.dataset.availability, requireDiv);
+                    generateInformation(selectedOption.value, requireDiv);
                 } else {
                     credits.textContent = "0 Credits";
                     requireDiv.id = "";
