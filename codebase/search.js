@@ -85,7 +85,7 @@ function handleSubmission() {
         const selectedCredits = $('#class-credits').val();
         const selectedAvailability = $('#class-availability').val();
         const filteredData = db.exec(`
-            SELECT courseId, name, credits, availability, prerequisites
+            SELECT courseId, name, credits
             FROM classes 
             WHERE (LOWER(courseId) LIKE '%${query}%' 
             OR LOWER(name) LIKE '%${query}%')
@@ -131,7 +131,7 @@ function displayPage(data, page, resultsPerPage, dropzone) {
             classDiv.innerHTML = spansHtml;
 
             dropzone.append(classDiv);
-            generateInformation(row[4], row[3], classDiv); 
+            generateInformation(row[0], classDiv); 
         }
     });
 }

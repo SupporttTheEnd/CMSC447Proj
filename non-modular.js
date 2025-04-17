@@ -12,3 +12,6 @@ function emptyBin() {
     dropzone.empty();
 }
 
+function switchAccount() {
+    document.getElementById("google-login-button")?.children[0]?.children[0]?.children[0]?.click();
+}

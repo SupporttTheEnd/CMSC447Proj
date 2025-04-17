@@ -2,10 +2,12 @@ import { generateInformation } from './information.js';
 import { checkClassSequence, generateWarning } from './requirements.js';
 import { createMessage } from './login.js';
 import { balanceClassData } from './balance.js';
+import { downloadScheduleAsPDF } from './file.js';
 
 export async function main() {
     await loadTabContent('search');
     await loadTabContent('exam');
+    await loadTabContent('notes');
     await loadTabContent('feedback');
     initializeSelect2();
     setupMajorMinorValidation();
@@ -15,12 +17,22 @@ export async function main() {
     darkMode();
     addYearButton();
     
+    // setup main buttons
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
+    document.getElementById("downloadButton").addEventListener("click", downloadScheduleAsPDF);
+    document.getElementById("full-time-toggle").addEventListener("change", updateTimeLabel);
 }
 
 function initializeSelect2() {
-    $('.searchable-dropdown').select2({
-        placeholder: "Select an Option",
+    // Ensure the dropdowns are initialized with Select2
+    $('#major').select2({
+        placeholder: "Select your Major(s)",
+        allowClear: true,
+        width: '400px',
+    });
+
+    $('#minor').select2({
+        placeholder: "Select your Minor(s)",
         allowClear: true,
         width: '400px'
     });
@@ -58,7 +70,19 @@ export function dragAndDropEnable() {
 
     draggables.forEach(draggable => {
         if (!draggable.dataset.dragEventAttached) {
+            
+            draggable.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.information')) {
+                    draggable.classList.add('no-active-effect');
+                } else {
+                    draggable.classList.remove('no-active-effect');
+                }
+            });
+
             draggable.addEventListener('dragstart', (e) => {
+                if (e.target.closest('.information')) {
+                    return;
+                }
                 e.target.classList.add('dragging');
             });
 
@@ -306,7 +330,7 @@ function grabClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
-        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester, classes.availability, classes.prerequisites
+        SELECT ${program}.courseId, classes.name, classes.credits, ${program}.year, ${program}.semester
         FROM ${program}
         JOIN classes ON ${program}.courseId = classes.courseId
     `;
@@ -319,9 +343,7 @@ function grabClassData(program) {
                 name: row[1],
                 credits: row[2],
                 year: row[3],
-                semester: row[4],
-                availability: row[5],
-                prerequisites: row[6]
+                semester: row[4]
             };
         });
         return classData;
@@ -508,7 +530,7 @@ function clearClasses() {
     });
 }
 
-function updateCredits() {
+function updateCredits(checkClass = true) {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -526,26 +548,28 @@ function updateCredits() {
         let isValid = true;
         let message = `Credits: ${totalCredits}`;
 
-        if (semester === "winter" && totalCredits > 4.5) {
-            isValid = false;
-            message += " (OverFilled)";
-        } else if (semester === "summer" && totalCredits > 16) {
-            isValid = false;
-            message += " (OverFilled)";
-        } else if (semester === "fall" || semester === "spring") {
-            if (totalCredits < 12) {
-                isValid = false;
-                message += " (Underfilled)";
-            } else if (totalCredits > 19.5) {
+        if (!document.querySelector(".time-toggle input:checked")){
+            if (semester === "winter" && totalCredits > 4.5) {
                 isValid = false;
                 message += " (OverFilled)";
+            } else if (semester === "summer" && totalCredits > 16) {
+                isValid = false;
+                message += " (OverFilled)";
+            } else if (semester === "fall" || semester === "spring") {
+                if (totalCredits < 12) {
+                    isValid = false;
+                    message += " (Underfilled)";
+                } else if (totalCredits > 19.5) {
+                    isValid = false;
+                    message += " (OverFilled)";
+                }
             }
         }
-
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach(component => {
                 component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
+                component.style.color = "rgba(255, 255, 255, 0.93)";
             });
             dropzone.style.backgroundColor = "rgba(255, 143, 143, 0.36)";
             dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.5)", "important");
@@ -553,6 +577,7 @@ function updateCredits() {
         } else {
             headerComponents.forEach(component => {
                 component.style.backgroundColor = "";
+                component.style.color = "";
             });
             dropzone.style.removeProperty("border-color");
             dropzone.style.backgroundColor = "";
@@ -562,55 +587,82 @@ function updateCredits() {
         creditDisplay.textContent = message;
     });
 
-    checkClassSequence();
+    if (checkClass) {
+        checkClassSequence();
+    }
 }
 
 function darkMode() {
     const darkModeButton = document.querySelector('#dark-mode-toggle');
-    darkModeButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
+    const isDarkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+
+    // Set the initial state of the checkbox based on saved preference
+    darkModeButton.checked = isDarkModeEnabled;
+
+    // Apply dark mode if it was previously enabled
+    if (isDarkModeEnabled) {
+        document.body.classList.add('dark-mode');
+    }
+
+    darkModeButton.addEventListener('change', () => {
+        if (darkModeButton.checked) {
+            document.body.classList.add('dark-mode');
             localStorage.setItem('dark-mode', 'enabled');
         } else {
+            document.body.classList.remove('dark-mode');
             localStorage.setItem('dark-mode', 'disabled');
         }
     });
+}
 
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-    }
+function updateTimeLabel() {
+    updateCredits(false);
+    const checkbox = document.getElementById('full-time-toggle');
+    const label = document.getElementById('time-label');
+    label.textContent = checkbox.checked ? 'Part Time' : 'Full Time';
 }
 
 function makeDraggable(element, excludeClasses = []) {
     const object = document.querySelector("." + element);
 
-    let isMouseDown = false;
+    let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-    object.addEventListener("mousedown", (e) => {
+    function startDrag(e) {
         if (excludeClasses.some(excludeClass => object.classList.contains(excludeClass) || e.target.closest(`.${excludeClass}`))) {
             return;
         }
-        isMouseDown = true;
-        offsetX = e.clientX - object.getBoundingClientRect().left;
-        offsetY = e.clientY - object.getBoundingClientRect().top;
+        isDragging = true;
+        const event = e.touches ? e.touches[0] : e;
+        offsetX = event.clientX - object.getBoundingClientRect().left;
+        offsetY = event.clientY - object.getBoundingClientRect().top;
         object.style.cursor = "grabbing";
-    });
+    }
 
-    document.addEventListener("mousemove", (e) => {
-        if (isMouseDown) {
-            const left = e.clientX - offsetX;
-            const top = e.clientY - offsetY;
+    function drag(e) {
+        if (isDragging) {
+            const event = e.touches ? e.touches[0] : e;
+            const left = event.clientX - offsetX;
+            const top = event.clientY - offsetY;
             object.style.left = `${left}px`;
             object.style.top = `${top}px`;
         }
-    });
+    }
 
-    document.addEventListener("mouseup", () => {
-        isMouseDown = false;
+    function stopDrag() {
+        isDragging = false;
         object.style.cursor = "grab";
-    });
+    }
+
+    object.addEventListener("mousedown", startDrag);
+    object.addEventListener("touchstart", startDrag);
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("touchmove", drag);
+
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchend", stopDrag);
 }
 
 async function loadTabContent(tabName) {

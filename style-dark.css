@@ -10,13 +10,9 @@
     --sidebar-color: #636466;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
-    --shadow-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(188, 188, 188, 0.101);
     --divider-color: #bbb;
-    --toggle-bg-color: #333;
     --requirement-color: #6f4d0a96;
-    --toggle-slider-color: #fff;
-    --toggle-active-bg-color: #1d2e50;
-    --toggle-active-slider-color: translateX(26px);
 }
 
 .dark-mode .umbc-logo {

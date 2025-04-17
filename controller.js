@@ -2,12 +2,13 @@ import * as home from './codebase/home.js';
 import * as search from './codebase/search.js';
 import * as exam from './codebase/exam.js';
 import * as login from './codebase/login.js';
+import * as note from './codebase/notes.js';
 
 window.globalVariables = {
     years: 4,
     db: null,
     account: null
-}
+};
 
 $(document).ready(function () {
     controller();
@@ -22,6 +23,7 @@ async function controller() {
     await search.main();
     await exam.main();
     await login.main();
+    await note.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';
@@ -33,6 +35,9 @@ async function setupSQL() {
 
     const db = window.globalVariables.db;
 
+    const classResponse = await fetch("database/classes.json");
+    const classData = await classResponse.json();
+
     db.run(`
         CREATE TABLE IF NOT EXISTS classes (
             courseId TEXT PRIMARY KEY,
@@ -43,9 +48,6 @@ async function setupSQL() {
             corequisites TEXT
         );
     `);
-
-    const classResponse = await fetch("database/classes.json");
-    const classData = await classResponse.json();
 
     classData.forEach(course => {
         db.run("INSERT OR REPLACE INTO classes (courseId, name, credits, availability, prerequisites, corequisites) VALUES (?, ?, ?, ?, ?, ?)",
@@ -99,4 +101,28 @@ async function setupSQL() {
         db.run("INSERT OR REPLACE INTO requirements (category, courses) VALUES (?, ?)",
             [category, JSON.stringify(courses)]);
     });
+
+    const noteResponse = await fetch('https://cmsc447-470ca-default-rtdb.firebaseio.com/notes.json');
+    const noteData = await noteResponse.json();
+
+    if (noteData) {
+        db.run(`
+            CREATE TABLE IF NOT EXISTS notes (
+                id TEXT PRIMARY KEY,
+                classId TEXT,
+                name TEXT,
+                email TEXT,
+                notes TEXT,
+                score INTEGER,
+                dateTime TEXT
+            );
+        `);
+            
+        Object.entries(noteData).forEach(([key, note]) => {
+            db.run("INSERT INTO notes (id, classId, name, email, notes, score, dateTime) VALUES (?, ?, ?, ?, ?, ?, ?)", [
+                key, note.classId, note.name, note.email, note.notes, note.score, note.dateTime
+            ]);
+        });
+    }
+    
 }
