@@ -575,7 +575,7 @@ input:checked + .slider::before {
     pointer-events: none; 
 }
 
-.dropzone:not(:empty)::after {
+.sidebar .dropzone:not(:empty)::after {
     content: "";
 }
 /* Search Field */
