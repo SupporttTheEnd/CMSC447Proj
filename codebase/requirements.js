@@ -206,7 +206,7 @@ function removeCoreq(course, requirement) {
 }
 
 function coreqIsFulfilled(course) {
-    const type = "corequisites";
+    const type = "corequisite";
     const coreqs = JSON.parse(course.dataset.coreqs);
     const year = course.closest('.container').classList[3];
     const semester = course.parentElement.classList[0];
