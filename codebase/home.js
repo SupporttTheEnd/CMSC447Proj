@@ -496,7 +496,18 @@ function updateCredits(checkClass = true) {
         let totalCredits = 0;
 
         dropzone.querySelectorAll('.class-item .credits').forEach(creditSpan => {
-            totalCredits += parseInt(creditSpan.textContent.replace(/\D/g, ""), 10) || 0;
+            const creditText = creditSpan.textContent.trim();
+            let creditValue = 0;
+
+            if (creditText.includes("-")) {
+                console.log(0);
+                const parts = creditText.split("-");
+                creditValue = Math.floor((parseInt(parts[0]) + parseInt(parts[1].replace(/\D/g, ""))) / 2);
+            } else {
+                creditValue = parseInt(creditText.replace(/\D/g, ""), 10) || 0;
+            }
+
+            totalCredits += creditValue;
         });
 
         // Determine if the credits are valid or not

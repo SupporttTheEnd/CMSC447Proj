@@ -90,7 +90,7 @@ function handleSubmission() {
             WHERE (LOWER(courseId) LIKE '%${query}%' 
             OR LOWER(name) LIKE '%${query}%')
             ${selectedCategory ? `AND courseId LIKE '${selectedCategory}%'` : ''}
-            ${selectedCredits ? `AND credits = ${selectedCredits}` : ''}
+            ${selectedCredits ? `AND credits LIKE '%${selectedCredits}%'` : ''}
             ${selectedAvailability ? `AND SUBSTR(availability, ${selectedAvailability}, 1) = '1'` : ''}
             LIMIT 500
         `);        
