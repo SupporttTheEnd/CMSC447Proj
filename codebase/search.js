@@ -90,7 +90,16 @@ function handleSubmission() {
             WHERE (LOWER(courseId) LIKE '%${query}%' 
             OR LOWER(name) LIKE '%${query}%')
             ${selectedCategory ? `AND courseId LIKE '${selectedCategory}%'` : ''}
-            ${selectedCredits ? `AND credits LIKE '%${selectedCredits}%'` : ''}
+            ${selectedCredits ? `
+                AND (
+                  credits LIKE '%${selectedCredits}%' 
+                  OR (
+                    credits LIKE '%-%' AND 
+                    CAST(SUBSTR(credits, 1, 1) AS INT) <= ${selectedCredits} 
+                    AND CAST(SUBSTR(credits, LENGTH(credits), 1) AS INT) >= ${selectedCredits}
+                  )
+                )
+              ` : ''}              
             ${selectedAvailability ? `AND SUBSTR(availability, ${selectedAvailability}, 1) = '1'` : ''}
             LIMIT 500
         `);        

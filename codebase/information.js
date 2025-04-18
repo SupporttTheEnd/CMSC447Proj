@@ -43,6 +43,8 @@ export function generateInformation(courseId, target) {
                 <strong>Prerequisites:</strong> ${prereqText || "None"}
                 <br>
                 <strong>Coerequisites:</strong> ${coreqText || "None"}
+                <br>
+                <strong><em style="color:#093565">Click icon for more insights.</em></strong>
             </div>
         `;
 
