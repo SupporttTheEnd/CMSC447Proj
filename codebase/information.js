@@ -14,9 +14,9 @@ export function generateInformation(courseId, target) {
         return;
     }
 
-    const [availability, prerequisites, coprerequisites] = classResult[0].values[0];
+    const [availability, prerequisites, corequisites] = classResult[0].values[0];
     const prereqText = formatReq(JSON.parse(prerequisites));
-    const coreqText = formatReq(JSON.parse(coprerequisites));
+    const coreqText = formatReq(JSON.parse(corequisites));
     const availabilityText = formatAvailability(availability);
 
     const notes = classResult[0].values
