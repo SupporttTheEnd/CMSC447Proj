@@ -69,7 +69,7 @@ export function checkClassSequence() {
 }
 
 function prereqIsFulfilled(course) {
-    const type = "prereq";
+    const type = "prerequisite";
     const semesters = ["fall", "winter", "spring", "summer"];
     const prereqs = JSON.parse(course.dataset.prereqs);
     const year = course.closest('.container').classList[3];
@@ -206,7 +206,7 @@ function removeCoreq(course, requirement) {
 }
 
 function coreqIsFulfilled(course) {
-    const type = "coreq";
+    const type = "corequisites";
     const coreqs = JSON.parse(course.dataset.coreqs);
     const year = course.closest('.container').classList[3];
     const semester = course.parentElement.classList[0];
