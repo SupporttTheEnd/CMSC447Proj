@@ -886,8 +886,8 @@ span.information:hover {
 
 .close-button {
     position: absolute;
-    top: 0px;
-    right: 5px;
+    top: -7px;
+    right: 0px;
     background: none;
     border: none;
     color: #fff;
@@ -1014,6 +1014,7 @@ textarea#post-notes {
 .info-modal .close-button {
     position: absolute;
     top: 0px;
+    right: 5px;
     background: none;
     border: none;
     color: #000000;
