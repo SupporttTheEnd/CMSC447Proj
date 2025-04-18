@@ -566,7 +566,7 @@ input:checked + .slider::before {
 }
 
 .sidebar .dropzone::after {
-    content: "Place class items in here to move between tabs.";
+    content: "Drop class items here to move between tabs";
     display: block;
     text-align: center;
     color: #999;
@@ -1025,4 +1025,8 @@ hr{
     border-color: var(--row-color);
     margin: 0px 0px 10px 0px;
     opacity: 1;
+}
+
+#classes .dropzone {
+    min-height: 30px;
 }
