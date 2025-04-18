@@ -3,7 +3,7 @@ export function generateInformation(courseId, target) {
 
     const classQuery = `
     SELECT 
-        classes.availability, classes.prerequisites, notes.name, notes.email, notes.notes, notes.score, notes.dateTime
+        classes.availability, classes.prerequisites, classes.corequisites, notes.name, notes.email, notes.notes, notes.score, notes.dateTime
         FROM classes
         LEFT JOIN notes ON classes.courseId = notes.classId
         WHERE classes.courseId = '${courseId}'
@@ -14,12 +14,13 @@ export function generateInformation(courseId, target) {
         return;
     }
 
-    const [availability, prerequisites] = classResult[0].values[0];
-    const prereqText = formatPrereq(JSON.parse(prerequisites));
+    const [availability, prerequisites, coprerequisites] = classResult[0].values[0];
+    const prereqText = formatReq(JSON.parse(prerequisites));
+    const coreqText = formatReq(JSON.parse(coprerequisites));
     const availabilityText = formatAvailability(availability);
 
     const notes = classResult[0].values
-        .map(([_, __, name, email, note, score, dateTime]) => ({
+        .map(([_, __, ___, name, email, note, score, dateTime]) => ({
             name,
             email,
             note,
@@ -40,6 +41,8 @@ export function generateInformation(courseId, target) {
                 <strong>Availability:</strong> ${availabilityText}
                 <br>
                 <strong>Prerequisites:</strong> ${prereqText || "None"}
+                <br>
+                <strong>Coerequisites:</strong> ${coreqText || "None"}
             </div>
         `;
 
@@ -59,6 +62,7 @@ export function generateInformation(courseId, target) {
                     <hr>
                     <p><strong>Availability:</strong> ${availabilityText}</p>
                     <p><strong>Prerequisites:</strong> ${prereqText || "None"}</p>
+                    <p><strong>Corequisites:</strong> ${coreqText || "None"}</p>
                     <h3>Latest Availability Insights</h3>
                     ${validNotes.length > 0 ? 
                         `<p><strong>Average Difficulty (1 = easiest, 10 = hardest):</strong> ${averageScore}</p>` 
@@ -131,7 +135,7 @@ export function generateInformation(courseId, target) {
     });
 }
 
-function formatPrereq(prereqGroups) {
+function formatReq(prereqGroups) {
     const itemCounts = {};
     for (const group of prereqGroups) {
         for (const item of group) {
