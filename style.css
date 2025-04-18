@@ -565,6 +565,19 @@ input:checked + .slider::before {
     filter: invert(0.8);
 }
 
+.sidebar .dropzone::after {
+    content: "Place class items in here to move between tabs.";
+    display: block;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 1rem;
+    pointer-events: none; 
+}
+
+.dropzone:not(:empty)::after {
+    content: "";
+}
 /* Search Field */
 
 input#class-query {
