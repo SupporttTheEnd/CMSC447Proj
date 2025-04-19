@@ -9,7 +9,7 @@ export async function main() {
 async function postNewNote() {
     const classId = $("#post-class").val();
     const notes = $("#post-notes").val();
-    const score = document.querySelector("#post-score").value;
+    const score = document.querySelector("#post-score-slider").value;
     const email = document.querySelector("#user-email").textContent?.split(":")[1]?.trim();
     const name = document.querySelector(".welcome-text").textContent?.split(",")[1]?.trim();
 
@@ -81,7 +81,7 @@ function setupClassDropdown() {
             };
         })
     );
-    
+
     $('#post-class').select2({
         data: classData,
         width: '400px',
@@ -91,52 +91,38 @@ function setupClassDropdown() {
 }
 
 function setupRating() {
-    $('#post-score').select2({
-        data: [{ id: '', text: '' }].concat(
-            Array.from({ length: 10 }, (_, i) => {
-                const score = i + 1;
-                let label = `${score}`;
-                switch (score) {
-                    case 1:
-                        label += ' (very easy to get into)';
-                        break;
-                    case 2:
-                        label += ' (easy to get into)';
-                        break;
-                    case 3:
-                        label += ' (somewhat easy)';
-                        break;
-                    case 4:
-                        label += ' (below average difficulty)';
-                        break;
-                    case 5:
-                        label += ' (moderate difficulty)';
-                        break;
-                    case 6:
-                        label += ' (slightly competitive)';
-                        break;
-                    case 7:
-                        label += ' (competitive)';
-                        break;
-                    case 8:
-                        label += ' (hard to get into)';
-                        break;
-                    case 9:
-                        label += ' (very hard)';
-                        break;
-                    case 10:
-                        label += ' (extremely hard to get into)';
-                        break;
-                }
-                return { id: score, text: label };
-            })
-        ),
-        width: '400px',
-        placeholder: "How competitive was it to get into this class?",
-        allowClear: true,
-        minimumResultsForSearch: Infinity
-    });
-    
+    const slider = document.getElementById('post-score-slider');
+    const description = document.getElementById('score-description');
+
+    const descriptions = {
+        1: 'very easy to get into',
+        2: 'easy to get into',
+        3: 'somewhat easy',
+        4: 'below average difficulty',
+        5: 'moderate difficulty',
+        6: 'slightly competitive',
+        7: 'competitive',
+        8: 'hard to get into',
+        9: 'very hard',
+        10: 'extremely hard to get into'
+    };
+
+    const getColor = (value) => {
+        const percent = (value - 1) / 9;
+        const r = Math.round(255); // stays 255
+        const g = Math.round(255 - percent * (255 - 193));
+        const b = Math.round(255 - percent * (255 - 7));
+        return `rgb(${r},${g},${b})`;
+    };    
+
+    function updateDisplay() {
+        const value = parseInt(slider.value);
+        description.textContent = `(${descriptions[value]})`;
+        description.style.color = getColor(value);
+    }
+
+    slider.addEventListener('input', updateDisplay);
+    updateDisplay();
 }
 
 async function refreshData() {
@@ -148,7 +134,7 @@ async function refreshData() {
         Object.entries(noteData).forEach(([key, note]) => {
             db.run("INSERT OR IGNORE INTO notes (id, classId, name, email, notes, score, dateTime) VALUES (?, ?, ?, ?, ?, ?, ?)", [
                 key, note.classId, note.name, note.email, note.notes, note.score, note.dateTime
-            ]);            
+            ]);
         });
     }
 }

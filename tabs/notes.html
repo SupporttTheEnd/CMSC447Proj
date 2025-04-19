@@ -2,7 +2,12 @@
     <h4>Post notes for class on course demand</h4>
     <div class="search-form">
         <select id="post-class" class="searchable-dropdown form-select"></select>
-        <select id="post-score" class="form-select"></select>
+        <div class="slider-section" style="width: 400px; margin-top: -13px;">
+            <input type="range" id="post-score-slider" min="1" max="10" step="1" value="5" style="width:100%;">
+            <label for="post-score-slider" style="color:white; font-size: 15px; white-space: nowrap; font-weight: 500;">
+                How hard was it to get into this class? <span id="score-description" style="color:white">(moderate difficulty)</span>
+            </label>
+        </div>          
         <textarea id="post-notes" placeholder="Can you share how hard or easy it was to get into this class and any tips?" rows="2" spellcheck="true"></textarea>
     </div>
 </div>
