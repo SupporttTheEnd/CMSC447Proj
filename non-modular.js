@@ -5,6 +5,14 @@ function toggleSidebar() {
         sidebar.style.top = '20%';
         sidebar.style.left = '0';
     }
+
+    const emptyBtn = document.querySelector('.empty-btn');
+    if (emptyBtn) {
+        emptyBtn.disabled = true;
+        setTimeout(() => {
+            emptyBtn.disabled = false;
+        }, 700);
+    }
 }
 
 function emptyBin() {
