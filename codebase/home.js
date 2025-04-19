@@ -1,5 +1,6 @@
 import { generateInformation } from './information.js';
 import { checkClassSequence, generateWarning } from './requirements.js';
+import { checkClassAvailability } from './availability.js';
 import { createMessage } from './login.js';
 import { downloadScheduleAsPDF } from './file.js';
 
@@ -544,6 +545,7 @@ function updateCredits(checkClass = true) {
 
     if (checkClass) {
         checkClassSequence();
+        checkClassAvailability();
     }
 }
 
