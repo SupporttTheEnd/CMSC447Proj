@@ -14,6 +14,7 @@ export async function main() {
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    background();
     addYearButton();
     
     // setup main buttons
@@ -496,7 +497,17 @@ function updateCredits(checkClass = true) {
         let totalCredits = 0;
 
         dropzone.querySelectorAll('.class-item .credits').forEach(creditSpan => {
-            totalCredits += parseInt(creditSpan.textContent.replace(/\D/g, ""), 10) || 0;
+            const creditText = creditSpan.textContent.trim();
+            let creditValue = 0;
+
+            if (creditText.includes("-")) {
+                const parts = creditText.split("-");
+                creditValue = Math.floor((parseInt(parts[0]) + parseInt(parts[1].replace(/\D/g, ""))) / 2);
+            } else {
+                creditValue = parseInt(creditText.replace(/\D/g, ""), 10) || 0;
+            }
+
+            totalCredits += creditValue;
         });
 
         // Determine if the credits are valid or not
@@ -569,6 +580,30 @@ function darkMode() {
         }
     });
 }
+
+function background() {
+    const max = 7;
+    const savedBackground = localStorage.getItem('currentBackground');
+    const backgroundButton = document.querySelector('#background-button');
+    if (savedBackground) {
+        document.body.style.setProperty('--bg-image', `url('images/background_${savedBackground}.jpg')`);
+    }
+
+    backgroundButton.addEventListener('click', () => {
+        const current = parseInt(getComputedStyle(document.body)
+        .getPropertyValue('--bg-image')
+        .match(/background_(\d+)/)[1]);
+        const next = (current % max) + 1;
+        document.body.style.setProperty('--bg-image', `url('images/background_${next}.jpg')`);
+        
+        localStorage.setItem('currentBackground', next);
+    });
+}
+
+// Load the background from local storage on page load
+document.addEventListener('DOMContentLoaded', () => {
+    
+});
 
 function updateTimeLabel() {
     updateCredits(false);
