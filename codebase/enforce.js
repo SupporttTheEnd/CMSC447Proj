@@ -269,14 +269,14 @@ function checkClassAvailability() {
         })
     })
 
+    checkDuplicateIds();
+
     let warningCount = document.querySelector(".warning-list").childElementCount;
 
     if (warningCount > 0) {
         document.querySelector(".warning").style.display = "block";
         createMessage(`There are ${warningCount} warnings. Please review your schedule.`);
     }
-
-    checkDuplicateIds();
 
     // Updated warning count from duplicates
     warningCount = document.querySelector(".warning-list").childElementCount;
@@ -319,7 +319,6 @@ function checkDuplicateIds() {
         });
 
         document.querySelector(".warning").style.display = "block";
-        createMessage(`Duplicate course IDs detected`);
     }
 }
 
