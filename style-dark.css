@@ -7,10 +7,11 @@
     --accent-color: #a9b8e3;
     --border-color: #484a53;
     --hover-color: #1b1e2a;
-    --sidebar-color: #636466;
+    --sidebar-color: #1c1c1c;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --shadow-color: rgba(188, 188, 188, 0.101);
+    --dark-shadow-color: rgba(159, 159, 159, 0.5);
     --divider-color: #bbb;
     --requirement-color: #6f4d0a96;
 }

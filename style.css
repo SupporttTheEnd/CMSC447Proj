@@ -9,7 +9,8 @@
     --accent-color: #093565;
     --border-color: #e4e4e4;
     --hover-color: #ebebeb;
-    --sidebar-color: #636466;
+    --button-color: #636466;
+    --sidebar-color: #373737;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
     --row-color: #d96c0d;
@@ -463,10 +464,11 @@ input:checked+.slider::before {
     position: fixed;
     width: 250px;
     background-color: var(--sidebar-color);
+    box-shadow: 0 8px 20px var(--shadow-color);
     padding-top: 20px;
     transition: width 0.3s ease;
     z-index: 10;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .sidebar.hide {
@@ -505,7 +507,7 @@ input:checked+.slider::before {
 
 .sidebar .dropzone {
     border-radius: 10px;
-    width: 220px;
+    width: 223px;
     min-height: 130px;
     max-height: 300px;
     overflow-y: auto;
@@ -546,7 +548,7 @@ input:checked+.slider::before {
 .sidebar .empty-btn {
     position: absolute;
     top: 20px;
-    left: 20px;
+    right: 62px;
     filter: invert(1);
     background-image: url('images/recycle.png');
     background-size: contain;
@@ -571,15 +573,38 @@ input:checked+.slider::before {
     display: block;
     text-align: center;
     color: #999;
-    font-style: italic;
+    font-size: 17px;
     padding: 1rem;
     pointer-events: none;
 }
 
 .sidebar .dropzone:not(:empty)::after {
     content: "";
+    display: none;
 }
 
+.sidebar .title {
+    position: absolute;
+    color: white;
+    padding-left: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    top: 12px;
+}
+
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/floral.jpg') no-repeat center center;
+    filter: brightness(0.5);
+    opacity: 0.4; 
+    z-index: -1; 
+    border-radius: 10px; 
+}
 /* Search Field */
 
 input#class-query {
@@ -632,7 +657,7 @@ div .search-form {
 button.primary-button {
     width: 200px;
     font-weight: bold;
-    background-color: var(--sidebar-color);
+    background-color: var(--button-color);
     border: none;
     transition: background-color 0.3s ease;
 }

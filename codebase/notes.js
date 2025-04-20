@@ -95,16 +95,16 @@ function setupRating() {
     const description = document.getElementById('score-description');
 
     const descriptions = {
-        1: 'very easy to get into',
-        2: 'easy to get into',
+        1: 'very easy',
+        2: 'easy',
         3: 'somewhat easy',
         4: 'below average difficulty',
         5: 'moderate difficulty',
         6: 'slightly competitive',
         7: 'competitive',
-        8: 'hard to get into',
+        8: 'hard',
         9: 'very hard',
-        10: 'extremely hard to get into'
+        10: 'extremely hard'
     };
 
     const getColor = (value) => {
