@@ -1,6 +1,5 @@
 import { generateInformation } from './information.js';
-import { checkClassSequence, generateWarning } from './requirements.js';
-import { checkClassAvailability } from './availability.js';
+import { checkClassSequence, checkClassAvailability, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
 import { downloadScheduleAsPDF } from './file.js';
 

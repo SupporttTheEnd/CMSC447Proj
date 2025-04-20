@@ -1,4 +1,4 @@
-import { isPlanValid} from './requirements.js';
+import { isPlanValid} from './enforce.js';
 import { createMessage } from './login.js';
 
 export function downloadScheduleAsPDF() {
