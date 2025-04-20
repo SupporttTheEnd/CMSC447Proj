@@ -1,5 +1,5 @@
 import { generateInformation } from './information.js';
-import { checkClassSequence, checkClassAvailability, generateWarning } from './enforce.js';
+import { enforceSchedule, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
 import { downloadScheduleAsPDF } from './file.js';
 
@@ -543,8 +543,7 @@ function updateCredits(checkClass = true) {
     });
 
     if (checkClass) {
-        checkClassSequence();
-        checkClassAvailability();
+        enforceSchedule();
     }
 }
 

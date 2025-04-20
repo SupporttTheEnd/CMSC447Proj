@@ -1,6 +1,11 @@
 import { createMessage } from './login.js';
 
-export function checkClassSequence() {
+export function enforceSchedule() {
+    checkClassSequence();
+    checkClassAvailability();
+}
+
+function checkClassSequence() {
     document.querySelector(".warning").style.display = "none";
 
     clearWarnings();
@@ -228,7 +233,7 @@ function coreqRequirementIsFulfilled(requirement, year, semester) {
     return false;
 }
 
-export function checkClassAvailability() {
+function checkClassAvailability() {
     const semesters = {"spring": 0, "summer": 1, "fall": 2, "winter": 3};
     const db = window.globalVariables.db;
     const [_, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
