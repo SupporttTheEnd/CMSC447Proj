@@ -9,17 +9,19 @@
     --accent-color: #093565;
     --border-color: #e4e4e4;
     --hover-color: #ebebeb;
-    --sidebar-color: #636466;
+    --button-color: #636466;
+    --sidebar-color: #373737;
     --highlight-color: #FFC107;
     --button-hover-color: #0056b3;
-    --row-color: #d96c0d; 
+    --row-color: #d96c0d;
     --shadow-color: rgba(0, 0, 0, 0.25);
     --dark-shadow-color: rgba(0, 0, 0, 0.5);
-    --divider-color: #000;
+    --divider-color: #7676769d;
     --toggle-bg-color: #333;
     --requirement-color: #fff2b8;
     --toggle-slider-color: white;
     --toggle-active-bg-color: #4964b6;
+    --bg-image: url('images/background_1.jpg');
 }
 
 body {
@@ -34,7 +36,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/grey-background.jpg');
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     opacity: 0.2;
@@ -371,11 +373,11 @@ p#user-email {
     display: inline-block;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: var(--toggle-bg-color);
 }
 
-input:checked + .slider::before {
+input:checked+.slider::before {
     transform: translateX(23px);
     background-image: url('images/icons/moon.svg');
 }
@@ -462,10 +464,11 @@ input:checked + .slider::before {
     position: fixed;
     width: 250px;
     background-color: var(--sidebar-color);
+    box-shadow: 0 8px 20px var(--shadow-color);
     padding-top: 20px;
     transition: width 0.3s ease;
     z-index: 10;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .sidebar.hide {
@@ -504,7 +507,7 @@ input:checked + .slider::before {
 
 .sidebar .dropzone {
     border-radius: 10px;
-    width: 220px;
+    width: 223px;
     min-height: 130px;
     max-height: 300px;
     overflow-y: auto;
@@ -545,7 +548,7 @@ input:checked + .slider::before {
 .sidebar .empty-btn {
     position: absolute;
     top: 20px;
-    left: 20px;
+    right: 62px;
     filter: invert(1);
     background-image: url('images/recycle.png');
     background-size: contain;
@@ -565,6 +568,43 @@ input:checked + .slider::before {
     filter: invert(0.8);
 }
 
+.sidebar .dropzone::after {
+    content: "Drop class items here to move between tabs";
+    display: block;
+    text-align: center;
+    color: #999;
+    font-size: 17px;
+    padding: 1rem;
+    pointer-events: none;
+}
+
+.sidebar .dropzone:not(:empty)::after {
+    content: "";
+    display: none;
+}
+
+.sidebar .title {
+    position: absolute;
+    color: white;
+    padding-left: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    top: 12px;
+}
+
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/floral.jpg') no-repeat center center;
+    filter: brightness(0.5);
+    opacity: 0.4; 
+    z-index: -1; 
+    border-radius: 10px; 
+}
 /* Search Field */
 
 input#class-query {
@@ -617,7 +657,7 @@ div .search-form {
 button.primary-button {
     width: 200px;
     font-weight: bold;
-    background-color: var(--sidebar-color);
+    background-color: var(--button-color);
     border: none;
     transition: background-color 0.3s ease;
 }
@@ -779,11 +819,23 @@ span.information:hover {
     cursor: pointer;
 }
 
+.warning-box .year-header {
+    border-top: none;
+    background-image:
+        repeating-linear-gradient(135deg,
+            black 0px,
+            black 8px,
+            var(--highlight-color) 8px,
+            var(--highlight-color) 16px);
+    background-repeat: no-repeat;
+    background-size: 100% 4px;
+    background-position: top left;
+}
+
 .warning-list {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .warning-item {
@@ -859,8 +911,8 @@ span.information:hover {
 
 .close-button {
     position: absolute;
-    top: 0px;
-    right: 5px;
+    top: -7px;
+    right: 0px;
     background: none;
     border: none;
     color: #fff;
@@ -895,7 +947,7 @@ span.information:hover {
     justify-content: center;
 }
 
-.settings-dropdown:hover #settings-button{
+.settings-dropdown:hover #settings-button {
     transform: rotate(360deg);
 }
 
@@ -909,7 +961,7 @@ span.information:hover {
     box-shadow: 0 0 8px var(--dark-shadow-color);
     z-index: 1;
     border-radius: 1px;
-    padding: 8px 25px 8px 10px; 
+    padding: 8px 25px 8px 10px;
 }
 
 .settings-dropdown:hover .dropdown-content {
@@ -920,11 +972,11 @@ span.information:hover {
     align-items: center;
 }
 
-.settings-dropdown:hover .dropdown-content > :nth-child(odd) {
+.settings-dropdown:hover .dropdown-content> :nth-child(odd) {
     justify-self: start;
 }
 
-.settings-dropdown:hover .dropdown-content > :nth-child(even):hover {
+.settings-dropdown:hover .dropdown-content> :nth-child(even):hover {
     filter: hue-rotate(2deg) saturate(1.5) brightness(0.8);
 }
 
@@ -987,6 +1039,7 @@ textarea#post-notes {
 .info-modal .close-button {
     position: absolute;
     top: 0px;
+    right: 5px;
     background: none;
     border: none;
     color: #000000;
@@ -994,8 +1047,51 @@ textarea#post-notes {
     cursor: pointer;
 }
 
-hr{
+hr {
     border-color: var(--row-color);
     margin: 0px 0px 10px 0px;
     opacity: 1;
+}
+
+#classes .dropzone {
+    min-height: 30px;
+}
+
+.search-container [type="range"] {
+    appearance: none; 
+    height: 6px;
+    border-radius: 5px;
+    background: linear-gradient(
+        to right,
+        #FFFFFF 0%,
+        #FFFFFF 11.11%,
+        #FCECC2 11.11%,
+        #FCECC2 22.22%,
+        #FAD78F 22.22%,
+        #FAD78F 33.33%,
+        #F9C25C 33.33%,
+        #F9C25C 44.44%,
+        #F8AE29 44.44%,
+        #F8AE29 55.55%,
+        #F79A00 55.55%,
+        #F79A00 66.66%,
+        #E88D00 66.66%,
+        #E88D00 77.77%,
+        #D97F00 77.77%,
+        #D97F00 88.88%,
+        #CA7100 88.88%,
+        #CA7100 100%
+    );
+    outline: none;
+}
+
+
+.search-container input[type="range"]::-webkit-slider-thumb {
+    appearance: none; 
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #333;
+    cursor: pointer;
 }
