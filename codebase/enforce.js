@@ -1,6 +1,11 @@
 import { createMessage } from './login.js';
 
-export function checkClassSequence() {
+export function enforceSchedule() {
+    checkClassSequence();
+    checkClassAvailability();
+}
+
+function checkClassSequence() {
     document.querySelector(".warning").style.display = "none";
 
     clearWarnings();
@@ -45,27 +50,6 @@ export function checkClassSequence() {
             }
         })
     })
-
-    let warningCount = document.querySelector(".warning-list").childElementCount;
-    if (warningCount > 0) {
-        document.querySelector(".warning").style.display = "block";
-        createMessage(`There are ${warningCount} prerequisite/corequisite warnings. Please review your schedule.`);
-    }
-
-    checkDuplicateIds();
-
-    warningCount = document.querySelector(".warning-list").childElementCount; //updated warning count from duplicates
-
-    const warningText = document.querySelector(".warnings-text span");
-    if (warningText) {
-        warningText.textContent = warningCount;
-    }
-
-    const validationResult = isPlanValid();
-    if (validationResult.isValid) {
-        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
-        confetti();
-    }
 }
 
 function prereqIsFulfilled(course) {
@@ -144,7 +128,7 @@ function prereqIsFulfilled(course) {
 
     // Checks if course's prereqs were fulfilled
     if (!isFulfilled) {
-        addWarning(course, type);
+        addSequenceWarning(course, type);
     }
 }
 
@@ -234,7 +218,7 @@ function coreqIsFulfilled(course) {
 
     // Checks if corequisites were fulfilled
     if (!isFulfilled) {
-        addWarning(course, type);
+        addSequenceWarning(course, type);
     }
 }
 
@@ -248,6 +232,67 @@ function coreqRequirementIsFulfilled(requirement, year, semester) {
 
     return false;
 }
+
+function checkClassAvailability() {
+    const semesters = {"spring": 0, "summer": 1, "fall": 2, "winter": 3};
+    const db = window.globalVariables.db;
+    const [_, ...dropzones] = document.querySelectorAll(`#classes .dropzone`);
+
+    // Iterates through each semester in schedule
+    dropzones.forEach(dropzone => {
+        const courses = dropzone.querySelectorAll('.class-item');
+
+        // Iterates through each course in semester
+        courses.forEach(course => {
+            const query = `
+                SELECT classes.availability
+                FROM classes
+                WHERE courseId = '${course.id}'
+            `;
+            const result = db.exec(query);
+
+            if (!result.length) {
+                return;
+            }
+
+            // Identifies course's availability
+            result[0].values.forEach(row => {
+                course.dataset.availability = row[0];
+            })
+
+            const semester = course.parentElement.classList[0];
+
+            // Checks if course is in available semester
+            if (course.dataset.availability[semesters[semester]] !== "1") {
+                addAvailabilityWarning(course);
+            }
+        })
+    })
+
+    checkDuplicateIds();
+
+    let warningCount = document.querySelector(".warning-list").childElementCount;
+
+    if (warningCount > 0) {
+        document.querySelector(".warning").style.display = "block";
+        createMessage(`There are ${warningCount} warnings. Please review your schedule.`);
+    }
+
+    // Updated warning count from duplicates
+    warningCount = document.querySelector(".warning-list").childElementCount;
+
+    const warningText = document.querySelector(".warnings-text span");
+    if (warningText) {
+        warningText.textContent = warningCount;
+    }
+
+    const validationResult = isPlanValid();
+    if (validationResult.isValid) {
+        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
+        confetti();
+    }
+}
+
 
 function checkDuplicateIds() {
     const ids = new Set();
@@ -274,7 +319,6 @@ function checkDuplicateIds() {
         });
 
         document.querySelector(".warning").style.display = "block";
-        createMessage(`Duplicate course IDs detected`);
     }
 }
 
@@ -319,13 +363,25 @@ function showWarningBox(event) {
     }
 }
 
-function addWarning(course, type) {
+function addSequenceWarning(course, type) {
     const warningContainer = document.querySelector(".warning-list");
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
 
     const warningMessage = document.createElement("span");
     warningMessage.textContent = `${course.id} is missing a ${type}`;
+
+    warningDiv.appendChild(warningMessage);
+    warningContainer.appendChild(warningDiv);
+}
+
+function addAvailabilityWarning(course) {
+    const warningContainer = document.querySelector(".warning-list");
+    const warningDiv = document.createElement("div");
+    warningDiv.classList.add("warning-item");
+
+    const warningMessage = document.createElement("span");
+    warningMessage.textContent = `${course.id} is in a invalid semester`;
 
     warningDiv.appendChild(warningMessage);
     warningContainer.appendChild(warningDiv);
