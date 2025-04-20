@@ -998,7 +998,7 @@ textarea#post-notes {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 100;
 }
 
 .info-modal {
@@ -1010,7 +1010,7 @@ textarea#post-notes {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 101;
     width: 80%;
     max-width: 600px;
 }
@@ -1085,7 +1085,6 @@ hr {
     outline: none;
 }
 
-
 .search-container input[type="range"]::-webkit-slider-thumb {
     appearance: none; 
     height: 20px;
@@ -1095,3 +1094,73 @@ hr {
     border: 2px solid #333;
     cursor: pointer;
 }
+
+/* Save slots */
+
+#save-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 101;
+    width: 80%;
+    max-width: 600px;
+}
+
+#save-panel .close-button {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#save-panel .save-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+.save-container > *{
+    text-align: center;
+}
+
+.save-container > div {
+    height: 105px;
+    width: 150px;
+    border: 1px solid #6a6a6a82;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.save-container > div:hover {
+    transform: translateY(-3px);
+     box-shadow: 8px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.override-warning {
+    display: grid;
+    place-items: center;
+}
+
+.override-warning > div{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly
+}
+

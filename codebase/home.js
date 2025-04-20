@@ -305,7 +305,7 @@ function loadAndPopulateClasses() {
     updateCredits();
 }
 
-function populateClassData(program) {
+export function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
@@ -349,7 +349,7 @@ function populateClassData(program) {
     }
 }
 
-function populateRequirementData(program) {
+export function populateRequirementData(program) {
     const db = window.globalVariables.db;
 
     const requirementQuery = `
@@ -478,7 +478,7 @@ function populateRequirementData(program) {
     }
 }
 
-function clearClasses() {
+export function clearClasses() {
     const dropzones = document.querySelectorAll(`#classes .class-box .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -486,7 +486,7 @@ function clearClasses() {
     });
 }
 
-function updateCredits(checkClass = true) {
+export function updateCredits(checkClass = true) {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {

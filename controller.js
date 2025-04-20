@@ -3,6 +3,7 @@ import * as search from './codebase/search.js';
 import * as exam from './codebase/exam.js';
 import * as login from './codebase/login.js';
 import * as note from './codebase/notes.js';
+import * as saves from './codebase/saves.js';
 
 window.globalVariables = {
     years: 4,
@@ -24,6 +25,7 @@ async function controller() {
     await exam.main();
     await login.main();
     await note.main();
+    await saves.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';
@@ -124,5 +126,4 @@ async function setupSQL() {
             ]);
         });
     }
-    
 }
