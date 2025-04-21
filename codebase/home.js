@@ -119,7 +119,7 @@ export function dragAndDropEnable() {
     });
 }
 
-function generateYears(addNew = false) {
+export function generateYears(addNew = false) {
     let container = document.getElementById("classes");
 
     if (addNew) {

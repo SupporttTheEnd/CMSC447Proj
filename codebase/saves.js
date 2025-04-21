@@ -1,5 +1,6 @@
 import { createMessage } from './login.js';
-import { dragAndDropEnable, populateClassData, populateRequirementData, updateCredits, clearClasses} from './home.js';
+import { generateInformation } from './information.js';
+import { dragAndDropEnable, populateClassData, populateRequirementData, updateCredits, clearClasses, generateYears} from './home.js';
 
 export async function main() {
     document.getElementById("save-button").addEventListener("click", enterSaveData);
@@ -20,13 +21,15 @@ async function createInterface(isSave) {
                 CREATE TABLE ${save.slot} (
                     courseId TEXT,
                     year INTEGER,
-                    semester TEXT
+                    semester TEXT,
+                    selectedId TEXT
                 );
             `);
 
             save.body.forEach(course => {
-                db.run(`INSERT OR REPLACE INTO ${save.slot} (courseId, year, semester) VALUES (?, ?, ?)`,
-                    [course.courseId, course.year, course.semester]);
+                const selectedId = course.selectedId || null;
+                db.run(`INSERT OR REPLACE INTO ${save.slot} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
+                    [course.courseId, course.year, course.semester, selectedId]);
             });
         });
     }
@@ -89,8 +92,16 @@ async function enterSaveData() {
             Array.from(dropzone.querySelectorAll(".class-item")).forEach(course => {
                 const year = i;
                 const semester = course.parentElement.classList[0];
-                const courseId = course.id;
-                classesArray.push({ year, semester, courseId });
+                let courseId; 
+                if (course.classList.contains("require-item")) {
+                    courseId = course.dataset.requirement;
+                    const selectedId = course.id;
+                    classesArray.push({ year, semester, courseId, selectedId});
+                }
+                else{
+                    courseId = course.id;
+                    classesArray.push({ year, semester, courseId });
+                }
             });
         });
     }
@@ -156,14 +167,76 @@ async function enterSaveData() {
 
 async function loadSaveData() {
     await createInterface(false);
+
     document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
         slotElement.addEventListener("click", async () => {
+            const db = window.globalVariables.db;
+            const slot = slotElement.dataset.slot;
+
+            let result = db.exec(`
+                SELECT MAX(year) as highestYear
+                FROM ${slot};
+            `);
+
+            let highestYear;
+            if (result.length > 0 && result[0].values.length > 0) {
+                highestYear = result[0].values[0][0];
+            }
+
             if (slotElement.querySelector(".date-container").textContent.includes("Empty Slot")) {
                 return; 
             }
-            const slot = slotElement.dataset.slot;
+
+            while (window.globalVariables.years < highestYear){
+                generateYears(true);
+            }
+
             clearClasses();
             populateClassData(slot);
+            populateRequirementData(slot);
+
+            result = db.exec(`
+                SELECT year, semester, courseId, selectedId
+                FROM ${slot}
+                WHERE selectedId IS NOT NULL;
+            `);
+
+            const selectedData = result[0].values.map(row => {
+                return {
+                    year: row[0],
+                    semester: row[1],
+                    courseId: row[2],
+                    selectedId: row[3]
+                };
+            });
+
+            selectedData.forEach((selection) => {
+                const requireDivs = document.querySelectorAll(`.year-${selection.year} .${selection.semester}.dropzone .require-item[data-requirement="${selection.courseId}"]`);
+            
+                let selectedRequireDiv = null;
+            
+                requireDivs.forEach((requireDiv) => {
+                    const credits = requireDiv.querySelector('.credits');
+
+                    if (credits && credits.textContent.includes("0")) {
+                        selectedRequireDiv = requireDiv; 
+                        return; 
+                    }
+                });
+                
+                if (selectedRequireDiv) {
+                    const selectElement = selectedRequireDiv.querySelector('.require-select');
+                    selectElement.value = selection.selectedId;
+
+                    const selectedOption = selectElement.options[selectElement.selectedIndex];
+                    selectedRequireDiv.id = selectedOption.value;
+                    
+                    selectedRequireDiv.querySelector('.credits').textContent = `${selectedOption.dataset.credits} Credits`;
+
+                    generateInformation(selectedOption.value, selectedRequireDiv);
+                }
+            });
+            
             createMessage(`Save slot ${slot.slice(-1)} successfully loaded.`, false);
             dragAndDropEnable();
             updateCredits();
