@@ -200,43 +200,45 @@ async function loadSaveData() {
                 FROM ${slot}
                 WHERE selectedId IS NOT NULL;
             `);
+            // select saved options for requirements 
+            if (result.length) {
+                const selectedData = result[0].values.map(row => {
+                    return {
+                        year: row[0],
+                        semester: row[1],
+                        courseId: row[2],
+                        selectedId: row[3]
+                    };
+                });
 
-            const selectedData = result[0].values.map(row => {
-                return {
-                    year: row[0],
-                    semester: row[1],
-                    courseId: row[2],
-                    selectedId: row[3]
-                };
-            });
+                selectedData.forEach((selection) => {
+                    const requireDivs = document.querySelectorAll(`.year-${selection.year} .${selection.semester}.dropzone .require-item[data-requirement="${selection.courseId}"]`);
+                
+                    let selectedRequireDiv = null;
+                
+                    requireDivs.forEach((requireDiv) => {
+                        const credits = requireDiv.querySelector('.credits');
 
-            selectedData.forEach((selection) => {
-                const requireDivs = document.querySelectorAll(`.year-${selection.year} .${selection.semester}.dropzone .require-item[data-requirement="${selection.courseId}"]`);
-            
-                let selectedRequireDiv = null;
-            
-                requireDivs.forEach((requireDiv) => {
-                    const credits = requireDiv.querySelector('.credits');
+                        if (credits && credits.textContent.includes("0")) {
+                            selectedRequireDiv = requireDiv; 
+                            return; 
+                        }
+                    });
+                    
+                    if (selectedRequireDiv) {
+                        const selectElement = selectedRequireDiv.querySelector('.require-select');
+                        selectElement.value = selection.selectedId;
 
-                    if (credits && credits.textContent.includes("0")) {
-                        selectedRequireDiv = requireDiv; 
-                        return; 
+                        const selectedOption = selectElement.options[selectElement.selectedIndex];
+                        selectedRequireDiv.id = selectedOption.value;
+                        
+                        selectedRequireDiv.querySelector('.credits').textContent = `${selectedOption.dataset.credits} Credits`;
+
+                        generateInformation(selectedOption.value, selectedRequireDiv);
                     }
                 });
-                
-                if (selectedRequireDiv) {
-                    const selectElement = selectedRequireDiv.querySelector('.require-select');
-                    selectElement.value = selection.selectedId;
+            }
 
-                    const selectedOption = selectElement.options[selectElement.selectedIndex];
-                    selectedRequireDiv.id = selectedOption.value;
-                    
-                    selectedRequireDiv.querySelector('.credits').textContent = `${selectedOption.dataset.credits} Credits`;
-
-                    generateInformation(selectedOption.value, selectedRequireDiv);
-                }
-            });
-            
             createMessage(`Save slot ${slot.slice(-1)} successfully loaded.`, false);
             dragAndDropEnable();
             updateCredits();
