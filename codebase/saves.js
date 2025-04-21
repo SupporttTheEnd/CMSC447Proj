@@ -34,7 +34,7 @@ async function createInterface(isSave) {
     const internalHTML = `
         <div id="save-panel">
             <button id="close-save" class="close-button">×</button>
-            <h2>${isSave ? "Save File" : "Load File"}</h2>
+            <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/load.svg" style="height:40px">'}</h2>
             <hr>
             <div class="save-container">
             ${[...Array(6)].map((_, index) => {
@@ -158,6 +158,9 @@ async function loadSaveData() {
     await createInterface(false);
     document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
         slotElement.addEventListener("click", async () => {
+            if (slotElement.querySelector(".date-container").textContent.includes("Empty Slot")) {
+                return; 
+            }
             const slot = slotElement.dataset.slot;
             clearClasses();
             populateClassData(slot);
