@@ -51,6 +51,7 @@ async function createInterface(isSave) {
             <div class="save-container">
             ${[...Array(12)].map((_, index) => {
                 const save = savesData && Object.values(savesData).find(s => s.slot === `slot${index + 1}`);
+                console.log(save);
                 return `
                     <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
                         <div class="saveslot" data-slot="slot${index + 1}">
@@ -115,12 +116,12 @@ async function createInterface(isSave) {
             const note = event.target.value;
 
             try {
-                await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}/note.json`, {
+                await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}.json`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(note)
+                    body: JSON.stringify({ note, slot })
                 });
                 createMessage(`Note for slot ${slot.slice(-1)} was saved`, false);
             } catch (error) {
