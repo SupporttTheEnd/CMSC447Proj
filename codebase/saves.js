@@ -51,7 +51,6 @@ async function createInterface(isSave) {
             <div class="save-container">
             ${[...Array(12)].map((_, index) => {
                 const save = savesData && Object.values(savesData).find(s => s.slot === `slot${index + 1}`);
-                console.log(save);
                 return `
                     <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
                         <div class="saveslot" data-slot="slot${index + 1}">
@@ -299,15 +298,39 @@ async function loadSaveData() {
                 generateYears(true);
             }
 
+            result = db.exec(`
+                SELECT year, semester
+                FROM ${slot}
+                WHERE semester = 'winter' OR semester = 'summer'
+            `);
+
+            if (result.length) {
+                const selectedData = result[0].values.map(row => {
+                    return {
+                        year: row[0],
+                        semester: row[1],
+                    };
+                });
+                selectedData.forEach((selection) => {
+                    if (!document.querySelector(`.year-${selection.year} .${selection.semester}.dropzone`)) {
+                        const additionButton = document.querySelector(`.year-${selection.year} .additionSession`);
+                        if (additionButton) {
+                            additionButton.click();
+                        }
+                    }
+                });
+            }
+
             clearClasses();
             populateClassData(slot);
             populateRequirementData(slot);
-
+            
             result = db.exec(`
                 SELECT year, semester, courseId, selectedId
                 FROM ${slot}
                 WHERE selectedId IS NOT NULL;
             `);
+
             // select saved options for requirements 
             if (result.length) {
                 const selectedData = result[0].values.map(row => {
