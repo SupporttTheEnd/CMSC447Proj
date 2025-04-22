@@ -51,13 +51,14 @@ async function createInterface(isSave) {
             <div class="save-container">
             ${[...Array(12)].map((_, index) => {
                 const save = savesData && Object.values(savesData).find(s => s.slot === `slot${index + 1}`);
+                const hasDate = save && save.time;
                 return `
                     <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
-                        <div class="saveslot" data-slot="slot${index + 1}">
-                            ${isSave && save ? '<button class="delete-save close-button">×</button>' : '<button class="delete-save close-button" style="display:none">×</button>'}
+                        <div class="saveslot" data-slot="slot${index + 1}" style="background-color: ${hasDate ? 'var(--requirement-color)' : ''};">
+                            ${isSave && hasDate ? '<button class="delete-save close-button">×</button>' : '<button class="delete-save close-button" style="display:none">×</button>'}
                             <h5>Slot ${index + 1}</h5>
                             <div class="date-container">
-                                ${save && save.time ? new Date(save.time).toLocaleString() : "Empty Slot"}
+                                ${hasDate ? new Date(save.time).toLocaleString() : "Empty Slot"}
                             </div>
                         </div>
                         <input type="text" placeholder="Enter a note..." style="width:150px" data-slot="slot${index + 1}" value="${save && save.note ? save.note : ''}">
@@ -164,6 +165,7 @@ async function createInterface(isSave) {
 
                 createMessage(`Save slot ${slot.slice(-1)} was successfully deleted.`, false);
                 slotElement.querySelector(".date-container").textContent = "Empty Slot";
+                slotElement.style.backgroundColor = "";
                 slotElement.parentElement.querySelector("input[type='text']").value = "";
                 deleteButton.style.display = "none";
             } catch (error) {
@@ -263,6 +265,7 @@ async function enterSaveData() {
 
                 createMessage(`Your save was successfully logged.`, false);
                 slotElement.querySelector(".date-container").innerHTML = new Date(time).toLocaleString();
+                slotElement.style.backgroundColor = "var(--requirement-color)";
                 const deleteButton = slotElement.querySelector(".delete-save");
                 deleteButton.style.display = "block";
             } catch (error) {
