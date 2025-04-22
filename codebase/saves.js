@@ -26,11 +26,13 @@ async function createInterface(isSave) {
                 );
             `);
 
-            save.body.forEach(course => {
-                const selectedId = course.selectedId || null;
-                db.run(`INSERT OR REPLACE INTO ${save.slot} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
-                    [course.courseId, course.year, course.semester, selectedId]);
-            });
+            if (save.body) {
+                save.body.forEach(course => {
+                    const selectedId = course.selectedId || null;
+                    db.run(`INSERT OR REPLACE INTO ${save.slot} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
+                        [course.courseId, course.year, course.semester, selectedId]);
+                });
+            }
         });
     }
 
@@ -40,24 +42,32 @@ async function createInterface(isSave) {
             <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/load.svg" style="height:40px">'}</h2>
             <hr>
             <div class="save-container">
-            ${[...Array(6)].map((_, index) => {
+            ${[...Array(9)].map((_, index) => {
                 const save = savesData && Object.values(savesData).find(s => s.slot === `slot${index + 1}`);
                 return `
-                    <div class="saveslot" data-slot="slot${index + 1}">
-                        <h5>Slot ${index + 1}</h5>
-                        <div class="date-container">
-                            ${save && save.time ? new Date(save.time).toLocaleString() : "Empty Slot"}
+                    <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
+                        <div class="saveslot" data-slot="slot${index + 1}">
+                            ${isSave && save ? '<button class="delete-save close-button">×</button>' : '<button class="delete-save close-button" style="display:none">×</button>'}
+                            <h5>Slot ${index + 1}</h5>
+                            <div class="date-container">
+                                ${save && save.time ? new Date(save.time).toLocaleString() : "Empty Slot"}
+                            </div>
                         </div>
+                        <input type="text" placeholder="Enter a note..." style="width:150px" data-slot="slot${index + 1}" value="${save && save.note ? save.note : ''}">
                     </div>
                     `;
             }).join('')}
             </div>
-            <div class="override-warning" style="display:none;">
+            <div class="override-warning" style="display:none; margin-top: 20px;">
                 <span>Are you sure you want to overwrite this save slot?</span>
                 <div>
                     <button type="button" id="accept-override-button" class="primary-button btn btn-primary">Yes</button>
                     <button type="button" id="deny-override-button" class="secondary-button btn">No</button>
                 </div>
+            </div>
+            <div class="d-flex flex-column align-items-center add-line" style="margin-top:30px;">
+                <button class="additionSession"></button>
+                <p> Need more slots? </p>
             </div>
         </div>
     `;
@@ -74,6 +84,95 @@ async function createInterface(isSave) {
     document.getElementById("close-save").addEventListener("click", closeModal);
     document.querySelector(".modal-overlay").addEventListener("click", closeModal);
 
+    // Add event listener for "Show More Slots" button
+    document.querySelector("#save-panel .additionSession").addEventListener("click", (event) => {
+        const button = event.currentTarget;
+        if (button.dataset.inserted === "true") {
+            document.querySelectorAll(".save-slot-wrapper").forEach((slotElement, index) => {
+                if (index > 5) {
+                    slotElement.style.display = "none";
+                }
+            });
+            button.dataset.inserted = "false";
+            button.nextElementSibling.style.display = "block";
+            button.style.backgroundImage = `url('images/plus.png')`;
+        } else {
+            document.querySelectorAll(".save-slot-wrapper").forEach((slotElement, index) => {
+                if (index > 5) {
+                    slotElement.style.display = "flex";
+                }
+            });
+            button.nextElementSibling.style.display = "none";
+            button.dataset.inserted = "true";
+            button.style.backgroundImage = `url('images/minus.png')`;
+        }
+    });
+
+    // saves your notes 
+    document.querySelectorAll("#save-panel input[type='text']").forEach(input => {
+        input.addEventListener("change", async (event) => {
+            const slot = event.target.dataset.slot;
+            const note = event.target.value;
+
+            try {
+                await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}/note.json`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(note)
+                });
+                createMessage(`Note for slot ${slot.slice(-1)} was saved`, false);
+            } catch (error) {
+                createMessage("Failed to save note");
+            }
+        });
+    });
+
+    // handles delete
+    document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
+        const deleteButton = slotElement.querySelector(".delete-save");
+        if (!deleteButton) return;
+
+        const slot = slotElement.dataset.slot;
+
+        deleteButton.addEventListener("click", async () => {
+            const warning = document.querySelector("#save-panel .override-warning");
+            warning.style.display = "block";
+
+            const acceptButton = document.getElementById("accept-override-button");
+            const denyButton = document.getElementById("deny-override-button");
+
+            const proceed = await new Promise((resolve) => {
+                acceptButton.addEventListener("click", () => {
+                    warning.style.display = "none";
+                    resolve(true);
+                }, { once: true });
+
+                denyButton.addEventListener("click", () => {
+                    warning.style.display = "none";
+                    resolve(false);
+                }, { once: true });
+            });
+
+            if (!proceed) return;
+
+            try {
+                await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}.json`, {
+                    method: 'DELETE'
+                });
+
+                createMessage(`Save slot ${slot.slice(-1)} was successfully deleted.`, false);
+                slotElement.querySelector(".date-container").textContent = "Empty Slot";
+                slotElement.parentElement.querySelector("input[type='text']").value = "";
+                deleteButton.style.display = "none";
+            } catch (error) {
+                createMessage("Failed to delete save slot", true);
+            }
+        });
+    });
+
+    // handles close
     function closeModal() {
         document.body.removeChild(wrapper);
         document.body.removeChild(overlay);
@@ -84,6 +183,7 @@ async function createInterface(isSave) {
 async function enterSaveData() {
     await createInterface(true);
     let classesArray = [];
+    // collects data
     for (let i = 0; i <= window.globalVariables.years; i++) {
         const yearContainer = document.querySelector(`.container.year-${i}`);
         if (!yearContainer) continue;
@@ -106,15 +206,21 @@ async function enterSaveData() {
         });
     }
 
+    // attaches listeners to save
     document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
-        slotElement.addEventListener("click", async () => {
+        const warning = document.querySelector("#save-panel .override-warning");
+        warning.style.display = "none";
+
+        slotElement.addEventListener("click", async (event) => {
+            if (event.target.classList.contains("delete-save")) return;
+
             if (classesArray.length == 0) {
                 createMessage("Save failed; no classes detected.", true);
                 return;
             }
 
+            // if overriding
             if (!slotElement.querySelector(".date-container").textContent.includes("Empty Slot")) {
-                const warning = document.querySelector("#save-panel .override-warning");
                 warning.style.display = "block";
 
                 const acceptButton = document.getElementById("accept-override-button");
@@ -156,11 +262,12 @@ async function enterSaveData() {
                 });
 
                 createMessage(`Your save was successfully logged.`, false);
+                slotElement.querySelector(".date-container").innerHTML = new Date(time).toLocaleString();
+                const deleteButton = slotElement.querySelector(".delete-save");
+                deleteButton.style.display = "block";
             } catch (error) {
                 createMessage("Something went wrong with your save", true);
             }
-
-            slotElement.querySelector(".date-container").innerHTML = new Date(time).toLocaleString();
         });
     });
 }

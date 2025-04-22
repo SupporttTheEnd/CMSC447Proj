@@ -15,7 +15,7 @@
     --button-hover-color: #0056b3;
     --row-color: #d96c0d;
     --shadow-color: rgba(0, 0, 0, 0.25);
-    --dark-shadow-color: rgba(0, 0, 0, 0.5);
+    --dark-shadow-color: rgba(0, 0, 0, 0.6);
     --divider-color: #7676769d;
     --toggle-bg-color: #333;
     --requirement-color: #fff2b8;
@@ -464,7 +464,7 @@ input:checked+.slider::before {
     position: fixed;
     width: 250px;
     background-color: var(--sidebar-color);
-    box-shadow: 0 8px 20px var(--shadow-color);
+    box-shadow: 5px 8px 6px var(--dark-shadow-color);
     padding-top: 20px;
     transition: width 0.3s ease;
     z-index: 10;
@@ -968,7 +968,8 @@ span.information:hover {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 10px;
-    justify-items: end;
+    justify-items: center;
+    padding-right: 0px;
     align-items: center;
 }
 
@@ -1133,7 +1134,8 @@ hr {
     text-align: center;
 }
 
-.save-container > div {
+.save-container .saveslot{
+    position: relative;
     height: 105px;
     width: 150px;
     border: 1px solid #6a6a6a82;
@@ -1147,9 +1149,9 @@ hr {
     cursor: pointer;
 }
 
-.save-container > div:hover {
+.save-container .saveslot:hover {
     transform: translateY(-3px);
-     box-shadow: 8px 10px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
 .override-warning {

@@ -349,7 +349,6 @@ function showWarningBox(event) {
 
     if (button.dataset.inserted === "true") {
         warningbox.style.display = "none";
-
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
         button.style.backgroundImage = `url('images/plus.png')`;

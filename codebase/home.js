@@ -609,7 +609,7 @@ function updateTimeLabel() {
     updateCredits(false);
     const checkbox = document.getElementById('full-time-toggle');
     const label = document.getElementById('time-label');
-    label.textContent = checkbox.checked ? 'Part Time' : 'Full Time';
+    label.textContent = checkbox.checked ? 'Enable Credit Enforcement' : 'Disable Credit Enforcement';
 }
 
 function makeDraggable(element, excludeClasses = []) {
