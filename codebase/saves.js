@@ -41,8 +41,15 @@ async function createInterface(isSave) {
             <button id="close-save" class="close-button">×</button>
             <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/load.svg" style="height:40px">'}</h2>
             <hr>
+            <div class="override-warning" style="display:none; margin-bottom: 20px;">
+                <span>Are you sure you want to overwrite this save slot?</span>
+                <div>
+                    <button type="button" id="accept-override-button" class="primary-button btn btn-primary">Yes</button>
+                    <button type="button" id="deny-override-button" class="secondary-button btn">No</button>
+                </div>
+            </div>
             <div class="save-container">
-            ${[...Array(9)].map((_, index) => {
+            ${[...Array(12)].map((_, index) => {
                 const save = savesData && Object.values(savesData).find(s => s.slot === `slot${index + 1}`);
                 return `
                     <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
@@ -58,16 +65,9 @@ async function createInterface(isSave) {
                     `;
             }).join('')}
             </div>
-            <div class="override-warning" style="display:none; margin-top: 20px;">
-                <span>Are you sure you want to overwrite this save slot?</span>
-                <div>
-                    <button type="button" id="accept-override-button" class="primary-button btn btn-primary">Yes</button>
-                    <button type="button" id="deny-override-button" class="secondary-button btn">No</button>
-                </div>
-            </div>
             <div class="d-flex flex-column align-items-center add-line" style="margin-top:30px;">
                 <button class="additionSession"></button>
-                <p> Need more slots? </p>
+                <p> Show more slots </p>
             </div>
         </div>
     `;
