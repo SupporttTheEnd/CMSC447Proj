@@ -548,6 +548,7 @@ export function updateCredits(checkClass = true) {
         } else {
             headerComponents.forEach(component => {
                 component.style.backgroundColor = "";
+                ropzone.style.backgroundImage = "";
                 component.style.color = "";
             });
             dropzone.style.removeProperty("border-color");
