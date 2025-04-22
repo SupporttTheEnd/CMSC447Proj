@@ -534,22 +534,18 @@ export function updateCredits(checkClass = true) {
         // Update the UI based on the validity of the credits
         if (!isValid) {
             headerComponents.forEach((component, index) => {
-                component.style.color = "rgba(255, 255, 255, 0.93)";
-                component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
                 if (index % 2 === 0) {
-                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.18), rgba(255, 143, 143, 0.18) 10px, transparent 10px, transparent 20px)";
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.18), rgba(255, 143, 143, 0.18) 10px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 0, 0, 0.18) 20px)";
                 } else {
-                    component.style.backgroundImage = "repeating-linear-gradient(135deg, transparent 0px, transparent 10px, rgba(255, 143, 143, 0.18) 10px, rgba(255, 143, 143, 0.18) 20px)";
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 143, 143, 0.18) 10px, rgba(255, 143, 143, 0.18) 20px)";
                 }
             });
-            dropzone.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.18), rgba(255, 143, 143, 0.18) 10px, transparent 10px, transparent 20px)";
+            dropzone.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.09), rgba(255, 143, 143, 0.09) 10px, transparent 10px, transparent 20px)";
             dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.25)", "important");
             dropzone.classList.add('invalid-credits');
         } else {
             headerComponents.forEach(component => {
-                component.style.backgroundColor = "";
                 component.style.backgroundImage = "";
-                component.style.color = "";
             });
             dropzone.style.removeProperty("border-color");
             dropzone.style.backgroundImage = "";
