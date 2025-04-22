@@ -117,7 +117,7 @@ async function createInterface(isSave) {
 
             try {
                 await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}.json`, {
-                    method: 'PUT',
+                    method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -256,7 +256,7 @@ async function enterSaveData() {
 
             try {
                 await fetch(`https://cmsc447-470ca-default-rtdb.firebaseio.com/accounts/${email}/saves/${slot}.json`, {
-                    method: 'PUT',  
+                    method: 'PATCH',  
                     headers: {
                         'Content-Type': 'application/json'
                     },
