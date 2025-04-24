@@ -3,6 +3,7 @@ import * as search from './codebase/search.js';
 import * as exam from './codebase/exam.js';
 import * as login from './codebase/login.js';
 import * as note from './codebase/notes.js';
+import * as saves from './codebase/saves.js';
 
 window.globalVariables = {
     years: 4,
@@ -24,6 +25,7 @@ async function controller() {
     await exam.main();
     await login.main();
     await note.main();
+    await saves.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';
@@ -105,24 +107,23 @@ async function setupSQL() {
     const noteResponse = await fetch('https://cmsc447-470ca-default-rtdb.firebaseio.com/notes.json');
     const noteData = await noteResponse.json();
 
+    db.run(`
+        CREATE TABLE IF NOT EXISTS notes (
+            id TEXT PRIMARY KEY,
+            classId TEXT,
+            name TEXT,
+            email TEXT,
+            notes TEXT,
+            score INTEGER,
+            dateTime TEXT
+        );
+    `);
+
     if (noteData) {
-        db.run(`
-            CREATE TABLE IF NOT EXISTS notes (
-                id TEXT PRIMARY KEY,
-                classId TEXT,
-                name TEXT,
-                email TEXT,
-                notes TEXT,
-                score INTEGER,
-                dateTime TEXT
-            );
-        `);
-            
         Object.entries(noteData).forEach(([key, note]) => {
             db.run("INSERT INTO notes (id, classId, name, email, notes, score, dateTime) VALUES (?, ?, ?, ?, ?, ?, ?)", [
                 key, note.classId, note.name, note.email, note.notes, note.score, note.dateTime
             ]);
         });
     }
-    
 }

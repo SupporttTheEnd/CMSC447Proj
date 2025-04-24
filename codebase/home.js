@@ -1,5 +1,5 @@
 import { generateInformation } from './information.js';
-import { checkClassSequence, generateWarning } from './requirements.js';
+import { enforceSchedule, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
 import { balanceClassData } from './balance.js';
 import { downloadScheduleAsPDF } from './file.js';
@@ -15,6 +15,7 @@ export async function main() {
     generateYears();
     makeDraggable("sidebar", ["hide", "dropzone"]);
     darkMode();
+    background();
     addYearButton();
     
     // setup main buttons
@@ -310,7 +311,7 @@ function loadAndPopulateClasses() {
     updateCredits();
 }
 
-function populateClassData(program) {
+export function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
@@ -354,7 +355,7 @@ function populateClassData(program) {
     }
 }
 
-function populateRequirementData(program) {
+export function populateRequirementData(program) {
     const db = window.globalVariables.db;
 
     const requirementQuery = `
@@ -483,23 +484,7 @@ function populateRequirementData(program) {
     }
 }
 
-function splitCombinedClassData(combinedClassData, mode) {
-    const splitData = [];
-    combinedClassData.forEach(course => {
-        if(!mode){
-            if (!course.courseId.startsWith('$')) {
-                splitData.push(course);
-            }
-        }
-        else if (course.courseId.startsWith('$')) {
-            splitData.push(course);
-        }
-
-    });
-    return splitData;
-}
-
-function clearClasses() {
+export function clearClasses() {
     const dropzones = document.querySelectorAll(`#classes .class-box .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -507,7 +492,7 @@ function clearClasses() {
     });
 }
 
-function updateCredits(checkClass = true) {
+export function updateCredits(checkClass = true) {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -518,7 +503,17 @@ function updateCredits(checkClass = true) {
         let totalCredits = 0;
 
         dropzone.querySelectorAll('.class-item .credits').forEach(creditSpan => {
-            totalCredits += parseInt(creditSpan.textContent.replace(/\D/g, ""), 10) || 0;
+            const creditText = creditSpan.textContent.trim();
+            let creditValue = 0;
+
+            if (creditText.includes("-")) {
+                const parts = creditText.split("-");
+                creditValue = Math.floor((parseInt(parts[0]) + parseInt(parts[1].replace(/\D/g, ""))) / 2);
+            } else {
+                creditValue = parseInt(creditText.replace(/\D/g, ""), 10) || 0;
+            }
+
+            totalCredits += creditValue;
         });
 
         // Determine if the credits are valid or not
@@ -544,20 +539,22 @@ function updateCredits(checkClass = true) {
         }
         // Update the UI based on the validity of the credits
         if (!isValid) {
-            headerComponents.forEach(component => {
-                component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
-                component.style.color = "rgba(255, 255, 255, 0.93)";
+            headerComponents.forEach((component, index) => {
+                if (index % 2 === 0) {
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.18), rgba(255, 143, 143, 0.18) 10px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 0, 0, 0.18) 20px)";
+                } else {
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 143, 143, 0.18) 10px, rgba(255, 143, 143, 0.18) 20px)";
+                }
             });
-            dropzone.style.backgroundColor = "rgba(255, 143, 143, 0.36)";
-            dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.5)", "important");
+            dropzone.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.09), rgba(255, 143, 143, 0.09) 10px, transparent 10px, transparent 20px)";
+            dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.25)", "important");
             dropzone.classList.add('invalid-credits');
         } else {
             headerComponents.forEach(component => {
-                component.style.backgroundColor = "";
-                component.style.color = "";
+                component.style.backgroundImage = "";
             });
             dropzone.style.removeProperty("border-color");
-            dropzone.style.backgroundColor = "";
+            dropzone.style.backgroundImage = "";
             dropzone.classList.remove('invalid-credits');
         }
 
@@ -565,7 +562,7 @@ function updateCredits(checkClass = true) {
     });
 
     if (checkClass) {
-        checkClassSequence();
+        enforceSchedule();
     }
 }
 
@@ -592,11 +589,35 @@ function darkMode() {
     });
 }
 
+function background() {
+    const max = 7;
+    const savedBackground = localStorage.getItem('currentBackground');
+    const backgroundButton = document.querySelector('#background-button');
+    if (savedBackground) {
+        document.body.style.setProperty('--bg-image', `url('images/background_${savedBackground}.jpg')`);
+    }
+
+    backgroundButton.addEventListener('click', () => {
+        const current = parseInt(getComputedStyle(document.body)
+        .getPropertyValue('--bg-image')
+        .match(/background_(\d+)/)[1]);
+        const next = (current % max) + 1;
+        document.body.style.setProperty('--bg-image', `url('images/background_${next}.jpg')`);
+        
+        localStorage.setItem('currentBackground', next);
+    });
+}
+
+// Load the background from local storage on page load
+document.addEventListener('DOMContentLoaded', () => {
+    
+});
+
 function updateTimeLabel() {
     updateCredits(false);
     const checkbox = document.getElementById('full-time-toggle');
     const label = document.getElementById('time-label');
-    label.textContent = checkbox.checked ? 'Part Time' : 'Full Time';
+    label.textContent = checkbox.checked ? 'Enable Credit Enforcement' : 'Disable Credit Enforcement';
 }
 
 function makeDraggable(element, excludeClasses = []) {
