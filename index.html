@@ -75,6 +75,11 @@
                                 <input type="checkbox" id="alert-toggle">
                                 <span class="slider"></span>
                             </label>
+                            <p id="time-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Disable Credit Enforcement</p>
+                            <label class="switch time-toggle" style="margin-left:-4px">
+                                <input type="checkbox" id="full-time-toggle">
+                                <span class="slider"></span>
+                            </label>
                             <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Background</p>
                             <div id="background-button"><img src="images/icons/picture.svg" style="height:33px"></div>
                             <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
@@ -99,19 +104,19 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes">Plan Building <img src="images/icons/crane.svg" style="height:18px"></a>
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes"><img class="icon" src="images/icons/crane.svg" style="height:21px;"> Plan Building </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search">Class Search <img src="images/icons/magnify.svg" style="height:18px"></a>
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search"><img class="icon" src="images/icons/magnify.svg" style="height:21px;"> Class Search </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="exam-tab" data-bs-toggle="tab" href="#exam">Search APs <img src="images/icons/books.svg" style="height:18px"></a>
+                        <a class="nav-link" id="exam-tab" data-bs-toggle="tab" href="#exam"><img class="icon" src="images/icons/books.svg" style="height:21px;"> Search APs</a>
                     </li>
                     <li class="nav-item account-student">
-                        <a class="nav-link" id="notes-tab" data-bs-toggle="tab" href="#notes">Write Notes <img src="images/icons/pencil.svg" style="height:18px"></a>
+                        <a class="nav-link" id="notes-tab" data-bs-toggle="tab" href="#notes"><img class="icon" src="images/icons/pencil.svg" style="height:21px;"> Write Notes</a>
                     </li>
                     <li class="nav-item account-student">
-                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback">Enter Feedback <img src="images/icons/clipboard.svg" style="height:18px"></a>
+                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback"><img class="icon" src="images/icons/clipboard.svg" style="height:21px;"> Enter Feedback</a>
                     </li>
                 </ul>
 
@@ -151,17 +156,8 @@
                             <div class="d-flex align-items-center">
                                 <button type="button" id="generateButton" class="primary-button btn btn-primary"
                                     style="margin:10px">Generate Schedule</button>
-                                <div class="d-flex flex-column align-items-center justify-content-center"
-                                    style="margin-bottom:8px">
-                                    <p id="time-label" style="font-size: 10px; font-weight: bold; margin-bottom:0px;">
-                                        Full Time</p>
-                                    <label class="switch time-toggle">
-                                        <input type="checkbox" id="full-time-toggle">
-                                        <span class="slider"></span>
-                                    </label>
-                                </div>
                                 <button type="button" id="downloadButton" class="secondary-button btn"
-                                    style="margin:10px"><img src="images/icons/printer.svg" style="height:18px"> Print Schedule</button>
+                                    style="margin:10px"><img class="icon" src="images/icons/printer.svg" style="height:18px"> Print Schedule</button>
                             </div>
                         </div>
                     </div>
@@ -178,7 +174,7 @@
                 <span>2025 Four-Year Academic Pathways. </span>
             </div>
             <div class="container text-center">
-                <a href="mailto:andrew73@umbc.edu"><img src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img src="images/icons/phone.svg" style="height:18px">Phone: 443-851-9937</span>
+                <a href="mailto:andrew73@umbc.edu"><img class="icon" src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img class="icon" src="images/icons/phone.svg" style="height:18px">Phone: 443-851-9937</span>
             </div>
             <span class="location">© University of Maryland, Baltimore County • 1000 Hilltop Circle • Baltimore, MD
                 21250</span>

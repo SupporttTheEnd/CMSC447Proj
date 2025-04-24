@@ -3,6 +3,28 @@ import { createMessage } from './login.js';
 export function enforceSchedule() {
     checkClassSequence();
     checkClassAvailability();
+    checkDuplicateIds();
+
+    let warningCount = document.querySelector(".warning-list").childElementCount;
+
+    if (warningCount > 0) {
+        document.querySelector(".warning").style.display = "block";
+        createMessage(`There are ${warningCount} warnings. Please review your schedule.`);
+    }
+
+    // Updated warning count from duplicates
+    warningCount = document.querySelector(".warning-list").childElementCount;
+
+    const warningText = document.querySelector(".warnings-text span");
+    if (warningText) {
+        warningText.textContent = warningCount;
+    }
+
+    const validationResult = isPlanValid();
+    if (validationResult.isValid) {
+        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
+        confetti();
+    }
 }
 
 function checkClassSequence() {
@@ -268,31 +290,7 @@ function checkClassAvailability() {
             }
         })
     })
-
-    checkDuplicateIds();
-
-    let warningCount = document.querySelector(".warning-list").childElementCount;
-
-    if (warningCount > 0) {
-        document.querySelector(".warning").style.display = "block";
-        createMessage(`There are ${warningCount} warnings. Please review your schedule.`);
-    }
-
-    // Updated warning count from duplicates
-    warningCount = document.querySelector(".warning-list").childElementCount;
-
-    const warningText = document.querySelector(".warnings-text span");
-    if (warningText) {
-        warningText.textContent = warningCount;
-    }
-
-    const validationResult = isPlanValid();
-    if (validationResult.isValid) {
-        createMessage("Plan has been validated you can now print a copy of your schedule.", false); 
-        confetti();
-    }
 }
-
 
 function checkDuplicateIds() {
     const ids = new Set();
@@ -351,7 +349,6 @@ function showWarningBox(event) {
 
     if (button.dataset.inserted === "true") {
         warningbox.style.display = "none";
-
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
         button.style.backgroundImage = `url('images/plus.png')`;

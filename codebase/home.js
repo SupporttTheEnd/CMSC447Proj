@@ -119,7 +119,7 @@ export function dragAndDropEnable() {
     });
 }
 
-function generateYears(addNew = false) {
+export function generateYears(addNew = false) {
     let container = document.getElementById("classes");
 
     if (addNew) {
@@ -305,7 +305,7 @@ function loadAndPopulateClasses() {
     updateCredits();
 }
 
-function populateClassData(program) {
+export function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
@@ -349,7 +349,7 @@ function populateClassData(program) {
     }
 }
 
-function populateRequirementData(program) {
+export function populateRequirementData(program) {
     const db = window.globalVariables.db;
 
     const requirementQuery = `
@@ -478,7 +478,7 @@ function populateRequirementData(program) {
     }
 }
 
-function clearClasses() {
+export function clearClasses() {
     const dropzones = document.querySelectorAll(`#classes .class-box .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -486,7 +486,7 @@ function clearClasses() {
     });
 }
 
-function updateCredits(checkClass = true) {
+export function updateCredits(checkClass = true) {
     const dropzones = document.querySelectorAll(`#classes .dropzone`);
 
     dropzones.forEach(dropzone => {
@@ -533,20 +533,22 @@ function updateCredits(checkClass = true) {
         }
         // Update the UI based on the validity of the credits
         if (!isValid) {
-            headerComponents.forEach(component => {
-                component.style.backgroundColor = "rgba(106, 0, 0, 0.61)";
-                component.style.color = "rgba(255, 255, 255, 0.93)";
+            headerComponents.forEach((component, index) => {
+                if (index % 2 === 0) {
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.18), rgba(255, 143, 143, 0.18) 10px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 0, 0, 0.18) 20px)";
+                } else {
+                    component.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 0, 0, 0.18) 0px, rgba(255, 0, 0, 0.18) 10px, rgba(255, 143, 143, 0.18) 10px, rgba(255, 143, 143, 0.18) 20px)";
+                }
             });
-            dropzone.style.backgroundColor = "rgba(255, 143, 143, 0.36)";
-            dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.5)", "important");
+            dropzone.style.backgroundImage = "repeating-linear-gradient(135deg, rgba(255, 143, 143, 0.09), rgba(255, 143, 143, 0.09) 10px, transparent 10px, transparent 20px)";
+            dropzone.style.setProperty("border-color", "rgba(177, 48, 48, 0.25)", "important");
             dropzone.classList.add('invalid-credits');
         } else {
             headerComponents.forEach(component => {
-                component.style.backgroundColor = "";
-                component.style.color = "";
+                component.style.backgroundImage = "";
             });
             dropzone.style.removeProperty("border-color");
-            dropzone.style.backgroundColor = "";
+            dropzone.style.backgroundImage = "";
             dropzone.classList.remove('invalid-credits');
         }
 
@@ -609,7 +611,7 @@ function updateTimeLabel() {
     updateCredits(false);
     const checkbox = document.getElementById('full-time-toggle');
     const label = document.getElementById('time-label');
-    label.textContent = checkbox.checked ? 'Part Time' : 'Full Time';
+    label.textContent = checkbox.checked ? 'Enable Credit Enforcement' : 'Disable Credit Enforcement';
 }
 
 function makeDraggable(element, excludeClasses = []) {
