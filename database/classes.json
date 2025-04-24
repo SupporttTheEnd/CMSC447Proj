@@ -1509,7 +1509,7 @@
     "credits": "4",
     "availability": "1010",
     "prerequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]],
-    "corequisites": [["MATH151"]]
+    "corequisites": [["MATH150"], ["MATH151"], ["MATH152"], ["MATH155"]]
   },
   {
     "courseId": "CMSC202",
@@ -2204,7 +2204,7 @@
     "name": "Applied Calculus",
     "credits": "4",
     "availability": "1110",
-    "prerequisites": [["MATH106"]],
+    "prerequisites": [],
     "corequisites": []
   },
   {

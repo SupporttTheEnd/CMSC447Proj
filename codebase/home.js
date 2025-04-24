@@ -292,41 +292,25 @@ function loadAndPopulateClasses() {
         .map(option => option.value);
 
     const selectedPrograms = [...selectedMajors, ...selectedMinors];
-    let returnedCourses = [];
-    let returnedRequirements = [];
 
     for (const program of selectedPrograms) {
-        returnedCourses.push(grabClassData(program));
+        populateClassData(program);
     }
 
     for (const program of selectedPrograms) {
-        returnedRequirements.push(grabRequirementData(program));
+        populateRequirementData(program);
     }
+
+
 
     if (selectedPrograms.length > 1) {
-        const combinedData = balanceClassData(returnedCourses, returnedRequirements);
-        returnedCourses = splitCombinedClassData(combinedData, 0);
-        returnedRequirements = splitCombinedClassData(combinedData, 1);
-
-        console.log(returnedCourses);
-        console.log(returnedRequirements);
+        balanceClassData();
     }
-    else {
-        returnedCourses = returnedCourses[0];
-        returnedRequirements = returnedRequirements[0];
-    }
-
-
-    populateCourses(returnedCourses);
-    returnedRequirements.forEach(req => {
-        populateRequirement(req, returnedRequirements);
-    });
-
     dragAndDropEnable();
     updateCredits();
 }
 
-function grabClassData(program) {
+function populateClassData(program) {
     const db = window.globalVariables.db;
 
     const classQuery = `
@@ -346,12 +330,31 @@ function grabClassData(program) {
                 semester: row[4]
             };
         });
-        return classData;
+
+        classData.forEach(course => {
+            const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
+            if (!document.querySelector(`#classes #${course.courseId}`)) {
+                const classDiv = document.createElement("div");
+                classDiv.classList.add("class-item", "draggable");
+                classDiv.setAttribute("draggable", "true");
+                classDiv.id = course.courseId;
+
+                const spansHtml = `
+                    <span class="course-name"><span class="information">ⓘ </span>[${course.courseId}] ${course.name}</span>
+                    <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
+                `;
+                classDiv.innerHTML = spansHtml;
+                if (semesterContainer){
+                    semesterContainer.appendChild(classDiv);
+                }
+
+                generateInformation(course.courseId, classDiv);
+            }
+        });
     }
-    return [];
 }
 
-function grabRequirementData(program) {
+function populateRequirementData(program) {
     const db = window.globalVariables.db;
 
     const requirementQuery = `
@@ -369,141 +372,115 @@ function grabRequirementData(program) {
                 semester: row[2]
             };
         });
-        return requirementData;
-    }
-    return [];
-}
 
-function populateCourses(classData) {
-    classData.forEach(course => {
-        const semesterContainer = document.querySelector(`.year-${course.year} .${course.semester}.dropzone`);
-        if (!document.querySelector(`#classes #${course.courseId}`)) {
-            const classDiv = document.createElement("div");
-            classDiv.classList.add("class-item", "draggable");
-            classDiv.setAttribute("draggable", "true");
-            classDiv.id = course.courseId;
+        requirementData.forEach(requirement => {
+            const existingRequirements = document.querySelectorAll(`#classes .require-item[data-requirement="${requirement.courseId}"]`);
+            const existingCount = existingRequirements.length;
 
-            const spansHtml = `
-                <span class="course-name"><span class="information">ⓘ </span>[${course.courseId}] ${course.name}</span>
-                <span class="credits" style="white-space: nowrap;">${course.credits} Credits</span>
-            `;
-            classDiv.innerHTML = spansHtml;
+            const requiredCount = requirementData.filter(req => req.courseId === requirement.courseId).length;
 
-            semesterContainer.appendChild(classDiv);
-            generateInformation(course.prerequisites, course.availability, classDiv);
-        }
-    });
-}
+            if (existingCount >= requiredCount) {
+                return; 
+            }
 
-function populateRequirement(requirement, requirementData) {
-    const db = window.globalVariables.db;
-    const existingRequirements = document.querySelectorAll(`#classes .require-item[data-requirement="${requirement.courseId}"]`);
-    const existingCount = existingRequirements.length;
+            const semesterContainer = document.querySelector(`.year-${requirement.year} .${requirement.semester}.dropzone`);
+            const requireDiv = document.createElement("div");
+            requireDiv.classList.add("require-item", "class-item", "draggable");
+            requireDiv.setAttribute("draggable", "true");
+            requireDiv.dataset.requirement = requirement.courseId;
 
-    const requiredCount = requirementData.filter(req => req.courseId === requirement.courseId).length;
+            const infoSpan = document.createElement("span");
+            infoSpan.classList.add("information");
+            infoSpan.textContent = "ⓘ ";
 
-    if (existingCount >= requiredCount) {
-        return; 
-    }
+            const selectElement = document.createElement("select");
+            selectElement.classList.add("require-select");
 
-    const semesterContainer = document.querySelector(`.year-${requirement.year} .${requirement.semester}.dropzone`);
-    const requireDiv = document.createElement("div");
-    requireDiv.classList.add("require-item", "class-item", "draggable");
-    requireDiv.setAttribute("draggable", "true");
-    requireDiv.dataset.requirement = requirement.courseId;
+            const category = requirement.courseId.replace('$', '');
+            const emptyOption = document.createElement("option");
+            emptyOption.value = "";
+            emptyOption.textContent = "Select a Class";
+            selectElement.appendChild(emptyOption);
 
-    const infoSpan = document.createElement("span");
-    infoSpan.classList.add("information");
-    infoSpan.textContent = "ⓘ ";
-
-    const selectElement = document.createElement("select");
-    selectElement.classList.add("require-select");
-
-    const category = requirement.courseId.replace('$', '');
-    const emptyOption = document.createElement("option");
-    emptyOption.value = "";
-    emptyOption.textContent = "Select a Class";
-    selectElement.appendChild(emptyOption);
-
-    if (category.includes(".")) {
-        const wildcardQuery = `
-            SELECT courseId, name, credits, prerequisites, availability
-            FROM classes
-            WHERE courseId LIKE '${category.replace(/\./g, "_")}'
-        `;
-        const wildcardResult = db.exec(wildcardQuery);
-        if (wildcardResult.length) {
-            wildcardResult[0].values.forEach(courseData => {
-                const optionElement = document.createElement("option");
-                optionElement.value = courseData[0];
-                optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
-                optionElement.dataset.credits = courseData[2];
-                optionElement.dataset.prerequisites = courseData[3];
-                optionElement.dataset.availability = courseData[4];
-                selectElement.appendChild(optionElement);
-            });
-        }
-    } else {
-        const optionsQuery = `
-            SELECT category, courses
-            FROM requirements
-            WHERE category = '${category}'
-        `;
-        const optionsResult = db.exec(optionsQuery);
-        if (optionsResult.length) {
-            const optionsData = optionsResult[0].values;
-            optionsData.forEach(option => {
-                const courses = option[1].replace(/["\[\]]/g, "").split(",");
-                courses.forEach(course => {
-                    const courseQuery = `
-                        SELECT courseId, name, credits, prerequisites, availability
-                        FROM classes
-                        WHERE courseId = '${course.trim()}'
-                    `;
-                    const courseResult = db.exec(courseQuery);
-                    if (courseResult.length) {
-                        const courseData = courseResult[0].values[0];
+            if (category.includes(".")) {
+                const wildcardQuery = `
+                    SELECT courseId, name, credits
+                    FROM classes
+                    WHERE courseId LIKE '${category.replace(/\./g, "_")}'
+                `;
+                const wildcardResult = db.exec(wildcardQuery);
+                if (wildcardResult.length) {
+                    wildcardResult[0].values.forEach(courseData => {
                         const optionElement = document.createElement("option");
                         optionElement.value = courseData[0];
                         optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
                         optionElement.dataset.credits = courseData[2];
-                        optionElement.dataset.prerequisites = courseData[3];
-                        optionElement.dataset.availability = courseData[4];
                         selectElement.appendChild(optionElement);
-                    }
-                });
-            });
-        }
-    }
+                    });
+                }
+            } else {
+                const optionsQuery = `
+                    SELECT category, courses
+                    FROM requirements
+                    WHERE category = '${category}'
+                `;
+                const optionsResult = db.exec(optionsQuery);
+                if (optionsResult.length) {
+                    const optionsData = optionsResult[0].values;
+                    optionsData.forEach(option => {
+                        const courses = option[1].replace(/["\[\]]/g, "").split(",");
+                        courses.forEach(course => {
+                            const courseQuery = `
+                                SELECT courseId, name, credits
+                                FROM classes
+                                WHERE courseId = '${course.trim()}'
+                            `;
+                            const courseResult = db.exec(courseQuery);
+                            if (courseResult.length) {
+                                const courseData = courseResult[0].values[0];
+                                const optionElement = document.createElement("option");
+                                optionElement.value = courseData[0];
+                                optionElement.textContent = `[${courseData[0]}] ${courseData[1]}`;
+                                optionElement.dataset.credits = courseData[2];
+                                selectElement.appendChild(optionElement);
+                            }
+                        });
+                    });
+                }
+            }
 
-    const requireName = document.createElement("span");
-    requireName.classList.add("course-name");
-    requireName.textContent = category;
+            const requireName = document.createElement("span");
+            requireName.classList.add("course-name");
+            requireName.textContent = category;
 
-    const credits = document.createElement("span");
-    credits.classList.add("credits");
-    credits.textContent = "0 Credits";
-    credits.style.whiteSpace = "nowrap";
-
-    selectElement.addEventListener("change", function () {
-        const selectedOption = selectElement.options[selectElement.selectedIndex];
-        if (selectedOption && selectedOption.dataset.credits) {
-            credits.textContent = `${selectedOption.dataset.credits} Credits`;
-            requireDiv.id = selectedOption.value;
-            generateInformation(selectedOption.dataset.prerequisites, selectedOption.dataset.availability, requireDiv);
-        } else {
+            const credits = document.createElement("span");
+            credits.classList.add("credits");
             credits.textContent = "0 Credits";
-            requireDiv.id = "";
-        }
-        updateCredits();
-    });
+            credits.style.whiteSpace = "nowrap";
 
-    requireDiv.appendChild(requireName);
-    requireDiv.appendChild(infoSpan);
-    requireDiv.appendChild(selectElement);
-    requireDiv.appendChild(credits);
+            selectElement.addEventListener("change", function () {
+                const selectedOption = selectElement.options[selectElement.selectedIndex];
+                if (selectedOption && selectedOption.dataset.credits) {
+                    credits.textContent = `${selectedOption.dataset.credits} Credits`;
+                    requireDiv.id = selectedOption.value;
+                    generateInformation(selectedOption.value, requireDiv);
+                } else {
+                    credits.textContent = "0 Credits";
+                    requireDiv.id = "";
+                }
+                updateCredits();
+            });
 
-    semesterContainer.appendChild(requireDiv);
+            requireDiv.appendChild(requireName);
+            requireDiv.appendChild(infoSpan);
+            requireDiv.appendChild(selectElement);
+            requireDiv.appendChild(credits);
+
+            if (semesterContainer) {
+                semesterContainer.appendChild(requireDiv);
+            }
+        });
+    }
 }
 
 function splitCombinedClassData(combinedClassData, mode) {

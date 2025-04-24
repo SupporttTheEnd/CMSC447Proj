@@ -1,54 +1,83 @@
 import { generateYears } from './home.js';
 
-export function balanceClassData(rawCourses, rawRequirements) {
-    const rawCombinedList = [];
-    const combinedList = [];
+export function balanceClassData() {
+    let classesArray = [], requirementsArray = [];
 
-    for (let i = 0; i < rawCourses.length; i++) {
-        rawCombinedList.push(rawCourses[i].concat(rawRequirements[i]));
-        rawCombinedList[i].sort((a, b) => ((a.year - b.year) * 10) + a.semester.localeCompare(b.semester));
+    let j = 0;
+    for (let i = 0; i <= window.globalVariables.years; i++) {
+        const yearContainer = document.querySelector(`.container.year-${i}`);
+        if (!yearContainer) continue;
+
+        Array.from(yearContainer.querySelectorAll(".dropzone")).forEach(dropzone => {
+            classesArray[j] = [];
+            requirementsArray[j] = [];
+            Array.from(dropzone.querySelectorAll(".class-item")).forEach(classItem => {
+                if (classItem.classList.contains("require-item")) {
+                    requirementsArray[j].push(classItem);
+                } else {
+                    classesArray[j].push(classItem);
+                }
+            });
+            j++
+        });
     }
 
-    rawCombinedList.sort((a, b) => b.length - a.length);
+    let currYear = 1;
+    let tempYear = 0;
+    let currSem = 0;
+    let currClassesInSem = 0;
+    const maxClassesInSem = 5;
+    let yearContainer = document.querySelector(`.container.year-${1}`);
+    for (let i = 1; i <= 8; i++) {
+        let classIndex = 0;
+        let requirementIndex = 0;
 
-    var totalActivePrograms = rawCombinedList.length;
-    var currClassesInSem = 0;
-    var currYear = 1;
-    var currSem = "fall";
-    for (let i = 0; i < rawCombinedList[0].length; i++) {
-        for (let j = 0; j < totalActivePrograms; j++) {
-            if ((i + 1) > (rawCombinedList[j].length)) {
-                totalActivePrograms--;
-                continue;
-            }
-
-            var modifiedClass = rawCombinedList[j][i];
+        
+        while (classIndex < classesArray[i].length || requirementIndex < requirementsArray[i].length) {
             
-            if (currClassesInSem >= 5) {
-                if (currSem == "fall") {
-                    currSem = "spring";
+            if (classIndex < classesArray[i].length) {
+                Array.from(yearContainer.querySelectorAll(".dropzone"))[currSem].appendChild(classesArray[i][classIndex]);
+                classIndex++;
+                currClassesInSem++;
+
+                [tempYear, currSem, currClassesInSem] = checkBounds(currYear, currSem, currClassesInSem, maxClassesInSem);
+                if (tempYear != currYear) {
+                    yearContainer = document.querySelector(`.container.year-${tempYear}`);
+                    currYear = tempYear;
                 }
-                else {
-                    currSem = "fall";
-                    currYear++;
-                }
-                currClassesInSem = 0;
             }
 
-            if (modifiedClass.courseId.startsWith('$') || !(combinedList.find(element => 
-                modifiedClass.courseId == element.courseId))){
-
-                modifiedClass.year = currYear;
-                modifiedClass.semester = currSem;
+            if (requirementIndex <  requirementsArray[i].length) {
+                Array.from(yearContainer.querySelectorAll(".dropzone"))[currSem].appendChild(requirementsArray[i][requirementIndex])
+                requirementIndex++;
                 currClassesInSem++;
-                
-                combinedList.push(modifiedClass);
+
+                [tempYear, currSem, currClassesInSem] = checkBounds(currYear, currSem, currClassesInSem, maxClassesInSem);
+                if (tempYear != currYear) {
+                    yearContainer = document.querySelector(`.container.year-${tempYear}`);
+                    currYear = tempYear;
+                }
             }
         }
     }
+}
 
-    for (let i = 0; i < (currYear - 4); i++){
-        generateYears(true);
+function checkBounds(currYear, currSem, currClassesInSem, maxClassesInSem){
+    if (currClassesInSem >= maxClassesInSem) {
+        if (currYear == window.globalVariables.years && currSem == 1) {
+            generateYears(true);
+        }
+        
+        if (currSem == 1) {
+            currYear++;
+            currSem = 0;
+        }
+        else {
+            currSem = 1;
+        }
+
+        currClassesInSem = 0;
     }
-    return combinedList;
+    
+    return [currYear, currSem, currClassesInSem];
 }
