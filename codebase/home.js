@@ -2,8 +2,10 @@ import { generateInformation } from './information.js';
 import { enforceSchedule, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
 import { downloadScheduleAsPDF } from './file.js';
+import { updateDashboard } from './dashboard.js';
 
 export async function main() {
+    await loadTabContent('dashboard');
     await loadTabContent('search');
     await loadTabContent('exam');
     await loadTabContent('notes');
@@ -16,6 +18,7 @@ export async function main() {
     darkMode();
     background();
     addYearButton();
+    updateDashboard();
     
     // setup main buttons
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
@@ -557,6 +560,7 @@ export function updateCredits(checkClass = true) {
 
     if (checkClass) {
         enforceSchedule();
+        updateDashboard();
     }
 }
 

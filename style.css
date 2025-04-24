@@ -1,5 +1,6 @@
 :root {
     --base-color: white;
+    --footer-color: rgba(255, 255, 255, 0.668);
     --base-variant: #e8e9ed;
     --text-color: #111528;
     --secondary-text: #1f222f;
@@ -8,7 +9,7 @@
     --primary-color: #000;
     --accent-color: #093565;
     --border-color: #e4e4e4;
-    --hover-color: #ebebeb49;
+    --hover-color: #f7f7f7f4;
     --button-color: #636466;
     --sidebar-color: #373737;
     --highlight-color: #FFC107;
@@ -30,6 +31,7 @@ body {
 }
 
 body::before {
+    z-index: -1;
     content: '';
     position: absolute;
     top: 0;
@@ -97,7 +99,7 @@ h3.welcome-text {
 }
 
 .footer {
-    background-color: var(--base-color) !important;
+    background-color: var(--footer-color) !important;
     min-width: 500px;
     color: var(--text-color);
     justify-content: center;
@@ -464,7 +466,7 @@ input:checked+.slider::before {
     position: fixed;
     width: 250px;
     background-color: var(--sidebar-color);
-    box-shadow: 5px 8px 6px var(--dark-shadow-color);
+    box-shadow: 3px 4px 6px var(--shadow-color);
     padding-top: 20px;
     transition: width 0.3s ease;
     z-index: 10;
