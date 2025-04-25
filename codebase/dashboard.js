@@ -70,6 +70,7 @@ function createBar(classesArray) {
             datasets: dataBySemester
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
