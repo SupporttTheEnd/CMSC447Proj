@@ -242,7 +242,7 @@ function handleAdditionalSessions(event) {
         button.nextElementSibling.style.display = "block";
         button.style.backgroundImage = `url('images/plus.png')`;
     } else {
-        button.parentElement.insertAdjacentHTML("afterend", `
+        const newBoxesHtml = `
             <div class="new-boxes"> 
                 <div class="semester-header d-flex">
                     <div class="winter semester-item">Winter Semester</div>
@@ -251,13 +251,13 @@ function handleAdditionalSessions(event) {
                     <div class="summer semester-item">Summer Semester</div>
                     <div class="summer semester-credit">Credits</div>
                 </div>
-
                 <div class="d-flex class-box">
                     <div class = "winter w-50 border p-2 dropzone"></div>
                     <div class = "summer w-50 border p-2 dropzone"></div>
                 </div>
             </div>
-        `);
+        `;
+        button.closest('.container').insertAdjacentHTML("beforeend", newBoxesHtml);
 
         button.nextElementSibling.style.display = "none";
         button.dataset.inserted = "true";

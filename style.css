@@ -78,7 +78,7 @@ h3.welcome-text {
     box-shadow: 0 0 8px var(--shadow-color);
     margin: 0 auto;
     max-width: 1060px;
-    min-width: 500px;
+    min-width: 460px;
     width: 100%;
     position: relative;
     min-height: 1200px;
@@ -100,7 +100,7 @@ h3.welcome-text {
 
 .footer {
     background-color: var(--footer-color) !important;
-    min-width: 500px;
+    min-width: 460px;
     color: var(--text-color);
     justify-content: center;
     align-items: center;
