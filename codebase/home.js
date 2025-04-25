@@ -606,11 +606,6 @@ function background() {
     });
 }
 
-// Load the background from local storage on page load
-document.addEventListener('DOMContentLoaded', () => {
-    
-});
-
 function updateTimeLabel() {
     updateCredits(false);
     const checkbox = document.getElementById('full-time-toggle');
