@@ -311,7 +311,7 @@ async function enterSaveData(isFile = false) {
 
 async function loadSaveData(isFile = false) {
     if(!isFile) {
-        await createInterface(true);
+        await createInterface(false);
     }
     const db = window.globalVariables.db;
 
