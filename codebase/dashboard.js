@@ -17,10 +17,10 @@ export function updateDashboard () {
                 const courseId = course.id.split(/\d/)[0];
                 if (!courseId) return;
 
-                // Track credit per course ID
                 creditMap[courseId] = (creditMap[courseId] || 0) + credit;
-
-                classesArray.push({ year: i, semester, credit });
+                if (i > 0){
+                    classesArray.push({ year: i, semester, credit });
+                }
             });
         });
     }
