@@ -10,6 +10,7 @@
     --accent-color: #093565;
     --border-color: #e4e4e4;
     --hover-color: #f7f7f7f4;
+    --sidebar-hover-color: #ebebebf4;
     --button-color: #636466;
     --sidebar-color: #373737;
     --highlight-color: #FFC107;
@@ -986,7 +987,7 @@ span.information:hover {
 }
 
 .setting-item:hover {
-    background-color:var(--hover-color);
+    background-color:var(--sidebar-hover-color);
 }
 
 textarea#post-notes {
@@ -1064,7 +1065,7 @@ hr {
 }
 
 hr.classic{
-    border-color: rgba(0, 0, 0, 0.301);
+    border-color: rgba(0, 0, 0, 0.625);
     margin: initial;
 }
 

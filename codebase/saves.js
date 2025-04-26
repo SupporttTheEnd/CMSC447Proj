@@ -339,10 +339,10 @@ async function loadSaveData(isFile = false) {
                         [course.courseId, course.year, course.semester, selectedId]);
                 });
 
+                createMessage(`File successfully imported.`, false);
+
                 await populateSchedule(table);
                 db.run(`DROP TABLE ${table};`);
-                
-                createMessage(`File successfully imported.`, false);
             };
             reader.readAsText(file);
         } catch (error) {
@@ -356,8 +356,8 @@ async function loadSaveData(isFile = false) {
                 return; 
             }
             const slot = slotElement.dataset.slot;
-            await populateSchedule(slot)
             createMessage(`Save slot ${slot.slice(-1)} successfully loaded.`, false);
+            await populateSchedule(slot)
         });
     });
 }
