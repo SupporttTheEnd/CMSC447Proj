@@ -3,15 +3,15 @@ import { generateInformation } from './information.js';
 import { dragAndDropEnable, populateClassData, populateRequirementData, updateCredits, clearClasses, generateYears} from './home.js';
 
 export async function main() {
-    document.getElementById("save-button").addEventListener("click", () => enterSaveData());
-    document.getElementById("load-button").addEventListener("click", () => loadSaveData());
-    document.getElementById("export-button").addEventListener("click", () => enterSaveData(true));
+    document.getElementById("save-button").parentElement.addEventListener("click", () => enterSaveData());
+    document.getElementById("load-button").parentElement.addEventListener("click", () => loadSaveData());
+    document.getElementById("export-button").parentElement.addEventListener("click", () => enterSaveData(true));
 
-    document.getElementById("import-button").addEventListener("click", () => {
+    document.getElementById("import-button").parentElement.addEventListener("click", () => {
         document.getElementById("umbc-file-input").click();
     });
     
-    document.getElementById("umbc-file-input").addEventListener("change", () => loadSaveData(true));
+    document.getElementById("umbc-file-input").parentElement.addEventListener("change", () => loadSaveData(true));
 }
 
 async function createInterface(isSave) {

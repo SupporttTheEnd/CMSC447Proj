@@ -595,7 +595,7 @@ function background() {
         document.body.style.setProperty('--bg-image', `url('images/background_${savedBackground}.jpg')`);
     }
 
-    backgroundButton.addEventListener('click', () => {
+    backgroundButton.parentElement.addEventListener('click', () => {
         const current = parseInt(getComputedStyle(document.body)
         .getPropertyValue('--bg-image')
         .match(/background_(\d+)/)[1]);

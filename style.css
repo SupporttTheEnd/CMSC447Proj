@@ -964,24 +964,29 @@ span.information:hover {
     box-shadow: 0 0 8px var(--dark-shadow-color);
     z-index: 1;
     border-radius: 1px;
-    padding: 8px 25px 8px 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.settings-dropdown:hover .dropdown-content {
+.settings-dropdown:hover .dropdown-content  {
+    display: block;
+}
+
+.setting-item {
+    padding: 5px 10px 5px 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 10px;
     justify-items: center;
-    padding-right: 0px;
-    align-items: center;
+    align-items: center;   
 }
 
-.settings-dropdown:hover .dropdown-content> :nth-child(odd) {
+.setting-item  :nth-child(odd) {
     justify-self: start;
 }
 
-.settings-dropdown:hover .dropdown-content> :nth-child(even):hover {
-    filter: hue-rotate(2deg) saturate(1.5) brightness(0.8);
+.setting-item:hover {
+    background-color:var(--hover-color);
 }
 
 textarea#post-notes {
@@ -1052,9 +1057,15 @@ textarea#post-notes {
 }
 
 hr {
-    border-color: var(--row-color);
+    border: none;
+    border-top: 1px solid var(--row-color);
     margin: 0px 0px 10px 0px;
     opacity: 1;
+}
+
+hr.classic{
+    border-color: rgba(0, 0, 0, 0.301);
+    margin: initial;
 }
 
 #classes .dropzone {

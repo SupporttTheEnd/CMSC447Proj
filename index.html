@@ -74,28 +74,46 @@
                             <img src="images/icons/gear.svg">
                         </div>
                         <div class="dropdown-content">
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;"> Toggle Alerts</p>
-                            <label class="switch alert-toggle">
-                                <input type="checkbox" id="alert-toggle">
-                                <span class="slider"></span>
-                            </label>
-                            <p id="time-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Disable Credit Enforcement</p>
-                            <label class="switch time-toggle" style="margin-left:-4px">
-                                <input type="checkbox" id="full-time-toggle">
-                                <span class="slider"></span>
-                            </label>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Background</p>
-                            <div id="background-button"><img src="images/icons/picture.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
-                            <div onclick="switchAccount()"><img src="images/icons/refresh.svg" style="height:35px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Save Schedule</p>
-                            <div id="save-button"><img src="images/icons/save.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Load Schedule</p>
-                            <div id="load-button"><img src="images/icons/load.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Export as File</p>
-                            <div id="export-button"><img src="images/icons/export.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Import as File</p>
-                            <div id="import-button"><img src="images/icons/import.svg" style="height:33px"><input type="file" id="umbc-file-input" accept=".umbc" style="display: none;"/></div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;"> Toggle Alerts</p>
+                                <label class="switch alert-toggle">
+                                    <input type="checkbox" id="alert-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <p id="time-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Disable Credit Enforcement</p>
+                                <label class="switch time-toggle" style="margin-left:-4px">
+                                    <input type="checkbox" id="full-time-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Background</p>
+                                <div id="background-button"><img src="images/icons/picture.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item" onclick="switchAccount()">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
+                                <div><img src="images/icons/refresh.svg" style="height:35px"></div>
+                            </div>
+                            <hr class="classic">
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Save Schedule</p>
+                                <div id="save-button"><img src="images/icons/save.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Load Schedule</p>
+                                <div id="load-button"><img src="images/icons/load.svg" style="height:33px"></div>
+                            </div>
+                            <hr class="classic">
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Export as File</p>
+                                <div id="export-button"><img src="images/icons/export.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Import as File</p>
+                                <div id="import-button"><img src="images/icons/import.svg" style="height:33px"><input type="file" id="umbc-file-input" accept=".umbc" style="display: none;"/></div>
+                            </div>
                         </div>
                       </div>
                 </div>
