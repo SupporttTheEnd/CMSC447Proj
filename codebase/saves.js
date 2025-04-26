@@ -46,7 +46,7 @@ async function createInterface(isSave) {
     const internalHTML = `
         <div id="save-panel">
             <button id="close-save" class="close-button">×</button>
-            <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/load.svg" style="height:40px">'}</h2>
+            <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/folder.svg" style="height:40px">'}</h2>
             <hr>
             <div class="override-warning" style="display:none; margin-bottom: 20px;">
                 <span>Are you sure you want to overwrite this save slot?</span>
