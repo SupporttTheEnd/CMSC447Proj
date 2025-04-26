@@ -374,8 +374,6 @@ async function populateSchedule(slot) {
         highestYear = result[0].values[0][0];
     }
 
-    
-
     while (window.globalVariables.years < highestYear){
         generateYears(true);
     }

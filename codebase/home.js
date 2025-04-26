@@ -487,6 +487,14 @@ export function clearClasses() {
     dropzones.forEach(dropzone => {
         dropzone.innerHTML = "";
     });
+
+    while(window.globalVariables.years > 4){
+        document.querySelector(".remove-year-btn").click();
+    }
+
+    while(window.globalVariables.years < 4){
+        generateYears(true);
+    }
 }
 
 export function updateCredits(checkClass = true) {
