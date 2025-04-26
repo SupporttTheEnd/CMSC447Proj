@@ -11,7 +11,7 @@ export async function main() {
         document.getElementById("umbc-file-input").click();
     });
     
-    document.getElementById("umbc-file-input").parentElement.addEventListener("change", () => loadSaveData(true));
+    document.getElementById("umbc-file-input").addEventListener("change", () => loadSaveData(true));
 }
 
 async function createInterface(isSave) {
