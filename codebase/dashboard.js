@@ -1,4 +1,4 @@
-export function updateDashboard () {
+export function updateDashboard() {
     const classesArray = [];
     const creditMap = {};
 
@@ -18,7 +18,7 @@ export function updateDashboard () {
                 if (!courseId) return;
 
                 creditMap[courseId] = (creditMap[courseId] || 0) + credit;
-                if (i > 0){
+                if (i > 0) {
                     classesArray.push({ year: i, semester, credit });
                 }
             });
@@ -27,6 +27,7 @@ export function updateDashboard () {
 
     createBar(classesArray);
     createDonut(creditMap);
+    createText(classesArray, creditMap);
 }
 
 function createBar(classesArray) {
@@ -42,7 +43,7 @@ function createBar(classesArray) {
     const semesterColors = {
         spring: 'rgba(152, 251, 152, 0.8)',  // PaleGreen with 80% opacity
         summer: 'rgba(255, 215, 0, 0.8)',    // Gold with 80% opacity
-        fall:   'rgba(255, 140, 0, 0.8)',    // DarkOrange with 80% opacity
+        fall: 'rgba(255, 140, 0, 0.8)',    // DarkOrange with 80% opacity
         winter: 'rgba(135, 206, 235, 0.8)'   // SkyBlue with 80% opacity
     };
 
@@ -76,7 +77,7 @@ function createBar(classesArray) {
                     display: true,
                     text: 'Credits by Year and Semester',
                     font: {
-                        size: 20,      
+                        size: 20,
                         weight: 'bold'
                     }
                 },
@@ -92,7 +93,7 @@ function createBar(classesArray) {
                     stacked: true,
                     beginAtZero: true,
                     min: 0,
-                    suggestedMax: 40, 
+                    suggestedMax: 40,
                     title: {
                         display: true,
                         text: 'Credits',
@@ -106,7 +107,7 @@ function createBar(classesArray) {
                 const yValue = 30;
                 const yScale = chart.scales.y;
                 const y = yScale.getPixelForValue(yValue);
-    
+
                 const ctx = chart.ctx;
                 ctx.save();
                 ctx.beginPath();
@@ -122,7 +123,7 @@ function createBar(classesArray) {
     });
 }
 
-function createDonut (creditMap) {
+function createDonut(creditMap) {
     const labels = Object.keys(creditMap);
     const data = Object.values(creditMap);
     const totalCreditsUsed = data.reduce((sum, val) => sum + val, 0);
@@ -164,7 +165,7 @@ function createDonut (creditMap) {
                     if (label === 'Remaining') {
                         return '#ddd';
                     }
-                    
+
                     const colors = [
                         '#FAD78F',
                         '#F8CD73',
@@ -183,7 +184,7 @@ function createDonut (creditMap) {
                         '#1A0B2B',
                         '#0D0A17',
                         '#000000'
-                    ];                    
+                    ];
 
                     return colors[index % colors.length]; // Cycle through colors
                 })
@@ -204,19 +205,19 @@ function createDonut (creditMap) {
                     display: true,
                     text: `Credits by Course Type`,
                     font: {
-                        size: 20,      
+                        size: 20,
                         weight: 'bold'
                     }
                 },
                 tooltip: {
                     callbacks: {
                         label: (tooltipItem) => {
-                            const credits = tooltipItem.raw; 
-                            const percent = ((credits / 120) * 100).toFixed(1); 
+                            const credits = tooltipItem.raw;
+                            const percent = ((credits / 120) * 100).toFixed(1);
                             return `${credits} credits (${percent}%)`; // Display credits and percentage
                         }
                     }
-                },                
+                },
                 legend: {
                     position: 'bottom'
                 }
@@ -226,3 +227,83 @@ function createDonut (creditMap) {
     });
 }
 
+function createText(classesArray, creditMap) {
+    const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
+        .map(option => option.text);
+    const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
+        .map(option => option.text);
+
+    const totalCredits = Object.values(creditMap).reduce((sum, val) => sum + val, 0);
+    const maxYears = classesArray.length > 0 ? Math.max(...(classesArray.map(c => c.year))) : 0;
+    const semesters = Array.from(new Set(classesArray.map(c => c.semester)));
+
+    document.querySelector(".credit-distribution").innerHTML = `
+        This graphic shows the distribution of credits across different categories. It helps you
+        understand how your total credit hours are spread out over various subjects.
+        <hr>
+        <h5>Selected Majors:</h6>
+        ${selectedMajors.length > 0 ? 
+        `<ul>
+            ${selectedMajors.map(major => `<li>${major}</li>`).join('')}
+        </ul>` :
+        `<ul>
+            <p>None selected</p>
+        </ul>`}
+        
+        <h5>Selected Minors:</h6>
+        ${selectedMinors.length > 0 ? 
+        `<ul>
+            ${selectedMinors.map(minor => `<li>${minor}</li>`).join('')}
+        </ul>` :
+        `<ul>
+            <p>None selected</p>
+        </ul>`}
+        <hr>
+        You are taking <strong>${selectedMajors.length} major${selectedMajors.length != 1 ? 's' : ''} </strong>
+        and <strong> ${selectedMinors.length} minor${selectedMinors.length != 1 ? 's' : ''}</strong>, 
+        ${(() => {
+            if (selectedMajors.length === 0) return "choose a major to get started!";
+            else if (selectedMajors.length > 2) return "pursuing multiple majors represents a significant academic commitment that may extend your time to graduation.";
+            else if (selectedMajors.length > 3) return "consider consulting with an academic advisor about managing this substantial course load across multiple disciplines.";
+            else if (selectedMinors.length === 0) return "consider adding a minor to enhance your degree.";
+            else if (selectedMinors.length > 2) return "balancing multiple minors alongside your major(s) requires careful planning.";
+            else if (selectedMinors.length > 3) return "this number of minors may increase your academic workload considerably - consulting with an advisor is recommended.";
+            else if (selectedMajors.length >= 1 && selectedMinors.length >= 1) return "you're building a well-rounded academic profile.";
+            else return "you're on your way to completing your academic requirements.";
+        })()}
+        <br>
+        Your schedule has a total of <strong>${totalCredits} credits </strong>
+        across <strong>${Object.keys(creditMap).length} disciplines</strong>; 
+        ${(() => {
+            if (totalCredits < 30) return "you're just getting started with your academic journey.";
+            else if (totalCredits < 60) return "you're making progress toward your degree requirements.";
+            else if (totalCredits < 90) return "you've reached the halfway point in your academic program.";
+            else if (totalCredits < 120) return "you're approaching graduation requirements.";
+            else return "you've met or exceeded the typical credit requirements for graduation!";
+        })()}
+    `;
+
+    document.querySelector(".credit-by-year").innerHTML = `
+        This chart illustrates the total number of credits accumulated per academic year. Tracking your
+        credits each year is crucial for making sure you're on pace to graduate within your intended
+        timeline.
+        <br>
+        Each year, 30 credits is a good goal to aim for if you want to graduate in 4 years. This means
+        taking roughly 15 credits per semester if you are only taking spring and fall semesters.
+        <hr>
+        Your academic journey is expected to take <strong>${maxYears} </strong> years, and you are taking classes during <strong>
+        ${(() => {
+            if (semesters.length === 0) return "no";
+            if (semesters.length === 1) return semesters[0];
+            return semesters.slice(0, -1).join(", ") + " and " + semesters.slice(-1);
+        })()}
+        </strong> semesters.
+        <br>
+        ${(() => {
+            if (semesters.includes("winter") && semesters.includes("summer")) return "Good job; taking winter and summer courses can help you complete your degree faster.";
+            if (semesters.includes("winter")) return "Good job; taking winter courses can help you complete your degree faster, consider taking summer courses as well.";
+            if (semesters.includes("summer")) return "Good job; taking summer courses can help you complete your degree faster, consider taking winter courses as well.";
+            else return "Consider taking a winter or summer course.";
+        })()}
+    `;
+}

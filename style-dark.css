@@ -18,10 +18,11 @@
     --requirement-color: #6f4d0a96;
 }
 
-.dark-mode .umbc-logo {
-    filter: invert(1);
-}
 
 .dark-mode button.additionSession {
     filter: invert(1);
+}
+
+.dark-mode .umbc-logo {
+    background-image: url('images/dark-logo.png');
 }

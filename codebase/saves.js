@@ -29,7 +29,9 @@ async function createInterface(isSave) {
                     courseId TEXT,
                     year INTEGER,
                     semester TEXT,
-                    selectedId TEXT
+                    selectedId TEXT,
+                    majors TEXT,
+                    minors TEXT
                 );
             `);
 
@@ -39,6 +41,14 @@ async function createInterface(isSave) {
                     db.run(`INSERT OR REPLACE INTO ${save.slot} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
                         [course.courseId, course.year, course.semester, selectedId]);
                 });
+            }
+            
+            if (save.majors) {
+                db.run(`INSERT INTO ${save.slot} (majors) VALUES (?)`, [JSON.stringify(save.majors)]);
+            }
+            
+            if (save.minors) {
+                db.run(`INSERT INTO ${save.slot} (minors) VALUES (?)`, [JSON.stringify(save.minors)]);
             }
         });
     }
@@ -218,6 +228,10 @@ async function enterSaveData(isFile = false) {
         });
     }
 
+    const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
+        .map(option => option.value);
+    const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
+        .map(option => option.value);
 
     if (isFile) {
         if (classesArray.length == 0) {
@@ -225,11 +239,17 @@ async function enterSaveData(isFile = false) {
             return;
         }
         
+        const exportData = {
+            classes: classesArray,
+            majors: selectedMajors,
+            minors: selectedMinors
+        };
+        
         const now = new Date();
         const timestamp = now.toISOString().replace(/[:.]/g, "-")
         const filename = `fyp-${timestamp}.umbc`;
     
-        const json = JSON.stringify(classesArray, null, 2);
+        const json = JSON.stringify(exportData, null, 2);
         const blob = new Blob([json], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
     
@@ -240,6 +260,7 @@ async function enterSaveData(isFile = false) {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+        return;
     }
     
     // attaches listeners to save
@@ -285,7 +306,9 @@ async function enterSaveData(isFile = false) {
                 body: classesArray,
                 time: time,
                 user: email,
-                slot: slot
+                slot: slot,
+                majors: selectedMajors,
+                minors: selectedMinors
             };
 
             try {
@@ -324,13 +347,21 @@ async function loadSaveData(isFile = false) {
         try {
             const reader = new FileReader();
             reader.onload = async function(e) {
-                const classesArray = JSON.parse(e.target.result);
+                const fileData = JSON.parse(e.target.result);
+                let classesArray = [], majors = [], minors = [];
+                
+                classesArray = fileData.classes;
+                majors = fileData.majors || [];
+                minors = fileData.minors || [];
+                
                 const table = "tempImport_" + Date.now();
                 db.run(`CREATE TABLE ${table} (
                     courseId TEXT,
                     year INTEGER,
                     semester TEXT,
-                    selectedId TEXT
+                    selectedId TEXT,
+                    majors TEXT,
+                    minors TEXT
                 );`);
                 
                 classesArray.forEach(course => {
@@ -338,9 +369,16 @@ async function loadSaveData(isFile = false) {
                     db.run(`INSERT INTO ${table} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
                         [course.courseId, course.year, course.semester, selectedId]);
                 });
+                
+                if (majors.length > 0) {
+                    db.run(`INSERT INTO ${table} (majors) VALUES (?)`, [JSON.stringify(majors)]);
+                }
+                
+                if (minors.length > 0) {
+                    db.run(`INSERT INTO ${table} (minors) VALUES (?)`, [JSON.stringify(minors)]);
+                }
 
                 createMessage(`File successfully imported.`, false);
-
                 await populateSchedule(table);
                 db.run(`DROP TABLE ${table};`);
             };
@@ -357,14 +395,33 @@ async function loadSaveData(isFile = false) {
             }
             const slot = slotElement.dataset.slot;
             createMessage(`Save slot ${slot.slice(-1)} successfully loaded.`, false);
-            await populateSchedule(slot)
+            await populateSchedule(slot);
         });
     });
 }
 
 async function populateSchedule(slot) {
     const db = window.globalVariables.db;
-    let result = db.exec(`
+    
+    let result = db.exec(`SELECT majors FROM ${slot} WHERE majors IS NOT NULL LIMIT 1`);
+    if (result.length > 0 && result[0].values.length > 0) {
+        const majorsJson = result[0].values[0][0];
+        if (majorsJson) {
+            const majors = JSON.parse(majorsJson);
+            $('#major').val(majors).trigger('change');
+        }
+    }
+    
+    result = db.exec(`SELECT minors FROM ${slot} WHERE minors IS NOT NULL LIMIT 1`);
+    if (result.length > 0 && result[0].values.length > 0) {
+        const minorsJson = result[0].values[0][0];
+        if (minorsJson) {
+            const minors = JSON.parse(minorsJson);
+            $('#minor').val(minors).trigger('change');
+        }
+    }
+    
+    result = db.exec(`
         SELECT MAX(year) as highestYear
         FROM ${slot};
     `);
@@ -411,7 +468,6 @@ async function populateSchedule(slot) {
         WHERE selectedId IS NOT NULL;
     `);
 
-    // select saved options for requirements 
     if (result.length) {
         const selectedData = result[0].values.map(row => {
             return {

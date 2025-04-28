@@ -214,6 +214,7 @@ function updateLastYearButton() {
                 container.remove();
                 window.globalVariables.years--;
                 updateLastYearButton();
+                updateCredits();
             });
             header.appendChild(button);
         }
@@ -273,7 +274,6 @@ function showTransferBox(event) {
     const transferbox = button.closest('.container').querySelector('.transfer-box');
     if (button.dataset.inserted === "true") {
         transferbox.style.display = "none";
-        transferbox.querySelector(".dropzone").innerHTML = "";
 
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
