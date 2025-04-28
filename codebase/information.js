@@ -67,14 +67,14 @@ export function generateInformation(courseId, target) {
                     <p><strong>Corequisites:</strong> ${coreqText || "None"}</p>
                     <h3>Latest Availability Insights</h3>
                     ${validNotes.length > 0 ? 
-                        `<p><strong>Average Difficulty (1 = easiest, 10 = hardest):</strong> ${averageScore}</p>` 
+                        `<p><strong>Average Entrance Difficulty (1=easiest, 10=hardest):</strong> ${averageScore}</p>` 
                         : ''}
                     <ul>
                     ${validNotes.length > 0 ? validNotes.map(note => `
                         <li>
                             <strong>${note.name}</strong> (${note.email})<br>
                             <em>${note.dateTime}</em><br>
-                            <strong>Difficulty:</strong> ${note.score}<br>
+                            <strong>Entrance Difficulty:</strong> ${note.score}<br>
                             <p>${note.note}</p>
                         </li>
                     `).join('') : '<li>No messages yet</li>'}
