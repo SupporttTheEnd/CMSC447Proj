@@ -1259,14 +1259,6 @@ hr.classic{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.chat-bubble {
-    position: relative;
-    background: var(--base-color);
-    border-radius: 18px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
 .chat-controls {
     display: flex;
     gap: 10px;
@@ -1367,7 +1359,7 @@ hr.classic{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .chat-icon:hover {
@@ -1426,3 +1418,71 @@ hr.classic{
 #chat-message{
     color: var(--text-color)
 }
+
+/* Chat mascot styling */
+.chat-bubble-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+/* Mascot container with mouth animation */
+.mascot-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.chat-mascot {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    border: 2px solid #093565;
+}
+.chat-bubble {
+    position: relative;
+    background: var(--base-color);
+    border-radius: 15px;
+    padding: 10px 15px;
+    max-width: calc(100% - 70px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.chat-bubble::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 15px;
+    border-width: 10px 15px 10px 0;
+    border-style: solid;
+    border-color: transparent var(--base-color) transparent transparent;
+}
+
+/* The animated mouth */
+.mascot-mouth {
+    position: absolute;
+    bottom: 6.6px;
+    left: 50%;
+    transform: translateX(-53%);
+    width: 12px;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 0 0 5px 5px;
+    clip-path: polygon(50% 0%, 80% 60%, 50% 100%, 20% 60%);
+}
+
+.mascot-mouth.talking {
+    animation: talk-animation 0.3s infinite alternate;
+}
+
+@keyframes talk-animation {
+    0% {
+        transform: translateX(-53%) scaleY(0.2);
+    }
+    100% {
+        transform: translateX(-53%) scaleY(1);
+    }
+}
+

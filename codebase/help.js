@@ -12,11 +12,8 @@ function setupChatAssistant() {
     chatIcon.addEventListener('click', () => {
         chatContainer.classList.add('visible');
         chatIcon.style.display = 'none';
-
-        setTimeout(() => {
-            const chatInput = document.getElementById('chat-input');
-            if (chatInput) chatInput.focus();
-        }, 300);
+        const chatInput = document.getElementById('chat-input');
+        if (chatInput) chatInput.focus();
     });
 
     // Hide chat when minimize button is clicked
@@ -194,6 +191,10 @@ async function answerQuestion(question, data, chatMessageElement) {
 function typeOutAnswer(answer, element) {
     return new Promise((resolve) => {
         element.textContent = '';
+        
+        // Add class to start mouth animation
+        document.querySelector('.mascot-mouth').classList.add('talking');
+        
         let i = 0;
         const typingSpeed = 20; // milliseconds per character
 
@@ -203,7 +204,11 @@ function typeOutAnswer(answer, element) {
                 i++;
                 setTimeout(typeChar, typingSpeed);
             } else {
-                resolve();
+                // Stop mouth animation when done talking
+                setTimeout(() => {
+                    document.querySelector('.mascot-mouth').classList.remove('talking');
+                    resolve();
+                }, 300);
             }
         }
 
