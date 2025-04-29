@@ -749,7 +749,7 @@
   },
   {
     "question": "*Blackboard",
-    "answer": "UMBC is using Blackboard for hosting grades and stuf."
+    "answer": "UMBC is using Blackboard for hosting grades and stuff."
   },
   {
     "question": "*myUMBC",
@@ -1356,20 +1356,28 @@
     "answer": "Yay!"
   },
   {
-    "question": "*Yippee",
+    "question": "*Yip Yippe",
     "answer": "Yippee!"
   },
   {
-    "question": "*Woo",
-    "answer": "Woo!"
+    "question": "*Woof",
+    "answer": "Woof!"
   },
   {
-    "question": "*Woot",
-    "answer": "Woot!"
+    "question": "*Ruff",
+    "answer": "Ruff!"
   },
   {
     "question": "*Hooray",
     "answer": "Hooray!"
+  },
+  {
+    "question": "*Bark",
+    "answer": "Bark!"
+  },
+  {
+    "question": "*Fetch",
+    "answer": "🥎"
   },
   {
     "question": "*Congrats",
@@ -1880,11 +1888,23 @@
     "answer": "myUMBC is your student portal."
   },
   {
-    "question": "*iShowSpeed i show speed",
-    "answer": "Kinda crazy person I suppose."
+    "question": "*What are your political opinions politics",
+    "answer": "..."
   },
   {
     "question": "*Are you smart intelligent wise",
     "answer": "I must humbly acknowledge that my intellectual faculties fall short of the remarkable standards set by society, and I often find myself lacking the sagacity that might otherwise enable me to grasp matters with greater acuity."
+  },
+  {
+    "question": "*Duo Mobile",
+    "answer": "That is something I dislike."
+  },
+  {
+    "question": "*Whats your favorite OS Operating System",
+    "answer": "Temple"
+  },
+  {
+    "question": "*Rizzler Are You Rizz Have",
+    "answer": "Yes indeed I am."
   }
 ]

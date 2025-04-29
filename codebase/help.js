@@ -168,10 +168,11 @@ async function answerQuestion(question, data, chatMessageElement) {
 
         // Find the answer
         let answer = '';
-        const normalizedQuestion = question.toLowerCase().trim().replace("/\*/", '');
+        const normalizedQuestion = question.toLowerCase().trim();
 
         // Check for exact matches in FAQ
         const exactMatch = findExactMatch(data, normalizedQuestion);
+        
         if (exactMatch) {
             answer = exactMatch.answer;
         } else {
@@ -226,7 +227,7 @@ function typeOutAnswer(answer, element) {
 // Find an exact match in the FAQ data
 function findExactMatch(faqData, normalizedQuestion) {
     for (const qa of faqData) {
-        if (normalizedQuestion === qa.question.toLowerCase().trim()) {
+        if (normalizedQuestion === qa.question.toLowerCase().trim().replace(/\*/g, '')) {
             return qa;
         }
     }
@@ -235,7 +236,6 @@ function findExactMatch(faqData, normalizedQuestion) {
 
 function findKeywordMatch(faqData, normalizedQuestion) {
     const keywords = extractKeywords(normalizedQuestion);
-    console.log(1, keywords)
     let bestMatch = null;
     let highestScore = 0.2; 
 
