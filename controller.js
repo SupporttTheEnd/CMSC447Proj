@@ -4,11 +4,13 @@ import * as exam from './codebase/exam.js';
 import * as login from './codebase/login.js';
 import * as note from './codebase/notes.js';
 import * as saves from './codebase/saves.js';
+import * as help from './codebase/help.js';
 
 window.globalVariables = {
     years: 4,
     db: null,
-    account: null
+    account: null,
+    isGeneratingResponse: false
 };
 
 $(document).ready(function () {
@@ -26,6 +28,7 @@ async function controller() {
     await login.main();
     await note.main();
     await saves.main();
+    await help.main();
 
     document.querySelector('.spinner').style.display = 'none';
     document.querySelector('#content').style.display = 'block';
