@@ -615,7 +615,7 @@ function background() {
 }
 
 function updateTimeLabel() {
-    updateCredits(false);
+    updateCredits();
     const checkbox = document.getElementById('full-time-toggle');
     const label = document.getElementById('time-label');
     label.textContent = checkbox.checked ? 'Enable Credit Enforcement' : 'Disable Credit Enforcement';

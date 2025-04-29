@@ -320,7 +320,7 @@ button.additionSession:hover {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 200; 
+    z-index: 2; 
     background-color: var(--base-color);
     box-shadow: 0 2px 5px var(--shadow-color);
 }
@@ -1197,3 +1197,232 @@ hr.classic{
     justify-content: space-evenly
 }
 
+.auditor{
+    display: flex;
+}
+
+.checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-content: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--base-variant);
+    border-radius: 8px;
+}
+
+.checklist-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.checklist-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.checklist-dot.valid {
+    background-color: #28a745;
+}
+
+.checklist-dot.invalid {
+    background-color: #dc3545; 
+}
+
+.checklist-dot:hover {
+    transform: scale(1.1); 
+}
+
+.checklist-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* The Speaker */
+.mascot {
+    width: clamp(75px, 100vw, 150px);
+    height: auto;
+}
+
+.advisor-chat {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: var(--base-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chat-bubble {
+    position: relative;
+    background: var(--base-color);
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.chat-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ced4da;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.suggestion-btn {
+    width: 100%;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 5px;
+}
+
+.suggestion-btn:hover {
+    background-color: #d6d8db;
+}
+
+#chat-send {
+    white-space: nowrap;
+}
+
+.typing-indicator {
+    display: inline-block;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #888;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing-bounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+    }
+    40% { 
+        transform: scale(1.0);
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-controls {
+        flex-direction: column;
+    }
+}
+
+#chat-assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.chat-icon:hover {
+    transform: scale(1.05);
+}
+
+.chat-container {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 350px;
+    background-color: var(--base-variant);
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: var(--highlight-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.chat-body {
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: var(--base-variant);
+}
+
+/* Animation for opening/closing chat */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-container.visible {
+    display: block;
+    animation: fadeIn 0.3s forwards;
+}
+
+.chat-header .close-button{
+    font-size: 25px;
+    top: 5px; 
+    right: 10px; 
+}
+
+#chat-message{
+    color: var(--text-color)
+}

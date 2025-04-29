@@ -129,10 +129,10 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes"><img class="icon" src="images/icons/crane.svg" style="height:21px;">Plan Building</a>
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes"><img class="icon" src="images/icons/crane.svg" style="height:21px;">Plan Builder</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"><img class="icon" src="images/icons/bar.svg" style="height:21px;">Analytics</a>
+                        <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"><img class="icon" src="images/icons/bar.svg" style="height:21px;">Auditor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search"><img class="icon" src="images/icons/magnify.svg" style="height:21px;">Class Search</a>
@@ -194,6 +194,35 @@
                     <div class="tab-pane fade" id="exam"></div>
                     <div class="tab-pane fade" id="notes"></div>
                     <div class="tab-pane fade" id="feedback"></div>
+                </div>
+            </div>
+        </div>
+        <div id="chat-assistant">
+            <!-- Minimized chat icon -->
+            <div id="chat-icon" class="chat-icon">
+                <img class= "mascot" src="images/advisor-mascot.png" alt="Advisor" width="75" height="75">
+            </div>
+            
+            <!-- Expanded chat interface -->
+            <div id="chat-container" class="chat-container">
+                <div class="chat-header">
+                    <h5>Academic Advisor</h5>
+                    <button id="close-chat" class="close-button">×</button>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-bubble">
+                        <div id="chat-message">Hello! I'm your Academic Advisor. How can I help you today?</div>
+                    </div>
+                    <div class="chat-controls">
+                        <div class="input-wrapper">
+                            <input type="text" id="chat-input" class="form-control" placeholder="Ask me a question...">
+                        </div>
+                    </div>
+                    <div class="suggested-questions">
+                        <button class="suggestion-btn">How do I get started with planning my academic schedule?</button>
+                        <button class="suggestion-btn">What are GEP requirements and how do I fulfill them?</button>
+                        <button class="suggestion-btn">Do I need to create an account to use this application?</button>
+                    </div>
                 </div>
             </div>
         </div>
