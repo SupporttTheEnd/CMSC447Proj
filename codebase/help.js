@@ -79,6 +79,7 @@ async function initializeChat() {
     setupSuggestionButtons(suggestedQuestions, faqData, chatMessage);
 }
 
+// on button click, start answering question on the button result
 function setupSuggestionButtons(container, faqData, chatMessage) {
     const buttons = container.querySelectorAll('.suggestion-btn');
     buttons.forEach(button => {
@@ -97,7 +98,7 @@ function findSuggestions(query, data) {
     const results = [];
 
     for (const qa of data) {
-        if (qa.question.toLowerCase().includes(query)) {
+        if (!qa.question.startsWith("*") && qa.question.toLowerCase().includes(query)) {
             results.push({
                 question: qa.question
             });
@@ -141,7 +142,6 @@ function displaySuggestions(suggestions, container, inputElement, faqData, chatM
     }
 }
 
-
 function resetSuggestions(container, defaultSuggestions, faqData, chatMessage) {
     container.innerHTML = '';
 
@@ -168,15 +168,21 @@ async function answerQuestion(question, data, chatMessageElement) {
 
         // Find the answer
         let answer = '';
-        const normalizedQuestion = question.toLowerCase().trim();
+        const normalizedQuestion = question.toLowerCase().trim().replace("/\*/", '');
 
         // Check for exact matches in FAQ
         const exactMatch = findExactMatch(data, normalizedQuestion);
         if (exactMatch) {
             answer = exactMatch.answer;
         } else {
-            const fallbackAnswer = generateFallbackAnswer(normalizedQuestion);
-            answer = fallbackAnswer.answer;
+            const keywordMatch = findKeywordMatch(data, normalizedQuestion);
+            if (keywordMatch) {
+                answer = keywordMatch.answer;
+            } else {
+                // Generate a fallback answer
+                const fallbackAnswer = generateFallbackAnswer(normalizedQuestion);
+                answer = fallbackAnswer.answer;
+            }
         }
 
         // Type out the answer with a delay
@@ -227,9 +233,58 @@ function findExactMatch(faqData, normalizedQuestion) {
     return null;
 }
 
+function findKeywordMatch(faqData, normalizedQuestion) {
+    const keywords = extractKeywords(normalizedQuestion);
+    console.log(1, keywords)
+    let bestMatch = null;
+    let highestScore = 0.2; 
+
+    // find the entry with the highest score
+    for (const qa of faqData) {
+        const questionKeywords = extractKeywords(qa.question.toLowerCase());
+        const answerKeywords = extractKeywords(qa.answer.toLowerCase());
+
+        // Calculate match score based on keyword overlap
+        if (keywords.length === 0) break;
+
+        let matchCount = 0; // Changed to let instead of const
+        for(const keyword of keywords){
+            if ([...questionKeywords, ...answerKeywords].includes(keyword)) {
+                matchCount++;
+            }
+        }
+
+        const matchScore = matchCount / keywords.length;
+
+        if (matchScore > highestScore) {
+            highestScore = matchScore;
+            bestMatch = qa;
+        }
+    }
+
+    return bestMatch;
+}
+
+function extractKeywords(text) {
+    // Remove common stop words
+    const stopWords = new Set([
+        'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+        'with', 'about', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
+        'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'shall',
+        'should', 'can', 'could', 'may', 'might', 'must', 'i', 'you', 'he',
+        'she', 'it', 'we', 'they', 'this', 'that', 'these', 'those', 'what',
+        'how', 'why', 'when', 'where', 'who'
+    ]);
+
+    return text
+        .replace(/[^\w\s]/g, '') // Remove punctuation
+        .split(/\s+/)
+        .filter(word => word.length > 1 && !stopWords.has(word));
+}
+
 function generateFallbackAnswer(question) {
     // Check for specific topics we might be able to handle
-    if (question.includes('credit') || question.includes('credits')) {
+    if (question.includes('credit')) {
         return {
             answer: "Credits are an important part of your academic journey. UMBC requires at least 120 credits to graduate. You need to maintain 12-19.5 credits in fall and spring semesters for full-time status. For more specific information, check your credit distribution in the charts below."
         };
@@ -241,14 +296,32 @@ function generateFallbackAnswer(question) {
         };
     }
 
-    if (question.includes('warning') || question.includes('warnings')) {
+    if (question.includes('warning')) {
         return {
             answer: "Warnings appear when there are issues with your schedule, like missing prerequisites or having courses in semesters when they're not typically offered. You can view all warnings by clicking the 'Show Warnings' button in your schedule."
         };
     }
 
+    if (question.includes('javascript')) {
+        return {
+            answer: "A decent language that has been really overused; this website is a big blob of Javascript."
+        };
+    }
+
+    if (question.includes('andrew') || question.includes('william') || question.includes('bryn') || question.includes('emma')) {
+        return {
+            answer: "Hello Creator"
+        };
+    }
+    
+    if (question.includes('egg')) {
+        return {
+            answer: "This is easter egg 1; perhaps the only one. Congrats on finding it. "
+        };
+    }
+    
     // Default fallback
     return {
-        answer: "I don't have specific information about that. Try asking about credits, majors, minors, prerequisites, or schedule requirements. You can also explore the various charts on this page for insights about your academic plan."
+        answer: "I don't have specific information about that. Try asking about credits, majors, minors, prerequisites, or schedule requirements."
     };
 }
