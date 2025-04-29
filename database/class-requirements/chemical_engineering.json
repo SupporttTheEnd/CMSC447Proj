@@ -155,11 +155,6 @@
         "courseId": "$SSGEP"
     },
     {
-        "year": 3,
-        "semester": "spring",
-        "courseId": "$AHGEP"
-    },
-    {
         "year": 4,
         "semester": "fall",
         "courseId": "ENCH444"
@@ -203,6 +198,11 @@
         "year": 4,
         "semester": "spring",
         "courseId": "$ENCHXXX"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "$AHGEP"
     },
     {
         "year": 4,

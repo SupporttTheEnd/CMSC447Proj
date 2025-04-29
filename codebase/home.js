@@ -1,6 +1,7 @@
 import { generateInformation } from './information.js';
 import { enforceSchedule, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
+import { balanceClassData } from './balance.js';
 import { downloadScheduleAsPDF } from './file.js';
 
 export async function main() {
@@ -300,7 +301,12 @@ function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         populateRequirementData(program);
     }
-    
+
+
+
+    if (selectedPrograms.length > 1) {
+        balanceClassData();
+    }
     dragAndDropEnable();
     updateCredits();
 }
