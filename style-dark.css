@@ -26,7 +26,3 @@
 .dark-mode .umbc-logo {
     background-image: url('images/dark-logo.png');
 }
-
-body.dark-mode .chat-bubble::before {
-    border-color: transparent #333 transparent transparent;
-}

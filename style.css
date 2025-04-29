@@ -1205,7 +1205,7 @@ hr.classic{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     justify-content: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding: 15px;
     background-color: var(--base-variant);
     border-radius: 8px;
@@ -1465,7 +1465,7 @@ hr.classic{
     position: absolute;
     bottom: 6.6px;
     left: 50%;
-    transform: translateX(-53%);
+    transform: translateX(-53%) scaleY(0);
     width: 12px;
     height: 4px;
     background-color: #000000;
