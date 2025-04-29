@@ -406,7 +406,7 @@ export function isPlanValid() {
             });
         });
     }
-    console.log(totalCredits)
+
     updateChecklistItem("total-check", totalCredits >= 120);
 
     // Update checklist status
