@@ -74,8 +74,13 @@
                             <img src="images/icons/gear.svg">
                         </div>
                         <div class="dropdown-content">
+                            <div class="setting-item account-student">
+                                <p id="profile-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">View Your Profile</p>
+                                <div id="profile-button"><img src="images/icons/profile.svg" id="settings-profile-image" style="height:33px"></div>
+                            </div>
+                            <hr class="classic account-student">
                             <div class="setting-item">
-                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;"> Toggle Alerts</p>
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Alerts</p>
                                 <label class="switch alert-toggle">
                                     <input type="checkbox" id="alert-toggle">
                                     <span class="slider"></span>
@@ -124,7 +129,7 @@
                 <p id="user-email" style="display: none;"></p>
             </header>
 
-            <div class="content-wrapper container mt-5">
+            <div id="content-wrapper" class="container mt-5">
                 <h3 class="welcome-text" style="display: none;"></h3>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
@@ -196,7 +201,10 @@
                     <div class="tab-pane fade" id="feedback"></div>
                 </div>
             </div>
+
+            <div id="profile-page" class="d-none"></div>
         </div>
+        
         <div id="chat-assistant">
             <!-- Minimized chat icon -->
             <div id="chat-icon" class="chat-icon">
@@ -232,13 +240,14 @@
                 </div>
             </div>
         </div>
+
         <footer class="footer mt-auto py-3 bg-light d-flex">
             <img src="images/logo.svg" alt="Logo" class="umbc-logo">
             <div class="container text-center">
                 <span>2025 Four-Year Academic Pathways. </span>
             </div>
             <div class="container text-center">
-                <a href="mailto:andrew73@umbc.edu"><img class="icon" src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img class="icon" src="images/icons/phone.svg" style="height:18px">Phone: 443-851-9937</span>
+                <a href="mailto:abc@umbc.edu"><img class="icon" src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img class="icon" src="images/icons/phone.svg" style="height:18px">Phone: 123-456-789</span>
             </div>
             <span class="location">© University of Maryland, Baltimore County • 1000 Hilltop Circle • Baltimore, MD
                 21250</span>
