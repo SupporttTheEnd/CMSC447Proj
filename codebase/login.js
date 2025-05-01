@@ -12,6 +12,7 @@ export async function main() {
         document.querySelector('.welcome-text').textContent = `Welcome, ${userName}`;
         document.querySelector('.welcome-text').style.display = "block";
         document.getElementById("user-pic").src = userPic;
+        document.getElementById("settings-profile-image").src = userPic;
     }
 
     google.accounts.id.initialize({
@@ -49,6 +50,7 @@ function handleCredentialResponse(response) {
         document.querySelector('.welcome-text').style.display = "block";
 
         document.getElementById("user-pic").src = userPic;
+        document.getElementById("settings-profile-image").src = userPic;
 
         window.globalVariables.account = userEmail;
         toggleAccountStudentItems();

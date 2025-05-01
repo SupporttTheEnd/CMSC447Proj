@@ -1486,3 +1486,14 @@ hr.classic{
     }
 }
 
+/* Styles for the Profile Page*/
+#profile-page .close-button,
+#profile-page em,
+#profile-page strong{
+    color: var(--text-color)
+}
+
+#profile-page li{
+    position: relative;
+    list-style-type: none;
+}
