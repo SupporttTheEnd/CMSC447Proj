@@ -201,13 +201,17 @@ h3.welcome-text {
     box-shadow: 2px 2px 5px var(--shadow-color);
     color: var(--text-color);
     font-weight: 500;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 1s ease-in-out;
 }
 
 .class-item:active:not(.no-active-effect) {
     cursor: grabbing;
     transform: scale(1.05);
     box-shadow: 3px 3px 8px var(--shadow-color);
+}
+
+.class-item.highlight {
+    border: 5px solid #f00;
 }
 
 .draggable * {
@@ -496,9 +500,9 @@ input:checked+.slider::before {
     top: 0px;
     right: 5px;
     background-size: 30px 30px;
-    background-position: 5px 50%;
+    background-position: 15px 50%;
     filter: invert(1);
-    background-image: url('images/arrow.svg');
+    background-image: url('images/shopping-cart.svg');
     background-repeat: no-repeat;
     background-color: transparent;
     width: 50px;
@@ -512,10 +516,6 @@ input:checked+.slider::before {
     transform: translateX(-100%);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.sidebar.hide .toggle-btn {
-    transform: rotate(180deg);
 }
 
 .sidebar .dropzone {
@@ -561,7 +561,7 @@ input:checked+.slider::before {
 .sidebar .empty-btn {
     position: absolute;
     top: 20px;
-    right: 62px;
+    right: 55px;
     filter: invert(1);
     background-image: url('images/recycle.png');
     background-size: contain;
