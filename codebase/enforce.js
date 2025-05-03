@@ -365,12 +365,12 @@ function addSequenceWarning(course, type) {
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
     warningDiv.addEventListener("click", () => {
-        course.scrollIntoView({behavior: "instant", block: "center"});
+        course.scrollIntoView({behavior: "smooth", block: "center"});
         course.classList.add("highlight");
 
         setTimeout(() => {
             course.classList.remove("highlight");
-        }, 1000);
+        }, 2000);
 
     })
 
