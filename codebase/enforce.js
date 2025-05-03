@@ -364,6 +364,15 @@ function addSequenceWarning(course, type) {
     const warningContainer = document.querySelector(".warning-list");
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
+    warningDiv.addEventListener("click", () => {
+        course.scrollIntoView({behavior: "instant", block: "center"});
+        course.classList.add("highlight");
+
+        setTimeout(() => {
+            course.classList.remove("highlight");
+        }, 1000);
+
+    })
 
     const warningMessage = document.createElement("span");
     warningMessage.textContent = `${course.id} is missing a ${type}`;

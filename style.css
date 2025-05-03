@@ -202,6 +202,10 @@ h3.welcome-text {
     box-shadow: 3px 3px 8px var(--shadow-color);
 }
 
+.class-item.highlight {
+    border: 5px solid #f00;
+}
+
 .draggable * {
     user-select: none;
     -webkit-user-drag: none;
