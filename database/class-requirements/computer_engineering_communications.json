@@ -167,11 +167,6 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "$COMMUNICATIONSA"
-    },
-    {
-        "year": 4,
-        "semester": "fall",
         "courseId": "$SSGEP"
     },
     {
@@ -196,7 +191,12 @@
     },
     {
         "year": 4,
-        "semester": "fall",
+        "semester": "spring",
+        "courseId": "$COMMUNICATIONSA"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
         "courseId": "$AHGEP"
     }
 ]

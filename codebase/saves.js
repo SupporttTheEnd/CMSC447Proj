@@ -3,8 +3,15 @@ import { generateInformation } from './information.js';
 import { dragAndDropEnable, populateClassData, populateRequirementData, updateCredits, clearClasses, generateYears} from './home.js';
 
 export async function main() {
-    document.getElementById("save-button").addEventListener("click", enterSaveData);
-    document.getElementById("load-button").addEventListener("click", loadSaveData);
+    document.getElementById("save-button").parentElement.addEventListener("click", () => enterSaveData());
+    document.getElementById("load-button").parentElement.addEventListener("click", () => loadSaveData());
+    document.getElementById("export-button").parentElement.addEventListener("click", () => enterSaveData(true));
+
+    document.getElementById("import-button").parentElement.addEventListener("click", () => {
+        document.getElementById("umbc-file-input").click();
+    });
+    
+    document.getElementById("umbc-file-input").addEventListener("change", () => loadSaveData(true));
 }
 
 async function createInterface(isSave) {
@@ -22,7 +29,9 @@ async function createInterface(isSave) {
                     courseId TEXT,
                     year INTEGER,
                     semester TEXT,
-                    selectedId TEXT
+                    selectedId TEXT,
+                    majors TEXT,
+                    minors TEXT
                 );
             `);
 
@@ -33,13 +42,21 @@ async function createInterface(isSave) {
                         [course.courseId, course.year, course.semester, selectedId]);
                 });
             }
+            
+            if (save.majors) {
+                db.run(`INSERT INTO ${save.slot} (majors) VALUES (?)`, [JSON.stringify(save.majors)]);
+            }
+            
+            if (save.minors) {
+                db.run(`INSERT INTO ${save.slot} (minors) VALUES (?)`, [JSON.stringify(save.minors)]);
+            }
         });
     }
 
     const internalHTML = `
         <div id="save-panel">
             <button id="close-save" class="close-button">×</button>
-            <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/load.svg" style="height:40px">'}</h2>
+            <h2>${isSave ? 'Save File <img src="images/icons/save.svg" style="height:40px">' : 'Load File <img src="images/icons/folder.svg" style="height:40px">'}</h2>
             <hr>
             <div class="override-warning" style="display:none; margin-bottom: 20px;">
                 <span>Are you sure you want to overwrite this save slot?</span>
@@ -54,7 +71,7 @@ async function createInterface(isSave) {
                 const hasDate = save && save.time;
                 return `
                     <div class="flex-column justify-content-center align-items-center save-slot-wrapper" style="display: ${index > 5 ? 'none' : 'flex'};">
-                        <div class="saveslot" data-slot="slot${index + 1}" style="background-color: ${hasDate ? 'var(--requirement-color)' : ''};">
+                        <div class="saveslot ${hasDate ? 'saved' : ''}" data-slot="slot${index + 1}">
                             ${isSave && hasDate ? '<button class="delete-save close-button">×</button>' : '<button class="delete-save close-button" style="display:none">×</button>'}
                             <h5>Slot ${index + 1}</h5>
                             <div class="date-container">
@@ -165,7 +182,7 @@ async function createInterface(isSave) {
 
                 createMessage(`Save slot ${slot.slice(-1)} was successfully deleted.`, false);
                 slotElement.querySelector(".date-container").textContent = "Empty Slot";
-                slotElement.style.backgroundColor = "";
+                slotElement.classList.remove("saved");
                 slotElement.parentElement.querySelector("input[type='text']").value = "";
                 deleteButton.style.display = "none";
             } catch (error) {
@@ -182,10 +199,13 @@ async function createInterface(isSave) {
     }
 }
 
-async function enterSaveData() {
-    await createInterface(true);
+async function enterSaveData(isFile = false) {
+    if(!isFile){
+        await createInterface(true);
+    }
+        
     let classesArray = [];
-    // collects data
+
     for (let i = 0; i <= window.globalVariables.years; i++) {
         const yearContainer = document.querySelector(`.container.year-${i}`);
         if (!yearContainer) continue;
@@ -208,6 +228,41 @@ async function enterSaveData() {
         });
     }
 
+    const selectedMajors = Array.from(document.getElementById("major").selectedOptions)
+        .map(option => option.value);
+    const selectedMinors = Array.from(document.getElementById("minor").selectedOptions)
+        .map(option => option.value);
+
+    if (isFile) {
+        if (classesArray.length == 0) {
+            createMessage(`Export failed; no classes detected.`, true);
+            return;
+        }
+        
+        const exportData = {
+            classes: classesArray,
+            majors: selectedMajors,
+            minors: selectedMinors
+        };
+        
+        const now = new Date();
+        const timestamp = now.toISOString().replace(/[:.]/g, "-")
+        const filename = `fyp-${timestamp}.umbc`;
+    
+        const json = JSON.stringify(exportData, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+    
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a); 
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        return;
+    }
+    
     // attaches listeners to save
     document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
         const warning = document.querySelector("#save-panel .override-warning");
@@ -251,7 +306,9 @@ async function enterSaveData() {
                 body: classesArray,
                 time: time,
                 user: email,
-                slot: slot
+                slot: slot,
+                majors: selectedMajors,
+                minors: selectedMinors
             };
 
             try {
@@ -265,7 +322,7 @@ async function enterSaveData() {
 
                 createMessage(`Your save was successfully logged.`, false);
                 slotElement.querySelector(".date-container").innerHTML = new Date(time).toLocaleString();
-                slotElement.style.backgroundColor = "var(--requirement-color)";
+                slotElement.classList.add("saved");
                 const deleteButton = slotElement.querySelector(".delete-save");
                 deleteButton.style.display = "block";
             } catch (error) {
@@ -275,107 +332,180 @@ async function enterSaveData() {
     });
 }
 
-async function loadSaveData() {
-    await createInterface(false);
+async function loadSaveData(isFile = false) {
+    if(!isFile) {
+        await createInterface(false);
+    }
+    const db = window.globalVariables.db;
+
+    if(isFile) {
+        const file = document.getElementById("umbc-file-input").files[0];
+        if (!file) {
+            createMessage("No file selected");
+            return;
+        }
+        try {
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const fileData = JSON.parse(e.target.result);
+                let classesArray = [], majors = [], minors = [];
+                
+                classesArray = fileData.classes;
+                majors = fileData.majors || [];
+                minors = fileData.minors || [];
+                
+                const table = "tempImport_" + Date.now();
+                db.run(`CREATE TABLE ${table} (
+                    courseId TEXT,
+                    year INTEGER,
+                    semester TEXT,
+                    selectedId TEXT,
+                    majors TEXT,
+                    minors TEXT
+                );`);
+                
+                classesArray.forEach(course => {
+                    const selectedId = course.selectedId || null;
+                    db.run(`INSERT INTO ${table} (courseId, year, semester, selectedId) VALUES (?, ?, ?, ?)`,
+                        [course.courseId, course.year, course.semester, selectedId]);
+                });
+                
+                if (majors.length > 0) {
+                    db.run(`INSERT INTO ${table} (majors) VALUES (?)`, [JSON.stringify(majors)]);
+                }
+                
+                if (minors.length > 0) {
+                    db.run(`INSERT INTO ${table} (minors) VALUES (?)`, [JSON.stringify(minors)]);
+                }
+
+                createMessage(`File successfully imported.`, false);
+                await populateSchedule(table);
+                db.run(`DROP TABLE ${table};`);
+            };
+            reader.readAsText(file);
+        } catch (error) {
+            createMessage("Error reading file");
+        }
+    }
 
     document.querySelectorAll("#save-panel .saveslot").forEach(slotElement => {
         slotElement.addEventListener("click", async () => {
-            const db = window.globalVariables.db;
-            const slot = slotElement.dataset.slot;
-
-            let result = db.exec(`
-                SELECT MAX(year) as highestYear
-                FROM ${slot};
-            `);
-
-            let highestYear;
-            if (result.length > 0 && result[0].values.length > 0) {
-                highestYear = result[0].values[0][0];
-            }
-
-            if (slotElement.querySelector(".date-container").textContent.includes("Empty Slot")) {
+            if (slotElement && slotElement.querySelector(".date-container").textContent.includes("Empty Slot")) {
                 return; 
             }
-
-            while (window.globalVariables.years < highestYear){
-                generateYears(true);
-            }
-
-            result = db.exec(`
-                SELECT year, semester
-                FROM ${slot}
-                WHERE semester = 'winter' OR semester = 'summer'
-            `);
-
-            if (result.length) {
-                const selectedData = result[0].values.map(row => {
-                    return {
-                        year: row[0],
-                        semester: row[1],
-                    };
-                });
-                selectedData.forEach((selection) => {
-                    if (!document.querySelector(`.year-${selection.year} .${selection.semester}.dropzone`)) {
-                        const additionButton = document.querySelector(`.year-${selection.year} .additionSession`);
-                        if (additionButton) {
-                            additionButton.click();
-                        }
-                    }
-                });
-            }
-
-            clearClasses();
-            populateClassData(slot);
-            populateRequirementData(slot);
-            
-            result = db.exec(`
-                SELECT year, semester, courseId, selectedId
-                FROM ${slot}
-                WHERE selectedId IS NOT NULL;
-            `);
-
-            // select saved options for requirements 
-            if (result.length) {
-                const selectedData = result[0].values.map(row => {
-                    return {
-                        year: row[0],
-                        semester: row[1],
-                        courseId: row[2],
-                        selectedId: row[3]
-                    };
-                });
-
-                selectedData.forEach((selection) => {
-                    const requireDivs = document.querySelectorAll(`.year-${selection.year} .${selection.semester}.dropzone .require-item[data-requirement="${selection.courseId}"]`);
-                
-                    let selectedRequireDiv = null;
-                
-                    requireDivs.forEach((requireDiv) => {
-                        const credits = requireDiv.querySelector('.credits');
-
-                        if (credits && credits.textContent.includes("0")) {
-                            selectedRequireDiv = requireDiv; 
-                            return; 
-                        }
-                    });
-                    
-                    if (selectedRequireDiv) {
-                        const selectElement = selectedRequireDiv.querySelector('.require-select');
-                        selectElement.value = selection.selectedId;
-
-                        const selectedOption = selectElement.options[selectElement.selectedIndex];
-                        selectedRequireDiv.id = selectedOption.value;
-                        
-                        selectedRequireDiv.querySelector('.credits').textContent = `${selectedOption.dataset.credits} Credits`;
-
-                        generateInformation(selectedOption.value, selectedRequireDiv);
-                    }
-                });
-            }
-
+            const slot = slotElement.dataset.slot;
             createMessage(`Save slot ${slot.slice(-1)} successfully loaded.`, false);
-            dragAndDropEnable();
-            updateCredits();
+            await populateSchedule(slot);
         });
     });
+}
+
+async function populateSchedule(slot) {
+    const db = window.globalVariables.db;
+    
+    let result = db.exec(`SELECT majors FROM ${slot} WHERE majors IS NOT NULL LIMIT 1`);
+    if (result.length > 0 && result[0].values.length > 0) {
+        const majorsJson = result[0].values[0][0];
+        if (majorsJson) {
+            const majors = JSON.parse(majorsJson);
+            $('#major').val(majors).trigger('change');
+        }
+    }
+    
+    result = db.exec(`SELECT minors FROM ${slot} WHERE minors IS NOT NULL LIMIT 1`);
+    if (result.length > 0 && result[0].values.length > 0) {
+        const minorsJson = result[0].values[0][0];
+        if (minorsJson) {
+            const minors = JSON.parse(minorsJson);
+            $('#minor').val(minors).trigger('change');
+        }
+    }
+    
+    result = db.exec(`
+        SELECT MAX(year) as highestYear
+        FROM ${slot};
+    `);
+
+    let highestYear;
+    if (result.length > 0 && result[0].values.length > 0) {
+        highestYear = result[0].values[0][0];
+    }
+
+    while (window.globalVariables.years < highestYear){
+        generateYears(true);
+    }
+
+    result = db.exec(`
+        SELECT year, semester
+        FROM ${slot}
+        WHERE semester = 'winter' OR semester = 'summer'
+    `);
+
+    if (result.length) {
+        const selectedData = result[0].values.map(row => {
+            return {
+                year: row[0],
+                semester: row[1],
+            };
+        });
+        selectedData.forEach((selection) => {
+            if (!document.querySelector(`.year-${selection.year} .${selection.semester}.dropzone`)) {
+                const additionButton = document.querySelector(`.year-${selection.year} .additionSession`);
+                if (additionButton) {
+                    additionButton.click();
+                }
+            }
+        });
+    }
+
+    clearClasses();
+    populateClassData(slot);
+    populateRequirementData(slot);
+    
+    result = db.exec(`
+        SELECT year, semester, courseId, selectedId
+        FROM ${slot}
+        WHERE selectedId IS NOT NULL;
+    `);
+
+    if (result.length) {
+        const selectedData = result[0].values.map(row => {
+            return {
+                year: row[0],
+                semester: row[1],
+                courseId: row[2],
+                selectedId: row[3]
+            };
+        });
+
+        selectedData.forEach((selection) => {
+            const requireDivs = document.querySelectorAll(`.year-${selection.year} .${selection.semester}.dropzone .require-item[data-requirement="${selection.courseId}"]`);
+        
+            let selectedRequireDiv = null;
+        
+            requireDivs.forEach((requireDiv) => {
+                const credits = requireDiv.querySelector('.credits');
+
+                if (credits && credits.textContent.includes("0")) {
+                    selectedRequireDiv = requireDiv; 
+                    return; 
+                }
+            });
+            
+            if (selectedRequireDiv) {
+                const selectElement = selectedRequireDiv.querySelector('.require-select');
+                selectElement.value = selection.selectedId;
+
+                const selectedOption = selectElement.options[selectElement.selectedIndex];
+                selectedRequireDiv.id = selectedOption.value;
+                
+                selectedRequireDiv.querySelector('.credits').textContent = `${selectedOption.dataset.credits} Credits`;
+
+                generateInformation(selectedOption.value, selectedRequireDiv);
+            }
+        });
+    }
+
+    dragAndDropEnable();
+    updateCredits();
 }

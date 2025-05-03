@@ -1,9 +1,12 @@
 import { generateInformation } from './information.js';
 import { enforceSchedule, generateWarning } from './enforce.js';
 import { createMessage } from './login.js';
+import { balanceClassData } from './balance.js';
 import { downloadScheduleAsPDF } from './file.js';
+import { updateDashboard } from './dashboard.js';
 
 export async function main() {
+    await loadTabContent('dashboard');
     await loadTabContent('search');
     await loadTabContent('exam');
     await loadTabContent('notes');
@@ -16,6 +19,7 @@ export async function main() {
     darkMode();
     background();
     addYearButton();
+    updateDashboard();
     
     // setup main buttons
     document.getElementById("generateButton").addEventListener("click", loadAndPopulateClasses);
@@ -211,6 +215,7 @@ function updateLastYearButton() {
                 container.remove();
                 window.globalVariables.years--;
                 updateLastYearButton();
+                updateCredits();
             });
             header.appendChild(button);
         }
@@ -239,7 +244,7 @@ function handleAdditionalSessions(event) {
         button.nextElementSibling.style.display = "block";
         button.style.backgroundImage = `url('images/plus.png')`;
     } else {
-        button.parentElement.insertAdjacentHTML("afterend", `
+        const newBoxesHtml = `
             <div class="new-boxes"> 
                 <div class="semester-header d-flex">
                     <div class="winter semester-item">Winter Semester</div>
@@ -248,13 +253,13 @@ function handleAdditionalSessions(event) {
                     <div class="summer semester-item">Summer Semester</div>
                     <div class="summer semester-credit">Credits</div>
                 </div>
-
                 <div class="d-flex class-box">
                     <div class = "winter w-50 border p-2 dropzone"></div>
                     <div class = "summer w-50 border p-2 dropzone"></div>
                 </div>
             </div>
-        `);
+        `;
+        button.closest('.container').insertAdjacentHTML("beforeend", newBoxesHtml);
 
         button.nextElementSibling.style.display = "none";
         button.dataset.inserted = "true";
@@ -270,7 +275,6 @@ function showTransferBox(event) {
     const transferbox = button.closest('.container').querySelector('.transfer-box');
     if (button.dataset.inserted === "true") {
         transferbox.style.display = "none";
-        transferbox.querySelector(".dropzone").innerHTML = "";
 
         button.dataset.inserted = "false";
         button.nextElementSibling.style.display = "block";
@@ -300,7 +304,12 @@ function loadAndPopulateClasses() {
     for (const program of selectedPrograms) {
         populateRequirementData(program);
     }
-    
+
+
+
+    if (selectedPrograms.length > 1) {
+        balanceClassData();
+    }
     dragAndDropEnable();
     updateCredits();
 }
@@ -484,6 +493,14 @@ export function clearClasses() {
     dropzones.forEach(dropzone => {
         dropzone.innerHTML = "";
     });
+
+    while(window.globalVariables.years > 4){
+        document.querySelector(".remove-year-btn").click();
+    }
+
+    while(window.globalVariables.years < 4){
+        generateYears(true);
+    }
 }
 
 export function updateCredits(checkClass = true) {
@@ -557,6 +574,7 @@ export function updateCredits(checkClass = true) {
 
     if (checkClass) {
         enforceSchedule();
+        updateDashboard();
     }
 }
 
@@ -591,7 +609,7 @@ function background() {
         document.body.style.setProperty('--bg-image', `url('images/background_${savedBackground}.jpg')`);
     }
 
-    backgroundButton.addEventListener('click', () => {
+    backgroundButton.parentElement.addEventListener('click', () => {
         const current = parseInt(getComputedStyle(document.body)
         .getPropertyValue('--bg-image')
         .match(/background_(\d+)/)[1]);
@@ -602,13 +620,8 @@ function background() {
     });
 }
 
-// Load the background from local storage on page load
-document.addEventListener('DOMContentLoaded', () => {
-    
-});
-
 function updateTimeLabel() {
-    updateCredits(false);
+    updateCredits();
     const checkbox = document.getElementById('full-time-toggle');
     const label = document.getElementById('time-label');
     label.textContent = checkbox.checked ? 'Enable Credit Enforcement' : 'Disable Credit Enforcement';

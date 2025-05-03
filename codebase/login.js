@@ -1,7 +1,8 @@
 export async function main() {
     const userEmail = localStorage.getItem('userEmail');
     const userName = localStorage.getItem('userName');
-    if (userEmail && userName) {
+    const userPic = localStorage.getItem('userPic');
+    if (userEmail && userName && userPic) {
         window.globalVariables.account = userEmail;
 
         document.getElementById("user-email").textContent = "Logged in as: " + userEmail;
@@ -10,6 +11,8 @@ export async function main() {
         document.getElementById("google-logout-button").style.display = "inline-block";
         document.querySelector('.welcome-text').textContent = `Welcome, ${userName}`;
         document.querySelector('.welcome-text').style.display = "block";
+        document.getElementById("user-pic").src = userPic;
+        document.getElementById("settings-profile-image").src = userPic;
     }
 
     google.accounts.id.initialize({
@@ -30,10 +33,12 @@ function handleCredentialResponse(response) {
     const userObject = jwt_decode(response.credential);
     const userEmail = userObject.email;
     const userName = userObject.name;
+    const userPic = userObject.picture; 
 
     if (isUMBCStudent(userEmail)) {
         localStorage.setItem('userEmail', userEmail);
         localStorage.setItem('userName', userName);
+        localStorage.setItem('userPic', userPic);
 
         document.getElementById("user-email").textContent = "Logged in as: " + userEmail;
         document.getElementById("user-email").style.display = "block";
@@ -43,6 +48,9 @@ function handleCredentialResponse(response) {
 
         document.querySelector('.welcome-text').textContent = `Hello, ${userName}`;
         document.querySelector('.welcome-text').style.display = "block";
+
+        document.getElementById("user-pic").src = userPic;
+        document.getElementById("settings-profile-image").src = userPic;
 
         window.globalVariables.account = userEmail;
         toggleAccountStudentItems();
@@ -57,6 +65,7 @@ function googleLogout() {
 
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userName');
+    localStorage.removeItem('userPic');
 
     document.getElementById("google-logout-button").style.display = "none";
     document.getElementById("google-login-button").style.display = "inline-block";
@@ -74,7 +83,11 @@ function toggleAccountStudentItems() {
     const isLoggedIn = (window.globalVariables.account != null);
     const elements = document.querySelectorAll('.account-student');
     elements.forEach(element => {
-        element.style.display = isLoggedIn ? 'unset' : 'none';
+        if (isLoggedIn) {
+            element.classList.remove('d-none');
+        } else {
+            element.classList.add('d-none');
+        }
     });
 }
 

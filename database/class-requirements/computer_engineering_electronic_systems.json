@@ -150,11 +150,6 @@
         "courseId": "$SSGEP"
     },
     {
-        "year": 3,
-        "semester": "spring",
-        "courseId": "$AHGEP"
-    },
-    {
         "year": 4,
         "semester": "fall",
         "courseId": "CMPE413"
@@ -193,6 +188,11 @@
         "year": 4,
         "semester": "spring",
         "courseId": "$ELECTRONICSYSTEMSAB"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
+        "courseId": "$AHGEP"
     },
     {
         "year": 4,

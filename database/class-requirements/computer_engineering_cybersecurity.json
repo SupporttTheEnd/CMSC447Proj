@@ -162,11 +162,6 @@
     {
         "year": 4,
         "semester": "fall",
-        "courseId": "CMSC411"
-    },
-    {
-        "year": 4,
-        "semester": "fall",
         "courseId": "CMSC426"
     },
     {
@@ -196,7 +191,12 @@
     },
     {
         "year": 4,
-        "semester": "fall",
+        "semester": "spring",
+        "courseId": "CMSC411"
+    },
+    {
+        "year": 4,
+        "semester": "spring",
         "courseId": "$CGEP"
     }
 ]

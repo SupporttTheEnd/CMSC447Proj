@@ -1,5 +1,6 @@
 :root {
     --base-color: white;
+    --footer-color: rgba(255, 255, 255, 0.668);
     --base-variant: #e8e9ed;
     --text-color: #111528;
     --secondary-text: #1f222f;
@@ -8,7 +9,8 @@
     --primary-color: #000;
     --accent-color: #093565;
     --border-color: #e4e4e4;
-    --hover-color: #ebebeb49;
+    --hover-color: #f7f7f7f4;
+    --sidebar-hover-color: #ebebebf4;
     --button-color: #636466;
     --sidebar-color: #373737;
     --highlight-color: #FFC107;
@@ -30,6 +32,7 @@ body {
 }
 
 body::before {
+    z-index: -1;
     content: '';
     position: absolute;
     top: 0;
@@ -76,7 +79,7 @@ h3.welcome-text {
     box-shadow: 0 0 8px var(--shadow-color);
     margin: 0 auto;
     max-width: 1060px;
-    min-width: 500px;
+    min-width: 460px;
     width: 100%;
     position: relative;
     min-height: 1200px;
@@ -97,8 +100,8 @@ h3.welcome-text {
 }
 
 .footer {
-    background-color: var(--base-color) !important;
-    min-width: 500px;
+    background-color: var(--footer-color) !important;
+    min-width: 460px;
     color: var(--text-color);
     justify-content: center;
     align-items: center;
@@ -132,8 +135,12 @@ h3.welcome-text {
 }
 
 .umbc-logo {
-    max-width: 30%;
+    width: clamp(120px, 18%, 200px);
     margin-left: 20px;
+    background-image: url('images/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .year-header {
@@ -155,6 +162,7 @@ h3.welcome-text {
 
 .semester-header div {
     flex: 1;
+    width: 25%;
     padding: 10px;
     text-align: center;
     color: var(--text-color);
@@ -314,6 +322,11 @@ button.additionSession:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 2; 
+    background-color: var(--base-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 .toggle-container {
@@ -468,7 +481,7 @@ input:checked+.slider::before {
     position: fixed;
     width: 250px;
     background-color: var(--sidebar-color);
-    box-shadow: 5px 8px 6px var(--dark-shadow-color);
+    box-shadow: 3px 4px 6px var(--shadow-color);
     padding-top: 20px;
     transition: width 0.3s ease;
     z-index: 10;
@@ -961,24 +974,29 @@ span.information:hover {
     box-shadow: 0 0 8px var(--dark-shadow-color);
     z-index: 1;
     border-radius: 1px;
-    padding: 8px 25px 8px 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-.settings-dropdown:hover .dropdown-content {
+.settings-dropdown:hover .dropdown-content  {
+    display: block;
+}
+
+.setting-item {
+    padding: 5px 10px 5px 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 10px;
     justify-items: center;
-    padding-right: 0px;
-    align-items: center;
+    align-items: center;   
 }
 
-.settings-dropdown:hover .dropdown-content> :nth-child(odd) {
+.setting-item  :nth-child(odd) {
     justify-self: start;
 }
 
-.settings-dropdown:hover .dropdown-content> :nth-child(even):hover {
-    filter: hue-rotate(2deg) saturate(1.5) brightness(0.8);
+.setting-item:hover {
+    background-color:var(--sidebar-hover-color);
 }
 
 textarea#post-notes {
@@ -1049,9 +1067,15 @@ textarea#post-notes {
 }
 
 hr {
-    border-color: var(--row-color);
+    border: none;
+    border-top: 1px solid var(--row-color);
     margin: 0px 0px 10px 0px;
     opacity: 1;
+}
+
+hr.classic{
+    border-color: rgba(0, 0, 0, 0.288);
+    margin: initial;
 }
 
 #classes .dropzone {
@@ -1156,6 +1180,11 @@ hr {
     box-shadow: 8px 10px 2px rgba(0, 0, 0, 0.1);
 }
 
+.save-container .saveslot.saved {
+    background: url('images/gold-header.jpg') no-repeat center center;
+    background-size: cover;
+}
+
 .override-warning {
     display: grid;
     place-items: center;
@@ -1168,3 +1197,303 @@ hr {
     justify-content: space-evenly
 }
 
+.auditor{
+    display: flex;
+}
+
+.checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--base-variant);
+    border-radius: 8px;
+}
+
+.checklist-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.checklist-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.checklist-dot.valid {
+    background-color: #28a745;
+}
+
+.checklist-dot.invalid {
+    background-color: #dc3545; 
+}
+
+.checklist-dot:hover {
+    transform: scale(1.1); 
+}
+
+.checklist-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* The Speaker */
+.mascot {
+    width: clamp(75px, 100vw, 150px);
+    height: auto;
+}
+
+.advisor-chat {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: var(--base-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chat-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ced4da;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.suggestion-btn {
+    width: 100%;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 5px;
+}
+
+.suggestion-btn:hover {
+    background-color: #d6d8db;
+}
+
+#chat-send {
+    white-space: nowrap;
+}
+
+.typing-indicator {
+    display: inline-block;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #888;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing-bounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+    }
+    40% { 
+        transform: scale(1.0);
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-controls {
+        flex-direction: column;
+    }
+}
+
+#chat-assistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.chat-icon:hover {
+    transform: scale(1.05);
+}
+
+.chat-container {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 350px;
+    background-color: var(--base-variant);
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: var(--highlight-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.chat-body {
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: var(--base-variant);
+}
+
+/* Animation for opening/closing chat */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-container.visible {
+    display: block;
+    animation: fadeIn 0.3s forwards;
+}
+
+.chat-header .close-button{
+    font-size: 25px;
+    top: 5px; 
+    right: 10px; 
+}
+
+#chat-message{
+    color: var(--text-color)
+}
+
+/* Chat mascot styling */
+.chat-bubble-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+/* Mascot container with mouth animation */
+.mascot-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.chat-mascot {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    border: 2px solid #093565;
+}
+.chat-bubble {
+    position: relative;
+    background: var(--base-color);
+    border-radius: 15px;
+    padding: 10px 15px;
+    max-width: calc(100% - 70px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.chat-bubble::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 15px;
+    border-width: 10px 15px 10px 0;
+    border-style: solid;
+    border-color: transparent var(--base-color) transparent transparent;
+}
+
+/* The animated mouth */
+.mascot-mouth {
+    position: absolute;
+    bottom: 6.6px;
+    left: 50%;
+    transform: translateX(-53%) scaleY(0);
+    width: 12px;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 0 0 5px 5px;
+    clip-path: polygon(50% 0%, 80% 60%, 50% 100%, 20% 60%);
+}
+
+.mascot-mouth.talking {
+    animation: talk-animation 0.3s infinite alternate;
+}
+
+@keyframes talk-animation {
+    0% {
+        transform: translateX(-53%) scaleY(0.2);
+    }
+    100% {
+        transform: translateX(-53%) scaleY(1);
+    }
+}
+
+/* Styles for the Profile Page; Add them here*/
+#profile-page .close-button,
+#profile-page em,
+#profile-page strong{
+    color: var(--text-color)
+}
+
+#profile-page li{
+    position: relative;
+    list-style-type: none;
+}

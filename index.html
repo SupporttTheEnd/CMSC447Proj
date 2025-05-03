@@ -41,6 +41,10 @@
 
     <!-- Celebration -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Data Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
 </head>
 
 <body>
@@ -56,10 +60,10 @@
 
         <div id="page-container">
             <div id="top-bar">
-                <img src="images/logo.svg" alt="Logo" class="umbc-logo">
+                <div class="umbc-logo"></div>
 
                 <div class="toggle-container">
-                    <h6 id="google-logout-button" style="display: none;"><img src="images/icons/profile.svg" style="height:23px"> Logout</h6>
+                    <h6 id="google-logout-button" style="display: none;"><img id="user-pic" src="images/icons/profile.svg" style="height:30px; border-radius: 50%;"> Logout</h6>
                     <span id="google-login-button"></span>
                     <label class="switch">
                         <input type="checkbox" id="dark-mode-toggle">
@@ -70,24 +74,51 @@
                             <img src="images/icons/gear.svg">
                         </div>
                         <div class="dropdown-content">
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;"> Toggle Alerts</p>
-                            <label class="switch alert-toggle">
-                                <input type="checkbox" id="alert-toggle">
-                                <span class="slider"></span>
-                            </label>
-                            <p id="time-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Disable Credit Enforcement</p>
-                            <label class="switch time-toggle" style="margin-left:-4px">
-                                <input type="checkbox" id="full-time-toggle">
-                                <span class="slider"></span>
-                            </label>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Background</p>
-                            <div id="background-button"><img src="images/icons/picture.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
-                            <div onclick="switchAccount()"><img src="images/icons/refresh.svg" style="height:35px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Save Schedule</p>
-                            <div id="save-button"><img src="images/icons/save.svg" style="height:33px"></div>
-                            <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Load Schedule</p>
-                            <div id="load-button"><img src="images/icons/load.svg" style="height:33px"></div>
+                            <div class="setting-item account-student">
+                                <p id="profile-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">View Your Profile</p>
+                                <div id="profile-button"><img src="images/icons/profile.svg" id="settings-profile-image" style="height:33px"></div>
+                            </div>
+                            <hr class="classic account-student">
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Alerts</p>
+                                <label class="switch alert-toggle">
+                                    <input type="checkbox" id="alert-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <p id="time-label" style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Disable Credit Enforcement</p>
+                                <label class="switch time-toggle" style="margin-left:-4px">
+                                    <input type="checkbox" id="full-time-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Toggle Background</p>
+                                <div id="background-button"><img src="images/icons/picture.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item account-student" onclick="switchAccount()">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Switch Account</p>
+                                <div><img src="images/icons/refresh.svg" style="height:35px"></div>
+                            </div>
+                            <hr class="classic account-student">
+                            <div class="setting-item account-student">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Save Schedule</p>
+                                <div id="save-button"><img src="images/icons/save.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item account-student">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Load Schedule</p>
+                                <div id="load-button"><img src="images/icons/folder.svg" style="height:33px"></div>
+                            </div>
+                            <hr class="classic">
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Export as File</p>
+                                <div id="export-button"><img src="images/icons/export.svg" style="height:33px"></div>
+                            </div>
+                            <div class="setting-item">
+                                <p style="font-size: 15px; font-weight: bold; margin-bottom:0px;">Import as File</p>
+                                <div id="import-button"><img src="images/icons/import.svg" style="height:33px"><input type="file" id="umbc-file-input" accept=".umbc" style="display: none;"/></div>
+                            </div>
                         </div>
                       </div>
                 </div>
@@ -98,25 +129,27 @@
                 <p id="user-email" style="display: none;"></p>
             </header>
 
-
-            <div class="content-wrapper container mt-5">
+            <div id="content-wrapper" class="container mt-5">
                 <h3 class="welcome-text" style="display: none;"></h3>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes"><img class="icon" src="images/icons/crane.svg" style="height:21px;"> Plan Building </a>
+                        <a class="nav-link active" id="classes-tab" data-bs-toggle="tab" href="#classes"><img class="icon" src="images/icons/crane.svg" style="height:21px;">Plan Builder</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search"><img class="icon" src="images/icons/magnify.svg" style="height:21px;"> Class Search </a>
+                        <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard"><img class="icon" src="images/icons/bar.svg" style="height:21px;">Auditor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="exam-tab" data-bs-toggle="tab" href="#exam"><img class="icon" src="images/icons/books.svg" style="height:21px;"> Search APs</a>
+                        <a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search"><img class="icon" src="images/icons/magnify.svg" style="height:21px;">Class Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="exam-tab" data-bs-toggle="tab" href="#exam"><img class="icon" src="images/icons/books.svg" style="height:21px;">Search APs</a>
                     </li>
                     <li class="nav-item account-student">
-                        <a class="nav-link" id="notes-tab" data-bs-toggle="tab" href="#notes"><img class="icon" src="images/icons/pencil.svg" style="height:21px;"> Write Notes</a>
+                        <a class="nav-link" id="notes-tab" data-bs-toggle="tab" href="#notes"><img class="icon" src="images/icons/pencil.svg" style="height:21px;">Write Notes</a>
                     </li>
                     <li class="nav-item account-student">
-                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback"><img class="icon" src="images/icons/clipboard.svg" style="height:21px;"> Enter Feedback</a>
+                        <a class="nav-link" id="feedback-tab" data-bs-toggle="tab" href="#feedback"><img class="icon" src="images/icons/clipboard.svg" style="height:21px;">Enter Feedback</a>
                     </li>
                 </ul>
 
@@ -161,20 +194,60 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="dashboard"></div>
                     <div class="tab-pane fade" id="search"></div>
                     <div class="tab-pane fade" id="exam"></div>
                     <div class="tab-pane fade" id="notes"></div>
                     <div class="tab-pane fade" id="feedback"></div>
                 </div>
             </div>
+
+            <div id="profile-page" class="d-none"></div>
         </div>
+        
+        <div id="chat-assistant">
+            <!-- Minimized chat icon -->
+            <div id="chat-icon" class="chat-icon">
+                <img class= "mascot" src="images/advisor-mascot.png" alt="Advisor" width="75" height="75">
+            </div>
+            
+            <!-- Expanded chat interface -->
+            <div id="chat-container" class="chat-container">
+                <div class="chat-header">
+                    <h5>Academic Assistant</h5>
+                    <button id="close-chat" class="close-button">×</button>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-bubble-container">
+                        <div class="mascot-container">
+                            <img class="chat-mascot" src="images/advisor-mascot.png" alt="Advisor">
+                            <div class="mascot-mouth"></div>
+                        </div>
+                        <div class="chat-bubble">
+                            <div id="chat-message">Hello! I'm your Academic Assistant. How can I help you today?</div>
+                        </div>
+                    </div>
+                    <div class="chat-controls">
+                        <div class="input-wrapper">
+                            <input type="text" id="chat-input" class="form-control" placeholder="Ask me a question...">
+                        </div>
+                    </div>
+                    <div class="suggested-questions">
+                        <button class="suggestion-btn">How do I get started with planning my academic schedule?</button>
+                        <button class="suggestion-btn">What are GEP requirements and how do I fulfill them?</button>
+                        <button class="suggestion-btn">Do I need to create an account to use this application?</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <footer class="footer mt-auto py-3 bg-light d-flex">
             <img src="images/logo.svg" alt="Logo" class="umbc-logo">
             <div class="container text-center">
                 <span>2025 Four-Year Academic Pathways. </span>
             </div>
             <div class="container text-center">
-                <a href="mailto:andrew73@umbc.edu"><img class="icon" src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img class="icon" src="images/icons/phone.svg" style="height:18px">Phone: 443-851-9937</span>
+                <a href="mailto:abc@umbc.edu"><img class="icon" src="images/icons/mail.svg" style="height:18px">Contact Us</a> | <span><img class="icon" src="images/icons/phone.svg" style="height:18px">Phone: 123-456-789</span>
             </div>
             <span class="location">© University of Maryland, Baltimore County • 1000 Hilltop Circle • Baltimore, MD
                 21250</span>

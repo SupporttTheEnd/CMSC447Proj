@@ -1,0 +1,1910 @@
+[
+  {
+    "question": "What is Four-Year Academic Pathways?",
+    "answer": "Four-Year Academic Pathways is an academic planning tool that helps UMBC students plan their course schedule across multiple years. You can select majors and minors, visualize credit distribution, check prerequisites, and ensure you're meeting graduation requirements."
+  },
+  {
+    "question": "Do I need to create an account to use this application?",
+    "answer": "While basic features are available without logging in, logging in with your UMBC account allows you to save and load your academic plans, write notes, and provide feedback."
+  },
+  {
+    "question": "How do I get started with planning my academic schedule?",
+    "answer": "To get started, select your major(s) and minor(s) from the dropdown menus on the Plan Builder tab, then click 'Generate Schedule' to create a recommended course plan. You can then customize this plan by adding, removing, or moving courses between semesters."
+  },
+  {
+    "question": "Can I pursue multiple majors or minors?",
+    "answer": "Yes, you can select multiple majors and minors, but be aware that this represents a significant academic commitment that may extend your time to graduation. The application will prevent you from selecting the same discipline as both a major and a minor."
+  },
+  {
+    "question": "How does the Credit Auditor work?",
+    "answer": "The Credit Auditor provides a visual checklist of your progress toward graduation requirements. It tracks whether you have sufficient credits (120+), have no logical warnings (like missing prerequisites), have classes in your schedule, have valid semester credit loads, and have fulfilled all requirements."
+  },
+  {
+    "question": "What do the red and green dots in the Credit Auditor mean?",
+    "answer": "Green dots indicate requirements that have been met, while red dots indicate requirements that still need attention. The auditor checks for total credits (120+), warnings, classes added, valid credit distribution per semester, and fulfilled requirements."
+  },
+  {
+    "question": "How can I translate my AP exam scores to UMBC courses?",
+    "answer": "Navigate to the 'Search APs' tab, select your AP exam from the dropdown, choose your score (1-5), and click 'Search'. The system will display equivalent UMBC courses that you can drag into your schedule."
+  },
+  {
+    "question": "How do I add winter or summer courses to my schedule?",
+    "answer": "In each year container, click the '+' button below 'Taking Winter Or Summer Session?' to add winter and summer semesters to that academic year. You can then add courses to these additional semesters."
+  },
+  {
+    "question": "How many credits do I need to graduate?",
+    "answer": "You typically need at least 120 credits to graduate from UMBC. The Credit Auditor will track your total and show a green indicator when you reach this threshold."
+  },
+  {
+    "question": "What is the recommended credit load per semester?",
+    "answer": "For fall and spring semesters, 12-19.5 credits is the normal range, with 15 credits being typical for a four-year graduation plan. Winter sessions are usually limited to 4.5 credits, while summer sessions can accommodate up to 16 credits."
+  },
+  {
+    "question": "What happens if I add too many or too few credits to a semester?",
+    "answer": "The system will highlight semesters with invalid credit counts. Fall/Spring semesters need 12-19.5 credits (unless credit enforcement is disabled), Winter sessions are limited to 4.5 credits, and Summer sessions to 16 credits."
+  },
+  {
+    "question": "How are transfer credits handled in this system?",
+    "answer": "Click the '+' button under 'Want to add transfer classes?' in the Year 0 section to open a transfer credits box. You can add courses from either the Search tab or AP exam conversions."
+  },
+  {
+    "question": "How does the system handle prerequisites and corequisites?",
+    "answer": "The system automatically checks if prerequisites are fulfilled before a course is taken. It will display warnings if prerequisites or corequisites are missing. You can see details about these requirements by hovering over the information icon (ⓘ) next to each course."
+  },
+  {
+    "question": "What should I do if I see warnings about my schedule?",
+    "answer": "Click 'Show Warnings' at the bottom of your schedule to see detailed information about issues. Common warnings include missing prerequisites, courses placed in unavailable semesters, or duplicate courses."
+  },
+  {
+    "question": "How do I know which semesters a course is offered in?",
+    "answer": "Hover over the information icon (ⓘ) next to any course to see its availability (Spring, Summer, Fall, Winter). The system will generate warnings if you place a course in a semester when it's not typically offered."
+  },
+  {
+    "question": "What are GEP requirements and how do I fulfill them?",
+    "answer": "General Education Program (GEP) requirements are shown as dropdown selectors in your schedule. Select a specific course from the dropdown to fulfill that requirement category."
+  },
+  {
+    "question": "How do I save my schedule?",
+    "answer": "If you're logged in, click the settings icon in the top right, then select 'Save Schedule'. You can save up to 12 different schedules and add notes to each saved slot."
+  },
+  {
+    "question": "Can I export my schedule to PDF?",
+    "answer": "Yes, click the 'Print Schedule' button to generate a PDF of your current academic plan that you can save or print."
+  },
+  {
+    "question": "How do I use dark mode?",
+    "answer": "Toggle the switch in the top right corner of the application to enable or disable dark mode. Your preference will be saved for future sessions."
+  },
+  {
+    "question": "What browsers are supported?",
+    "answer": "The application works best in modern browsers like Chrome, Firefox, Safari, and Edge. Make sure JavaScript is enabled for full functionality."
+  },
+  {
+    "question": "Why can't I validate my plan?",
+    "answer": "For a plan to be valid, you need: at least 120 total credits, no logical warnings (like missing prerequisites), at least one class in your schedule, valid credit counts in each semester, and all requirements selected."
+  },
+  {
+    "question": "Why do some courses appear with a '0 Credits' label?",
+    "answer": "These are requirement placeholders that need you to select a specific course from the dropdown menu. Once selected, the correct credit value will appear."
+  },
+  {
+    "question": "I can't find a specific course in the search function. What should I do?",
+    "answer": "Try different search terms or partial course codes. If you still can't find it, the course might not be in the current database, especially if it's a new or specialized course."
+  },
+  {
+    "question": "Why can't I drag a course into the Class Cart?",
+    "answer": "The Class Cart doesn't allow duplicate courses. If you attempt to add a course that's already in the cart, you'll receive an error message."
+  },
+  {
+    "question": "*Hello",
+    "answer": "Hello! How can I help you with your academic planning today?"
+  },
+  {
+    "question": "*Hi",
+    "answer": "Hi there! I'm your Four-Year Academic Pathways assistant. What questions do you have about course planning or graduation requirements?"
+  },
+  {
+    "question": "*Hello World",
+    "answer": "Hello World! I see you might be a programmer. UMBC offers excellent computer science courses if you're interested in that path!"
+  },
+  {
+    "question": "How are you",
+    "answer": "I'm functioning well and ready to help with your academic planning questions. How can I assist you today?"
+  },
+  {
+    "question": "What's your name",
+    "answer": "I'm the Four-Year Academic Pathways assistant, designed to help UMBC students plan their academic journey efficiently."
+  },
+  {
+    "question": "*Thank you",
+    "answer": "You're welcome! Feel free to ask if you need any more help with your academic planning."
+  },
+  {
+    "question": "What is UMBC",
+    "answer": "UMBC (University of Maryland, Baltimore County) is a public research university established in 1966, known for its strong emphasis on science, engineering, and public policy. It's recognized for innovation, undergraduate teaching excellence, and inclusive excellence."
+  },
+  {
+    "question": "Who is UMBC's mascot",
+    "answer": "UMBC's mascot is the Chesapeake Bay Retriever, often called 'True Grit.' The Chesapeake Bay Retriever is also Maryland's state dog."
+  },
+  {
+    "question": "What are UMBC's colors",
+    "answer": "UMBC's official colors are black and gold, which you'll see throughout campus, on university materials, and at athletic events."
+  },
+  {
+    "question": "Tell me about UMBC history",
+    "answer": "UMBC was founded in 1966 as part of the University of Maryland System. It has grown from a small commuter school to a nationally recognized research university, with a landmark moment in 2018 when the men's basketball team became the first #16 seed to defeat a #1 seed in the NCAA tournament."
+  },
+  {
+    "question": "Where is UMBC located",
+    "answer": "UMBC is located in Baltimore County, Maryland, specifically in the community of Catonsville, about 15 minutes from downtown Baltimore and 30 minutes from Washington, DC."
+  },
+  {
+    "question": "Tell me a joke",
+    "answer": "No."
+  },
+  {
+    "question": "How do I plan for a double major",
+    "answer": "Planning for a double major requires careful consideration of credit requirements and course sequencing. First, select both majors in the Plan Builder tab, then generate a schedule. Check for course overlaps that can fulfill requirements for both majors. You may need to take higher course loads or extend your graduation timeline. Consulting with academic advisors for both departments is strongly recommended."
+  },
+  {
+    "question": "How do I find my academic advisor",
+    "answer": "Your academic advisor is typically assigned based on your major department. You can find their information through your myUMBC account under the 'Advising' section. Each department also has advising office hours and contact information on their websites."
+  },
+  {
+    "question": "Can I study abroad with this plan",
+    "answer": "Yes, you can incorporate study abroad into your academic plan! Use the Year containers to map out which semester you plan to study abroad. You'll want to research which courses from your host institution will transfer back to UMBC and fulfill your requirements. Meet with both your academic advisor and the study abroad office for detailed planning."
+  },
+  {
+    "question": "How do internships fit into my schedule",
+    "answer": "Internships can be added to your academic plan as specific courses (like professional practice courses) if they're for credit, or planned during summer/winter sessions if they're non-credit. Some majors require internships as part of the curriculum, while others offer them as electives. Check with your department for specific internship requirements."
+  },
+  {
+    "question": "What GPA do I need to graduate",
+    "answer": "UMBC requires a minimum cumulative GPA of 2.0 to graduate. However, some programs may have higher GPA requirements for specific major courses. It's important to check with your specific department for any additional GPA requirements."
+  },
+  {
+    "question": "How do I track my GEP requirements",
+    "answer": "The Credit Auditor in the Dashboard tab helps track your General Education Program (GEP) requirements. Each requirement appears as a dropdown selector in your schedule where you can choose specific courses to fulfill categories like Arts & Humanities, Social Sciences, Mathematics, etc."
+  },
+  {
+    "question": "Can I use this planner offline",
+    "answer": "The Four-Year Academic Pathways planner requires an internet connection for most features, especially for saving plans to your account. However, once loaded, basic planning functionality may work temporarily without connectivity, though changes won't be saved to your account."
+  },
+  {
+    "question": "Is there a mobile app version",
+    "answer": "Currently, the Four-Year Academic Pathways planner is optimized for desktop browsers. While it can be accessed on mobile devices through web browsers, the experience is designed primarily for larger screens. We recommend using a laptop or desktop for the best experience."
+  },
+  {
+    "question": "How do I report a bug",
+    "answer": "To report a bug in the Four-Year Academic Pathways application, please use the Feedback tab to describe the issue you encountered. Include details about what you were doing when the problem occurred, which browser you were using, and any error messages you saw."
+  },
+  {
+    "question": "What is the meaning of life",
+    "answer": "Increasing Entrophy. (Scary!)"
+  },
+  {
+    "question": "Who created this application",
+    "answer": "This academic planning tool was developed by Andrew Tang, William Lee, Bryn Baillif, and Emma Williams. If you do use this application please credit them."
+  },
+  {
+    "question": "What programming language is this built in",
+    "answer": "This application is built using modern web technologies including JavaScript, HTML, and CSS. The backend uses databases to store course information and user plans securely."
+  },
+  {
+    "question": "What can I do after graduation",
+    "answer": "After graduation, UMBC alumni pursue diverse paths including graduate school, professional employment, research positions, entrepreneurship, and public service. The Career Center offers resources for job searching, graduate school applications, and professional development even after you graduate."
+  },
+  {
+    "question": "How accurate is this planner",
+    "answer": "The Four-Year Academic Pathways planner uses current course catalogs and degree requirements, but academic programs evolve over time. Always verify your plan with your academic advisor and check for curriculum changes as you progress through your degree."
+  },
+  {
+    "question": "What is a retriever",
+    "answer": "The Retriever is UMBC's mascot, specifically the Chesapeake Bay Retriever dog breed. These loyal, hardworking dogs are also Maryland's state dog, representing the determination and spirit of UMBC's community."
+  },
+  {
+    "question": "Do I need a minor",
+    "answer": "A minor is not required to graduate from UMBC, but adding one can complement your major, help you explore other interests, or develop additional skills. Some students choose minors that enhance their career goals, while others select subjects they're personally passionate about."
+  },
+  {
+    "question": "How do I graduate with honors",
+    "answer": "To graduate with Latin honors (cum laude, magna cum laude, or summa cum laude), you need to achieve a high cumulative GPA. Additionally, UMBC offers departmental honors in many majors, which typically require honors coursework, research projects, or a senior thesis. The Honors College also offers a distinct honors program with its own requirements."
+  },
+  {
+    "question": "What happens if I fail a class",
+    "answer": "If you fail a class, you may need to retake it, especially if it's required for your major. This planner will show warnings for missing prerequisites. Failed courses affect your GPA, which must remain above 2.0 to graduate. Consider meeting with your academic advisor to discuss the impact and develop a recovery plan."
+  },
+  {
+    "question": "What should I score this project",
+    "answer": "Please score it fairly! (100%)"
+  },
+  {
+    "question": "How do I move classes around?",
+    "answer": "You can open the class cart on the left side panel (the one with the arrow) and drag and drop class items into it."
+  },
+  {
+    "question": "*Bye",
+    "answer": "Goodbye! Have a great day and good luck with your studies."
+  },
+  {
+    "question": "*Goodbye",
+    "answer": "Goodbye! Let me know if you need more help in the future."
+  },
+  {
+    "question": "*Thanks",
+    "answer": "You're welcome! Happy to help."
+  },
+  {
+    "question": "*Hey",
+    "answer": "Hey there! How can I assist you today?"
+  },
+  {
+    "question": "*Yo",
+    "answer": "Yo! What's up?"
+  },
+  {
+    "question": "*Sup",
+    "answer": "Not much! How can I help you?"
+  },
+  {
+    "question": "*Greetings",
+    "answer": "Greetings! How can I help with your academic planning?"
+  },
+  {
+    "question": "*Test",
+    "answer": "Test received! Everything looks good."
+  },
+  {
+    "question": "*Ping",
+    "answer": "Pong!"
+  },
+  {
+    "question": "*Pong",
+    "answer": "Ping!"
+  },
+  {
+    "question": "*Cool",
+    "answer": "Glad you think so!"
+  },
+  {
+    "question": "*Awesome",
+    "answer": "Thanks! Let me know if you need anything else."
+  },
+  {
+    "question": "*Nice",
+    "answer": "Nice indeed!"
+  },
+  {
+    "question": "*Okay",
+    "answer": "Okay! Let me know if you have more questions."
+  },
+  {
+    "question": "*Ok",
+    "answer": "Ok!"
+  },
+  {
+    "question": "*Sure",
+    "answer": "Sure thing!"
+  },
+  {
+    "question": "*No",
+    "answer": "Alright, let me know if you change your mind."
+  },
+  {
+    "question": "*Yes",
+    "answer": "Great!"
+  },
+  {
+    "question": "*Maybe",
+    "answer": "Take your time to decide."
+  },
+  {
+    "question": "*Why",
+    "answer": "Could you clarify your question?"
+  },
+  {
+    "question": "*What",
+    "answer": "Could you specify what you want to know?"
+  },
+  {
+    "question": "*When",
+    "answer": "Let me know what event or deadline you're asking about."
+  },
+  {
+    "question": "*Where",
+    "answer": "Could you clarify what location you mean?"
+  },
+  {
+    "question": "*How",
+    "answer": "Please provide more details so I can help."
+  },
+  {
+    "question": "*Who",
+    "answer": "Let me know who you're asking about."
+  },
+  {
+    "question": "*Help",
+    "answer": "I'm here to help! Ask me anything about academic planning."
+  },
+  {
+    "question": "*Info",
+    "answer": "What information are you looking for?"
+  },
+  {
+    "question": "*Info?",
+    "answer": "What information can I provide?"
+  },
+  {
+    "question": "*Guide",
+    "answer": "I can guide you through academic planning. What do you need help with?"
+  },
+  {
+    "question": "*Support",
+    "answer": "Support is here! What do you need?"
+  },
+  {
+    "question": "*Contact",
+    "answer": "For official support, please use the Feedback tab or contact your advisor."
+  },
+  {
+    "question": "*Advisor",
+    "answer": "You can find your advisor's info in your myUMBC account."
+  },
+  {
+    "question": "*Major",
+    "answer": "You can select your major in the Plan Builder tab."
+  },
+  {
+    "question": "*Minor",
+    "answer": "You can add a minor in the Plan Builder tab."
+  },
+  {
+    "question": "*Schedule",
+    "answer": "Use the Plan Builder to create or view your schedule."
+  },
+  {
+    "question": "*Plan",
+    "answer": "You can build, save, and export your academic plan here."
+  },
+  {
+    "question": "*Credits",
+    "answer": "You need at least 120 credits to graduate from UMBC."
+  },
+  {
+    "question": "*GPA",
+    "answer": "A minimum 2.0 GPA is required to graduate."
+  },
+  {
+    "question": "*Semester",
+    "answer": "You can add courses to any semester in your plan."
+  },
+  {
+    "question": "*Year",
+    "answer": "Each year in your plan represents a stage in your academic journey."
+  },
+  {
+    "question": "*Course",
+    "answer": "Search for courses in the Search tab or add them to your plan."
+  },
+  {
+    "question": "*Class",
+    "answer": "Classes can be added to your schedule from the Search tab."
+  },
+  {
+    "question": "*UMBC",
+    "answer": "UMBC is the University of Maryland, Baltimore County."
+  },
+  {
+    "question": "*Retriever",
+    "answer": "The Retriever is UMBC's mascot."
+  },
+  {
+    "question": "*Gold",
+    "answer": "Gold is one of UMBC's official colors."
+  },
+  {
+    "question": "*Black",
+    "answer": "Black is one of UMBC's official colors."
+  },
+  {
+    "question": "*Baltimore",
+    "answer": "UMBC is located in Baltimore County, Maryland."
+  },
+  {
+    "question": "*Catonsville",
+    "answer": "UMBC is in Catonsville, just outside Baltimore."
+  },
+  {
+    "question": "*Science",
+    "answer": "UMBC is known for its strong science programs."
+  },
+  {
+    "question": "*Engineering",
+    "answer": "UMBC offers a variety of engineering majors."
+  },
+  {
+    "question": "*Math",
+    "answer": "Mathematics is a core subject at UMBC."
+  },
+  {
+    "question": "*Computer",
+    "answer": "UMBC has excellent computer science programs."
+  },
+  {
+    "question": "*Research",
+    "answer": "UMBC is a leading research university."
+  },
+  {
+    "question": "*Graduate",
+    "answer": "You need 120 credits and a 2.0 GPA to graduate."
+  },
+  {
+    "question": "*Advisor",
+    "answer": "Find your advisor in your myUMBC account."
+  },
+  {
+    "question": "*Transfer",
+    "answer": "You can add transfer credits in the Year 0 section."
+  },
+  {
+    "question": "*AP",
+    "answer": "You can convert AP scores to UMBC courses in the Search APs tab."
+  },
+  {
+    "question": "*Internship",
+    "answer": "Internships can be added as courses or planned for summer/winter."
+  },
+  {
+    "question": "*Study",
+    "answer": "Study abroad can be included in your academic plan."
+  },
+  {
+    "question": "*Abroad",
+    "answer": "You can plan for study abroad in your schedule."
+  },
+  {
+    "question": "*Bug",
+    "answer": "Report bugs using the Feedback tab."
+  },
+  {
+    "question": "*Feedback",
+    "answer": "Use the Feedback tab to share your thoughts or report issues."
+  },
+  {
+    "question": "*Mobile",
+    "answer": "The planner works best on desktop, but is accessible on mobile browsers."
+  },
+  {
+    "question": "*Desktop",
+    "answer": "For the best experience, use a desktop browser."
+  },
+  {
+    "question": "*Browser",
+    "answer": "Supported browsers include Chrome, Firefox, Safari, and Edge."
+  },
+  {
+    "question": "*PDF",
+    "answer": "You can export your schedule to PDF using the Print Schedule button."
+  },
+  {
+    "question": "*Print",
+    "answer": "Use the Print Schedule button to print your plan."
+  },
+  {
+    "question": "*Save",
+    "answer": "Click the settings icon to save your schedule."
+  },
+  {
+    "question": "*Load",
+    "answer": "You can load saved schedules from the settings menu."
+  },
+  {
+    "question": "*Dark",
+    "answer": "Toggle dark mode using the switch in the top right."
+  },
+  {
+    "question": "*Light",
+    "answer": "Switch to light mode using the toggle in the top right."
+  },
+  {
+    "question": "*Mode",
+    "answer": "Switch between dark and light mode using the toggle."
+  },
+  {
+    "question": "*Warning",
+    "answer": "Warnings help you spot issues in your academic plan."
+  },
+  {
+    "question": "*Error",
+    "answer": "If you see an error, check your schedule for issues or contact support."
+  },
+  {
+    "question": "*Valid",
+    "answer": "A valid plan meets all credit and requirement checks."
+  },
+  {
+    "question": "*Invalid",
+    "answer": "An invalid plan has issues like missing credits or requirements."
+  },
+  {
+    "question": "*Requirement",
+    "answer": "Requirements are shown as dropdowns in your schedule."
+  },
+  {
+    "question": "*Placeholder",
+    "answer": "Placeholders need to be replaced with specific courses."
+  },
+  {
+    "question": "*Dropdown",
+    "answer": "Dropdowns let you select courses to fulfill requirements."
+  },
+  {
+    "question": "*Select",
+    "answer": "Select your major, minor, and courses to build your plan."
+  },
+  {
+    "question": "*Add",
+    "answer": "Add courses to your schedule from the Search tab."
+  },
+  {
+    "question": "*Remove",
+    "answer": "Remove courses by clicking the 'X' next to them in your schedule."
+  },
+  {
+    "question": "*Move",
+    "answer": "Drag and drop courses to move them between semesters."
+  },
+  {
+    "question": "*Drag",
+    "answer": "Drag courses from the Search tab into your schedule."
+  },
+  {
+    "question": "*Drop",
+    "answer": "Drop courses into the semester you want to take them."
+  },
+  {
+    "question": "*Duplicate",
+    "answer": "Duplicate courses are not allowed in your schedule."
+  },
+  {
+    "question": "*Unique",
+    "answer": "Each course should be unique in your plan."
+  },
+  {
+    "question": "*Reset",
+    "answer": "Use the settings menu to reset your schedule."
+  },
+  {
+    "question": "*Clear",
+    "answer": "Clear your plan using the settings menu."
+  },
+  {
+    "question": "*Undo",
+    "answer": "Undo your last action using the undo button."
+  },
+  {
+    "question": "*Redo",
+    "answer": "Redo your last undone action using the redo button."
+  },
+  {
+    "question": "*Note",
+    "answer": "You can add notes to your saved schedules."
+  },
+  {
+    "question": "*Slot",
+    "answer": "You can save up to 12 schedule slots."
+  },
+  {
+    "question": "*Session",
+    "answer": "Winter and summer sessions can be added to each year."
+  },
+  {
+    "question": "*Winter",
+    "answer": "Winter session is a short semester for extra courses."
+  },
+  {
+    "question": "*Summer",
+    "answer": "Summer session lets you take additional courses."
+  },
+  {
+    "question": "*Spring",
+    "answer": "Spring is one of the main academic semesters."
+  },
+  {
+    "question": "*Fall",
+    "answer": "Fall is one of the main academic semesters."
+  },
+  {
+    "question": "*Year 0",
+    "answer": "Year 0 is for transfer credits and AP courses."
+  },
+  {
+    "question": "*Year 1",
+    "answer": "Year 1 is your first year at UMBC."
+  },
+  {
+    "question": "*Year 2",
+    "answer": "Year 2 is your second year at UMBC."
+  },
+  {
+    "question": "*Year 3",
+    "answer": "Year 3 is your third year at UMBC."
+  },
+  {
+    "question": "*Year 4",
+    "answer": "Year 4 is your fourth year at UMBC."
+  },
+  {
+    "question": "*Dashboard",
+    "answer": "The Dashboard tab shows your progress and credit audit."
+  },
+  {
+    "question": "*Builder",
+    "answer": "The Plan Builder tab is where you create your schedule."
+  },
+  {
+    "question": "*Search",
+    "answer": "Use the Search tab to find courses."
+  },
+  {
+    "question": "*Cart",
+    "answer": "The Class Cart holds courses you want to add to your plan."
+  },
+  {
+    "question": "*Slot",
+    "answer": "You can save your plan in different slots."
+  },
+  {
+    "question": "*Tab",
+    "answer": "Tabs help you navigate between features."
+  },
+  {
+    "question": "*Settings",
+    "answer": "Access settings from the gear icon in the top right."
+  },
+  {
+    "question": "*Account",
+    "answer": "Log in with your UMBC account to save your plans."
+  },
+  {
+    "question": "*Login",
+    "answer": "Log in to access all features."
+  },
+  {
+    "question": "*Logout",
+    "answer": "Log out from the settings menu."
+  },
+  {
+    "question": "*Session",
+    "answer": "Your session keeps you logged in."
+  },
+  {
+    "question": "*Time",
+    "answer": "Plan your time wisely to stay on track for graduation."
+  },
+  {
+    "question": "*Deadline",
+    "answer": "Check UMBC's academic calendar for important deadlines."
+  },
+  {
+    "question": "*Calendar",
+    "answer": "UMBC's academic calendar lists important dates."
+  },
+  {
+    "question": "*Holiday",
+    "answer": "Check the academic calendar for holidays."
+  },
+  {
+    "question": "*Break",
+    "answer": "Winter and summer breaks are between semesters."
+  },
+  {
+    "question": "*Exam",
+    "answer": "Final exams are scheduled at the end of each semester."
+  },
+  {
+    "question": "*Quiz",
+    "answer": "Quizzes help you check your understanding in courses."
+  },
+  {
+    "question": "*Project",
+    "answer": "Projects are a common part of many courses."
+  },
+  {
+    "question": "*Lab",
+    "answer": "Labs are required for many science and engineering courses."
+  },
+  {
+    "question": "*Lecture",
+    "answer": "Lectures are the main teaching format for most courses."
+  },
+  {
+    "question": "*Recitation",
+    "answer": "Recitations provide extra help and discussion for some courses."
+  },
+  {
+    "question": "*Discussion",
+    "answer": "Discussion sections allow for more interaction in some classes."
+  },
+  {
+    "question": "*Online",
+    "answer": "Some courses are offered online."
+  },
+  {
+    "question": "*Hybrid",
+    "answer": "Hybrid courses combine in-person and online learning."
+  },
+  {
+    "question": "*In-person",
+    "answer": "In-person courses meet on campus."
+  },
+  {
+    "question": "*Remote",
+    "answer": "Remote courses are delivered online."
+  },
+  {
+    "question": "*Zoom",
+    "answer": "Some online courses use Zoom for meetings."
+  },
+  {
+    "question": "*Blackboard",
+    "answer": "UMBC is using Blackboard for hosting grades and stuff."
+  },
+  {
+    "question": "*myUMBC",
+    "answer": "myUMBC is the university's student portal."
+  },
+  {
+    "question": "*Degree",
+    "answer": "You earn a degree by completing all requirements."
+  },
+  {
+    "question": "*Diploma",
+    "answer": "You receive a diploma after graduating."
+  },
+  {
+    "question": "*Commencement",
+    "answer": "Commencement is the graduation ceremony."
+  },
+  {
+    "question": "*Alumni",
+    "answer": "Alumni are graduates of UMBC."
+  },
+  {
+    "question": "*Career",
+    "answer": "The Career Center helps with jobs and internships."
+  },
+  {
+    "question": "*Job",
+    "answer": "The Career Center can help you find a job."
+  },
+  {
+    "question": "*Resume",
+    "answer": "The Career Center offers resume workshops."
+  },
+  {
+    "question": "*Interview",
+    "answer": "Practice interviews are available through the Career Center."
+  },
+  {
+    "question": "*Research",
+    "answer": "UMBC offers many undergraduate research opportunities."
+  },
+  {
+    "question": "*Scholarship",
+    "answer": "Check UMBC's website for scholarship opportunities."
+  },
+  {
+    "question": "*Financial",
+    "answer": "Financial aid information is available through the Financial Aid Office."
+  },
+  {
+    "question": "*Aid",
+    "answer": "Financial aid can help cover tuition and expenses."
+  },
+  {
+    "question": "*Tuition",
+    "answer": "Tuition rates are listed on UMBC's website."
+  },
+  {
+    "question": "*Fee",
+    "answer": "Fees are additional costs beyond tuition."
+  },
+  {
+    "question": "*Bill",
+    "answer": "Check your myUMBC account for billing information."
+  },
+  {
+    "question": "*Payment",
+    "answer": "Payments can be made through your myUMBC account."
+  },
+  {
+    "question": "*Refund",
+    "answer": "Refunds are processed by the Student Business Services office."
+  },
+  {
+    "question": "*Hold",
+    "answer": "A hold may prevent registration; check myUMBC for details."
+  },
+  {
+    "question": "*Registration",
+    "answer": "Register for courses through myUMBC."
+  },
+  {
+    "question": "*Drop",
+    "answer": "You can drop courses during the add/drop period."
+  },
+  {
+    "question": "*Withdraw",
+    "answer": "Withdrawing from a course may affect your transcript and financial aid."
+  },
+  {
+    "question": "*Pass",
+    "answer": "A passing grade is required for credit."
+  },
+  {
+    "question": "*Fail",
+    "answer": "Failing a course may require you to retake it."
+  },
+  {
+    "question": "*Retake",
+    "answer": "You can retake courses to improve your grade."
+  },
+  {
+    "question": "*Repeat",
+    "answer": "Some courses can be repeated for credit."
+  },
+  {
+    "question": "*Elective",
+    "answer": "Electives are courses you choose outside your major requirements."
+  },
+  {
+    "question": "*Core",
+    "answer": "Core courses are required for your major."
+  },
+  {
+    "question": "*Prerequisite",
+    "answer": "Prerequisites must be completed before taking certain courses."
+  },
+  {
+    "question": "*Corequisite",
+    "answer": "Corequisites are courses you take at the same time."
+  },
+  {
+    "question": "*Requirement",
+    "answer": "Requirements are listed in your degree audit."
+  },
+  {
+    "question": "*Audit",
+    "answer": "The Credit Auditor checks your progress toward graduation."
+  },
+  {
+    "question": "*Checklist",
+    "answer": "The Credit Auditor provides a checklist of requirements."
+  },
+  {
+    "question": "*Progress",
+    "answer": "Track your progress in the Dashboard tab."
+  },
+  {
+    "question": "*Status",
+    "answer": "Your status is shown in the Dashboard tab."
+  },
+  {
+    "question": "*Warning",
+    "answer": "Warnings alert you to issues in your plan."
+  },
+  {
+    "question": "*Alert",
+    "answer": "Alerts help you stay on track."
+  },
+  {
+    "question": "*Message",
+    "answer": "Messages provide feedback about your actions."
+  },
+  {
+    "question": "*Notification",
+    "answer": "Notifications keep you informed about important updates."
+  },
+  {
+    "question": "*Update",
+    "answer": "Check for updates to the planner regularly."
+  },
+  {
+    "question": "*Version",
+    "answer": "You're using the latest version of the planner."
+  },
+  {
+    "question": "*About",
+    "answer": "This planner was created by UMBC students for UMBC students."
+  },
+  {
+    "question": "*Team",
+    "answer": "The development team includes Andrew Tang, William Lee, Bryn Baillif, and Emma Williams."
+  },
+  {
+    "question": "*Creator",
+    "answer": "This planner was created by a team of UMBC students."
+  },
+  {
+    "question": "*Language",
+    "answer": "The planner is built with JavaScript, HTML, and CSS."
+  },
+  {
+    "question": "*Code",
+    "answer": "The code is maintained by the development team."
+  },
+  {
+    "question": "*GitHub",
+    "answer": "The code repository is hosted on GitHub."
+  },
+  {
+    "question": "*Open",
+    "answer": "Open source contributions are welcome!"
+  },
+  {
+    "question": "*Close",
+    "answer": "You can close this message or window at any time."
+  },
+  {
+    "question": "How do I change my major?",
+    "answer": "To change your major at UMBC, contact your academic advisor and submit a Change of Major form through your myUMBC account. Make sure to review the requirements for your new major before making the switch."
+  },
+  {
+    "question": "What is the add/drop period?",
+    "answer": "The add/drop period is the first few weeks of the semester when you can add or remove courses from your schedule without penalty. Check the UMBC academic calendar for specific dates."
+  },
+  {
+    "question": "How do I check my degree progress?",
+    "answer": "You can check your degree progress using the Degree Audit tool in your myUMBC account. This tool shows which requirements you have completed and what is still outstanding."
+  },
+  {
+    "question": "What is a prerequisite?",
+    "answer": "A prerequisite is a course or requirement that must be completed before you can enroll in a more advanced course. The planner will warn you if you are missing prerequisites."
+  },
+  {
+    "question": "What is a corequisite?",
+    "answer": "A corequisite is a course that must be taken at the same time as another course. The planner will alert you if you are missing corequisites."
+  },
+  {
+    "question": "How do I contact the Registrar's Office?",
+    "answer": "You can contact the UMBC Registrar's Office by visiting their website, calling 410-455-2500, or emailing registrar@umbc.edu."
+  },
+  {
+    "question": "How do I apply for graduation?",
+    "answer": "Apply for graduation through your myUMBC account by the posted deadline. Make sure all your degree requirements are met before applying."
+  },
+  {
+    "question": "What is FERPA?",
+    "answer": "FERPA is the Family Educational Rights and Privacy Act, a federal law that protects the privacy of student education records."
+  },
+  {
+    "question": "How do I get a transcript?",
+    "answer": "You can request an official transcript from the Registrar's Office through your myUMBC account."
+  },
+  {
+    "question": "What is the Honors College?",
+    "answer": "The UMBC Honors College is a selective academic program offering enriched coursework, research opportunities, and a close-knit community for high-achieving students."
+  },
+  {
+    "question": "How do I find scholarships?",
+    "answer": "UMBC offers a Scholarship Retriever tool on their website where you can search and apply for scholarships."
+  },
+  {
+    "question": "What is the Career Center?",
+    "answer": "The UMBC Career Center provides resources for job searching, internships, resume reviews, and career counseling."
+  },
+  {
+    "question": "How do I get involved on campus?",
+    "answer": "UMBC has over 250 student organizations. Visit the Involvement Fest or check out myUMBC to find clubs and activities that interest you."
+  },
+  {
+    "question": "What is the minimum grade to pass a class?",
+    "answer": "Most UMBC courses require a minimum grade of D to pass, but some majors require a C or better for major courses. Check your program requirements."
+  },
+  {
+    "question": "How do I appeal a grade?",
+    "answer": "To appeal a grade, first speak with your instructor. If unresolved, follow the formal grade appeal process outlined by your department and the university."
+  },
+  {
+    "question": "What is academic probation?",
+    "answer": "Academic probation occurs when your GPA falls below the university's minimum requirement. You'll receive guidance on how to return to good standing."
+  },
+  {
+    "question": "How do I access disability services?",
+    "answer": "UMBC's Student Disability Services office provides accommodations and support. Visit their website or office to register and request assistance."
+  },
+  {
+    "question": "Where can I find tutoring?",
+    "answer": "UMBC offers free tutoring through the Learning Resources Center and many academic departments. Check their website for schedules and subjects."
+  },
+  {
+    "question": "How do I register for classes?",
+    "answer": "Register for classes through your myUMBC account during your assigned registration window. Make sure to resolve any holds before registering."
+  },
+  {
+    "question": "What is a syllabus?",
+    "answer": "A syllabus is a document provided by your instructor outlining course objectives, assignments, grading policies, and important dates."
+  },
+  {
+    "question": "How do I find my class schedule?",
+    "answer": "Your class schedule is available in your myUMBC account under the 'Classes & Grades' section."
+  },
+  {
+    "question": "What is Blackboard?",
+    "answer": "Blackboard is UMBC's learning management system. UMBC now uses it for course materials, assignments, and grades."
+  },
+  {
+    "question": "How do I get a parking permit?",
+    "answer": "Parking permits can be purchased online through the UMBC Parking Services website."
+  },
+  {
+    "question": "Where is the library?",
+    "answer": "The Albin O. Kuhn Library & Gallery is located at the center of UMBC's campus and offers study spaces, research help, and resources."
+  },
+  {
+    "question": "How do I get a student ID card?",
+    "answer": "Visit the Campus Card office in the University Center to get your UMBC student ID card."
+  },
+  {
+    "question": "What is the Retriever Activities Center?",
+    "answer": "The Retriever Activities Center (RAC) is UMBC's main gym and recreation facility, offering fitness equipment, courts, and group classes."
+  },
+  {
+    "question": "How do I access health services?",
+    "answer": "UMBC's University Health Services provides medical care, immunizations, and wellness resources for students."
+  },
+  {
+    "question": "What is the myUMBC portal?",
+    "answer": "myUMBC is the university's online portal for registration, grades, financial aid, and campus news."
+  },
+  {
+    "question": "How do I get campus housing?",
+    "answer": "Apply for campus housing through the Residential Life website. Housing is available for first-year, transfer, and returning students."
+  },
+  {
+    "question": "What is the difference between a BA and a BS degree?",
+    "answer": "A BA (Bachelor of Arts) typically has a broader liberal arts focus, while a BS (Bachelor of Science) emphasizes science and technical coursework."
+  },
+  {
+    "question": "How do I declare a minor?",
+    "answer": "To declare a minor, submit a Declaration of Minor form through your myUMBC account and consult with the department offering the minor."
+  },
+  {
+    "question": "What is a capstone project?",
+    "answer": "A capstone project is a culminating academic assignment, often required in your final year, that integrates knowledge and skills from your major."
+  },
+  {
+    "question": "How do I get financial aid?",
+    "answer": "Complete the FAFSA and check your myUMBC account for financial aid offers and requirements."
+  },
+  {
+    "question": "What is a waitlist?",
+    "answer": "A waitlist allows you to join a queue for a full class. If a spot opens, you'll be notified and can register for the course."
+  },
+  {
+    "question": "How do I drop a class?",
+    "answer": "You can drop a class through your myUMBC account during the add/drop period. After the deadline, you may need to withdraw instead."
+  },
+  {
+    "question": "What is a withdrawal?",
+    "answer": "Withdrawing from a class after the add/drop period results in a 'W' on your transcript but does not affect your GPA."
+  },
+  {
+    "question": "How do I get a refund?",
+    "answer": "Refunds for dropped classes are processed according to UMBC's refund schedule. Check the Student Business Services website for details."
+  },
+  {
+    "question": "What is a syllabus week?",
+    "answer": "Syllabus week is the first week of classes, when instructors review the syllabus and course expectations."
+  },
+  {
+    "question": "How do I join a research lab?",
+    "answer": "Contact faculty members in your department or check department websites for research opportunities. Many labs welcome undergraduate assistants."
+  },
+  {
+    "question": "What is the Student Government Association?",
+    "answer": "The SGA represents student interests, organizes events, and allocates funding to student organizations at UMBC."
+  },
+  {
+    "question": "How do I get involved in student government?",
+    "answer": "Attend SGA meetings, run for office, or join a committee. Information is available on the SGA website."
+  },
+  {
+    "question": "What is the difference between full-time and part-time status?",
+    "answer": "Full-time students take at least 12 credits per semester. Part-time students take fewer than 12 credits, which may affect financial aid and housing."
+  },
+  {
+    "question": "How do I request a leave of absence?",
+    "answer": "Submit a Leave of Absence form through the Registrar's Office and consult with your advisor to discuss the impact on your academic progress."
+  },
+  {
+    "question": "What is the pass/fail option?",
+    "answer": "The pass/fail option allows you to take a course without affecting your GPA. Check with your advisor for eligibility and restrictions."
+  },
+  {
+    "question": "How do I get a job on campus?",
+    "answer": "UMBC offers student employment opportunities through the Career Center and Handshake platform. Check postings and apply online."
+  },
+  {
+    "question": "What is the UMBC mascot's name?",
+    "answer": "UMBC's mascot is named True Grit, a Chesapeake Bay Retriever."
+  },
+  {
+    "question": "How do I get to UMBC by public transportation?",
+    "answer": "UMBC is accessible by MTA bus, MARC train, and the UMBC shuttle. Check the UMBC Transit website for schedules."
+  },
+  {
+    "question": "What is the UMBC school code for FAFSA?",
+    "answer": "UMBC's school code for FAFSA is 002105."
+  },
+  {
+    "question": "How do I access mental health resources?",
+    "answer": "UMBC's Counseling Center offers mental health services, workshops, and crisis support for students."
+  },
+  {
+    "question": "*lol",
+    "answer": "🙂"
+  },
+  {
+    "question": "*bruh",
+    "answer": "bruh as well"
+  },
+  {
+    "question": "Is this AI?",
+    "answer": "No this was just a ton of questions and answers and some basic rule based NLP. This was also built from scratch."
+  },
+  {
+    "question": "*What is your favorite food",
+    "answer": "Pizza."
+  },
+  {
+    "question": "*What is your least favorite food",
+    "answer": "Anti-Pizza."
+  },
+  {
+    "question": "*Yup",
+    "answer": "Yup!"
+  },
+  {
+    "question": "*Nope",
+    "answer": "Nope!"
+  },
+  {
+    "question": "*Alright",
+    "answer": "Alright!"
+  },
+  {
+    "question": "*Oof",
+    "answer": "Oof indeed."
+  },
+  {
+    "question": "*Yikes",
+    "answer": "Yikes!"
+  },
+  {
+    "question": "*Hmm",
+    "answer": "Hmm, interesting."
+  },
+  {
+    "question": "*Sure thing",
+    "answer": "Sure thing!"
+  },
+  {
+    "question": "*Absolutely",
+    "answer": "Absolutely!"
+  },
+  {
+    "question": "*Of course",
+    "answer": "Of course!"
+  },
+  {
+    "question": "*Roger",
+    "answer": "Roger that!"
+  },
+  {
+    "question": "*Copy",
+    "answer": "Copy!"
+  },
+  {
+    "question": "*Affirmative",
+    "answer": "Affirmative!"
+  },
+  {
+    "question": "*Negative",
+    "answer": "Negative."
+  },
+  {
+    "question": "*Understood",
+    "answer": "Understood."
+  },
+  {
+    "question": "*Confirmed",
+    "answer": "Confirmed."
+  },
+  {
+    "question": "*Denied",
+    "answer": "Denied."
+  },
+  {
+    "question": "*Maybe later",
+    "answer": "Maybe later!"
+  },
+  {
+    "question": "*IDK",
+    "answer": "That's okay, let me know if you figure it out."
+  },
+  {
+    "question": "*IDC",
+    "answer": "Alright, let me know if you care later."
+  },
+  {
+    "question": "*Bruh moment",
+    "answer": "Bruh moment indeed."
+  },
+  {
+    "question": "*F",
+    "answer": "Press F to pay respects."
+  },
+  {
+    "question": "*GG",
+    "answer": "Good game!"
+  },
+  {
+    "question": "*EZ",
+    "answer": "EZ!"
+  },
+  {
+    "question": "*Rip",
+    "answer": "Rest in peace."
+  },
+  {
+    "question": "*Bye bye",
+    "answer": "Bye bye!"
+  },
+  {
+    "question": "*Cya",
+    "answer": "See you!"
+  },
+  {
+    "question": "*Peace",
+    "answer": "Peace!"
+  },
+  {
+    "question": "*Later",
+    "answer": "Later!"
+  },
+  {
+    "question": "*Adios",
+    "answer": "Adios!"
+  },
+  {
+    "question": "*Salutations",
+    "answer": "Salutations!"
+  },
+  {
+    "question": "*Welcome",
+    "answer": "Welcome!"
+  },
+  {
+    "question": "*Howdy",
+    "answer": "Howdy!"
+  },
+  {
+    "question": "*Yo yo",
+    "answer": "Yo yo!"
+  },
+  {
+    "question": "*Heya",
+    "answer": "Heya!"
+  },
+  {
+    "question": "*Greetings, friend",
+    "answer": "Greetings to you too!"
+  },
+  {
+    "question": "*Friend",
+    "answer": "I'm here to help, friend!"
+  },
+  {
+    "question": "*Fam",
+    "answer": "Fam!"
+  },
+  {
+    "question": "*Squad",
+    "answer": "Squad up!"
+  },
+  {
+    "question": "*Team",
+    "answer": "Go team!"
+  },
+  {
+    "question": "*Legend",
+    "answer": "You're a legend!"
+  },
+  {
+    "question": "*Goat",
+    "answer": "Greatest of all time!"
+  },
+  {
+    "question": "*Epic",
+    "answer": "Epic!"
+  },
+  {
+    "question": "*Win",
+    "answer": "That's a win!"
+  },
+  {
+    "question": "*Fail",
+    "answer": "That's a fail."
+  },
+  {
+    "question": "*Oops",
+    "answer": "Oops!"
+  },
+  {
+    "question": "*Oopsie",
+    "answer": "Oopsie!"
+  },
+  {
+    "question": "*Oopsies",
+    "answer": "Oopsies!"
+  },
+  {
+    "question": "*Yay",
+    "answer": "Yay!"
+  },
+  {
+    "question": "*Yip Yippe",
+    "answer": "Yippee!"
+  },
+  {
+    "question": "*Woof",
+    "answer": "Woof!"
+  },
+  {
+    "question": "*Ruff",
+    "answer": "Ruff!"
+  },
+  {
+    "question": "*Hooray",
+    "answer": "Hooray!"
+  },
+  {
+    "question": "*Bark",
+    "answer": "Bark!"
+  },
+  {
+    "question": "*Fetch",
+    "answer": "🥎"
+  },
+  {
+    "question": "*Congrats",
+    "answer": "Congratulations!"
+  },
+  {
+    "question": "*Celebrate",
+    "answer": "Let's celebrate!"
+  },
+  {
+    "question": "*Party",
+    "answer": "Party time!"
+  },
+  {
+    "question": "*Cake",
+    "answer": "Cake for everyone!"
+  },
+  {
+    "question": "*Pizza",
+    "answer": "Pizza is always a good idea."
+  },
+  {
+    "question": "*Coffee",
+    "answer": "Coffee break!"
+  },
+  {
+    "question": "*Tea",
+    "answer": "Tea time!"
+  },
+  {
+    "question": "*Water",
+    "answer": "Stay hydrated!"
+  },
+  {
+    "question": "*Sleep",
+    "answer": "Don't forget to rest."
+  },
+  {
+    "question": "*Nap",
+    "answer": "A nap sounds good."
+  },
+  {
+    "question": "*Study",
+    "answer": "Study hard!"
+  },
+  {
+    "question": "*Work",
+    "answer": "Work hard, play hard."
+  },
+  {
+    "question": "*Break",
+    "answer": "Take a break if you need one."
+  },
+  {
+    "question": "*Focus",
+    "answer": "Stay focused!"
+  },
+  {
+    "question": "*Motivation",
+    "answer": "You can do it!"
+  },
+  {
+    "question": "*Inspiration",
+    "answer": "Stay inspired!"
+  },
+  {
+    "question": "*Determination",
+    "answer": "Keep going!"
+  },
+  {
+    "question": "*Success",
+    "answer": "Success is within reach."
+  },
+  {
+    "question": "*Failure",
+    "answer": "Failure is a step to success."
+  },
+  {
+    "question": "*Try again",
+    "answer": "Try again!"
+  },
+  {
+    "question": "*Retry",
+    "answer": "Retrying is part of learning."
+  },
+  {
+    "question": "*Restart",
+    "answer": "Restarting can help."
+  },
+  {
+    "question": "*Refresh",
+    "answer": "Refresh your mind."
+  },
+  {
+    "question": "*Update",
+    "answer": "Updates keep things running smoothly."
+  },
+  {
+    "question": "*Upgrade",
+    "answer": "Upgrade complete!"
+  },
+  {
+    "question": "*Download",
+    "answer": "Download started."
+  },
+  {
+    "question": "*Upload",
+    "answer": "Upload complete."
+  },
+  {
+    "question": "*Install",
+    "answer": "Installation successful."
+  },
+  {
+    "question": "*Uninstall",
+    "answer": "Uninstallation complete."
+  },
+  {
+    "question": "*Settings",
+    "answer": "Settings updated."
+  },
+  {
+    "question": "*Preferences",
+    "answer": "Preferences saved."
+  },
+  {
+    "question": "*Options",
+    "answer": "Options available."
+  },
+  {
+    "question": "*Tools",
+    "answer": "Tools ready."
+  },
+  {
+    "question": "*Help me",
+    "answer": "I'm here to help!"
+  },
+  {
+    "question": "*Assist",
+    "answer": "Assistance provided."
+  },
+  {
+    "question": "*Support me",
+    "answer": "Support is here!"
+  },
+  {
+    "question": "*Guide me",
+    "answer": "Guidance on the way."
+  },
+  {
+    "question": "*Explain",
+    "answer": "Let me explain."
+  },
+  {
+    "question": "*Clarify",
+    "answer": "I'll clarify that for you."
+  },
+  {
+    "question": "*Define",
+    "answer": "Here's a definition."
+  },
+  {
+    "question": "*Example",
+    "answer": "Here's an example."
+  },
+  {
+    "question": "*Sample",
+    "answer": "Here's a sample."
+  },
+  {
+    "question": "*Demo",
+    "answer": "Demo mode activated."
+  },
+  {
+    "question": "*Test me",
+    "answer": "Testing in progress."
+  },
+  {
+    "question": "*Quiz me",
+    "answer": "Quiz time!"
+  },
+  {
+    "question": "*Challenge me",
+    "answer": "Challenge accepted!"
+  },
+  {
+    "question": "*Surprise me",
+    "answer": "Surprise!"
+  },
+  {
+    "question": "*Random",
+    "answer": "Here's something random."
+  },
+  {
+    "question": "*Fun fact",
+    "answer": "Did you know? UMBC's mascot is a Chesapeake Bay Retriever."
+  },
+  {
+    "question": "*Fact",
+    "answer": "Fact: UMBC was founded in 1966."
+  },
+  {
+    "question": "*Trivia",
+    "answer": "Trivia: UMBC was the first #16 seed to beat a #1 in NCAA basketball."
+  },
+  {
+    "question": "*History",
+    "answer": "UMBC has a rich history of innovation."
+  },
+  {
+    "question": "*Science fact",
+    "answer": "Science fact: UMBC is known for its STEM programs."
+  },
+  {
+    "question": "*Math fact",
+    "answer": "Math fact: UMBC offers a variety of math courses."
+  },
+  {
+    "question": "*Engineering fact",
+    "answer": "Engineering fact: UMBC's engineering programs are ABET accredited."
+  },
+  {
+    "question": "*Computer fact",
+    "answer": "Computer fact: UMBC has a strong computer science department."
+  },
+  {
+    "question": "*Research fact",
+    "answer": "Research fact: UMBC is classified as an R1 research university."
+  },
+  {
+    "question": "*Grit",
+    "answer": "Show your grit!"
+  },
+  {
+    "question": "*Retriever pride",
+    "answer": "Retriever pride!"
+  },
+  {
+    "question": "*Black and gold",
+    "answer": "Black and gold are UMBC's colors."
+  },
+  {
+    "question": "*True Grit",
+    "answer": "True Grit is UMBC's mascot."
+  },
+  {
+    "question": "*UMBC pride",
+    "answer": "Proud to be a Retriever!"
+  },
+  {
+    "question": "*Go Retrievers",
+    "answer": "Go Retrievers!"
+  },
+  {
+    "question": "*Go UMBC",
+    "answer": "Go UMBC!"
+  },
+  {
+    "question": "*Baltimore pride",
+    "answer": "Baltimore pride!"
+  },
+  {
+    "question": "*Maryland pride",
+    "answer": "Maryland pride!"
+  },
+  {
+    "question": "*State dog",
+    "answer": "The Chesapeake Bay Retriever is Maryland's state dog."
+  },
+  {
+    "question": "*State flower",
+    "answer": "The Black-eyed Susan is Maryland's state flower."
+  },
+  {
+    "question": "*State bird",
+    "answer": "The Baltimore Oriole is Maryland's state bird."
+  },
+  {
+    "question": "*State flag",
+    "answer": "Maryland's flag is unique among US states."
+  },
+  {
+    "question": "*Campus",
+    "answer": "UMBC's campus is located in Catonsville, MD."
+  },
+  {
+    "question": "*Library",
+    "answer": "The Albin O. Kuhn Library is at the heart of campus."
+  },
+  {
+    "question": "*Gym",
+    "answer": "The Retriever Activities Center is UMBC's gym."
+  },
+  {
+    "question": "*Dining",
+    "answer": "UMBC has several dining options on campus."
+  },
+  {
+    "question": "*Dorm",
+    "answer": "UMBC offers a variety of on-campus housing."
+  },
+  {
+    "question": "*Shuttle",
+    "answer": "The UMBC shuttle connects campus to nearby areas."
+  },
+  {
+    "question": "*Parking",
+    "answer": "Parking permits are required for campus lots."
+  },
+  {
+    "question": "*Permit",
+    "answer": "You can get a parking permit online."
+  },
+  {
+    "question": "*ID card",
+    "answer": "Get your UMBC ID at the Campus Card office."
+  },
+  {
+    "question": "*Registrar",
+    "answer": "The Registrar's Office handles transcripts and records."
+  },
+  {
+    "question": "*Financial aid",
+    "answer": "The Financial Aid Office can help with tuition and aid."
+  },
+  {
+    "question": "*Scholarships",
+    "answer": "UMBC offers many scholarships for students."
+  },
+  {
+    "question": "*Career Center",
+    "answer": "The Career Center helps with jobs and internships."
+  },
+  {
+    "question": "*Counseling",
+    "answer": "The Counseling Center offers mental health support."
+  },
+  {
+    "question": "*Health Center",
+    "answer": "University Health Services provides medical care."
+  },
+  {
+    "question": "*Disability services",
+    "answer": "Student Disability Services provides accommodations."
+  },
+  {
+    "question": "*Tutoring",
+    "answer": "Tutoring is available through the Learning Resources Center."
+  },
+  {
+    "question": "*Advising",
+    "answer": "Academic advising is available for all students."
+  },
+  {
+    "question": "*Orientation",
+    "answer": "Orientation helps new students get started at UMBC."
+  },
+  {
+    "question": "*Involvement",
+    "answer": "Get involved with student organizations at UMBC."
+  },
+  {
+    "question": "*Clubs",
+    "answer": "UMBC has over 250 student clubs."
+  },
+  {
+    "question": "*Events",
+    "answer": "Check myUMBC for upcoming campus events."
+  },
+  {
+    "question": "*Fest",
+    "answer": "Involvement Fest showcases student organizations."
+  },
+  {
+    "question": "*SGA",
+    "answer": "The Student Government Association represents students."
+  },
+  {
+    "question": "*Leadership",
+    "answer": "Leadership opportunities are available in many clubs."
+  },
+  {
+    "question": "*Volunteer",
+    "answer": "Volunteer opportunities are posted on myUMBC."
+  },
+  {
+    "question": "*Service",
+    "answer": "Service learning is part of UMBC's mission."
+  },
+  {
+    "question": "*Research",
+    "answer": "Undergraduate research is encouraged at UMBC."
+  },
+  {
+    "question": "*Lab",
+    "answer": "Many majors require lab courses."
+  },
+  {
+    "question": "*Project",
+    "answer": "Capstone projects are common in senior year."
+  },
+  {
+    "question": "*Thesis",
+    "answer": "Some programs require a thesis for graduation."
+  },
+  {
+    "question": "*Internship",
+    "answer": "Internships provide real-world experience."
+  },
+  {
+    "question": "*Job",
+    "answer": "On-campus jobs are available for students."
+  },
+  {
+    "question": "*Resume",
+    "answer": "The Career Center can help with your resume."
+  },
+  {
+    "question": "*Interview",
+    "answer": "Practice interviews are available at the Career Center."
+  },
+  {
+    "question": "*Handshake",
+    "answer": "Handshake is UMBC's job and internship platform."
+  },
+  {
+    "question": "*Graduation",
+    "answer": "Graduation ceremonies are held twice a year."
+  },
+  {
+    "question": "*Commencement",
+    "answer": "Commencement celebrates your academic achievements."
+  },
+  {
+    "question": "*Diploma",
+    "answer": "Diplomas are mailed after graduation."
+  },
+  {
+    "question": "*Alumni",
+    "answer": "UMBC alumni stay connected through events and networks."
+  },
+  {
+    "question": "*Network",
+    "answer": "Networking is important for career success."
+  },
+  {
+    "question": "*Mentor",
+    "answer": "Mentorship programs are available for students."
+  },
+  {
+    "question": "*Peer",
+    "answer": "Peer mentors can help you adjust to college life."
+  },
+  {
+    "question": "*Roommate",
+    "answer": "Roommate matching is part of the housing application."
+  },
+  {
+    "question": "*Suite",
+    "answer": "Suites are a type of on-campus housing."
+  },
+  {
+    "question": "*Apartment",
+    "answer": "Apartments are available for upperclassmen."
+  },
+  {
+    "question": "*Meal plan",
+    "answer": "Meal plans are required for most on-campus residents."
+  },
+  {
+    "question": "*Dining dollars",
+    "answer": "Dining dollars can be used at campus eateries."
+  },
+  {
+    "question": "*Retriever dollars",
+    "answer": "Retriever Dollars are used for on-campus purchases."
+  },
+  {
+    "question": "*Bookstore",
+    "answer": "The UMBC Bookstore sells textbooks and supplies."
+  },
+  {
+    "question": "*Supplies supply",
+    "answer": "Get your school supplies at the Bookstore."
+  },
+  {
+    "question": "*Textbooks book",
+    "answer": "Textbooks can be bought or rented at the Bookstore."
+  },
+  {
+    "question": "*Laptop computer",
+    "answer": "Laptops are available for purchase at the Bookstore."
+  },
+  {
+    "question": "*Printing print",
+    "answer": "Printing is available in the library and labs."
+  },
+  {
+    "question": "*WiFi internet",
+    "answer": "UMBC's WiFi is available campus-wide."
+  },
+  {
+    "question": "*Email mail",
+    "answer": "Check your UMBC email regularly for updates."
+  },
+  {
+    "question": "*Portal",
+    "answer": "myUMBC is your student portal."
+  },
+  {
+    "question": "*What are your political opinions politics",
+    "answer": "..."
+  },
+  {
+    "question": "*Are you smart intelligent wise",
+    "answer": "I must humbly acknowledge that my intellectual faculties fall short of the remarkable standards set by society, and I often find myself lacking the sagacity that might otherwise enable me to grasp matters with greater acuity."
+  },
+  {
+    "question": "*Duo Mobile",
+    "answer": "That is something I dislike."
+  },
+  {
+    "question": "*Whats your favorite OS Operating System",
+    "answer": "Temple"
+  },
+  {
+    "question": "*Rizzler Are You Rizz Have",
+    "answer": "Yes indeed I am."
+  }
+]

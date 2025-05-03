@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row auditor">
+        <div class="col-12 px-0">
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div id="total-check" class="checklist-dot invalid"></div>
+                    <div class="checklist-label">120 Credits</div>
+                </div>
+                <div class="checklist-item">
+                    <div id="warnings-check" class="checklist-dot valid"></div>
+                    <div class="checklist-label">No Warnings</div>
+                </div>
+                <div class="checklist-item">
+                    <div id="classes-check" class="checklist-dot invalid"></div>
+                    <div class="checklist-label">Classes Fullfilled</div>
+                </div>
+                <div class="checklist-item">
+                    <div id="credits-check" class="checklist-dot invalid"></div>
+                    <div class="checklist-label">Valid Semester Credits</div>
+                </div>
+                <div class="checklist-item">
+                    <div id="requirements-check" class="checklist-dot invalid"></div>
+                    <div class="checklist-label">Requirements Met</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Donut Chart -->
+        <div class="col-12 col-lg-7 px-0">
+            <div style="width: 100%; height: 500px;">
+                <canvas id="donut-chart"></canvas>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5 px-0">
+            <div style="min-width: 300px;">
+                <h3>Credit Distribution</h3>
+                <p class="credit-distribution"></p>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col-12 col-lg-5 ps-0 pe-5">
+            <div style="min-width: 300px;">
+                <h3>Credits by Year</h3>
+                <p class="credit-by-year"></p>
+            </div>
+        </div>
+        <!-- Bar Chart -->
+        <div class="col-12 col-lg-7 px-0">
+            <div style="width: 100%; height: 500px;">
+                <canvas id="bar-chart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

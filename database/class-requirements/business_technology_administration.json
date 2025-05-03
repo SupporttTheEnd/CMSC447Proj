@@ -67,11 +67,6 @@
     {
         "year": 2,
         "semester": "fall",
-        "courseId": "$SCIENCE"
-    },
-    {
-        "year": 2,
-        "semester": "fall",
         "courseId": "$AHGEP"
     },
     {
@@ -113,6 +108,11 @@
         "year": 3,
         "semester": "fall",
         "courseId": "$SCIENCELAB"
+    },
+    {
+        "year": 3,
+        "semester": "fall",
+        "courseId": "$SCIENCE"
     },
     {
         "year": 3,

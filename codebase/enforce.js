@@ -399,27 +399,78 @@ function clearWarnings() {
 }
 
 export function isPlanValid() {
-    const warningCount = document.querySelector(".warning-list").childElementCount;
-    if (warningCount > 0) {
-        return { isValid: false, reason: "There are prerequisite/corequisite warnings." };
+    let totalCredits = 0;
+
+    for (let i = 0; i <= window.globalVariables.years; i++) {
+        const yearContainer = document.querySelector(`.container.year-${i}`);
+        if (!yearContainer) continue;
+
+        const dropzones = yearContainer.querySelectorAll(".dropzone");
+        dropzones.forEach(dropzone => {
+            dropzone.querySelectorAll(".class-item").forEach(course => {
+                const credit = parseInt(course.querySelector(".credits").textContent.trim());
+                if (!credit) return;
+
+                totalCredits += credit;
+            });
+        });
     }
 
-    const classCount = document.querySelectorAll("#classes .class-item");
-    if (classCount.length == 0) {
+    updateChecklistItem("total-check", totalCredits >= 120);
+
+    // Update checklist status
+    const warningCount = document.querySelector(".warning-list").childElementCount;
+    updateChecklistItem("warnings-check", warningCount === 0);
+
+    const classCount = document.querySelectorAll("#classes .class-item").length;
+    updateChecklistItem("classes-check", classCount > 0);
+
+    const creditsInvalid = document.querySelector(".invalid-credits");
+    updateChecklistItem("credits-check", !creditsInvalid);
+
+    let allRequirementsSelected = true;
+    const requirements = document.querySelectorAll(".require-item");
+    for (const requirement of requirements) {
+        if (requirement.querySelector(".require-select").selectedIndex === 0) {
+            allRequirementsSelected = false;
+            break;
+        }
+    }
+    updateChecklistItem("requirements-check", allRequirementsSelected && classCount > 0);
+
+    // Validation logic
+    if (totalCredits < 120) {
+        return { isValid: false, reason: "There are insufficient credits." };
+    }
+
+    if (warningCount > 0) {
+        return { isValid: false, reason: "There are logical warnings." };
+    }
+
+    if (classCount === 0) {
         return { isValid: false, reason: "No classes have been added to the schedule." };
     }
 
-    const creditsInvalid = document.querySelector(".invalid-credits");
     if (creditsInvalid) {
         return { isValid: false, reason: "Invalid credit count detected." };
     }
 
-    const requirements = document.querySelectorAll(".require-item");
-    for (const requirement of requirements) {
-        if (requirement.querySelector(".require-select").selectedIndex === 0) {
-            return { isValid: false, reason: "Not all requirements have been selected." };
-        }
+    if (!allRequirementsSelected) {
+        return { isValid: false, reason: "Not all requirements have been selected." };
     }
 
     return { isValid: true, reason: "Plan is valid." };
+}
+
+function updateChecklistItem(id, isValid) {
+    const checklistDot = document.getElementById(id);
+    if (checklistDot) {
+        if (isValid) {
+            checklistDot.classList.remove("invalid");
+            checklistDot.classList.add("valid");
+        } else {
+            checklistDot.classList.remove("valid");
+            checklistDot.classList.add("invalid");
+        }
+    }
 }
