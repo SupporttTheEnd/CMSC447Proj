@@ -487,9 +487,9 @@ input:checked+.slider::before {
     top: 0px;
     right: 5px;
     background-size: 30px 30px;
-    background-position: 5px 50%;
+    background-position: 15px 50%;
     filter: invert(1);
-    background-image: url('images/arrow.svg');
+    background-image: url('images/shopping-cart.svg');
     background-repeat: no-repeat;
     background-color: transparent;
     width: 50px;
@@ -503,10 +503,6 @@ input:checked+.slider::before {
     transform: translateX(-100%);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.sidebar.hide .toggle-btn {
-    transform: rotate(180deg);
 }
 
 .sidebar .dropzone {
@@ -552,7 +548,7 @@ input:checked+.slider::before {
 .sidebar .empty-btn {
     position: absolute;
     top: 20px;
-    right: 62px;
+    right: 55px;
     filter: invert(1);
     background-image: url('images/recycle.png');
     background-size: contain;
@@ -809,7 +805,7 @@ button.secondary-button:hover {
 }
 
 span.information {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--accent-color)
 }
 
