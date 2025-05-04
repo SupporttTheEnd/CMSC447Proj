@@ -99,7 +99,7 @@ function prereqIsFulfilled(course) {
                     const wildcardQuery = `
                         SELECT courseId
                         FROM classes
-                        WHERE courseId LIKE '${category.replace(/\./g, "_")}
+                        WHERE courseId LIKE '${category.replace(/\./g, "_")}'
                     `;
                     const wildcardResult = db.exec(wildcardQuery);
 
