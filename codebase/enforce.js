@@ -99,7 +99,7 @@ function prereqIsFulfilled(course) {
                     const wildcardQuery = `
                         SELECT courseId
                         FROM classes
-                        WHERE courseId LIKE '${category.replace(/\./g, "_")}'
+                        WHERE courseId LIKE '${category.replace(/\./g, "_")}
                     `;
                     const wildcardResult = db.exec(wildcardQuery);
 
@@ -310,10 +310,11 @@ function checkDuplicateIds() {
     if (duplicates.size > 0) {
         const warningContainer = document.querySelector(".warning-list");
         duplicates.forEach(duplicateId => {
-            const warningDiv = document.createElement("div");
-            warningDiv.classList.add("warning-item");
-            warningDiv.textContent = `Duplicate course ID found: ${duplicateId}`;
-            warningContainer.appendChild(warningDiv);
+            // Find all instances of this course ID
+            const duplicateCourses = document.querySelectorAll(`#classes #${duplicateId}`);
+            if (duplicateCourses.length > 0) {
+                addWarning(duplicateCourses[0], `Duplicate course ID found: ${duplicateId}`);
+            }
         });
 
         document.querySelector(".warning").style.display = "block";
@@ -360,10 +361,12 @@ function showWarningBox(event) {
     }
 }
 
-function addSequenceWarning(course, type) {
+// Generic warning function to handle all types of warnings
+function addWarning(course, message) {
     const warningContainer = document.querySelector(".warning-list");
     const warningDiv = document.createElement("div");
     warningDiv.classList.add("warning-item");
+    
     warningDiv.addEventListener("click", () => {
         course.scrollIntoView({behavior: "smooth", block: "center"});
         course.classList.add("highlight");
@@ -371,26 +374,21 @@ function addSequenceWarning(course, type) {
         setTimeout(() => {
             course.classList.remove("highlight");
         }, 2000);
-
-    })
+    });
 
     const warningMessage = document.createElement("span");
-    warningMessage.textContent = `${course.id} is missing a ${type}`;
+    warningMessage.textContent = message;
 
     warningDiv.appendChild(warningMessage);
     warningContainer.appendChild(warningDiv);
 }
 
+function addSequenceWarning(course, type) {
+    addWarning(course, `${course.id} is missing a ${type}`);
+}
+
 function addAvailabilityWarning(course) {
-    const warningContainer = document.querySelector(".warning-list");
-    const warningDiv = document.createElement("div");
-    warningDiv.classList.add("warning-item");
-
-    const warningMessage = document.createElement("span");
-    warningMessage.textContent = `${course.id} is in a invalid semester`;
-
-    warningDiv.appendChild(warningMessage);
-    warningContainer.appendChild(warningDiv);
+    addWarning(course, `${course.id} is in a invalid semester`);
 }
 
 function clearWarnings() {
