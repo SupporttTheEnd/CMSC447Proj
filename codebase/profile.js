@@ -1,5 +1,5 @@
 /**
- So what is implemneted here is a very basic profile page with just the profile picture, name, and email, 
+ So what is implemented here is a very basic profile page with just the profile picture, name, and email, 
  as well as an unordered list of messages that have been posted. You can edit the html in ./tabs/profile.html 
  as well as the css at the very bottom of ./style.css. 
 
@@ -8,22 +8,7 @@
     b) make sure the colors work in dark mode
     c) generally just improve the appearance of everything
  2) Add additional functionality by adding a message that has you confirm the deletion
- 3) If you are ambitions you can try to add a update option to edit your message with the endpoint; this would be optional though
-    await fetch(`https://https://cmsc447-470ca-default-rtdb.firebaseio.com/notes/${messageId}.json`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ dateTime, score, notes })
-    });
-
-    a) the dateTime is stored as an ISO 8601 timestamp, can get it with "new Date().toISOString()"
-    b) the score is just a number from 1-10
-    c) notes is just a chunk of text
-
-    How I would do it is add a pencil icon (✎) <-- (Thats unicode not an emoji) to the side of the box and when clicked it would replace the fields with input fields; 
-    or you could possibley just start the html structure with disabled input fields and when they are updates, you can have a save button that 
-    "PUT"s (a, b, c) to the endpoint
+ 3) If you are ambitious you can try to add an update option to edit your message with the endpoint; this would be optional though
 **/
 
 import { createMessage } from "./login.js";
@@ -45,7 +30,7 @@ function toggleProfile() {
     document.getElementById("content-wrapper").classList.toggle('d-none');
 
     const profileLabel = document.getElementById("profile-label");
-    const profileImage = document.getElementById("settings-profile-image")
+    const profileImage = document.getElementById("settings-profile-image");
 
     if (profileLabel.innerText === "View Your Profile") {
         generateProfile(false);
@@ -57,12 +42,11 @@ function toggleProfile() {
     }
 }
 
-
 // creates all the content associated with the profile
-async function generateProfile(initilaizing = true) {
+async function generateProfile(initializing = true) {
     const profilePage = document.getElementById("profile-page");
     // basically making a request for the body of the profile page
-    if (initilaizing) {
+    if (initializing) {
         const response = await fetch(`tabs/profile.html`);
         const profileHtml = await response.text();
         // inserts this response
@@ -72,8 +56,8 @@ async function generateProfile(initilaizing = true) {
         profilePage.querySelector(".userName").innerText = localStorage.getItem("userName");
         profilePage.querySelector(".userEmail").innerText = localStorage.getItem("userEmail");
         profilePage.querySelector(".userPic").src = localStorage.getItem("userPic");
-
     }
+
     // fetches the global database
     const db = window.globalVariables.db;
     const noteQuery = `
@@ -83,7 +67,7 @@ async function generateProfile(initilaizing = true) {
     `;
 
     // start a notelist with default note
-    let noteList = "<li>No notes posted yet; you can express your thoughts in the notes tab.</li>"
+    let noteList = "<li>No notes posted yet; you can express your thoughts in the notes tab.</li>";
     const noteResult = db.exec(noteQuery);
 
     // if we get results we can overwrite the default
@@ -105,7 +89,7 @@ async function generateProfile(initilaizing = true) {
             const localDateTime = new Date(note.dateTime).toLocaleString();
             // storing the id as a dataset for ease of retrieval
             return `
-            <li data-id="${note.id}">
+            <li class="note-item" data-id="${note.id}">
                 <button class="delete-message close-button">×</button>
                 <h6>Unique Message ID {${note.id}}</h6>
                 <em>${localDateTime}</em><br>
@@ -125,7 +109,7 @@ async function generateProfile(initilaizing = true) {
     });
 }
 
-// this is the basic operation to delete the message from three places, the local database, persistant storage on firebase, and immediatley on your view
+// this is the basic operation to delete the message from three places, the local database, persistent storage on firebase, and immediately on your view
 async function handleMessage(event) {
     // extracting the note to be deleted and the corresponding message id 
     const targetMessage = event.target.parentElement;
@@ -152,7 +136,7 @@ async function handleMessage(event) {
     targetMessage.remove();
 }
 
-/** //this is somewhat psuedo code not real
+/** //this is somewhat pseudo code not real
  async function generateConfirmation(){
 
     // create a dynamically shown html you can use examples from save.js, you can also show the module overlay
