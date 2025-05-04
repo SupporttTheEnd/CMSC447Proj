@@ -1493,6 +1493,13 @@ hr.classic{
     color: var(--text-color)
 }
 
+#profile-page .note-item {
+    border: 1px solid var(--text-color);
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    background-color: var(--base-variant);
+}
 #profile-page li{
     position: relative;
     list-style-type: none;
