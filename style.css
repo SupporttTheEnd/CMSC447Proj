@@ -865,6 +865,10 @@ span.information:hover {
     justify-content: center;
 }
 
+.warning-item:hover {
+    text-decoration: underline;
+  }
+
 .warnings-text span {
     color: #ffffff;
     background-color: rgb(255 0 0);
