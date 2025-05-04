@@ -201,17 +201,18 @@ h3.welcome-text {
     box-shadow: 2px 2px 5px var(--shadow-color);
     color: var(--text-color);
     font-weight: 500;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 1s ease-in-out;
+    transition: transform 0.2s, box-shadow 1s ease-in-out, border-color 1s ease-in-out;
+}
+
+.class-item.highlight {
+    border: 1px solid #f00;
+    box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.75);
 }
 
 .class-item:active:not(.no-active-effect) {
     cursor: grabbing;
     transform: scale(1.05);
     box-shadow: 3px 3px 8px var(--shadow-color);
-}
-
-.class-item.highlight {
-    border: 5px solid #f00;
 }
 
 .draggable * {

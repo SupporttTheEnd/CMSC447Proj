@@ -221,7 +221,7 @@
   },
   {
     "question": "How do I move classes around?",
-    "answer": "You can open the class cart on the left side panel (the one with the arrow) and drag and drop class items into it."
+    "answer": "You can open the class cart on the left side panel (the one with the cart icon) and drag and drop class items into it."
   },
   {
     "question": "*Bye",
@@ -1904,7 +1904,35 @@
     "answer": "Temple"
   },
   {
-    "question": "*Rizzler Are You Rizz Have",
-    "answer": "Yes indeed I am."
+    "question": "*Frankenstein",
+    "answer": "\"I ought to be thy Adam, but I am rather the fallen angel.\" — Mary Shelley, *Frankenstein*"
+  },
+  {
+    "question": "*Tales from the Underground",
+    "answer": "\"I am a sick man… I am a spiteful man.\" — Fyodor Dostoevsky, *Notes from Underground*"
+  },
+  {
+    "question": "*Metamorphosis",
+    "answer": "\"I cannot make you understand. I cannot make anyone understand what is happening inside me. I cannot even explain it to myself.\" — Franz Kafka, *The Metamorphosis*"
+  },
+  {
+    "question": "*Things Fall Apart",
+    "answer": "\"The world has no end, and what is good among one people is an abomination with others.\" — Chinua Achebe, *Things Fall Apart*"
+  },
+  {
+    "question": "*Oedipus",
+    "answer": "\"Time, which sees all things, has found you out.\" — Sophocles, *Oedipus Rex*"
+  },
+  {
+    "question": "*No Longer Human",
+    "answer": "\"Mine has been a life of much shame. I can't even guess myself what it must be to live the life of a human being.\" — Osamu Dazai, *No Longer Human*"
+  },
+  {
+    "question": "*The Miner",
+    "answer": "\"I had the strange sensation of being buried alive inside myself.\" — Natsume Sōseki, *The Miner*"
+  },
+  {
+    "question": "*Peace Garden Eden",
+    "answer": "🌱 🌻 🌼 🌷 🌿 🌸 🍃 🌳 🌺 🍂🌾🌻🌻🌷🌼🌸🌿🌳🍃🌱🍂🌳🐦🦋🐞🐝🌿🌷🌺🌻🍃🌻- Rest Here"
   }
 ]
