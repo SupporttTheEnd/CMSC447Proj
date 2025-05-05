@@ -123,7 +123,7 @@ async function handleMessage(event) {
     }
 
     // you can use create message here to generate a success message, pass in false as the second parameter to show it in green
-    // createMessage("write something here", false);
+    createMessage("Message successfully removed.", false);
     // Remove from DOM
     targetMessage.remove();
 }
