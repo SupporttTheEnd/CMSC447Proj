@@ -1,16 +1,3 @@
-/**
- So what is implemented here is a very basic profile page with just the profile picture, name, and email, 
- as well as an unordered list of messages that have been posted. You can edit the html in ./tabs/profile.html 
- as well as the css at the very bottom of ./style.css. 
-
- 1) You can try to improve the styling in the css
-    a) Add a border to the list items
-    b) make sure the colors work in dark mode
-    c) generally just improve the appearance of everything
- 2) Add additional functionality by adding a message that has you confirm the deletion
- 3) If you are ambitious you can try to add an update option to edit your message with the endpoint; this would be optional though
-**/
-
 import { createMessage } from "./login.js";
 
 export async function main() {
@@ -26,9 +13,8 @@ export async function main() {
 
 // essentially either shows the main content or the profile page on click, toggles the text and image as well
 function toggleProfile() {
-    document.getElementById("profile-page").classList.toggle('d-none');
-    document.getElementById("content-wrapper").classList.toggle('d-none');
-
+    const profilePage = document.getElementById("profile-page");
+    const contentWrapper = document.getElementById("content-wrapper");
     const profileLabel = document.getElementById("profile-label");
     const profileImage = document.getElementById("settings-profile-image");
 
@@ -36,9 +22,15 @@ function toggleProfile() {
         generateProfile(false);
         profileLabel.innerText = "Go Back Home";
         profileImage.src = "./images/icons/home.svg";
+
+        profilePage.classList.remove("d-none");
+        contentWrapper.classList.add("d-none");
     } else {
         profileLabel.innerText = "View Your Profile";
         profileImage.src = localStorage.getItem("userPic");
+
+        profilePage.classList.add("d-none");
+        contentWrapper.classList.remove("d-none");
     }
 }
 
